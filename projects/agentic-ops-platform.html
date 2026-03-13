@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Agentic Ops Platform - Ocean Brown</title>
+  <meta name="description" content="Agentic Ops Platform: approval-routed execution for energy operations.">
+  <meta name="theme-color" content="#ebe5da">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      var theme = localStorage.getItem('oceanbrown-theme');
+      if (theme === 'dark' || theme === 'paper') {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-block">
+        <h1>Ocean Brown</h1>
+        <p class="tagline">power markets / quant systems / evidence-backed tooling</p>
+      </div>
+      <div class="header-actions">
+        <nav class="main-nav" aria-label="Primary">
+          <a class="nav-link" href="../index.html">Home</a>
+          <a class="nav-link" href="../about.html">About</a>
+          <a class="nav-link active" href="../projects.html">Projects</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
+      </div>
+    </header>
+
+    <main class="bento">
+      <section class="card wide">
+        <div class="card-label"><span class="status-dot live" aria-hidden="true"></span>Agentic Ops Platform</div>
+        <div class="breadcrumb"><a class="back-link" href="../projects.html">Back to projects</a></div>
+        <h2 class="hero-title">Approval-routed execution for energy operations.</h2>
+        <p class="body-copy">This system routes operational work through Microsoft Teams approval, then dispatches approved tasks to a Windows workcell VM for automated execution. The point is controlled execution with a human gate, a clean dispatch path, and an audit trail that survives after the work is done.</p>
+      </section>
+
+      <section class="card">
+        <div class="card-label">Why it exists</div>
+        <p>Operational tasks around a desk can become fragile quickly when they live in memory, chat messages, and one-off scripts. This platform turns them into something requestable, approvable, routable, and reviewable.</p>
+        <ul class="detail-list">
+          <li>Teams approval before action.</li>
+          <li>Windows workcell execution where local applications and desk context matter.</li>
+          <li>Append-only audit trail for the full approval-to-dispatch path.</li>
+        </ul>
+      </section>
+
+      <aside class="card">
+        <div class="card-label">Project index</div>
+        <ul class="summary-list">
+          <li><strong>Status</strong>production deployment on GCP Cloud Run.</li>
+          <li><strong>Shape</strong>8-service microservice platform.</li>
+          <li><strong>Core controls</strong>leasing, heartbeat monitoring, capability routing.</li>
+        </ul>
+        <div class="tech"><span>Python</span><span>FastAPI</span><span>Teams</span><span>GCP</span><span>Docker</span><span>Postgres</span></div>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <span class="site-footer-note">Public-safe project page in the selected 05 visual system.</span>
+      <div class="site-footer-links">
+        <a href="https://www.linkedin.com/in/omar-brown-8233285b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:ocean@gatech.edu">ocean@gatech.edu</a>
+        <span class="site-footer-mark">Ocean Brown</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../theme.js"></script>
+</body>
+</html>

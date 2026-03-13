@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Homebase - Ocean Brown</title>
+  <meta name="description" content="Homebase: a desktop control center for daily trading-desk automation.">
+  <meta name="theme-color" content="#ebe5da">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      var theme = localStorage.getItem('oceanbrown-theme');
+      if (theme === 'dark' || theme === 'paper') {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-block">
+        <h1>Ocean Brown</h1>
+        <p class="tagline">power markets / quant systems / evidence-backed tooling</p>
+      </div>
+      <div class="header-actions">
+        <nav class="main-nav" aria-label="Primary">
+          <a class="nav-link" href="../index.html">Home</a>
+          <a class="nav-link" href="../about.html">About</a>
+          <a class="nav-link active" href="../projects.html">Projects</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
+      </div>
+    </header>
+
+    <main class="bento">
+      <section class="card wide">
+        <div class="card-label"><span class="status-dot ops" aria-hidden="true"></span>Homebase</div>
+        <div class="breadcrumb"><a class="back-link" href="../projects.html">Back to projects</a></div>
+        <h2 class="hero-title">A control center for recurring desk workflows.</h2>
+        <p class="body-copy">Homebase turns daily setup, uploads, workbook actions, browser positioning, and routine desk operations into one repeatable system instead of a pile of memory-dependent steps.</p>
+      </section>
+
+      <section class="card">
+        <div class="card-label">Workflow coverage</div>
+        <p>The system automates more than fifteen daily workflows, including Excel report generation, macro execution, ERCOT schedule uploads, PHAROS and PJM processes, browser layout management, and morning desk setup on Windows.</p>
+        <ul class="detail-list">
+          <li>Desktop UI built for live use.</li>
+          <li>COM-driven Excel automation where it actually matters.</li>
+          <li>Portal workflows and browser orchestration where external systems still drive the process.</li>
+        </ul>
+      </section>
+
+      <aside class="card">
+        <div class="card-label">Project index</div>
+        <ul class="summary-list">
+          <li><strong>Status</strong>production desktop tool.</li>
+          <li><strong>Scope</strong>15+ recurring workflows.</li>
+          <li><strong>Focus</strong>consistency, speed, and lower setup burden.</li>
+        </ul>
+        <div class="tech"><span>PySide6</span><span>pywin32</span><span>Selenium</span><span>Win32 API</span></div>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <span class="site-footer-note">Desk automation is infrastructure, not a side project.</span>
+      <div class="site-footer-links">
+        <a href="https://www.linkedin.com/in/omar-brown-8233285b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:ocean@gatech.edu">ocean@gatech.edu</a>
+        <span class="site-footer-mark">Ocean Brown</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../theme.js"></script>
+</body>
+</html>

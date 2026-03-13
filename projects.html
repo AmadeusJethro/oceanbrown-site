@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Projects - Ocean Brown</title>
+  <meta name="description" content="Selected projects from Ocean Brown across market surveillance, research, and desk automation.">
+  <meta name="theme-color" content="#ebe5da">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      var theme = localStorage.getItem('oceanbrown-theme');
+      if (theme === 'dark' || theme === 'paper') {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-block">
+        <h1>Ocean Brown</h1>
+        <p class="tagline">power markets / quant systems / evidence-backed tooling</p>
+      </div>
+      <div class="header-actions">
+        <nav class="main-nav" aria-label="Primary">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link active" href="projects.html">Projects</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
+      </div>
+    </header>
+
+    <main class="bento">
+      <section class="card wide">
+        <div class="card-label">Projects</div>
+        <h2 class="hero-title">Separate pages for the systems that matter most.</h2>
+        <p class="body-copy">This is the full project directory. The homepage keeps the highlighted set, and each entry here opens a dedicated page with more context on what the system does and why it exists.</p>
+      </section>
+
+      <section class="card wide">
+        <div class="card-label">Project directory</div>
+
+        <div class="project-entry">
+          <div class="project-title">
+            <span class="status-dot live" aria-hidden="true"></span>
+            <div>
+              <h3>Agentic Ops Platform</h3>
+              <div class="status-text">live platform</div>
+            </div>
+          </div>
+          <p>Approval-routed execution for energy operations, from Teams intake through Cloud Run orchestration to a Windows workcell.</p>
+          <div class="meta">8 services / audit trail / dispatch flow</div>
+          <a class="inline-link" href="projects/agentic-ops-platform.html">Open project page</a>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-title">
+            <span class="status-dot build" aria-hidden="true"></span>
+            <div>
+              <h3>Energy Analyst Agent</h3>
+              <div class="status-text">in build</div>
+            </div>
+          </div>
+          <p>Real-time PJM-MISO seam surveillance with around thirty configured streams and alert routing into Teams.</p>
+          <div class="meta">30 streams / 22 alert rules / seam focus</div>
+          <a class="inline-link" href="projects/energy-analyst-agent.html">Open project page</a>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-title">
+            <span class="status-dot research" aria-hidden="true"></span>
+            <div>
+              <h3>Trading Research</h3>
+              <div class="status-text">active research</div>
+            </div>
+          </div>
+          <p>Evidence-first PJM DART research with canonical pulls, walk-forward baselines, tests, and explicit promotion gates.</p>
+          <div class="meta">canonical pull / baseline walk-forward / test gates</div>
+          <a class="inline-link" href="projects/trading-research.html">Open project page</a>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-title">
+            <span class="status-dot ops" aria-hidden="true"></span>
+            <div>
+              <h3>Homebase</h3>
+              <div class="status-text">live operations</div>
+            </div>
+          </div>
+          <p>Desktop control-center tooling for Excel automation, portal workflows, uploads, and daily desk setup.</p>
+          <div class="meta">15+ workflows / Windows desk / automation</div>
+          <a class="inline-link" href="projects/homebase.html">Open project page</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span class="site-footer-note">The directory now lives separately while the homepage keeps the highlights.</span>
+      <div class="site-footer-links">
+        <a href="https://www.linkedin.com/in/omar-brown-8233285b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:ocean@gatech.edu">ocean@gatech.edu</a>
+        <span class="site-footer-mark">Ocean Brown</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="theme.js"></script>
+</body>
+</html>

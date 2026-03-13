@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Ocean Brown - Power Markets and Quantitative Systems</title>
+  <meta name="description" content="Ocean Brown builds research, surveillance, and operations systems for live power markets across PJM, MISO, ERCOT, and NYISO.">
+  <meta name="theme-color" content="#ebe5da">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      var theme = localStorage.getItem('oceanbrown-theme');
+      if (theme === 'dark' || theme === 'paper') {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-block">
+        <h1>Ocean Brown</h1>
+        <p class="tagline">power markets / quant systems / evidence-backed tooling</p>
+      </div>
+      <div class="header-actions">
+        <nav class="main-nav" aria-label="Primary">
+          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="projects.html">Projects</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
+      </div>
+    </header>
+
+    <main class="bento">
+      <section class="card wide">
+        <div class="card-label">Overview</div>
+        <h2 class="hero-title">Research, surveillance, and desk automation for live power markets.</h2>
+        <p class="body-copy">I build systems around PJM, MISO, ERCOT, and NYISO that reduce the time between raw market state and usable action. The work ranges from evidence-first trading research to real-time alerting and the operational tooling that keeps a desk from wasting hours on repetitive process.</p>
+        <p class="body-copy">What ties it together is discipline: ex-ante rules, validation gates, reproducible workflows, and interfaces that stay useful when the day gets messy.</p>
+      </section>
+
+      <section class="card wide">
+        <div class="card-label">Highlighted projects</div>
+
+        <div class="project-entry">
+          <div class="project-title">
+            <span class="status-dot live" aria-hidden="true"></span>
+            <div>
+              <h3>Agentic Ops Platform</h3>
+              <div class="status-text">live platform</div>
+            </div>
+          </div>
+          <p>An 8-service platform that routes energy operations tasks through Teams approval into a Windows workcell VM for automated execution.</p>
+          <div class="tech"><span>Python</span><span>FastAPI</span><span>Teams</span><span>Cloud Run</span></div>
+          <a class="inline-link" href="projects/agentic-ops-platform.html">Open project page</a>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-title">
+            <span class="status-dot build" aria-hidden="true"></span>
+            <div>
+              <h3>Energy Analyst Agent</h3>
+              <div class="status-text">in build</div>
+            </div>
+          </div>
+          <p>A seam-focused alerting system that tracks LMP, constraints, load, generation, and spread conditions with Teams delivery.</p>
+          <div class="tech"><span>ClickHouse</span><span>NATS</span><span>Grafana</span></div>
+          <a class="inline-link" href="projects/energy-analyst-agent.html">Open project page</a>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-title">
+            <span class="status-dot research" aria-hidden="true"></span>
+            <div>
+              <h3>Trading Research</h3>
+              <div class="status-text">active research</div>
+            </div>
+          </div>
+          <p>An evidence-first PJM DART pipeline with canonical pulls, baseline walk-forward validation, contract tests, and promotion gates.</p>
+          <div class="tech"><span>Python</span><span>pytest</span><span>walk-forward</span></div>
+          <a class="inline-link" href="projects/trading-research.html">Open project page</a>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-title">
+            <span class="status-dot ops" aria-hidden="true"></span>
+            <div>
+              <h3>Homebase</h3>
+              <div class="status-text">live operations</div>
+            </div>
+          </div>
+          <p>A desktop control center that automates more than fifteen daily trading-desk workflows across a live Windows environment.</p>
+          <div class="tech"><span>PySide6</span><span>Excel automation</span><span>Win32</span></div>
+          <a class="inline-link" href="projects/homebase.html">Open project page</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-label">Project directory</div>
+        <p class="contact-text">There is a separate projects page with the full directory and links into each project writeup.</p>
+        <a class="inline-link" href="projects.html">Open all projects</a>
+      </section>
+
+      <section class="card">
+        <div class="card-label">Contact</div>
+        <p class="contact-text">Keeping this simple on purpose.</p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/omar-brown-8233285b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span class="site-footer-note">Static site prepared for GitHub Pages and `oceanbrown.net`.</span>
+      <div class="site-footer-links">
+        <a href="https://www.linkedin.com/in/omar-brown-8233285b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:ocean@gatech.edu">ocean@gatech.edu</a>
+        <span class="site-footer-mark">Ocean Brown</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="theme.js"></script>
+</body>
+</html>

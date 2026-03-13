@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>About - Ocean Brown</title>
+  <meta name="description" content="Background, domain scope, and working style for Ocean Brown across power markets and quantitative systems.">
+  <meta name="theme-color" content="#ebe5da">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      var theme = localStorage.getItem('oceanbrown-theme');
+      if (theme === 'dark' || theme === 'paper') {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-block">
+        <h1>Ocean Brown</h1>
+        <p class="tagline">power markets / quant systems / evidence-backed tooling</p>
+      </div>
+      <div class="header-actions">
+        <nav class="main-nav" aria-label="Primary">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link active" href="about.html">About</a>
+          <a class="nav-link" href="projects.html">Projects</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
+      </div>
+    </header>
+
+    <main class="bento">
+      <section class="card wide">
+        <div class="card-label">About</div>
+        <h2 class="hero-title">Power-market systems with a bias toward discipline and usability.</h2>
+        <p class="body-copy">I work on the infrastructure around trading as much as the models themselves: how data gets pulled, how research gets validated, how alerts get delivered, and how recurring desk work stops depending on memory and cleanup effort.</p>
+        <p class="body-copy">The domain context is power markets across PJM, MISO, ERCOT, and NYISO. The systems range from research pipelines and monitoring stacks to Windows-side operational tooling that has to be useful in live workflows, not just technically interesting in isolation.</p>
+        <p class="body-copy">What I optimize for is lower friction, stronger evidence, clearer feedback loops, and systems that keep working after the first clean demo.</p>
+      </section>
+
+      <section class="card">
+        <div class="card-label">Domain scope</div>
+        <ul class="summary-list">
+          <li><strong>Markets</strong>PJM, MISO, ERCOT, NYISO.</li>
+          <li><strong>Desk context</strong>real-time and day-ahead support, seam monitoring, and operational workflows.</li>
+          <li><strong>System types</strong>research, surveillance, automation, and control-center tooling.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="card-label">How I work</div>
+        <ul class="summary-list">
+          <li><strong>Ex-ante rules</strong>the process should be visible before the result arrives.</li>
+          <li><strong>Validation gates</strong>tests and promotion checks are part of the build, not a cleanup pass.</li>
+          <li><strong>Operational bias</strong>if it fails under stress, it is unfinished.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span class="site-footer-note">Same visual system as the selected 05 direction, carried into the real site.</span>
+      <div class="site-footer-links">
+        <a href="https://www.linkedin.com/in/omar-brown-8233285b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:ocean@gatech.edu">ocean@gatech.edu</a>
+        <span class="site-footer-mark">Ocean Brown</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="theme.js"></script>
+</body>
+</html>
