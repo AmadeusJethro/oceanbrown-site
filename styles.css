@@ -179,6 +179,11 @@ h1 {
   font-size: var(--s2);
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
 h2 {
   font-size: var(--s1);
   margin-bottom: 0.75rem;
@@ -291,6 +296,31 @@ h3 {
 .hero-title {
   font-size: var(--s2);
   max-width: 20ch;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.about-portrait {
+  margin: 0;
+  width: 100%;
+  max-width: 18rem;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+}
+
+.about-portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.about-copy-block {
+  min-width: 0;
 }
 
 .status-dot {
@@ -528,6 +558,14 @@ h3 {
 
   .bento {
     grid-template-columns: 1fr;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-portrait {
+    max-width: 15rem;
   }
 
   .hero-title {
