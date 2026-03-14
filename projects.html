@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>Projects - Ocean Brown</title>
+  <title>Ocean Brown — Projects</title>
   <meta name="description" content="Selected projects from Ocean Brown across market surveillance, research, and desk automation.">
   <meta name="theme-color" content="#ebe5da">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -43,7 +43,6 @@
       <div class="header-actions">
         <nav class="main-nav" aria-label="Primary">
           <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link" href="about.html">About</a>
           <a class="nav-link active" href="projects.html" aria-current="page">Projects</a>
         </nav>
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
@@ -115,15 +114,32 @@
     </main>
 
     <footer class="site-footer">
+      <span class="site-footer-mark">Ocean Brown</span>
       <div class="site-footer-links">
         <a href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:ocean@oceanbrown.net">Email</a>
-        <span class="site-footer-mark">Ocean Brown</span>
+        <button class="contact-trigger" id="email-trigger" type="button" aria-haspopup="dialog">Email</button>
       </div>
     </footer>
   </div>
 
+  <dialog class="email-dialog" id="email-dialog" aria-labelledby="email-dialog-label">
+    <form class="email-dialog-panel" method="dialog">
+      <p class="card-label" id="email-dialog-label">Email</p>
+      <p class="email-address">ocean@oceanbrown.net</p>
+      <button class="email-dialog-close" type="submit">Close</button>
+    </form>
+  </dialog>
+
   <script src="theme.js"></script>
   <script src="gate.js"></script>
+  <script>
+    (function() {
+      var trigger = document.getElementById('email-trigger');
+      var dialog = document.getElementById('email-dialog');
+      if (trigger && dialog) {
+        trigger.addEventListener('click', function() { dialog.showModal(); });
+      }
+    })();
+  </script>
 </body>
 </html>

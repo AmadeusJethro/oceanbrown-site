@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>Ocean Brown - Power Markets and Quantitative Systems</title>
-  <meta name="description" content="Ocean Brown builds research, surveillance, and operations systems for live power markets across PJM, MISO, ERCOT, and NYISO.">
+  <title>Ocean Brown</title>
+  <meta name="description" content="Ocean Brown is a real-time trader at Spotlight Power working on energy markets, AI, and power-market research systems.">
   <meta name="theme-color" content="#ebe5da">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://oceanbrown.net/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ocean Brown">
-  <meta property="og:title" content="Ocean Brown - Power Markets and Quantitative Systems">
-  <meta property="og:description" content="Ocean Brown builds research, surveillance, and operations systems for live power markets across PJM, MISO, ERCOT, and NYISO.">
+  <meta property="og:title" content="Ocean Brown">
+  <meta property="og:description" content="Ocean Brown is a real-time trader at Spotlight Power working on energy markets, AI, and power-market research systems.">
   <meta property="og:url" content="https://oceanbrown.net/">
   <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IM+Fell+DW+Pica:ital@0;1&display=swap" rel="stylesheet">
   <script>
     (function() {
       var root = document.documentElement;
@@ -43,7 +43,6 @@
       <div class="header-actions">
         <nav class="main-nav" aria-label="Primary">
           <a class="nav-link active" href="index.html" aria-current="page">Home</a>
-          <a class="nav-link" href="about.html">About</a>
           <a class="nav-link" href="projects.html">Projects</a>
         </nav>
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
@@ -51,21 +50,23 @@
     </header>
 
     <main class="bento" id="main-content" tabindex="-1">
-      <section class="card wide">
+
+      <section class="card wide" id="about">
         <div class="card-label">About</div>
         <div class="about-layout">
           <figure class="about-portrait">
             <img src="headshot2.jpeg" alt="Portrait of Ocean Brown">
           </figure>
           <div class="about-copy-block">
-            <p class="body-copy">Currently, I work at Spotlight Power as a trader. I spend most of my time thinking about energy markets and artificial intelligence. I am most interested in building both fundamental and machine learning models for power markets, automating operational and trading workflows, and developing research systems for power-market analysis.</p>
-            <p class="body-copy">I am particularly interested in how AI can strengthen research and analysis in power markets.</p>
+            <p class="body-copy drop-cap">Currently, I work at Spotlight Power as a real-time trader. I spend most of my time thinking about energy markets and artificial intelligence. I am most interested in building both fundamental and machine learning models for power markets, automating operational and trading workflows, and developing research systems for power-market analysis.</p>
+            <p class="body-copy">I am particularly interested in how AI can strengthen research and analysis in power markets. Previously, I interned at Cresta, an energy infrastructure fund.</p>
+            <p class="body-copy">I hold an M.S. in Computer Science from the Georgia Institute of Technology and a B.A. in Philosophy from the University of California, Santa Barbara. Outside of work, I enjoy reading philosophy and training Brazilian jiu-jitsu and Muay Thai.</p>
           </div>
         </div>
       </section>
 
-      <section class="card wide">
-        <div class="card-label">Highlighted projects</div>
+      <section class="card wide" id="projects-home">
+        <div class="card-label">Projects</div>
 
         <div class="project-entry">
           <div class="project-title">
@@ -120,25 +121,35 @@
         </div>
       </section>
 
-      <section class="card wide">
-        <div class="card-label">Contact</div>
-        <div class="contact-links">
-          <a href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="mailto:ocean@oceanbrown.net">Email</a>
-        </div>
-      </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id="contact">
+      <span class="site-footer-mark">Ocean Brown</span>
       <div class="site-footer-links">
         <a href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:ocean@oceanbrown.net">Email</a>
-        <span class="site-footer-mark">Ocean Brown</span>
+        <button class="contact-trigger" id="email-trigger" type="button" aria-haspopup="dialog">Email</button>
       </div>
     </footer>
   </div>
 
+  <dialog class="email-dialog" id="email-dialog" aria-labelledby="email-dialog-label">
+    <form class="email-dialog-panel" method="dialog">
+      <p class="card-label" id="email-dialog-label">Email</p>
+      <p class="email-address">ocean@oceanbrown.net</p>
+      <button class="email-dialog-close" type="submit">Close</button>
+    </form>
+  </dialog>
+
   <script src="theme.js"></script>
   <script src="gate.js"></script>
+  <script>
+    (function() {
+      var trigger = document.getElementById('email-trigger');
+      var dialog = document.getElementById('email-dialog');
+      if (trigger && dialog) {
+        trigger.addEventListener('click', function() { dialog.showModal(); });
+      }
+    })();
+  </script>
 </body>
 </html>

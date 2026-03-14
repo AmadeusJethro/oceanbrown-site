@@ -1,107 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="paper">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <title>About - Ocean Brown</title>
-  <meta name="description" content="Ocean Brown is a real-time trader at Spotlight Power focused on power markets, AI, trading automation, and research systems.">
-  <meta name="theme-color" content="#ebe5da">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="canonical" href="https://oceanbrown.net/about.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Ocean Brown">
-  <meta property="og:title" content="About - Ocean Brown">
-  <meta property="og:description" content="Ocean Brown is a real-time trader at Spotlight Power focused on power markets, AI, trading automation, and research systems.">
-  <meta property="og:url" content="https://oceanbrown.net/about.html">
-  <meta name="twitter:card" content="summary">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
-  <script>
-    (function() {
-      var root = document.documentElement;
-      var theme = localStorage.getItem('oceanbrown-theme');
-      if (theme === 'dark' || theme === 'paper') {
-        root.setAttribute('data-theme', theme);
-      }
-      root.setAttribute(
-        'data-gate',
-        sessionStorage.getItem('oceanbrown-site-gate') === '6969' ? 'open' : 'locked'
-      );
-    })();
-  </script>
-  <link rel="stylesheet" href="styles.css">
+  <meta http-equiv="refresh" content="0;url=index.html#about">
+  <title>Ocean Brown</title>
+  <link rel="canonical" href="https://oceanbrown.net/">
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <div class="page">
-    <header class="site-header">
-      <div class="header-block">
-        <h1>Ocean Brown</h1>
-      </div>
-      <div class="header-actions">
-        <nav class="main-nav" aria-label="Primary">
-          <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link active" href="about.html" aria-current="page">About</a>
-          <a class="nav-link" href="projects.html">Projects</a>
-        </nav>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
-      </div>
-    </header>
-
-    <main class="bento" id="main-content" tabindex="-1">
-      <section class="card wide">
-        <div class="card-label">About</div>
-        <div class="about-layout">
-          <figure class="about-portrait">
-            <img src="headshot2.jpeg" alt="Portrait of Ocean Brown">
-          </figure>
-          <div class="about-copy-block">
-            <p class="body-copy">Currently, I work at Spotlight Power as a trader. I spend most of my time thinking about energy markets and artificial intelligence. I am most interested in building both fundamental and machine learning models for power markets, automating operational and trading workflows, and developing research systems for power-market analysis.</p>
-            <p class="body-copy">I am particularly interested in how AI can strengthen research and analysis in power markets. Previously, I interned at Cresta, an energy infrastructure fund.</p>
-            <p class="body-copy">I hold an M.S. in Computer Science from the Georgia Institute of Technology and a B.A. in Philosophy from the University of California, Santa Barbara. Outside of work, I enjoy reading philosophy and training Brazilian jiu-jitsu and Muay Thai.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="card wide contact-card">
-        <div class="card-label">Contact</div>
-        <div class="contact-links">
-          <a href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <button class="contact-trigger" id="email-trigger" type="button" aria-haspopup="dialog">Email</button>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer site-footer-minimal">
-      <span class="site-footer-mark">Ocean Brown</span>
-    </footer>
-  </div>
-
-  <dialog class="email-dialog" id="email-dialog" aria-labelledby="email-dialog-label">
-    <form class="email-dialog-panel" method="dialog">
-      <p class="card-label" id="email-dialog-label">Email</p>
-      <p class="email-address">ocean@oceanbrown.net</p>
-      <button class="email-dialog-close" type="submit">Close</button>
-    </form>
-  </dialog>
-
-  <script src="theme.js"></script>
-  <script src="gate.js"></script>
-  <script>
-    (function() {
-      var trigger = document.getElementById('email-trigger');
-      var dialog = document.getElementById('email-dialog');
-
-      if (!trigger || !dialog) {
-        return;
-      }
-
-      trigger.addEventListener('click', function() {
-        dialog.showModal();
-      });
-    })();
-  </script>
 </body>
 </html>
