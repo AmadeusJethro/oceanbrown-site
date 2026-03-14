@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drop Cap Variations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=MedievalSharp&family=UnifrakturMaguntia&family=Cinzel+Decorative:wght@700&family=Uncial+Antiqua&family=Almendra:ital@1&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #ebe5da;
+      color: #25313a;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin: 0 0 2.5rem;
+      color: #596268;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 1100px;
+    }
+
+    .card {
+      background: #e1dacd;
+      border: 1px solid #bfb4a4;
+      padding: 1.5rem;
+    }
+
+    .label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #596268;
+      margin-bottom: 1rem;
+    }
+
+    .para {
+      color: #596268;
+      max-width: 52ch;
+      line-height: 1.65;
+    }
+
+    /* 1 — Cinzel Decorative: Roman imperial capitals, architectural weight */
+    .v1::first-letter {
+      font-family: 'Cinzel Decorative', serif;
+      font-weight: 700;
+      font-size: 4em;
+      line-height: 0.72;
+      float: left;
+      margin-right: 0.08em;
+      margin-top: 0.04em;
+      color: #25313a;
+    }
+
+    /* 2 — Uncial Antiqua: true Celtic/insular uncial, round and monastic */
+    .v2::first-letter {
+      font-family: 'Uncial Antiqua', serif;
+      font-size: 4.2em;
+      line-height: 0.72;
+      float: left;
+      margin-right: 0.07em;
+      margin-top: 0.03em;
+      color: #25313a;
+    }
+
+    /* 3 — UnifrakturMaguntia: German blackletter/Fraktur, heavy, gothic */
+    .v3::first-letter {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 4.8em;
+      line-height: 0.72;
+      float: left;
+      margin-right: 0.06em;
+      margin-top: -0.02em;
+      color: #25313a;
+    }
+
+    /* 4 — Almendra Italic: Renaissance book hand, warm and humanist */
+    .v4::first-letter {
+      font-family: 'Almendra', serif;
+      font-style: italic;
+      font-size: 4.4em;
+      line-height: 0.72;
+      float: left;
+      margin-right: 0.08em;
+      margin-top: 0.04em;
+      color: #245d45;
+    }
+
+    /* 5 — IBM Plex Serif Italic: most restrained — elegant, editorial, fits the 05 vibe perfectly */
+    .v5::first-letter {
+      font-family: 'IBM Plex Serif', serif;
+      font-style: italic;
+      font-size: 4.6em;
+      line-height: 0.72;
+      float: left;
+      margin-right: 0.08em;
+      margin-top: 0.04em;
+      color: #25313a;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <h1>Drop cap variations — pick one</h1>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="label">01 — Cinzel Decorative — Roman carved capitals</div>
+      <p class="para v1">Currently, I work at Spotlight Power as a real-time trader. I spend most of my time thinking about energy markets and artificial intelligence. I am most interested in building both fundamental and machine learning models for power markets.</p>
+    </div>
+
+    <div class="card">
+      <div class="label">02 — Uncial Antiqua — Celtic / insular manuscript hand</div>
+      <p class="para v2">Currently, I work at Spotlight Power as a real-time trader. I spend most of my time thinking about energy markets and artificial intelligence. I am most interested in building both fundamental and machine learning models for power markets.</p>
+    </div>
+
+    <div class="card">
+      <div class="label">03 — UnifrakturMaguntia — German gothic blackletter</div>
+      <p class="para v3">Currently, I work at Spotlight Power as a real-time trader. I spend most of my time thinking about energy markets and artificial intelligence. I am most interested in building both fundamental and machine learning models for power markets.</p>
+    </div>
+
+    <div class="card">
+      <div class="label">04 — Almendra Italic — Renaissance humanist book hand</div>
+      <p class="para v4">Currently, I work at Spotlight Power as a real-time trader. I spend most of my time thinking about energy markets and artificial intelligence. I am most interested in building both fundamental and machine learning models for power markets.</p>
+    </div>
+
+    <div class="card" style="grid-column: 1 / -1">
+      <div class="label">05 — IBM Plex Serif Italic — most restrained, editorial, fits the existing site vibe best</div>
+      <p class="para v5">Currently, I work at Spotlight Power as a real-time trader. I spend most of my time thinking about energy markets and artificial intelligence. I am most interested in building both fundamental and machine learning models for power markets.</p>
+    </div>
+
+  </div>
+</body>
+</html>

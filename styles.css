@@ -6,7 +6,7 @@
   --sans: 'IBM Plex Sans', system-ui, sans-serif;
   --serif: 'IBM Plex Serif', Georgia, serif;
   --mono: 'IBM Plex Mono', monospace;
-  --fell: 'IM Fell DW Pica', 'Palatino Linotype', Georgia, serif;
+  --frak: 'UnifrakturMaguntia', cursive;
   --measure: 62ch;
   --leading: 1.6;
   --leading-tight: 1.2;
@@ -263,13 +263,12 @@ h3 {
 }
 
 .drop-cap::first-letter {
-  font-family: var(--fell);
-  font-size: 3.4em;
-  font-style: italic;
-  line-height: 0.78;
+  font-family: var(--frak);
+  font-size: 4.6em;
+  line-height: 0.72;
   float: left;
-  margin-right: 0.1em;
-  margin-top: 0.06em;
+  margin-right: 0.06em;
+  margin-top: -0.02em;
   color: var(--text);
 }
 
@@ -300,8 +299,12 @@ h3 {
 }
 
 .project-entry {
-  padding: 0.85rem 0;
+  padding: 1rem 0;
   border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.3rem 1.5rem;
+  align-items: start;
 }
 
 .project-entry:first-of-type {
@@ -313,25 +316,29 @@ h3 {
   padding-bottom: 0;
 }
 
+.project-main {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
 .project-title {
   display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  margin-bottom: 0.35rem;
+  align-items: baseline;
+  gap: 0.75rem;
 }
 
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 0.38rem;
-}
+.status-dot { display: none; }
 
-.status-dot.live     { background: var(--status-live); }
-.status-dot.build    { background: var(--status-build); }
-.status-dot.research { background: var(--status-research); }
-.status-dot.ops      { background: var(--status-ops); }
+.project-entry h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: var(--s1);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+  line-height: var(--leading-tight);
+}
 
 .status-text,
 .tech,
@@ -344,18 +351,22 @@ h3 {
   letter-spacing: 0.04em;
 }
 
-.status-text { margin-bottom: 0.25rem; }
+.status-text {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
 
 .tech {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.6rem;
   flex-wrap: wrap;
-  margin-top: 0.4rem;
+  margin-top: 0.15rem;
 }
 
 .project-entry p {
   color: var(--text-muted);
-  margin-top: 0.25rem;
+  margin: 0;
+  max-width: 64ch;
 }
 
 .inline-link,
@@ -365,11 +376,13 @@ h3 {
   color: var(--accent);
   letter-spacing: 0.03em;
   display: inline-block;
-  margin-top: 0.5rem;
+  align-self: start;
+  white-space: nowrap;
+  padding-top: 0.15rem;
 }
 
-.inline-link::after { content: ' ->'; }
-.back-link::after   { content: ' ->'; }
+.inline-link::after { content: none; }
+.back-link::after   { content: ' <-'; }
 
 .summary-list,
 .detail-list {
