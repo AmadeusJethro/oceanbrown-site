@@ -7,13 +7,17 @@
   function setTheme(theme) {
     var next = theme === 'dark' ? 'dark' : 'paper';
     var isDark = next === 'dark';
+
     root.setAttribute('data-theme', next);
+
     if (toggle) {
       toggle.setAttribute('aria-pressed', String(isDark));
-      toggle.textContent = isDark ? 'Light mode' : 'Dark mode';
+      toggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+      toggle.textContent = isDark ? 'Theme: dark' : 'Theme: light';
     }
+
     if (metaTheme) {
-      metaTheme.setAttribute('content', isDark ? '#0d1420' : '#f3eee6');
+      metaTheme.setAttribute('content', isDark ? '#0d1420' : '#ebe5da');
     }
   }
 

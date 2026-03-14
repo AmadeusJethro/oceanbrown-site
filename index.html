@@ -7,20 +7,34 @@
   <title>Ocean Brown - Power Markets and Quantitative Systems</title>
   <meta name="description" content="Ocean Brown builds research, surveillance, and operations systems for live power markets across PJM, MISO, ERCOT, and NYISO.">
   <meta name="theme-color" content="#ebe5da">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://oceanbrown.net/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ocean Brown">
+  <meta property="og:title" content="Ocean Brown - Power Markets and Quantitative Systems">
+  <meta property="og:description" content="Ocean Brown builds research, surveillance, and operations systems for live power markets across PJM, MISO, ERCOT, and NYISO.">
+  <meta property="og:url" content="https://oceanbrown.net/">
+  <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
     (function() {
+      var root = document.documentElement;
       var theme = localStorage.getItem('oceanbrown-theme');
       if (theme === 'dark' || theme === 'paper') {
-        document.documentElement.setAttribute('data-theme', theme);
+        root.setAttribute('data-theme', theme);
       }
+      root.setAttribute(
+        'data-gate',
+        sessionStorage.getItem('oceanbrown-site-gate') === '6969' ? 'open' : 'locked'
+      );
     })();
   </script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="page">
     <header class="site-header">
       <div class="header-block">
@@ -29,15 +43,15 @@
       </div>
       <div class="header-actions">
         <nav class="main-nav" aria-label="Primary">
-          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link active" href="index.html" aria-current="page">Home</a>
           <a class="nav-link" href="about.html">About</a>
           <a class="nav-link" href="projects.html">Projects</a>
         </nav>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Theme: light</button>
       </div>
     </header>
 
-    <main class="bento">
+    <main class="bento" id="main-content" tabindex="-1">
       <section class="card wide">
         <div class="card-label">Overview</div>
         <h2 class="hero-title">Research, surveillance, and desk automation for live power markets.</h2>
@@ -117,7 +131,7 @@
     </main>
 
     <footer class="site-footer">
-      <span class="site-footer-note">Static site prepared for GitHub Pages and `oceanbrown.net`.</span>
+      <span class="site-footer-note">Static site prepared for GitHub Pages and oceanbrown.net.</span>
       <div class="site-footer-links">
         <a href="https://www.linkedin.com/in/omar-brown-8233285b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:ocean@gatech.edu">ocean@gatech.edu</a>
@@ -127,5 +141,6 @@
   </div>
 
   <script src="theme.js"></script>
+  <script src="gate.js"></script>
 </body>
 </html>
