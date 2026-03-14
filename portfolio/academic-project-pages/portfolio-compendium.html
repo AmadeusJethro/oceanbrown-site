@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Compendium</title>
+  <link rel="stylesheet" href="assets/portfolio.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="topbar">
+      <a href="index.html">Academic Project Pages</a>
+      <span>Combined Compendium</span>
+    </div>
+
+    <article class="cover article">
+      <div>
+        <div class="kicker">Portfolio Compendium</div>
+        <h1>Selected Research and Systems Projects</h1>
+        <p class="subtitle">
+          A compact booklet presenting five portfolio-ready narratives drawn from market microstructure research,
+          selection-system design, data engineering, agentic workflow evaluation, and energy-market ML validation.
+        </p>
+        <div class="abstract-box">
+          <h2>Editorial Positioning</h2>
+          <p>
+            The common thread across these projects is not a single market or technology. It is a style of work:
+            turning messy operational domains into evidence-backed systems, then writing about the results in a way that
+            makes the underlying economics and engineering legible.
+          </p>
+        </div>
+        <div class="project-card-grid">
+          <div class="project-card">
+            <h4>False Edge in Prediction Markets</h4>
+            <p>How leakage review, venue portability testing, and execution realism turned an edge story into a methodology case study.</p>
+          </div>
+          <div class="project-card">
+            <h4>Project Haven</h4>
+            <p>How a trading thesis became a cost-aware ranking and shadow-trading system.</p>
+          </div>
+          <div class="project-card">
+            <h4>Reliable Data Loggers</h4>
+            <p>Why long-running telemetry systems are operational products rather than scraping scripts.</p>
+          </div>
+          <div class="project-card">
+            <h4>Agentic Quant Workflows</h4>
+            <p>How benchmark design and evidence gates make agentic systems safer for quantitative research.</p>
+          </div>
+          <div class="project-card">
+            <h4>What the PJM-MISO Seam Teaches</h4>
+            <p>What survives two years of ML seam-trading research when formal validation, a discovered lookahead bug, and public-safety constraints all apply simultaneously.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-note">This compendium is intentionally concise. Full versions are available as separate project pages and PDFs.</div>
+    </article>
+
+    <article class="article print-break">
+      <div class="kicker">Summary 01</div>
+      <h1>False Edge in Prediction Markets</h1>
+      <p class="subtitle">Most prediction-market edge claims collapsed under leakage review, venue portability testing, and execution-realism analysis. What survived was methodology, not alpha.</p>
+      <div class="abstract-box">
+        <h2>Why it matters</h2>
+        <p>This project is best framed as a case study in falsification discipline. It shows why apparently strong quantitative stories matter less than the process used to invalidate weak ones and preserve only what survives review.</p>
+      </div>
+      <section>
+        <h2>Highlights</h2>
+        <ul>
+          <li>Internal leakage audit invalidated the primary Polymarket backtest and turned the project from performance claims to failure analysis.</li>
+          <li>Portability testing across 107,427 Kalshi markets and 135 configurations found no positive edge.</li>
+          <li>The surviving contribution was methodology: fee-aware selection logic, explicit no-trading scope, and documented defects in Project Haven.</li>
+          <li>Cross-venue matching work showed that provenance accuracy and verification cost matter before any venue comparison can be trusted.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Portfolio angle</h2>
+        <p>Useful for quant and energy employers because it presents audit discipline, portability testing, and infrastructure design rather than hype or trading bravado.</p>
+      </section>
+    </article>
+
+    <article class="article print-break">
+      <div class="kicker">Summary 02</div>
+      <h1>Project Haven</h1>
+      <p class="subtitle">A fee-, slippage-, and correlation-aware system for monitoring same-day markets and ranking only the opportunities that clear explicit economic and operational thresholds.</p>
+      <section>
+        <h2>Highlights</h2>
+        <ul>
+          <li>24-hour monitoring window with a final 4-hour action window.</li>
+          <li>Transparent EV, break-even, fee, and slippage logic.</li>
+          <li>Category and underlying caps to control hidden concentration.</li>
+          <li>Operator-ready output: ranked candidates, exclusions, and audit artifacts.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Portfolio angle</h2>
+        <p>This is the strongest productized quant-systems page because it turns a trading hypothesis into a disciplined decision engine.</p>
+      </section>
+    </article>
+
+    <article class="article print-break">
+      <div class="kicker">Summary 03</div>
+      <h1>Designing Reliable Data Loggers</h1>
+      <p class="subtitle">A systems writeup on the progression from single-venue collectors to a unified market observatory with health, batching, and cost-aware deployment.</p>
+      <section>
+        <h2>Highlights</h2>
+        <ul>
+          <li>Separated discovery, polling, trade collection, buffering, and health checks.</li>
+          <li>Cloud Run + Cloud SQL used as deliberately simple early production infrastructure.</li>
+          <li>Structured logging and stale-feed detection treated as product features.</li>
+          <li>Security posture extended even to public-data collection.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Portfolio angle</h2>
+        <p>Strong software-engineering story for jobs that involve ETL, APIs, telemetry, and operational reliability.</p>
+      </section>
+    </article>
+
+    <article class="article print-break">
+      <div class="kicker">Summary 05</div>
+      <h1>What the PJM-MISO Seam Teaches</h1>
+      <p class="subtitle">Formal validation showed Sharpe 0.015, DSR 0.125, PBO 0.600. The edge story collapsed. What remained is a methodology and market-structure case study.</p>
+      <div class="abstract-box">
+        <h2>Why it matters</h2>
+        <p>This project demonstrates what happens when you apply genuinely strict validation to a backtested spread strategy. The discoveries of a lookahead bug and a measurement error preceding final validation make it a concrete case study in the gap between bias-free and statistically robust.</p>
+      </div>
+      <section>
+        <h2>Highlights</h2>
+        <ul>
+          <li>A temporal alignment bug in the partial-hour feature pipeline was discovered by external review, not internal audit. 59% of apparent predictive power came from leaked data.</li>
+          <li>Switching from hub-based to interface-specific pricing invalidated all early results and restructured the model entirely.</li>
+          <li>Formal CSCV/DSR/PBO validation returned Sharpe 0.015, DSR 0.125, PBO 0.600: all failing standard thresholds.</li>
+          <li>Feature sprawl failed consistently across 2,500+ configurations: simple features beat every complex alternative.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Portfolio angle</h2>
+        <p>Strong for energy and quant roles because it demonstrates rigorous validation discipline, real failure analysis, and market-structure intuition rather than claims of profitable edge.</p>
+      </section>
+    </article>
+
+    <article class="article print-break">
+      <div class="kicker">Summary 04</div>
+      <h1>Evaluating Agentic Systems for Quant Workflows</h1>
+      <p class="subtitle">A benchmark and orchestration project focused on making specialized agent systems safer, more auditable, and more useful for quantitative research.</p>
+      <section>
+        <h2>Highlights</h2>
+        <ul>
+          <li>Artifact-first evaluation rather than text-first scoring.</li>
+          <li>Role-specialized routing with compliance and review checkpoints.</li>
+          <li>Release gates for human quality evidence, reproducibility, holdout use, and routing proof.</li>
+          <li>Grounded-case benchmarking for failure modes common in time-series and backtesting work.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Portfolio angle</h2>
+        <p>A strong way to present your agentic systems work as research infrastructure rather than generic AI tooling.</p>
+      </section>
+    </article>
+  </div>
+</body>
+</html>

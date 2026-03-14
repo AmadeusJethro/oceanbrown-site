@@ -1,0 +1,18 @@
+{
+  "benchmark_version": "1.0",
+  "thesis_slug": "prediction-market-false-edge",
+  "overall_status": "pass",
+  "checks": {
+    "evidence_completeness": "pass",
+    "source_role_hygiene": "pass",
+    "unsupported_claim_count": 0,
+    "numeric_claim_traceability": "pass",
+    "banned_style_lint": "pass",
+    "limitations_quality": "pass",
+    "evidence_policy_compliance": "pass",
+    "blocked_numbers_compliance": "pass",
+    "ai_attribution_policy": "pass",
+    "no_results_section": "pass",
+    "no_repo_summary": "pass"
+  }
+}

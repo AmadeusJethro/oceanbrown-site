@@ -1,0 +1,298 @@
+<!-- Variation 2: "Editorial Longform" | Group: baseline-pick | Aesthetic: Magazine layout with marginal notes, drop caps, pull quotes, and publication-grade typography -->
+<!DOCTYPE html>
+<html lang="en" data-theme="parchment">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Market Research Portfolio — Editorial</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Franklin:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --scale: 1.333; --base: 1.05rem; --leading: 1.6; --measure: 60ch; }
+[data-theme="parchment"] {
+  --bg: #f0ebe3; --surface: #e8e2d8; --text: #1a1a1a; --muted: #5a5650;
+  --accent: #8b1a1a; --rule: rgba(0,0,0,0.1); --note-bg: #e4ded4;
+}
+[data-theme="dark"] {
+  --bg: #1a1a1a; --surface: #242420; --text: #e4dfd6; --muted: #9a948a;
+  --accent: #d4886a; --rule: rgba(255,255,255,0.1); --note-bg: #2a2a26;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Lora', Georgia, serif;
+  font-size: var(--base); line-height: var(--leading);
+  color: var(--text); background: var(--bg);
+  transition: background 0.3s, color 0.3s;
+}
+h1, h2, h3 { font-family: 'Libre Franklin', sans-serif; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.page {
+  max-width: 960px; margin: 0 auto; padding: 0 2rem;
+  display: grid; grid-template-columns: 1fr 220px; gap: 3rem;
+}
+@media (max-width: 768px) { .page { grid-template-columns: 1fr; } }
+
+header.masthead {
+  grid-column: 1 / -1; padding: 4rem 0 2rem;
+  border-bottom: 2px solid var(--text);
+}
+header.masthead h1 {
+  font-size: calc(var(--base) * var(--scale) * var(--scale) * var(--scale));
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+}
+header.masthead .deck {
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: calc(var(--base) * 1.1); color: var(--muted);
+  margin-top: 0.75rem; max-width: 50ch;
+}
+
+main.content { padding: 2.5rem 0; }
+main.content p { max-width: var(--measure); margin-bottom: 1.25rem; }
+
+/* Drop cap */
+.drop-cap::first-letter {
+  font-family: 'Libre Franklin', sans-serif; font-weight: 700;
+  float: left; font-size: 3.5em; line-height: 0.8;
+  padding-right: 0.08em; margin-top: 0.05em;
+  color: var(--accent);
+}
+
+/* Section headings */
+.article-section { margin-bottom: 3rem; }
+.article-section h2 {
+  font-size: calc(var(--base) * var(--scale) * var(--scale));
+  font-weight: 700; line-height: 1.15; margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule); padding-bottom: 0.5rem;
+}
+.article-section h3 {
+  font-size: calc(var(--base) * var(--scale));
+  font-weight: 600; margin: 1.5rem 0 0.5rem; color: var(--accent);
+}
+
+/* Pull quote */
+.pull-quote {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: calc(var(--base) * 1.3); font-weight: 600;
+  line-height: 1.35; color: var(--accent);
+  border-left: 3px solid var(--accent); padding-left: 1.25rem;
+  margin: 2rem 0; max-width: 45ch;
+}
+
+/* Footnotes */
+.footnote-ref { font-size: 0.75em; vertical-align: super; color: var(--accent); text-decoration: none; font-weight: 600; }
+.footnotes {
+  margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--rule);
+  font-size: calc(var(--base) * 0.8); color: var(--muted);
+}
+.footnotes li { margin-bottom: 0.5rem; max-width: var(--measure); }
+
+/* Sidebar / marginal notes */
+aside.marginalia {
+  padding-top: 2.5rem; font-size: calc(var(--base) * 0.82);
+  color: var(--muted); line-height: 1.55;
+}
+aside.marginalia .margin-note {
+  margin-bottom: 2rem; padding: 1rem; background: var(--note-bg);
+  border-left: 2px solid var(--rule);
+}
+aside.marginalia .margin-note strong {
+  display: block; font-family: 'Libre Franklin', sans-serif;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;
+  margin-bottom: 0.3rem; color: var(--text);
+}
+
+/* Table */
+.data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: calc(var(--base) * 0.88); }
+.data-table th, .data-table td { text-align: left; padding: 0.5rem 0.5rem 0.5rem 0; border-bottom: 1px solid var(--rule); }
+.data-table th { font-family: 'Libre Franklin', sans-serif; font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.data-table caption { font-style: italic; font-size: calc(var(--base) * 0.85); color: var(--muted); text-align: left; margin-bottom: 0.5rem; }
+
+/* Footer */
+footer.colophon {
+  grid-column: 1 / -1; padding: 2rem 0;
+  border-top: 1px solid var(--rule); color: var(--muted);
+  font-size: calc(var(--base) * 0.8);
+  display: flex; justify-content: space-between;
+}
+
+#theme-toggle {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--rule); background: var(--surface);
+  color: var(--text); cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100; transition: background 0.2s;
+}
+#theme-toggle:hover { border-color: var(--accent); }
+#theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <h1>Prediction Market Research</h1>
+    <p class="deck">Systems, microstructure, and execution research in event markets</p>
+  </header>
+
+  <main class="content">
+    <article class="article-section" id="liquidity">
+      <h2>Market Design &amp; Liquidity in Event Markets</h2>
+      <p class="drop-cap">
+        Prediction markets promise efficient aggregation of dispersed
+        beliefs into prices, but their microstructure remains poorly
+        understood compared to traditional financial markets. This project
+        investigates how automated market maker design choices&mdash;cost
+        function parameterization, fee structures, and liquidity
+        provision&mdash;affect price discovery quality in binary event
+        markets.<a href="#fn1" class="footnote-ref" aria-label="Footnote 1">1</a>
+      </p>
+      <p>
+        The central empirical contribution compares logarithmic market
+        scoring rules against continuous limit order books using
+        synchronized orderbook data from Polymarket and Kalshi. LMSR
+        exhibits superior price stability in thin markets but incurs
+        substantially higher inventory costs during rapid information
+        arrival events.
+      </p>
+      <aside class="pull-quote">
+        Adaptive-spread LMSR reduces adverse selection costs
+        by 34% compared to fixed-spread parameterization.
+      </aside>
+      <p>
+        A liquidity-sensitive fee structure is proposed that adapts
+        bid-ask spreads dynamically based on realized volatility and
+        order flow imbalance, borrowing from the market microstructure
+        literature on optimal market making under inventory constraints.
+      </p>
+      <h3>Methodology</h3>
+      <p>
+        Simulation experiments calibrate LMSR and CLOB models to
+        observed market parameters, then subject both to synthetic
+        information shocks of varying magnitude. Empirical validation
+        uses tick-level data from WebSocket feeds captured by the data
+        logging infrastructure described in Project III.
+      </p>
+    </article>
+
+    <article class="article-section" id="haven">
+      <h2>Haven Selection &amp; Shadow-Trading System</h2>
+      <p class="drop-cap">
+        Haven selection identifies prediction market contracts where
+        prices persistently deviate from fair value due to structural
+        factors: low liquidity, retail sentiment bias, or hedging
+        demand from correlated positions. The shadow-trading system
+        executes systematically against these mispricings using a
+        relative-value framework.
+      </p>
+      <p>
+        The selection algorithm scores contracts on four dimensions:
+        pricing efficiency, liquidity depth, mean-reversion tendency,
+        and correlation to existing portfolio exposures. Contracts
+        passing all thresholds enter a shadow book where positions
+        are sized using a modified Kelly criterion constrained by
+        binary payoff structure.<a href="#fn2" class="footnote-ref" aria-label="Footnote 2">2</a>
+      </p>
+      <table class="data-table">
+        <caption>Table 1. Haven selection scoring dimensions and thresholds</caption>
+        <thead><tr><th>Dimension</th><th>Metric</th><th>Threshold</th></tr></thead>
+        <tbody>
+          <tr><td>Pricing efficiency</td><td>Model deviation</td><td>&gt; 8% absolute</td></tr>
+          <tr><td>Liquidity depth</td><td>Notional within 5%</td><td>&gt; $5,000</td></tr>
+          <tr><td>Mean reversion</td><td>Half-life</td><td>&lt; 72 hours</td></tr>
+          <tr><td>Correlation</td><td>Portfolio beta</td><td>&lt; 0.3 absolute</td></tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article class="article-section" id="loggers">
+      <h2>Reliable Market Data Loggers</h2>
+      <p class="drop-cap">
+        Research-quality prediction market analysis requires continuous,
+        gap-free data capture across exchanges with heterogeneous API
+        paradigms. This infrastructure project builds fault-tolerant
+        logging systems with automatic gap detection, backfill
+        capability, and schema versioning for long-term data integrity.
+      </p>
+      <p>
+        The architecture uses a checkpoint-recovery pattern: each
+        logger maintains a write-ahead log, persists to Parquet with
+        configurable partitioning, and registers heartbeats with a
+        supervisor. On failure, the supervisor restarts from the last
+        checkpoint and initiates REST-based backfill to close gaps.
+        Current deployment covers three exchanges with 99.94% uptime
+        over 180 days.
+      </p>
+    </article>
+
+    <ol class="footnotes">
+      <li id="fn1">The distinction between cost-function AMMs and order-book markets in prediction contexts differs meaningfully from the DeFi AMM literature due to bounded payoffs and event resolution.</li>
+      <li id="fn2">Kelly sizing on binary outcomes simplifies to f* = (p&minus;q)/1, where p is estimated true probability and q = 1&minus;p, but position limits and correlation constraints require portfolio-level adjustment.</li>
+    </ol>
+  </main>
+
+  <aside class="marginalia">
+    <div class="margin-note">
+      <strong>Data Sources</strong>
+      Polymarket WebSocket feeds, Kalshi REST API,
+      PredictIt historical archives. All captured
+      by the logging infrastructure in Project III.
+    </div>
+    <div class="margin-note">
+      <strong>Implementation</strong>
+      Python async pipeline with PostgreSQL state
+      management and Redis cache. Execution layer
+      uses exchange-specific API adapters.
+    </div>
+    <div class="margin-note">
+      <strong>Storage</strong>
+      ~2.1 GB/month in Parquet with Zstandard
+      compression. Schema-versioned for backward
+      compatibility across research iterations.
+    </div>
+    <div class="margin-note">
+      <strong>Status</strong>
+      Project I: Active research<br>
+      Project II: Operational system<br>
+      Project III: In production (180 days)
+    </div>
+  </aside>
+
+  <footer class="colophon">
+    <span>Prediction Market Research Portfolio</span>
+    <span>March 2026</span>
+  </footer>
+</div>
+
+<button id="theme-toggle" aria-label="Toggle light and dark theme">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  var stored = localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var initial = stored || (prefersDark ? 'dark' : 'parchment');
+  root.setAttribute('data-theme', initial);
+  toggle.addEventListener('click', function() {
+    var current = root.getAttribute('data-theme');
+    var next = current === 'dark' ? 'parchment' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+  window.addEventListener('message', function(event) {
+    var data = event && event.data;
+    var next = (data && (data.value || data.theme)) || null;
+    if (data && (data.type === 'theme' || data.theme || data.value) && (next === 'dark' || next === 'parchment')) {
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  });
+})();
+</script>
+</body>
+</html>

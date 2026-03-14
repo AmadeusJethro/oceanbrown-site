@@ -1,0 +1,594 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Skip to main content" [ref=e4] [cursor=pointer]:
+      - /url: "#main-content"
+    - banner "Main" [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link "GitHub Docs" [ref=e9] [cursor=pointer]:
+            - /url: /en
+            - img [ref=e10]
+            - generic [ref=e12]: GitHub Docs
+          - generic [ref=e13]:
+            - 'button "Version: Free, Pro, & Team" [ref=e15] [cursor=pointer]':
+              - generic [ref=e17]: "Version: Free, Pro, & Team"
+              - generic:
+                - img
+            - button "Search or ask Copilot" [ref=e19] [cursor=pointer]:
+              - generic:
+                - generic:
+                  - generic:
+                    - text: Search or ask
+                    - img
+                    - text: Copilot
+              - generic:
+                - img
+        - generic [ref=e20]:
+          - 'button "Select language: current language is English" [ref=e23] [cursor=pointer]':
+            - img [ref=e24]
+          - link "Sign up" [ref=e27] [cursor=pointer]:
+            - /url: https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs
+    - generic [ref=e28]:
+      - navigation "Authentication" [ref=e30]:
+        - generic [ref=e31]:
+          - link "Home" [ref=e33] [cursor=pointer]:
+            - /url: /en
+            - img [ref=e34]
+            - text: Home
+          - heading "Authentication" [level=2] [ref=e36]:
+            - link "Authentication" [ref=e37] [cursor=pointer]:
+              - /url: /en/authentication
+        - region "Page navigation content" [ref=e38]:
+          - navigation "Product sidebar" [ref=e41]:
+            - list [ref=e42]:
+              - listitem [ref=e43]:
+                - button "Account security" [expanded] [ref=e44] [cursor=pointer]:
+                  - generic [ref=e45]:
+                    - generic [ref=e46]: Account security
+                    - generic:
+                      - img
+                - list "Account security" [ref=e47]:
+                  - listitem [ref=e48]:
+                    - link "Authentication to GitHub" [ref=e49] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github
+                      - generic [ref=e51]: Authentication to GitHub
+                  - listitem [ref=e52]:
+                    - link "Create a strong password" [ref=e53] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/creating-a-strong-password
+                      - generic [ref=e55]: Create a strong password
+                  - listitem [ref=e56]:
+                    - link "Switching between accounts" [ref=e57] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/switching-between-accounts
+                      - generic [ref=e59]: Switching between accounts
+                  - listitem [ref=e60]:
+                    - link "Verifying devices on sign in" [ref=e61] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/verifying-new-devices-when-signing-in
+                      - generic [ref=e63]: Verifying devices on sign in
+                  - listitem [ref=e64]:
+                    - link "Update access credentials" [ref=e65] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials
+                      - generic [ref=e67]: Update access credentials
+                  - listitem [ref=e68]:
+                    - link "Manage personal access tokens" [ref=e69] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+                      - generic [ref=e71]: Manage personal access tokens
+                  - listitem [ref=e72]:
+                    - link "Reviewing your SSH keys" [ref=e73] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys
+                      - generic [ref=e75]: Reviewing your SSH keys
+                  - listitem [ref=e76]:
+                    - link "Deploy keys" [ref=e77] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys
+                      - generic [ref=e79]: Deploy keys
+                  - listitem [ref=e80]:
+                    - link "Token expiration" [ref=e81] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation
+                      - generic [ref=e83]: Token expiration
+                  - listitem [ref=e84]:
+                    - link "Review security log" [ref=e85] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log
+                      - generic [ref=e87]: Review security log
+                  - listitem [ref=e88]:
+                    - link "Security log events" [ref=e89] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/security-log-events
+                      - generic [ref=e91]: Security log events
+                  - listitem [ref=e92]:
+                    - link "Remove sensitive data" [ref=e93] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
+                      - generic [ref=e95]: Remove sensitive data
+                  - listitem [ref=e96]:
+                    - link "About anonymized URLs" [ref=e97] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/about-anonymized-urls
+                      - generic [ref=e99]: About anonymized URLs
+                  - listitem [ref=e100]:
+                    - link "GitHub's IP addresses" [ref=e101] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses
+                      - generic [ref=e103]: GitHub's IP addresses
+                  - listitem [ref=e104]:
+                    - link "SSH key fingerprints" [ref=e105] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints
+                      - generic [ref=e107]: SSH key fingerprints
+                  - listitem [ref=e108]:
+                    - link "Sudo mode" [ref=e109] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/sudo-mode
+                      - generic [ref=e111]: Sudo mode
+                  - listitem [ref=e112]:
+                    - link "Unauthorized access" [ref=e113] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/preventing-unauthorized-access
+                      - generic [ref=e115]: Unauthorized access
+                  - listitem [ref=e116]:
+                    - link "Viewing and managing sessions" [ref=e117] [cursor=pointer]:
+                      - /url: /en/authentication/keeping-your-account-and-data-secure/viewing-and-managing-your-sessions
+                      - generic [ref=e119]: Viewing and managing sessions
+              - listitem [ref=e120]:
+                - button "Secure your account with 2FA" [ref=e121] [cursor=pointer]:
+                  - generic [ref=e122]:
+                    - generic [ref=e123]: Secure your account with 2FA
+                    - generic:
+                      - img
+              - listitem [ref=e124]:
+                - button "Authenticate with a passkey" [ref=e125] [cursor=pointer]:
+                  - generic [ref=e126]:
+                    - generic [ref=e127]: Authenticate with a passkey
+                    - generic:
+                      - img
+              - listitem [ref=e128]:
+                - button "Connect with SSH" [ref=e129] [cursor=pointer]:
+                  - generic [ref=e130]:
+                    - generic [ref=e131]: Connect with SSH
+                    - generic:
+                      - img
+              - listitem [ref=e132]:
+                - button "Troubleshooting SSH" [ref=e133] [cursor=pointer]:
+                  - generic [ref=e134]:
+                    - generic [ref=e135]: Troubleshooting SSH
+                    - generic:
+                      - img
+              - listitem [ref=e136]:
+                - button "Verify commit signatures" [ref=e137] [cursor=pointer]:
+                  - generic [ref=e138]:
+                    - generic [ref=e139]: Verify commit signatures
+                    - generic:
+                      - img
+              - listitem [ref=e140]:
+                - button "Troubleshoot verification" [ref=e141] [cursor=pointer]:
+                  - generic [ref=e142]:
+                    - generic [ref=e143]: Troubleshoot verification
+                    - generic:
+                      - img
+      - generic [ref=e144]:
+        - main [ref=e145]:
+          - generic [ref=e146]:
+            - navigation "Breadcrumb" [ref=e148]:
+              - list [ref=e149]:
+                - listitem [ref=e150]:
+                  - link "Authentication" [ref=e151] [cursor=pointer]:
+                    - /url: /en/authentication
+                  - text: /
+                - listitem [ref=e152]:
+                  - link "Account security" [ref=e153] [cursor=pointer]:
+                    - /url: /en/authentication/keeping-your-account-and-data-secure
+                  - text: /
+                - listitem
+            - generic [ref=e154]:
+              - heading "Removing sensitive data from a repository" [level=1] [ref=e157]
+              - paragraph [ref=e160]:
+                - text: Sensitive data can be removed from the history of a repository
+                - emphasis [ref=e161]: if
+                - text: you can carefully coordinate with everyone who has cloned it and you are willing to manage the side effects.
+              - generic [ref=e162]:
+                - generic [ref=e164]:
+                  - button "Copy as Markdown" [ref=e166] [cursor=pointer]:
+                    - generic [ref=e168]:
+                      - img [ref=e169]
+                      - text: Copy as Markdown
+                  - button "More Markdown options" [ref=e173] [cursor=pointer]:
+                    - img [ref=e174]
+                - heading "In this article" [level=2] [ref=e176]
+                - navigation "In this article" [ref=e177]:
+                  - list [ref=e178]:
+                    - listitem [ref=e179]:
+                      - link "About removing sensitive data from a repository" [ref=e180] [cursor=pointer]:
+                        - /url: "#about-removing-sensitive-data-from-a-repository"
+                        - generic [ref=e182]: About removing sensitive data from a repository
+                    - listitem [ref=e183]:
+                      - link "Side effects of rewriting history" [ref=e184] [cursor=pointer]:
+                        - /url: "#side-effects-of-rewriting-history"
+                        - generic [ref=e186]: Side effects of rewriting history
+                    - listitem [ref=e187]:
+                      - link "About sensitive data exposure" [ref=e188] [cursor=pointer]:
+                        - /url: "#about-sensitive-data-exposure"
+                        - generic [ref=e190]: About sensitive data exposure
+                    - listitem [ref=e191]:
+                      - link "Purging a file from your local repository's history using git-filter-repo" [ref=e192] [cursor=pointer]:
+                        - /url: "#purging-a-file-from-your-local-repositorys-history-using-git-filter-repo"
+                        - generic [ref=e194]: Purging a file from your local repository's history using git-filter-repo
+                    - listitem [ref=e195]:
+                      - link "Fully removing the data from GitHub" [ref=e196] [cursor=pointer]:
+                        - /url: "#fully-removing-the-data-from-github"
+                        - generic [ref=e198]: Fully removing the data from GitHub
+                    - listitem [ref=e199]:
+                      - link "Avoiding accidental commits in the future" [ref=e200] [cursor=pointer]:
+                        - /url: "#avoiding-accidental-commits-in-the-future"
+                        - generic [ref=e202]: Avoiding accidental commits in the future
+                    - listitem [ref=e203]:
+                      - link "Further reading" [ref=e204] [cursor=pointer]:
+                        - /url: "#further-reading"
+                        - generic [ref=e206]: Further reading
+              - generic [ref=e209]:
+                - heading "About removing sensitive data from a repository" [level=2] [ref=e210]:
+                  - link "About removing sensitive data from a repository" [ref=e211] [cursor=pointer]:
+                    - /url: "#about-removing-sensitive-data-from-a-repository"
+                    - text: About removing sensitive data from a repository
+                - paragraph [ref=e213]:
+                  - text: When altering your repository's history using tools like
+                  - code [ref=e214]: git-filter-repo
+                  - text: ", it's crucial to understand the implications. Rewriting history requires careful coordination with collaborators to successfully execute, and has a number of side effects that must be managed."
+                - paragraph [ref=e215]: It is important to note that if the sensitive data you need to remove is a secret (e.g. password/token/credential), as is often the case, then as a first step you need to revoke and/or rotate that secret. Once the secret is revoked or rotated, it can no longer be used for access, and that may be sufficient to solve your problem. Going through the extra steps to rewrite the history and remove the secret may not be warranted.
+                - heading "Side effects of rewriting history" [level=2] [ref=e216]:
+                  - link "Side effects of rewriting history" [ref=e217] [cursor=pointer]:
+                    - /url: "#side-effects-of-rewriting-history"
+                    - text: Side effects of rewriting history
+                - paragraph [ref=e219]: "There are numerous side effects to rewriting history; these include:"
+                - list [ref=e220]:
+                  - listitem [ref=e221]:
+                    - strong [ref=e222]: High risk of recontamination
+                    - text: ": It is unfortunately easy to re-push the sensitive data to the repository and make a bigger mess. If a fellow developer has a clone from before your rewrite, and after your rewrite simply runs"
+                    - code [ref=e223]: git pull
+                    - text: followed by
+                    - code [ref=e224]: git push
+                    - text: ", the sensitive data will return. They need to either discard their clone and re-clone, or carefully walk through multiple steps to clean up their clone first."
+                  - listitem [ref=e225]:
+                    - strong [ref=e226]: Risk of losing other developers' work
+                    - text: ": If other developers continue updating branches which contain the sensitive data while you are trying to clean up, you will be forced to either redo the cleanup, or to discard their work."
+                  - listitem [ref=e227]:
+                    - strong [ref=e228]: Changed commit hashes
+                    - text: ": Rewriting history will change the hashes of the commits that introduced the sensitive data"
+                    - emphasis [ref=e229]: and
+                    - text: all commits that came after. Any tooling or automation that depends on commit hashes not changing will be broken or have problems.
+                  - listitem [ref=e230]:
+                    - strong [ref=e231]: Branch protection challenges
+                    - text: ": If you have any branch protections that prevent force pushes, those protections will have to be turned off (at least temporarily) for the sensitive data to be removed."
+                  - listitem [ref=e232]:
+                    - strong [ref=e233]: Broken diff view for closed pull requests
+                    - text: ": Removing the sensitive data will require removing the internal references used for displaying the diff view in pull requests, so you will no longer be able to see these diffs. This is true not only for the PR that introduced the sensitive data, but any PR that builds on a version of history after the sensitive data PR was merged (even if those later PRs didn't add or modify any file with sensitive data)."
+                  - listitem [ref=e234]:
+                    - strong [ref=e235]: Poor interaction with open pull requests
+                    - text: ": Changed commit SHAs will result in a different PR diff, and comments on the old PR diff may become invalidated and lost, which may cause confusion for authors and reviewers. We recommend merging or closing all open pull requests before removing files from your repository."
+                  - listitem [ref=e236]:
+                    - strong [ref=e237]: Lost signatures on commits and tags
+                    - text: ": Signatures for commits or tags depend on commit hashes; since commit hashes are modified by history rewrites, signatures would no longer be valid and many history rewriting tools (including"
+                    - code [ref=e238]: git-filter-repo
+                    - text: ) will simply remove the signatures. In fact,
+                    - code [ref=e239]: git-filter-repo
+                    - text: will remove commit signatures and tag signatures for commits that pre-date the sensitive data removal as well. (Technically one can workaround this with the
+                    - code [ref=e240]: "--refs"
+                    - text: option to
+                    - code [ref=e241]: git-filter-repo
+                    - text: if needed, but then you will need to be careful to ensure you specify all refs that have sensitive data in their history and that include the commits that introduced the sensitive data in your range).
+                  - listitem [ref=e242]:
+                    - strong [ref=e243]: Leading others directly to the sensitive data
+                    - text: ": Git was designed with cryptographic checks built into commit identifiers so that nefarious individuals could not break into a server and modify history without being noticed. That's helpful from a security perspective, but from a sensitive data perspective it means that expunging sensitive data is a very involved process of coordination; it further means that when you do modify history, clueful users with an existing clone will notice the history divergence and can use it to quickly and easily find the sensitive data still in their clone that you removed from the central repository."
+                - heading "About sensitive data exposure" [level=2] [ref=e244]:
+                  - link "About sensitive data exposure" [ref=e245] [cursor=pointer]:
+                    - /url: "#about-sensitive-data-exposure"
+                    - text: About sensitive data exposure
+                - paragraph [ref=e247]: "Removing sensitive data from a repository involves four high-level steps:"
+                - list [ref=e248]:
+                  - listitem [ref=e249]: Rewrite the repository locally, using git-filter-repo
+                  - listitem [ref=e250]: Update the repository on GitHub, using your locally rewritten history
+                  - listitem [ref=e251]: Coordinate with colleagues to clean up other clones that exist
+                  - listitem [ref=e252]: Prevent repeats and avoid future sensitive data spills
+                - paragraph [ref=e253]: "If you only rewrite your history and force push it, the commits with sensitive data may still be accessible elsewhere:"
+                - list [ref=e254]:
+                  - listitem [ref=e255]: In any clones or forks of your repository
+                  - listitem [ref=e256]: Directly via their SHA-1 hashes in cached views on GitHub
+                  - listitem [ref=e257]: Through any pull requests that reference them
+                - paragraph [ref=e258]:
+                  - text: You cannot remove sensitive data from other users' clones of your repository; you will have to send them the instructions from
+                  - 'link "Make sure other copies are cleaned up: clones of colleagues" [ref=e259] [cursor=pointer]':
+                    - /url: https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#_make_sure_other_copies_are_cleaned_up_clones_of_colleagues
+                  - text: in the
+                  - code [ref=e260]: git-filter-repo
+                  - text: manual to have them do so themselves. However, you can permanently remove cached views and references to the sensitive data in pull requests on GitHub by contacting us through the
+                  - link "GitHub Support portal" [ref=e261] [cursor=pointer]:
+                    - /url: https://support.github.com
+                  - text: .
+                - generic [ref=e262]:
+                  - paragraph [ref=e263]:
+                    - img [ref=e264]
+                    - text: Important
+                  - paragraph [ref=e266]: GitHub Support won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.
+                - paragraph [ref=e267]: If the commit that introduced the sensitive data exists in any forks, it will continue to be accessible there. You will need to coordinate with the owners of the forks, asking them to remove the sensitive data or delete the fork entirely. GitHub cannot provide contact information for these owners.
+                - paragraph [ref=e268]: Consider these limitations and challenges in your decision to rewrite your repository's history.
+                - heading "Purging a file from your local repository's history using git-filter-repo" [level=2] [ref=e269]:
+                  - link "Purging a file from your local repository's history using git-filter-repo" [ref=e270] [cursor=pointer]:
+                    - /url: "#purging-a-file-from-your-local-repositorys-history-using-git-filter-repo"
+                    - text: Purging a file from your local repository's history using git-filter-repo
+                - list [ref=e272]:
+                  - listitem [ref=e273]:
+                    - paragraph [ref=e274]:
+                      - text: Install the latest release of
+                      - link "the git-filter-repo tool" [ref=e275] [cursor=pointer]:
+                        - /url: https://github.com/newren/git-filter-repo
+                        - text: the
+                        - code [ref=e276]: git-filter-repo
+                        - text: tool
+                      - text: . You need a version with the
+                      - code [ref=e277]: "--sensitive-data-removal"
+                      - text: flag, meaning at least version 2.47. You can install
+                      - code [ref=e278]: git-filter-repo
+                      - text: manually or by using a package manager. For example, to install the tool with HomeBrew, use the
+                      - code [ref=e279]: brew install
+                      - text: command.
+                    - code [ref=e281]: brew install git-filter-repo
+                    - paragraph [ref=e282]:
+                      - text: For more information, see
+                      - link "INSTALL.md" [ref=e283] [cursor=pointer]:
+                        - /url: https://github.com/newren/git-filter-repo/blob/main/INSTALL.md
+                        - emphasis [ref=e284]: INSTALL.md
+                      - text: in the
+                      - code [ref=e285]: newren/git-filter-repo
+                      - text: repository.
+                  - listitem [ref=e286]:
+                    - paragraph [ref=e287]:
+                      - text: Clone the repository to your local computer. See
+                      - link "Cloning a repository" [ref=e288] [cursor=pointer]:
+                        - /url: /en/repositories/creating-and-managing-repositories/cloning-a-repository
+                      - text: .
+                    - code [ref=e290]: git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+                  - listitem [ref=e291]:
+                    - paragraph [ref=e292]: Navigate into the repository's working directory.
+                    - code [ref=e294]: cd YOUR-REPOSITORY
+                  - listitem [ref=e295]:
+                    - paragraph [ref=e296]:
+                      - text: Run a
+                      - code [ref=e297]: git-filter-repo
+                      - text: command to clean up the sensitive data.
+                    - paragraph [ref=e298]:
+                      - text: If you want to delete a specific file from all branches/tags/refs, run the following command replacing
+                      - code [ref=e299]: PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA
+                      - text: with the
+                      - strong [ref=e300]: git path to the file you want to remove, not just its filename
+                      - text: (e.g.
+                      - code [ref=e301]: src/module/phone-numbers.txt
+                      - text: "):"
+                    - code [ref=e303]: git-filter-repo --sensitive-data-removal --invert-paths --path PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA
+                    - generic [ref=e304]:
+                      - paragraph [ref=e305]:
+                        - img [ref=e306]
+                        - text: Important
+                      - paragraph [ref=e308]:
+                        - text: If the file with sensitive data used to exist at any other paths (because it was moved or renamed), you must either add an extra
+                        - code [ref=e309]: "--path"
+                        - text: argument for that file, or run this command a second time naming the alternative path.
+                    - paragraph [ref=e310]:
+                      - text: If you want to replace all text listed in
+                      - code [ref=e311]: ../passwords.txt
+                      - text: "from any non-binary files found anywhere in your repository's history, run the following command:"
+                    - code [ref=e313]: git-filter-repo --sensitive-data-removal --replace-text ../passwords.txt
+                  - listitem [ref=e314]:
+                    - paragraph [ref=e315]: Double-check that you've removed everything you wanted to from your repository's history.
+                  - listitem [ref=e316]:
+                    - paragraph [ref=e317]: Find out how many pull requests will be adversely affected by this history rewrite. You will need this information below.
+                    - code [ref=e319]:
+                      - text: $
+                      - generic [ref=e320]: grep -c '^refs/pull/.*/head$' .git/filter-repo/changed-refs
+                      - text: "4"
+                    - paragraph [ref=e321]:
+                      - text: You can drop the
+                      - code [ref=e322]: "-c"
+                      - text: "to see which pull requests are affected:"
+                    - code [ref=e324]:
+                      - text: $
+                      - generic [ref=e325]: grep '^refs/pull/.*/head$' .git/filter-repo/changed-refs
+                      - text: refs/pull/589/head refs/pull/602/head refs/pull/604/head refs/pull/605/head
+                    - paragraph [ref=e326]:
+                      - text: This output includes the pull request number between the second and third slashes. If the
+                      - link "number of pull requests affected is larger than you expected" [ref=e327] [cursor=pointer]:
+                        - /url: https://github.com/newren/git-filter-repo/blob/main/Documentation/FAQ.md#why-did-git-filter-repo-rewrite-more-commit-hashes-than-i-expected
+                      - text: ", you can discard this clone with no ill-effects and either redo the rewrite or abandon the sensitive data removal. Once you move on to the next step, the rewrite becomes irreversible."
+                  - listitem [ref=e328]:
+                    - paragraph [ref=e329]:
+                      - text: Once you're happy with the state of your repository, force-push your local changes to overwrite your repository on GitHub.com. Even though
+                      - code [ref=e330]: "--force"
+                      - text: is implied by
+                      - code [ref=e331]: "--mirror"
+                      - text: ", we include it below as a reminder that you are forcibly updating all branches, tags, and refs and you are discarding any changes others may have made to those refs while you were cleaning up the repository."
+                    - code [ref=e333]: git push --force --mirror origin
+                    - paragraph [ref=e334]:
+                      - text: This command will fail to push any refs starting with
+                      - code [ref=e335]: refs/pull/
+                      - text: ", since GitHub marks those as read-only. Those push failures will be handled in the next section. If any other refs fail to push, you likely have branch protection turned on for that branch and will need to turn it off temporarily and redo the push. Repeat until the only failures to update are refs starting with"
+                      - code [ref=e336]: refs/pull/
+                      - text: .
+                - heading "Fully removing the data from GitHub" [level=2] [ref=e337]:
+                  - link "Fully removing the data from GitHub" [ref=e338] [cursor=pointer]:
+                    - /url: "#fully-removing-the-data-from-github"
+                    - text: Fully removing the data from GitHub
+                - paragraph [ref=e340]:
+                  - text: After using
+                  - code [ref=e341]: git-filter-repo
+                  - text: to remove the sensitive data and pushing your changes to GitHub, you must take a few more steps to fully remove the data from GitHub.
+                - list [ref=e342]:
+                  - listitem [ref=e343]:
+                    - paragraph [ref=e344]:
+                      - text: Contact us through the
+                      - link "GitHub Support portal" [ref=e345] [cursor=pointer]:
+                        - /url: https://support.github.com
+                      - text: ", and provide the following information:"
+                    - list [ref=e346]:
+                      - listitem [ref=e347]: The owner and repository name in question (e.g. YOUR-USERNAME/YOUR-REPOSITORY).
+                      - listitem [ref=e348]: The number of affected pull requests, found in the previous step. This is used by Support to verify you understand how much will be affected.
+                      - listitem [ref=e349]:
+                        - text: The First Changed Commit(s) reported by
+                        - code [ref=e350]: git-filter-repo
+                        - text: (Look for
+                        - code [ref=e351]: "NOTE: First Changed Commit(s)"
+                        - text: in its output.)
+                      - listitem [ref=e352]:
+                        - text: If
+                        - code [ref=e353]: "NOTE: There were LFS Objects Orphaned by this rewrite"
+                        - text: appears in the git-filter-repo output (right after the First Changed Commit), then mention you had LFS Objects Orphaned and upload the named file to the ticket as well.
+                    - paragraph [ref=e354]: "If you have successfully cleaned up all references other than PRs, and no forks have references to the sensitive data, Support will then:"
+                    - list [ref=e355]:
+                      - listitem [ref=e356]:
+                        - paragraph [ref=e357]: Dereference or delete any affected PRs on GitHub.
+                      - listitem [ref=e358]:
+                        - paragraph [ref=e359]: Run a garbage collection on the server to expunge the sensitive data from storage.
+                      - listitem [ref=e360]:
+                        - paragraph [ref=e361]: Remove cached views.
+                      - listitem [ref=e362]:
+                        - paragraph [ref=e363]: If LFS Objects are involved, delete and/or purge the orphaned LFS objects.
+                    - generic [ref=e364]:
+                      - paragraph [ref=e365]:
+                        - img [ref=e366]
+                        - text: Important
+                      - paragraph [ref=e368]: GitHub Support won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.
+                  - listitem [ref=e369]:
+                    - paragraph [ref=e370]:
+                      - text: Collaborators must
+                      - link "rebase" [ref=e371] [cursor=pointer]:
+                        - /url: https://git-scm.com/book/en/v2/Git-Branching-Rebasing
+                      - text: ","
+                      - emphasis [ref=e372]: not
+                      - text: merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging. They may need to take additional steps as well; see
+                      - 'link "Make sure other copies are cleaned up: clones of colleagues" [ref=e373] [cursor=pointer]':
+                        - /url: https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#_make_sure_other_copies_are_cleaned_up_clones_of_colleagues
+                      - text: in the
+                      - code [ref=e374]: git-filter-repo
+                      - text: manual.
+                - heading "Avoiding accidental commits in the future" [level=2] [ref=e375]:
+                  - link "Avoiding accidental commits in the future" [ref=e376] [cursor=pointer]:
+                    - /url: "#avoiding-accidental-commits-in-the-future"
+                    - text: Avoiding accidental commits in the future
+                - paragraph [ref=e378]:
+                  - text: Preventing contributors from making accidental commits can help you prevent sensitive information from being exposed. For more information see
+                  - link "Best practices for preventing data leaks in your organization" [ref=e379] [cursor=pointer]:
+                    - /url: /en/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization
+                  - text: .
+                - paragraph [ref=e380]: "There are a few things you can do to avoid committing or pushing things that should not be shared:"
+                - list [ref=e381]:
+                  - listitem [ref=e382]:
+                    - text: If the sensitive data is likely to be found in a file that should not be tracked by git, add that filename to
+                    - code [ref=e383]: .gitignore
+                    - text: (and make sure to commit and push that change to
+                    - code [ref=e384]: .gitignore
+                    - text: so other developers are protected).
+                  - listitem [ref=e385]: Avoid hardcoding secrets in code. Use environment variables, or secret management services like Azure Key Vault, AWS Secrets Manager, or HashiCorp Vault to manage and inject secrets at runtime.
+                  - listitem [ref=e386]: Create a pre-commit hook to check for sensitive data before it is committed or pushed anywhere, or use a well-known tool in a pre-commit hook like git-secrets or gitleaks. (Make sure to ask each collaborator to set up the pre-commit hook you have chosen.)
+                  - listitem [ref=e387]:
+                    - text: Use a visual program like
+                    - link "GitHub Desktop" [ref=e388] [cursor=pointer]:
+                      - /url: https://desktop.github.com/
+                    - text: or
+                    - link "gitk" [ref=e389] [cursor=pointer]:
+                      - /url: https://git-scm.com/docs/gitk
+                    - text: to commit changes. Visual programs generally make it easier to see exactly which files will be added, deleted, and modified with each commit.
+                  - listitem [ref=e390]:
+                    - text: Avoid the catch-all commands
+                    - code [ref=e391]: git add .
+                    - text: and
+                    - code [ref=e392]: git commit -a
+                    - text: on the command line—use
+                    - code [ref=e393]: git add filename
+                    - text: and
+                    - code [ref=e394]: git rm filename
+                    - text: to individually stage files, instead.
+                  - listitem [ref=e395]:
+                    - text: Use
+                    - code [ref=e396]: git add --interactive
+                    - text: to individually review and stage changes within each file.
+                  - listitem [ref=e397]:
+                    - text: Use
+                    - code [ref=e398]: git diff --cached
+                    - text: to review the changes that you have staged for commit. This is the exact diff that
+                    - code [ref=e399]: git commit
+                    - text: will produce as long as you don't use the
+                    - code [ref=e400]: "-a"
+                    - text: flag.
+                  - listitem [ref=e401]:
+                    - text: Enable push protection for your repository to detect and prevent pushes which contain hardcoded secrets from being committed to your codebase. For more information, see
+                    - link "About push protection" [ref=e402] [cursor=pointer]:
+                      - /url: /en/code-security/secret-scanning/introduction/about-push-protection
+                    - text: .
+                - heading "Further reading" [level=2] [ref=e403]:
+                  - link "Further reading" [ref=e404] [cursor=pointer]:
+                    - /url: "#further-reading"
+                    - text: Further reading
+                - list [ref=e406]:
+                  - listitem [ref=e407]:
+                    - link "git-filter-repo man page" [ref=e408] [cursor=pointer]:
+                      - /url: https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html
+                      - code [ref=e409]: git-filter-repo
+                      - text: man page
+                    - text: ", especially the \"Sensitive Data Removal\" subsection of the \"DISCUSSION\" section."
+                  - listitem [ref=e410]:
+                    - 'link "Pro Git: Git Tools - Rewriting History" [ref=e411] [cursor=pointer]':
+                      - /url: https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History
+                  - listitem [ref=e412]:
+                    - link "About secret scanning" [ref=e413] [cursor=pointer]:
+                      - /url: /en/code-security/secret-scanning/introduction/about-secret-scanning
+        - contentinfo [ref=e414]:
+          - generic [ref=e415]:
+            - heading "Help and support" [level=2] [ref=e416]
+            - generic [ref=e417]:
+              - generic [ref=e418]:
+                - heading "Did you find what you needed?" [level=3] [ref=e419]
+                - radiogroup "Did you find what you needed?" [ref=e420]:
+                  - radio "Yes" [ref=e421]
+                  - generic [ref=e422] [cursor=pointer]:
+                    - img [ref=e423]
+                    - text: "Yes"
+                  - radio "No" [ref=e425]
+                  - generic [ref=e426] [cursor=pointer]:
+                    - img [ref=e427]
+                    - text: "No"
+                - link "Privacy policy" [ref=e429] [cursor=pointer]:
+                  - /url: /en/site-policy/privacy-policies/github-privacy-statement
+              - generic [ref=e430]:
+                - heading "Help us make these docs great!" [level=3] [ref=e431]
+                - paragraph [ref=e432]: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+                - link "Make a contribution" [ref=e433] [cursor=pointer]:
+                  - /url: https://github.com/github/docs/blob/main/content/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.md
+                  - img [ref=e434]
+                  - text: Make a contribution
+                - paragraph [ref=e436]:
+                  - link "Learn how to contribute" [ref=e437] [cursor=pointer]:
+                    - /url: /contributing
+              - generic [ref=e438]:
+                - heading "Still need help?" [level=3] [ref=e439]
+                - link "Ask the GitHub community" [ref=e441] [cursor=pointer]:
+                  - /url: https://github.com/orgs/community/discussions
+                  - img [ref=e442]
+                  - text: Ask the GitHub community
+                - link "Contact support" [ref=e445] [cursor=pointer]:
+                  - /url: https://support.github.com
+                  - img [ref=e446]
+                  - text: Contact support
+          - generic [ref=e448]:
+            - heading "Legal" [level=2] [ref=e449]
+            - list [ref=e450]:
+              - listitem [ref=e451]: © 2026 GitHub, Inc.
+              - listitem [ref=e452]:
+                - link "Terms" [ref=e453] [cursor=pointer]:
+                  - /url: /en/site-policy/github-terms/github-terms-of-service
+              - listitem [ref=e454]:
+                - link "Privacy" [ref=e455] [cursor=pointer]:
+                  - /url: /en/site-policy/privacy-policies/github-privacy-statement
+              - listitem [ref=e456]:
+                - link "Status" [ref=e457] [cursor=pointer]:
+                  - /url: https://www.githubstatus.com/
+              - listitem [ref=e458]:
+                - link "Pricing" [ref=e459] [cursor=pointer]:
+                  - /url: https://github.com/pricing
+              - listitem [ref=e460]:
+                - link "Expert services" [ref=e461] [cursor=pointer]:
+                  - /url: https://services.github.com
+              - listitem [ref=e462]:
+                - link "Blog" [ref=e463] [cursor=pointer]:
+                  - /url: https://github.blog
+          - tooltip "Scroll to top" [ref=e464]:
+            - button "Scroll to top" [ref=e465] [cursor=pointer]:
+              - img [ref=e466]
+  - alert [ref=e468]

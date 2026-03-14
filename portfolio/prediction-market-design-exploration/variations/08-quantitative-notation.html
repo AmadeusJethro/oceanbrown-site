@@ -1,0 +1,268 @@
+<!-- Variation 8: "Quantitative Notation" | Group: project-original | Aesthetic: Mathematical manuscript — equation-style visual rhythm, tabular data, variable notation integrated into design -->
+<!DOCTYPE html>
+<html lang="en" data-theme="parchment">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Market Research Portfolio — Quantitative</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root { --base: 1.05rem; --leading: 1.6; --measure: 58ch; }
+[data-theme="parchment"] {
+  --bg: #faf8f4; --surface: #f0ede6; --text: #1a1a2e; --muted: #6a6a80;
+  --accent: #4a2c82; --rule: rgba(26,26,46,0.1); --eq-bg: #f4f0e8;
+}
+[data-theme="dark"] {
+  --bg: #0f0f14; --surface: #1a1a22; --text: #e0dcd4; --muted: #8a88a0;
+  --accent: #b8a0e0; --rule: rgba(224,220,212,0.08); --eq-bg: #18181e;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: var(--base); line-height: var(--leading);
+  color: var(--text); background: var(--bg);
+  transition: background 0.3s, color 0.3s;
+}
+code, .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.88em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.page { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+
+/* Header */
+header {
+  padding: 4rem 0 2rem;
+  border-bottom: 2px solid var(--text);
+}
+header h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700;
+  line-height: 1.1; font-style: italic;
+}
+header .notation {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+  color: var(--muted); margin-top: 0.75rem; letter-spacing: 0.02em;
+}
+header .scope {
+  margin-top: 1rem; font-size: calc(var(--base) * 0.95);
+  color: var(--muted); max-width: 50ch;
+}
+
+/* Sections */
+.section { padding: 2.5rem 0; border-bottom: 1px solid var(--rule); }
+.section-marker {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+  color: var(--accent); letter-spacing: 0.04em; margin-bottom: 0.75rem;
+}
+.section h2 {
+  font-size: calc(var(--base) * 1.5); font-weight: 700;
+  line-height: 1.2; margin-bottom: 0.4rem; font-style: italic;
+}
+.section .sub { color: var(--muted); font-size: calc(var(--base) * 0.9); margin-bottom: 1.5rem; }
+.section p { max-width: var(--measure); margin-bottom: 1.1rem; }
+
+/* Equation blocks */
+.equation {
+  background: var(--eq-bg); padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+  border-left: 3px solid var(--accent);
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: calc(var(--base) * 1.1); line-height: 1.8;
+}
+.equation .eq-label {
+  font-family: 'JetBrains Mono', monospace; font-style: normal;
+  font-size: 0.7rem; color: var(--muted); float: right; margin-top: 0.2em;
+}
+
+/* Variable definitions */
+.var-list {
+  display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 1rem;
+  margin: 1rem 0 1.5rem; font-size: calc(var(--base) * 0.9);
+}
+.var-sym {
+  font-style: italic; font-weight: 600; text-align: right;
+  color: var(--accent);
+}
+.var-def { color: var(--muted); }
+
+/* Data table */
+.q-table {
+  width: 100%; border-collapse: collapse; margin: 1.5rem 0;
+  font-size: calc(var(--base) * 0.88);
+}
+.q-table th, .q-table td {
+  text-align: left; padding: 0.45rem 0.75rem 0.45rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.q-table th {
+  font-family: 'JetBrains Mono', monospace; font-weight: 400;
+  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.q-table td.num {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums; font-size: 0.88em;
+}
+
+/* Result highlight */
+.result {
+  padding: 1rem 1.25rem; margin: 1.5rem 0;
+  border: 1px solid var(--accent); background: var(--surface);
+  font-size: calc(var(--base) * 0.95);
+}
+.result .result-label {
+  font-family: 'JetBrains Mono', monospace; font-weight: 500;
+  font-size: 0.7rem; color: var(--accent); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-bottom: 0.4rem;
+}
+
+footer {
+  padding: 2.5rem 0; color: var(--muted);
+  font-size: calc(var(--base) * 0.82);
+  display: flex; justify-content: space-between;
+}
+
+#theme-toggle {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  width: 44px; height: 44px; border: 1px solid var(--rule);
+  background: var(--surface); color: var(--text); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100;
+}
+#theme-toggle:hover { border-color: var(--accent); }
+#theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 768px) { .page { padding: 0 1.25rem; } .var-list { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>Prediction Market Research</h1>
+    <div class="notation">
+      let <em>P</em> = {<em>p</em><sub>1</sub>, <em>p</em><sub>2</sub>, ..., <em>p</em><sub><em>n</em></sub>} denote contracts in the market
+    </div>
+    <p class="scope">
+      Systems, microstructure, and execution research in event
+      markets. Three projects examining market maker design,
+      systematic trading, and data infrastructure.
+    </p>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-marker">&sect;1</div>
+      <h2>Market Design &amp; Liquidity</h2>
+      <div class="sub">Automated market maker parameterization for event markets</div>
+      <p>
+        Investigation of prediction market microstructure comparing
+        logarithmic market scoring rules against continuous limit order
+        books. The core question is one of optimal parameterization:
+        given a market maker with cost function <em>C</em>, what
+        spread parameter minimizes adverse selection while maintaining
+        price discovery?
+      </p>
+      <div class="equation">
+        <span class="eq-label">(1.1)</span>
+        b(t) = b&#x2080; &middot; g(&sigma;<sub>t</sub>, &phi;<sub>t</sub>)
+      </div>
+      <div class="var-list">
+        <span class="var-sym">b(t)</span><span class="var-def">Adaptive spread parameter at time <em>t</em></span>
+        <span class="var-sym">&sigma;<sub>t</sub></span><span class="var-def">Realized volatility (rolling 1h window)</span>
+        <span class="var-sym">&phi;<sub>t</sub></span><span class="var-def">Net order flow imbalance</span>
+        <span class="var-sym">g</span><span class="var-def">Monotone increasing linking function</span>
+      </div>
+      <div class="result">
+        <div class="result-label">Key Result</div>
+        <p>Adaptive-spread LMSR reduces adverse selection costs by 34% compared to fixed-spread parameterization across 1,847 resolved contracts.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-marker">&sect;2</div>
+      <h2>Haven Selection &amp; Shadow Trading</h2>
+      <div class="sub">Systematic identification of persistent event-market mispricings</div>
+      <p>
+        A contract <em>C<sub>i</sub></em> is classified as a haven
+        when it satisfies the conjunction of four selection predicates.
+        The shadow-trading system executes against qualifying contracts
+        using a modified Kelly criterion:
+      </p>
+      <div class="equation">
+        <span class="eq-label">(2.1)</span>
+        f* = (p&#x0302; &minus; q) / 1, &ensp; subject to portfolio constraints
+      </div>
+      <div class="var-list">
+        <span class="var-sym">f*</span><span class="var-def">Optimal fraction of bankroll</span>
+        <span class="var-sym">p&#x0302;</span><span class="var-def">Estimated true probability</span>
+        <span class="var-sym">q</span><span class="var-def">Market-implied probability (1 &minus; p&#x0302;)</span>
+      </div>
+      <table class="q-table">
+        <thead><tr><th>Selection Predicate</th><th>Metric</th><th>Threshold</th></tr></thead>
+        <tbody>
+          <tr><td>Pricing efficiency</td><td>|p&#x0302; &minus; p<sub>mkt</sub>|</td><td class="num">&gt; 0.08</td></tr>
+          <tr><td>Liquidity depth</td><td>D<sub>5%</sub></td><td class="num">&gt; $5,000</td></tr>
+          <tr><td>Mean reversion</td><td>t<sub>&#xBD;</sub></td><td class="num">&lt; 72h</td></tr>
+          <tr><td>Correlation</td><td>|&beta;<sub>port</sub>|</td><td class="num">&lt; 0.30</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="section-marker">&sect;3</div>
+      <h2>Reliable Market Data Loggers</h2>
+      <div class="sub">Fault-tolerant infrastructure for continuous market data capture</div>
+      <p>
+        The empirical foundation for &sect;1 and &sect;2 requires
+        continuous, gap-free data across exchanges. This system
+        implements checkpoint-recovery semantics with write-ahead
+        logging and supervisor-managed heartbeats.
+      </p>
+      <table class="q-table">
+        <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Exchanges monitored</td><td class="num">3</td></tr>
+          <tr><td>Uptime (180 days)</td><td class="num">99.94%</td></tr>
+          <tr><td>Monthly storage</td><td class="num">~2.1 GB</td></tr>
+          <tr><td>Format</td><td>Parquet + Zstd</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <span>Prediction Market Research Portfolio</span>
+    <span>March 2026</span>
+  </footer>
+</div>
+
+<button id="theme-toggle" aria-label="Toggle theme">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  var stored = localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var initial = stored || (prefersDark ? 'dark' : 'parchment');
+  root.setAttribute('data-theme', initial);
+  toggle.addEventListener('click', function() {
+    var current = root.getAttribute('data-theme');
+    var next = current === 'dark' ? 'parchment' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+  window.addEventListener('message', function(event) {
+    var data = event && event.data;
+    var next = (data && (data.value || data.theme)) || null;
+    if (data && (data.type === 'theme' || data.theme || data.value) && (next === 'dark' || next === 'parchment')) {
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  });
+})();
+</script>
+</body>
+</html>

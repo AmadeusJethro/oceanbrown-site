@@ -1,0 +1,22 @@
+{
+  "thesis_map_version": "1.0",
+  "thesis_slug": "prediction-market-false-edge",
+  "central_thesis": "Most prediction-market edge claims collapse under leakage review, portability testing, and execution-realism analysis. The useful residual is not alpha but methodology: provenance infrastructure, cost-aware selection logic, and the demonstrated willingness to kill results that cannot survive review.",
+  "sections": [
+    {"id": "S1", "title": "Research Problem", "role": "framing"},
+    {"id": "S2", "title": "False Edge: What Failed Under Review", "role": "core finding"},
+    {"id": "S3", "title": "Why Portability Failed", "role": "core finding"},
+    {"id": "S4", "title": "What Survived After Edge Removal", "role": "core finding"},
+    {"id": "S5", "title": "Why Provenance and Matching Mattered", "role": "supporting finding"},
+    {"id": "S6", "title": "What This Page Does Not Claim", "role": "negative scope"},
+    {"id": "S7", "title": "Transfer to Adjacent Domains", "role": "light transferability"},
+    {"id": "S8", "title": "Source Basis and Limitations", "role": "source transparency"}
+  ],
+  "limitations": [
+    "No validated out-of-sample performance on any venue.",
+    "Kalshi portability study is category-biased.",
+    "Selection system had critical bugs and was never deployed.",
+    "Matching pipeline was not production-validated.",
+    "Page does not constitute investment advice or claims of alpha."
+  ]
+}

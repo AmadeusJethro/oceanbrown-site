@@ -1,0 +1,280 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - region "Official government website" [ref=e4]:
+      - generic [ref=e7]:
+        - img "U.S. flag" [ref=e8]
+        - paragraph [ref=e9]: An official website of the United States government
+        - button "Here’s how you know Arrow icon" [ref=e10] [cursor=pointer]:
+          - text: Here’s how you know
+          - img "Arrow icon" [ref=e11]: keyboard_arrow_down
+    - banner [ref=e12]:
+      - paragraph [ref=e13]:
+        - link "Jump to main content" [ref=e14] [cursor=pointer]:
+          - /url: "#main"
+      - generic [ref=e16]:
+        - link "USPTO - United States Patent and Trademark Office" [ref=e18] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e19]: USPTO - United States Patent and Trademark Office
+        - generic [ref=e20]:
+          - navigation "User account menu" [ref=e21]:
+            - heading "User account menu" [level=2] [ref=e22]
+            - list [ref=e23]:
+              - listitem [ref=e24]:
+                - link "About Us" [ref=e25] [cursor=pointer]:
+                  - /url: /about-us
+              - listitem [ref=e26]:
+                - link "Jobs" [ref=e27] [cursor=pointer]:
+                  - /url: /jobs/join-us
+              - listitem [ref=e28]:
+                - link "Contact Us" [ref=e29] [cursor=pointer]:
+                  - /url: /about-us/contact-us
+              - listitem [ref=e30]:
+                - link "MyUSPTO" [ref=e31] [cursor=pointer]:
+                  - /url: https://my.uspto.gov
+          - generic [ref=e34]:
+            - generic [ref=e35]: "Search:"
+            - searchbox "Search:" [ref=e36]
+            - button "Search" [ref=e37] [cursor=pointer]:
+              - img [ref=e38]
+              - generic [ref=e40]: Search
+      - navigation [ref=e42]:
+        - generic [ref=e43]:
+          - navigation "Main navigation" [ref=e45]:
+            - heading "Main navigation" [level=2] [ref=e46]
+            - menu [ref=e48]:
+              - menuitem "Patents" [ref=e49]:
+                - button "Patents" [ref=e50] [cursor=pointer]
+              - menuitem "Trademarks" [ref=e51]:
+                - button "Trademarks" [ref=e52] [cursor=pointer]
+              - menuitem "IP Policy" [ref=e53]:
+                - button "IP Policy" [ref=e54] [cursor=pointer]
+              - menuitem "Learning and Resources" [ref=e55]:
+                - button "Learning and Resources" [ref=e56] [cursor=pointer]
+          - generic [ref=e58]:
+            - generic [ref=e59] [cursor=pointer]:
+              - img [ref=e60]
+              - text: Find It Fast
+            - text: "| | | | | | | | | | | |"
+      - navigation "Breadcrumb" [ref=e67]:
+        - heading "Breadcrumb" [level=2] [ref=e68]
+        - list [ref=e69]:
+          - listitem [ref=e70]:
+            - link "Home" [ref=e71] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e72]:
+            - text: ">"
+            - link "IP Policy" [ref=e73] [cursor=pointer]:
+              - /url: /ip-policy
+          - listitem [ref=e74]: "> Trade secret policy"
+    - main [ref=e75]:
+      - main [ref=e78]:
+        - generic [ref=e79]:
+          - heading "Trade secret policy" [level=1] [ref=e81]
+          - article [ref=e83]:
+            - generic [ref=e84]:
+              - generic [ref=e85]:
+                - article [ref=e87]:
+                  - generic [ref=e88]:
+                    - generic [ref=e89]: Image
+                    - 'img "“IP Policy and International Affairs” on a teal abstract background with five icons: globe, shield with a checkmark, lock, lightbulb with a dollar sign, and classroom training." [ref=e91]'
+                - paragraph [ref=e92]: The USPTO provides policy leadership, advocacy, and technical expertise in the domestic and international protection of trade secrets. This includes regular representation of the U.S. government in bilateral and multilateral intellectual property (IP) and trade negotiations, including representation at the World Intellectual Property Organization (WIPO) and other international and domestic forums and frameworks.
+                - paragraph [ref=e93]: "A trade secret:"
+                - list [ref=e94]:
+                  - listitem [ref=e95]: Is information that has either actual or potential independent economic value by virtue of not being generally known
+                  - listitem [ref=e96]: Derives value from disclosure or use of the information by others who cannot ascertain the information through proper means
+                  - listitem [ref=e97]: Is subject to reasonable efforts to maintain such information secret
+                - paragraph [ref=e98]: All three of the listed elements are required. If any one of them ceases to exist, then the trade secret will also cease to exist. Otherwise, there is no limit on the amount of time a trade secret is protected.
+              - generic [ref=e99]:
+                - generic [ref=e100]:
+                  - heading "Title Introduction to trade secrets" [level=2] [ref=e102]:
+                    - generic [ref=e103]:
+                      - generic [ref=e104]: Title
+                      - generic [ref=e105]: Introduction to trade secrets
+                  - paragraph [ref=e107]: Watch this three-minute video to learn what trade secrets are and why they matter for your business.
+                  - list [ref=e109]:
+                    - listitem [ref=e110]:
+                      - text: ">"
+                      - 'link "Video: What are trade secrets?(link is external)" [ref=e111] [cursor=pointer]':
+                        - /url: https://www.youtube.com/watch?v=F_fNJeRnqUw
+                        - text: "Video: What are trade"
+                        - generic [ref=e112]:
+                          - text: secrets?
+                          - img "(link is external)" [ref=e113]
+                - generic [ref=e114]:
+                  - heading "Title Trade secrets versus patents" [level=2] [ref=e116]:
+                    - generic [ref=e117]:
+                      - generic [ref=e118]: Title
+                      - generic [ref=e119]: Trade secrets versus patents
+                  - paragraph [ref=e121]: Trade secret protection compliments patent protection. Learn about the benefits of both types of IP protection.
+                  - list [ref=e123]:
+                    - listitem [ref=e124]:
+                      - text: ">"
+                      - link "Read more about trade secrets versus patents" [ref=e125] [cursor=pointer]:
+                        - /url: /ip-policy/trade-secrets-additional-information-and-resources
+                - generic [ref=e126]:
+                  - heading "Title Protection of trade secrets" [level=2] [ref=e128]:
+                    - generic [ref=e129]:
+                      - generic [ref=e130]: Title
+                      - generic [ref=e131]: Protection of trade secrets
+                  - paragraph [ref=e133]: Read about key laws and judicial opinions that have shaped trade secret protection.
+                  - list [ref=e135]:
+                    - listitem [ref=e136]:
+                      - text: ">"
+                      - link "Economic Espionage Act of 1996" [ref=e137] [cursor=pointer]:
+                        - /url: /ip-policy/trade-secrets-additional-information-and-resources
+                    - listitem [ref=e138]:
+                      - text: ">"
+                      - link "Defend Trade Secrets Act of 2016" [ref=e139] [cursor=pointer]:
+                        - /url: /ip-policy/trade-secrets-additional-information-and-resources
+                - generic [ref=e140]:
+                  - heading "Title Trade secret resources" [level=2] [ref=e142]:
+                    - generic [ref=e143]:
+                      - generic [ref=e144]: Title
+                      - generic [ref=e145]: Trade secret resources
+                  - paragraph [ref=e147]: Access the resources below to learn more about trade secrets and trade secret protection.
+                  - list [ref=e149]:
+                    - listitem [ref=e150]:
+                      - text: ">"
+                      - 'link "USPTO publication: Trade Secrets Intellectual Property Toolkit (2023)" [ref=e151] [cursor=pointer]':
+                        - /url: /sites/default/files/documents/tradesecretsiptoolkit.pdf
+                    - listitem [ref=e152]:
+                      - text: ">"
+                      - 'link "World Intellectual Property Organization website: Trade Secrets(link is external)" [ref=e153] [cursor=pointer]':
+                        - /url: https://www.wipo.int/tradesecrets/en/
+                        - text: "World Intellectual Property Organization website: Trade"
+                        - generic [ref=e154]:
+                          - text: Secrets
+                          - img "(link is external)" [ref=e155]
+                    - listitem [ref=e156]:
+                      - text: ">"
+                      - 'link "Paper: The Defend Trade Secrets Act at Five: The Inevitable Disclosure Doctrine" [ref=e157] [cursor=pointer]':
+                        - /url: https://www.uspto.gov/sites/default/files/documents/USPTO-DefendTradeSecretsAct-atFive.pdf
+              - generic [ref=e158]:
+                - link "Opening Image of the Global Intellectual Property video covering Trade Secrets ONLINE LEARNING Watch a video on Trade Secrets" [ref=e161] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=F_fNJeRnqUw
+                  - generic [ref=e162]:
+                    - generic [ref=e163]:
+                      - img "Opening Image of the Global Intellectual Property video covering Trade Secrets" [ref=e164]
+                      - img [ref=e165]
+                    - paragraph [ref=e168]: ONLINE LEARNING
+                  - generic [ref=e170]: Watch a video on Trade Secrets
+                - link "An illustration of a combination lock on a desk drawer to secure information representing Trade Secrets intellectual property. Trade Secrets Toolkit Learn how to protect a trade secret" [ref=e173] [cursor=pointer]:
+                  - /url: https://www.uspto.gov/sites/default/files/documents/tradesecretsiptoolkit.pdf
+                  - generic [ref=e174]:
+                    - generic [ref=e175]:
+                      - img "An illustration of a combination lock on a desk drawer to secure information representing Trade Secrets intellectual property." [ref=e176]
+                      - img [ref=e177]
+                    - paragraph [ref=e180]: Trade Secrets Toolkit
+                  - generic [ref=e182]: Learn how to protect a trade secret
+                - link "Go for Real. Fakes Fail. National Crime prevention Council and the USPTO ANTI-COUNTERFEITING CAMPAIGN Learn about the risks of fake goods and services" [ref=e185] [cursor=pointer]:
+                  - /url: https://www.uspto.gov/ip-policy/enforcement-policy/anti-counterfeiting-campaign
+                  - generic [ref=e186]:
+                    - generic [ref=e187]:
+                      - img "Go for Real. Fakes Fail. National Crime prevention Council and the USPTO" [ref=e188]
+                      - img [ref=e189]
+                    - paragraph [ref=e192]: ANTI-COUNTERFEITING CAMPAIGN
+                  - generic [ref=e194]: Learn about the risks of fake goods and services
+    - generic [ref=e197]:
+      - group "Was this page helpful?" [ref=e282]:
+        - generic [ref=e283]: Was this page helpful?
+        - generic [ref=e284]:
+          - button "Thumbs Up" [ref=e285] [cursor=pointer]:
+            - img "Thumbs Up" [ref=e286]
+          - button "Thumbs Down" [ref=e289] [cursor=pointer]:
+            - img "Thumbs Down" [ref=e290]
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - button "Share Share this page" [ref=e201] [cursor=pointer]:
+            - img "Share" [ref=e202]: share
+            - text: Share this page
+          - link "print Print this page" [ref=e203] [cursor=pointer]:
+            - /url: ""
+            - img "print" [ref=e204]
+            - text: Print this page
+        - generic [ref=e205]:
+          - link "Additional information" [ref=e206] [cursor=pointer]:
+            - /url: ""
+          - text: about this page
+    - contentinfo [ref=e207]:
+      - generic [ref=e210]:
+        - generic [ref=e211]:
+          - paragraph [ref=e212]: Receive updates from the USPTO
+          - generic [ref=e214]:
+            - generic [ref=e215]: Enter your email to subscribe or update your preferences
+            - generic [ref=e216]:
+              - textbox "Enter your email to subscribe or update your preferences" [ref=e217]:
+                - /placeholder: your@email.com
+              - button "Subscribe" [ref=e218] [cursor=pointer]
+        - generic [ref=e219]:
+          - generic [ref=e220]:
+            - generic [ref=e221]:
+              - link "About the USPTO" [ref=e222] [cursor=pointer]:
+                - /url: https://www.uspto.gov/about-us
+              - text: •
+            - generic [ref=e223]:
+              - link "Search for patents" [ref=e224] [cursor=pointer]:
+                - /url: https://www.uspto.gov/patents/search
+              - text: •
+            - link "Search for trademarks" [ref=e226] [cursor=pointer]:
+              - /url: https://www.uspto.gov/trademarks/search
+          - generic [ref=e227]:
+            - generic [ref=e228]:
+              - link "US Department of Commerce" [ref=e230] [cursor=pointer]:
+                - /url: https://www.commerce.gov
+              - link "Accessibility" [ref=e232] [cursor=pointer]:
+                - /url: https://www.uspto.gov/using-usptogov/accessibility-uspto-website
+              - link "Privacy Policy" [ref=e234] [cursor=pointer]:
+                - /url: https://www.uspto.gov/privacy-policy
+              - link "Terms of Use" [ref=e236] [cursor=pointer]:
+                - /url: https://www.uspto.gov/terms-use-uspto-websites
+              - link "Financial and Performance Data" [ref=e238] [cursor=pointer]:
+                - /url: https://www.uspto.gov/about-us/financial-and-performance
+            - generic [ref=e239]:
+              - link "Vulnerability Disclosure Policy" [ref=e241] [cursor=pointer]:
+                - /url: https://www.uspto.gov/about-us/security/vulnerability-disclosure-policy
+              - link "Freedom of Information Act" [ref=e243] [cursor=pointer]:
+                - /url: https://www.uspto.gov/learning-and-resources/ip-policy/electronic-freedom-information-act-e-foia
+              - link "Inspector General" [ref=e245] [cursor=pointer]:
+                - /url: https://www.oig.doc.gov/about/oversight-areas/u-s-patent-and-trademark-office-pto/
+              - link "NoFEAR Act" [ref=e247] [cursor=pointer]:
+                - /url: https://www.uspto.gov/about-us/nofear-act
+              - link "USA.gov" [ref=e249] [cursor=pointer]:
+                - /url: https://www.usa.gov
+      - generic [ref=e252]:
+        - link "United States Patent and Trademark Office - An Agency of the Department of Commerce USPTO - United States Patent and Trademark Office" [ref=e254] [cursor=pointer]:
+          - /url: https://www.uspto.gov
+          - img "United States Patent and Trademark Office - An Agency of the Department of Commerce" [ref=e255]
+          - generic [ref=e256]: USPTO - United States Patent and Trademark Office
+        - generic [ref=e257]:
+          - generic [ref=e258]: Follow us
+          - generic [ref=e259]:
+            - link "Facebook USPTO Facebook page" [ref=e260] [cursor=pointer]:
+              - /url: https://www.facebook.com/uspto.gov
+              - img "Facebook" [ref=e261]
+              - generic [ref=e262]: USPTO Facebook page
+            - link "Instagram USPTO Instagram page" [ref=e263] [cursor=pointer]:
+              - /url: https://www.instagram.com/uspto
+              - img "Instagram" [ref=e264]
+              - generic [ref=e265]:
+                - text: USPTO Instagram
+                - generic [ref=e266]: page
+            - link "Linkedin USPTO Linkedin page" [ref=e267] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/uspto
+              - img "Linkedin" [ref=e268]
+              - generic [ref=e269]:
+                - text: USPTO Linkedin
+                - generic [ref=e270]: page
+            - link "X USPTO X page" [ref=e271] [cursor=pointer]:
+              - /url: https://x.com/uspto
+              - img "X" [ref=e272]
+              - generic [ref=e273]:
+                - text: USPTO X
+                - generic [ref=e274]: page
+            - link "Youtube USPTO Youtube page" [ref=e275] [cursor=pointer]:
+              - /url: https://www.youtube.com/user/USPTOvideo
+              - img "Youtube" [ref=e276]
+              - generic [ref=e277]:
+                - text: USPTO Youtube
+                - generic [ref=e278]: page

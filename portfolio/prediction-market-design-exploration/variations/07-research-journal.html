@@ -1,0 +1,299 @@
+<!-- Variation 7: "Research Journal" | Group: project-original | Aesthetic: Nature/Science journal two-column layout with structured abstract, figure captions, and reference list -->
+<!DOCTYPE html>
+<html lang="en" data-theme="parchment">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Market Research Portfolio — Journal</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --base: 0.95rem; --leading: 1.55; --measure: 38ch; }
+[data-theme="parchment"] {
+  --bg: #fafafa; --surface: #f0f0f0; --text: #222; --muted: #666;
+  --accent: #1a5276; --rule: #ddd; --abstract-bg: #f0f4f8;
+}
+[data-theme="dark"] {
+  --bg: #141820; --surface: #1c222e; --text: #dde0e6; --muted: #8890a0;
+  --accent: #6aa4d0; --rule: #2a3040; --abstract-bg: #1a2030;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: var(--base); line-height: var(--leading);
+  color: var(--text); background: var(--bg);
+  transition: background 0.3s, color 0.3s;
+}
+h1, h2, h3, .sans { font-family: 'Source Sans 3', sans-serif; }
+a { color: var(--accent); text-decoration-thickness: 1px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.page { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+/* Journal header */
+.journal-header {
+  padding: 2rem 0; border-bottom: 3px solid var(--text);
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: 'Source Sans 3', sans-serif; font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted);
+}
+
+/* Article header */
+.article-header {
+  padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--rule);
+}
+.article-header h1 {
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem); font-weight: 700;
+  line-height: 1.15; max-width: 28ch;
+}
+.article-header .byline {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: calc(var(--base) * 0.9); color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+/* Structured abstract */
+.abstract-box {
+  background: var(--abstract-bg); padding: 1.5rem;
+  margin: 1.5rem 0; font-size: calc(var(--base) * 0.9);
+}
+.abstract-box h2 {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 0.75rem; color: var(--accent);
+}
+.abstract-box .abs-section { margin-bottom: 0.75rem; }
+.abstract-box .abs-label {
+  font-family: 'Source Sans 3', sans-serif; font-weight: 600;
+  color: var(--accent); font-size: 0.78rem;
+}
+
+/* Two-column body */
+.two-col {
+  column-count: 2; column-gap: 2.5rem; column-rule: 1px solid var(--rule);
+  padding: 1.5rem 0;
+}
+.two-col p { max-width: none; margin-bottom: 1rem; text-align: justify; hyphens: auto; }
+.two-col h2 {
+  font-size: calc(var(--base) * 1.15); font-weight: 700;
+  margin: 1.5rem 0 0.5rem; column-span: none;
+  text-transform: uppercase; letter-spacing: 0.03em;
+}
+.two-col h3 {
+  font-size: var(--base); font-weight: 600; margin: 1rem 0 0.4rem;
+}
+
+/* Figure */
+.figure {
+  break-inside: avoid; margin: 1.25rem 0;
+  padding: 1rem; background: var(--surface); border: 1px solid var(--rule);
+}
+.figure-content {
+  font-family: 'Source Sans 3', monospace; font-size: 0.82rem;
+  line-height: 1.5; color: var(--muted); white-space: pre-line;
+}
+.figure-caption {
+  font-size: 0.8rem; margin-top: 0.75rem; color: var(--muted);
+}
+.figure-caption strong { color: var(--text); font-weight: 600; }
+
+/* Table */
+.journal-table {
+  width: 100%; border-collapse: collapse; margin: 1rem 0;
+  font-size: calc(var(--base) * 0.85); break-inside: avoid;
+}
+.journal-table th, .journal-table td {
+  text-align: left; padding: 0.35rem 0.5rem 0.35rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.journal-table th {
+  font-family: 'Source Sans 3', sans-serif; font-weight: 600;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em;
+}
+
+/* References */
+.references {
+  padding: 1.5rem 0; border-top: 2px solid var(--text);
+  font-size: calc(var(--base) * 0.82); color: var(--muted);
+}
+.references h2 {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 0.75rem; color: var(--text);
+}
+.references ol { padding-left: 1.5rem; }
+.references li { margin-bottom: 0.35rem; }
+
+footer {
+  padding: 1.5rem 0; color: var(--muted);
+  font-family: 'Source Sans 3', sans-serif; font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between;
+}
+
+#theme-toggle {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--rule); background: var(--surface);
+  color: var(--text); cursor: pointer; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+}
+#theme-toggle:hover { border-color: var(--accent); }
+#theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 768px) {
+  .two-col { column-count: 1; }
+  .page { padding: 0 1.25rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="journal-header">
+    <span>Research Portfolio</span>
+    <span>March 2026</span>
+  </div>
+
+  <header class="article-header">
+    <h1>Systems, Microstructure, and Execution Research in Event Markets</h1>
+    <div class="byline">Prediction Market Research Portfolio &mdash; Three Projects</div>
+  </header>
+
+  <div class="abstract-box">
+    <h2>Abstract</h2>
+    <div class="abs-section">
+      <span class="abs-label">Background.</span>
+      Prediction markets promise efficient belief aggregation but their
+      microstructure, execution, and data infrastructure remain
+      under-studied relative to traditional financial markets.
+    </div>
+    <div class="abs-section">
+      <span class="abs-label">Methods.</span>
+      Three projects: (I) comparative analysis of LMSR vs CLOB market
+      structures using simulation and empirical orderbook data; (II)
+      systematic haven selection and shadow-trading framework; (III)
+      fault-tolerant multi-exchange data logging infrastructure.
+    </div>
+    <div class="abs-section">
+      <span class="abs-label">Results.</span>
+      Adaptive-spread LMSR reduces adverse selection by 34%. Haven
+      selection system is operational. Data loggers achieve 99.94%
+      uptime across three exchanges over 180 days.
+    </div>
+  </div>
+
+  <main class="two-col">
+    <h2>I. Market Design &amp; Liquidity</h2>
+    <p>
+      This project compares logarithmic market scoring rules against
+      continuous limit order books under varying liquidity conditions
+      in prediction markets. The central research question: how should
+      automated market makers be parameterized to minimize adverse
+      selection while maintaining sufficient liquidity for price
+      discovery in binary event contracts?
+    </p>
+    <p>
+      Empirical analysis of synchronized orderbook data from Polymarket
+      and Kalshi reveals that cost-function market makers exhibit
+      superior price stability in thin markets but incur substantially
+      higher inventory costs during rapid information arrival.
+    </p>
+    <div class="figure">
+      <div class="figure-content">LMSR vs CLOB: Price Impact
+&#x250C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+&#x2502; LMSR  &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2593;  0.34  &#x2502;
+&#x2502; CLOB  &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;  0.52  &#x2502;
+&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+      Adverse selection cost index</div>
+      <div class="figure-caption"><strong>Fig. 1.</strong> Normalized adverse selection cost comparison between adaptive-spread LMSR and continuous limit order book across 1,847 resolved contracts.</div>
+    </div>
+    <p>
+      A liquidity-sensitive fee structure adapts bid-ask spreads
+      dynamically based on realized volatility and order flow
+      imbalance, achieving a 34% reduction in adverse selection
+      relative to fixed-spread parameterization.
+    </p>
+
+    <h2>II. Haven Selection</h2>
+    <p>
+      Haven selection identifies prediction market contracts where
+      prices persistently deviate from fair value. The shadow-trading
+      system executes against these mispricings using a relative-value
+      framework with modified Kelly sizing.
+    </p>
+    <table class="journal-table">
+      <thead><tr><th>Dimension</th><th>Threshold</th></tr></thead>
+      <tbody>
+        <tr><td>Model deviation</td><td>&gt; 8%</td></tr>
+        <tr><td>Notional depth</td><td>&gt; $5,000</td></tr>
+        <tr><td>Mean-reversion t&#xBD;</td><td>&lt; 72h</td></tr>
+        <tr><td>Portfolio beta</td><td>&lt; 0.3</td></tr>
+      </tbody>
+    </table>
+    <div class="figure-caption" style="margin-top:-0.5rem;margin-bottom:1rem;"><strong>Table 1.</strong> Four-dimensional selection criteria for haven classification.</div>
+    <p>
+      The system is implemented as a Python async pipeline with
+      PostgreSQL state management, Redis caching, and
+      exchange-specific API adapters for execution.
+    </p>
+
+    <h2>III. Data Loggers</h2>
+    <p>
+      Fault-tolerant logging infrastructure captures continuous
+      prediction market data across Polymarket, Kalshi, and
+      Metaculus. Checkpoint-recovery architecture ensures gap-free
+      data continuity with 99.94% uptime over 180 days.
+    </p>
+    <p>
+      Each logger maintains a write-ahead log, persists to Parquet
+      with Zstandard compression (~2.1 GB/month), and reports
+      heartbeats to a supervisor process that manages restart and
+      REST-based backfill on failure.
+    </p>
+  </main>
+
+  <section class="references">
+    <h2>Key References</h2>
+    <ol>
+      <li>Hanson, R. (2003). Combinatorial Information Market Design. <em>Information Systems Frontiers</em>, 5(1).</li>
+      <li>Chen, Y. &amp; Pennock, D. (2007). A Utility Framework for Bounded-Loss Market Makers. <em>UAI</em>.</li>
+      <li>Othman, A. et al. (2013). A Practical Liquidity-Sensitive Automated Market Maker. <em>ACM EC</em>.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>Prediction Market Research</span>
+    <span>Portfolio 2026</span>
+  </footer>
+</div>
+
+<button id="theme-toggle" aria-label="Toggle theme">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  var stored = localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var initial = stored || (prefersDark ? 'dark' : 'parchment');
+  root.setAttribute('data-theme', initial);
+  toggle.addEventListener('click', function() {
+    var current = root.getAttribute('data-theme');
+    var next = current === 'dark' ? 'parchment' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+  window.addEventListener('message', function(event) {
+    var data = event && event.data;
+    var next = (data && (data.value || data.theme)) || null;
+    if (data && (data.type === 'theme' || data.theme || data.value) && (next === 'dark' || next === 'parchment')) {
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  });
+})();
+</script>
+</body>
+</html>

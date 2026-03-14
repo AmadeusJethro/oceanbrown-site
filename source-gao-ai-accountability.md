@@ -1,0 +1,354 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - emphasis [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - img "Home" [ref=e9]
+          - paragraph [ref=e11]: U.S. Government Accountability Office
+      - navigation [ref=e12]:
+        - generic [ref=e13]:
+          - list [ref=e14]:
+            - listitem [ref=e15]:
+              - button "Reports & Testimonies" [ref=e16] [cursor=pointer]
+            - listitem [ref=e17]:
+              - link "View Topics" [ref=e18] [cursor=pointer]:
+                - /url: /topics
+            - listitem [ref=e19]:
+              - link "View Agencies" [ref=e20] [cursor=pointer]:
+                - /url: /agencies
+            - listitem [ref=e21]:
+              - button "Bid Protests & Appropriations Law" [ref=e22] [cursor=pointer]
+            - listitem [ref=e23]:
+              - button "About" [ref=e24] [cursor=pointer]
+          - generic [ref=e25]:
+            - list [ref=e26]:
+              - listitem [ref=e27]:
+                - link "For Congress" [ref=e28] [cursor=pointer]:
+                  - /url: /for-congress
+              - listitem [ref=e29]:
+                - text: "|"
+                - link "Press Center" [ref=e30] [cursor=pointer]:
+                  - /url: /press-center
+              - listitem [ref=e31]:
+                - text: "|"
+                - link "Careers" [ref=e32] [cursor=pointer]:
+                  - /url: /about/careers
+              - listitem [ref=e33]:
+                - text: "|"
+                - link "Blog" [ref=e34] [cursor=pointer]:
+                  - /url: /blog
+            - generic [ref=e35]:
+              - region "Search component":
+                - search [ref=e36]:
+                  - searchbox "Search" [ref=e37]
+                  - button "Search" [ref=e38] [cursor=pointer]:
+                    - img "Search" [ref=e39]
+    - generic [ref=e40]:
+      - navigation "Breadcrumb" [ref=e44]:
+        - heading "Breadcrumb" [level=2] [ref=e45]
+        - list [ref=e46]:
+          - listitem [ref=e47]:
+            - link "Home" [ref=e48] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e49]:
+            - link "Reports & Testimonies" [ref=e50] [cursor=pointer]:
+              - /url: /reports-testimonies
+          - listitem [ref=e51]: "Artificial Intelligence: An Accountability Framework For Federal Agencies and Other Entities"
+      - generic [ref=e52]:
+        - banner [ref=e53]:
+          - 'heading "Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities" [level=1] [ref=e61]':
+            - text: "Artificial Intelligence:"
+            - generic [ref=e62]: An Accountability Framework for Federal Agencies and Other Entities
+        - main [ref=e63]:
+          - generic [ref=e65]:
+            - generic [ref=e66]:
+              - generic [ref=e69]:
+                - generic [ref=e71]:
+                  - strong [ref=e73]: GAO-21-519SP
+                  - generic [ref=e74]: "Published: Jun 30, 2021. Publicly Released: Jun 30, 2021."
+                - list [ref=e76]:
+                  - listitem [ref=e77]:
+                    - link "Facebook" [ref=e78] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=e80]:
+                    - link "X" [ref=e81] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=e83]:
+                    - link "LinkedIn" [ref=e84] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=e86]:
+                    - link "Bluesky" [ref=e87] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=e89]:
+                    - link "Threads" [ref=e90] [cursor=pointer]:
+                      - /url: "#"
+                  - listitem [ref=e92]:
+                    - link "Send email" [ref=e93] [cursor=pointer]:
+                      - /url: "#"
+                - generic [ref=e95]:
+                  - text: 
+                  - navigation "Jump To" [ref=e96]:
+                    - generic [ref=e97]: Jump To
+                    - list [ref=e98]:
+                      - listitem [ref=e99]:
+                        - link "Highlights" [ref=e102] [cursor=pointer]:
+                          - /url: ""
+                      - listitem [ref=e103]:
+                        - link "Full Report" [ref=e106] [cursor=pointer]:
+                          - /url: ""
+                      - listitem [ref=e107]:
+                        - link "GAO Contacts" [ref=e110] [cursor=pointer]:
+                          - /url: ""
+              - article [ref=e112]:
+                - generic [ref=e113]:
+                  - generic [ref=e114]:
+                    - heading "Fast Facts" [level=2] [ref=e115]
+                    - generic [ref=e116]:
+                      - paragraph [ref=e117]: As a nation, we have yet to grasp the full benefits or unwanted effects of artificial intelligence. AI is widely used, but how do we know it's working appropriately?
+                      - paragraph [ref=e118]: This report identifies key accountability practices—centered around the principles of governance, data, performance, and monitoring—to help federal agencies and others use AI responsibly. For example, the governance principle calls for users to set clear goals and engage with diverse stakeholders.
+                      - paragraph [ref=e119]: To develop these practices, we held a forum on AI oversight with experts from government, industry, and nonprofits. We also interviewed federal inspector general officials and AI experts.
+                      - paragraph [ref=e120]:
+                        - img "A graphic showing the capitol building and a representation of artificial intelligence" [ref=e121]
+                  - generic [ref=e122]:
+                    - heading "Highlights" [level=2] [ref=e123]
+                    - generic [ref=e124]:
+                      - heading "What GAO Found" [level=2] [ref=e125]
+                      - paragraph [ref=e126]: To help managers ensure accountability and responsible use of artificial intelligence (AI) in government programs and processes, GAO developed an AI accountability framework. This framework is organized around four complementary principles, which address governance, data, performance, and monitoring. For each principle, the framework describes key practices for federal agencies and other entities that are considering, selecting, and implementing AI systems. Each practice includes a set of questions for entities, auditors, and third-party assessors to consider, as well as procedures for auditors and third- party assessors.
+                      - heading "Why GAO Developed This Framework" [level=2] [ref=e127]
+                      - paragraph [ref=e128]: AI is a transformative technology with applications in medicine, agriculture, manufacturing, transportation, defense, and many other areas. It also holds substantial promise for improving government operations. Federal guidance has focused on ensuring AI is responsible, equitable, traceable, reliable, and governable. Third-party assessments and audits are important to achieving these goals. However, AI systems pose unique challenges to such oversight because their inputs and operations are not always visible.
+                      - paragraph [ref=e129]: GAO's objective was to identify key practices to help ensure accountability and responsible AI use by federal agencies and other entities involved in the design, development, deployment, and continuous monitoring of AI systems. To develop this framework, GAO convened a Comptroller General Forum with AI experts from across the federal government, industry, and nonprofit sectors. It also conducted an extensive literature review and obtained independent validation of key practices from program officials and subject matter experts. In addition, GAO interviewed AI subject matter experts representing industry, state audit associations, nonprofit entities, and other organizations, as well as officials from federal agencies and Offices of Inspector General.
+                      - paragraph [ref=e130]:
+                        - strong [ref=e133]: Artificial Intelligence (AI) Accountability Framework
+                      - paragraph [ref=e134]
+                      - paragraph [ref=e135]:
+                        - text: For more information, contact Taka Ariga at (202) 512-6888 or
+                        - link "ArigaT@gao.gov" [ref=e136] [cursor=pointer]:
+                          - /url: mailto:ArigaT@gao.gov
+                        - text: .
+                  - generic [ref=e137]:
+                    - heading "Full Report" [level=2] [ref=e138]
+                    - generic [ref=e140]:
+                      - figure [ref=e142]:
+                        - link "Highlights Page (1 page)" [ref=e143] [cursor=pointer]:
+                          - /url: /assets/gao-21-519sp-highlights.pdf
+                          - generic [ref=e144]: Highlights Page (1 page)
+                      - figure [ref=e146]:
+                        - link "Full Report (112 pages)" [ref=e147] [cursor=pointer]:
+                          - /url: /assets/gao-21-519sp.pdf
+                          - generic [ref=e148]: Full Report (112 pages)
+                      - figure [ref=e150]:
+                        - link "Accessible PDF (112 pages)" [ref=e151] [cursor=pointer]:
+                          - /url: /assets/720/716110.pdf
+                          - generic [ref=e152]: Accessible PDF (112 pages)
+              - generic [ref=e153]:
+                - heading "GAO Contacts" [level=2] [ref=e154]
+                - generic [ref=e157]:
+                  - article [ref=e159]:
+                    - generic [ref=e161]:
+                      - heading [level=3]
+                      - text: Taka Ariga
+                      - generic [ref=e162]: Former Chief Data Scientist and Director of the Innovation Lab, Science, Technology Assessment, and Analytics
+                      - link " arigat@gao.gov" [ref=e165] [cursor=pointer]:
+                        - /url: mailto:arigat@gao.gov
+                  - article [ref=e167]:
+                    - generic [ref=e169]:
+                      - heading [level=3]
+                      - text: Stephen Sanford
+                      - generic [ref=e170]: Managing Director
+                      - text: Strategic Planning and External Liaison
+                      - link " sanfords@gao.gov" [ref=e172] [cursor=pointer]:
+                        - /url: mailto:sanfords@gao.gov
+              - generic [ref=e174]:
+                - article [ref=e176]:
+                  - generic [ref=e178]:
+                    - heading "Media Inquiries" [level=3] [ref=e179]:
+                      - generic [ref=e180]: Media Inquiries
+                    - text: Sarah Kaczmarek
+                    - generic [ref=e181]: Managing Director
+                    - text: Office of Public Affairs
+                    - link " media@gao.gov" [ref=e183] [cursor=pointer]:
+                      - /url: mailto:media@gao.gov
+                - heading "Public Inquiries" [level=3] [ref=e184]
+                - link "Contact Us" [ref=e186] [cursor=pointer]:
+                  - /url: /about/contact-us
+                  - text: Contact Us
+              - generic [ref=e188]:
+                - heading "Topics" [level=2] [ref=e189]
+                - generic [ref=e192]:
+                  - link "Government Operations" [ref=e195] [cursor=pointer]:
+                    - /url: /topics/government-operations
+                  - generic [ref=e197]:
+                    - generic [ref=e198]: Agency evaluations
+                    - generic [ref=e199]: Artificial intelligence
+                    - generic [ref=e200]: Auditors
+                    - generic [ref=e201]: Best practices
+                    - generic [ref=e202]: Compliance oversight
+                    - generic [ref=e203]: Data reliability
+                    - generic [ref=e204]: Engineers
+                    - generic [ref=e205]: Federal agencies
+                    - generic [ref=e206]: Foreign governments
+                    - generic [ref=e207]: Government auditing standards
+                    - generic [ref=e208]: Health care
+                    - generic [ref=e209]: Health care standards
+                    - generic [ref=e210]: Information security
+                    - generic [ref=e211]: Internal controls
+                    - generic [ref=e212]: Laws and regulations
+                    - generic [ref=e213]: National security
+                    - generic [ref=e214]: Privacy
+                    - generic [ref=e215]: Risk management
+                    - generic [ref=e216]: Scientists
+                    - generic [ref=e217]: Software
+                    - generic [ref=e218]: Accountability
+            - complementary [ref=e220]:
+              - heading "Multimedia" [level=2] [ref=e222]
+              - generic [ref=e223]:
+                - generic [ref=e224]:
+                  - heading "Video" [level=2] [ref=e225]
+                  - figure [ref=e231]:
+                    - generic [ref=e233]:
+                      - iframe [ref=e236]:
+                        - iframe [ref=f5e1]:
+                          - generic "YouTube Video Player" [ref=f6e3]:
+                            - generic [ref=f6e5]:
+                              - link "Photo image of U.S. Government Accountability Office (GAO)" [ref=f6e8] [cursor=pointer]:
+                                - /url: https://www.youtube.com/channel/UCmq2pG9uYmTvqaN5QIfZeyw?embeds_referring_euri=https%3A%2F%2Fwww.gao.gov%2F
+                              - 'link "GAO: Oversight of federal Artificial Intelligence (AI) systems" [ref=f6e11] [cursor=pointer]':
+                                - /url: https://www.youtube.com/watch?v=AykU9IqzUYE
+                              - button "More" [ref=f6e13] [cursor=pointer]:
+                                - generic [ref=f6e14]:
+                                  - img
+                            - button "Play" [ref=f6e17] [cursor=pointer]:
+                              - img
+                      - generic [ref=e238]:
+                        - 'heading "GAO: Oversight of federal Artificial Intelligence (AI) systems" [level=5] [ref=e239]':
+                          - 'link "GAO: Oversight of federal Artificial Intelligence (AI) systems" [ref=e240] [cursor=pointer]':
+                            - /url: /video/gao-oversight-federal-artificial-intelligence-ai-systems
+                        - time [ref=e242]: Wednesday, June 30, 2021
+                        - link "Transcript" [ref=e246] [cursor=pointer]:
+                          - /url: /assets/720/715341.txt
+                - generic [ref=e249]:
+                  - article "Our New Framework for Artificial Intelligence (video)" [ref=e251]:
+                    - link "Blog Post Our New Framework for Artificial Intelligence (video) Wednesday, July 21, 2021 Artificial intelligence (AI) is a transformative technology with enormous potential for good. It is..." [ref=e253] [cursor=pointer]:
+                      - /url: /blog/our-new-framework-artificial-intelligence-video
+                      - generic [ref=e254]:
+                        - figure [ref=e257]:
+                          - img "Artificial Intelligence graphical illustration" [ref=e260]
+                        - generic [ref=e261]:
+                          - generic [ref=e262]:
+                            - text: Blog Post
+                            - heading "Our New Framework for Artificial Intelligence (video)" [level=3] [ref=e263]
+                          - generic [ref=e264]:
+                            - time [ref=e266]: Wednesday, July 21, 2021
+                            - generic [ref=e267]: Artificial intelligence (AI) is a transformative technology with enormous potential for good. It is...
+                  - article "Artificial Intelligence’s Use and Rapid Growth Highlight Its Possibilities and Perils" [ref=e269]:
+                    - link "Blog Post Artificial Intelligence’s Use and Rapid Growth Highlight Its Possibilities and Perils Wednesday, September 6, 2023 The rise of artificial intelligence has created growing excitement and much debate about its..." [ref=e271] [cursor=pointer]:
+                      - /url: /blog/artificial-intelligences-use-and-rapid-growth-highlight-its-possibilities-and-perils
+                      - generic [ref=e272]:
+                        - figure [ref=e275]:
+                          - img "Graphic illustrating Artificial Intelligence--a persons hands are typing on a keyboard. Above that image are small icons for different applications. The center one says AI." [ref=e278]
+                        - generic [ref=e279]:
+                          - generic [ref=e280]:
+                            - text: Blog Post
+                            - heading "Artificial Intelligence’s Use and Rapid Growth Highlight Its Possibilities and Perils" [level=3] [ref=e281]
+                          - generic [ref=e282]:
+                            - time [ref=e284]: Wednesday, September 6, 2023
+                            - generic [ref=e285]: The rise of artificial intelligence has created growing excitement and much debate about its...
+    - contentinfo [ref=e286]:
+      - generic [ref=e291]:
+        - heading "Receive GAO Updates" [level=2] [ref=e292]
+        - paragraph [ref=e293]: Stay informed as we add new reports & testimonies.
+        - generic [ref=e295]:
+          - textbox "Enter Your Email Address" [ref=e296]
+          - button "Subscribe" [ref=e297] [cursor=pointer]
+      - generic [ref=e298]:
+        - generic [ref=e300]:
+          - generic [ref=e301]:
+            - link "Home" [ref=e302] [cursor=pointer]:
+              - /url: /
+              - img "GAO Logo" [ref=e304]
+              - generic [ref=e305]: U.S. Government Accountability Office
+            - generic [ref=e306]:
+              - link "Facebook Icon" [ref=e308] [cursor=pointer]:
+                - /url: https://www.facebook.com/usgao/
+                - img "Facebook Icon" [ref=e309]
+              - link "X icon" [ref=e311] [cursor=pointer]:
+                - /url: https://x.com/usgao
+                - img "X icon" [ref=e312]
+              - link "LinkedIn icon" [ref=e314] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/us-government
+                - img "LinkedIn icon" [ref=e315]
+              - link "bluesky icon" [ref=e317] [cursor=pointer]:
+                - /url: https://bsky.app/profile/gao.gov
+                - img "bluesky icon" [ref=e318]
+              - link "threads icon" [ref=e320] [cursor=pointer]:
+                - /url: https://www.threads.com/@usgao
+                - img "threads icon" [ref=e321]
+              - link "Instagram icon" [ref=e323] [cursor=pointer]:
+                - /url: https://www.instagram.com/usgao/
+                - img "Instagram icon" [ref=e324]
+              - link "YouTube icon" [ref=e326] [cursor=pointer]:
+                - /url: https://www.youtube.com/usgao
+                - img "YouTube icon" [ref=e327]
+              - link "Flicker icon" [ref=e329] [cursor=pointer]:
+                - /url: https://www.flickr.com/photos/usgao
+                - img "Flicker icon" [ref=e330]
+              - link "Blog icon" [ref=e332] [cursor=pointer]:
+                - /url: /blog
+                - img "Blog icon" [ref=e333]
+              - link "Podcast icon" [ref=e335] [cursor=pointer]:
+                - /url: /podcast
+                - img "Podcast icon" [ref=e336]
+              - link "RSS icon" [ref=e338] [cursor=pointer]:
+                - /url: /about/contact-us/stay-connected
+                - img "RSS icon" [ref=e339]
+              - link "GovDelivery icon" [ref=e341] [cursor=pointer]:
+                - /url: https://public.govdelivery.com/accounts/USGAO/subscriber/new?preferences=true
+                - img "GovDelivery icon" [ref=e342]
+          - list [ref=e345]:
+            - listitem [ref=e346]:
+              - list [ref=e347]:
+                - listitem [ref=e348]:
+                  - link "Press Center" [ref=e349] [cursor=pointer]:
+                    - /url: /press-center
+                - listitem [ref=e350]:
+                  - link "Contact Us" [ref=e351] [cursor=pointer]:
+                    - /url: /about/contact-us
+                - listitem [ref=e352]:
+                  - link "Inspector General" [ref=e353] [cursor=pointer]:
+                    - /url: /ig
+                - listitem [ref=e354]:
+                  - link "Restricted Reports" [ref=e355] [cursor=pointer]:
+                    - /url: /reports-testimonies/restricted
+            - listitem [ref=e356]:
+              - list [ref=e357]:
+                - listitem [ref=e358]:
+                  - link "Copyright & Terms of Use" [ref=e359] [cursor=pointer]:
+                    - /url: /copyright
+                - listitem [ref=e360]:
+                  - link "Privacy Policy" [ref=e361] [cursor=pointer]:
+                    - /url: /privacy-policy
+                - listitem [ref=e362]:
+                  - link "Accessibility" [ref=e363] [cursor=pointer]:
+                    - /url: /accessibility
+                - listitem [ref=e364]:
+                  - link "Sitemap" [ref=e365] [cursor=pointer]:
+                    - /url: /sitemap
+            - listitem [ref=e366]:
+              - list [ref=e367]:
+                - listitem [ref=e368]:
+                  - link "FOIA Requests" [ref=e369] [cursor=pointer]:
+                    - /url: /foia-requests
+                - listitem [ref=e370]:
+                  - link "Scam Alerts" [ref=e371] [cursor=pointer]:
+                    - /url: /scam-alerts
+                - listitem [ref=e372]:
+                  - link "No FEAR Act Data" [ref=e373] [cursor=pointer]:
+                    - /url: /no-fear-act-data
+                - listitem [ref=e374]:
+                  - link "Health Care Advisory Committees" [ref=e375] [cursor=pointer]:
+                    - /url: /about/what-gao-does/hcac
+        - generic [ref=e376]: v4.1.8
+  - navigation "Back to top"

@@ -1,0 +1,28 @@
+{
+  "operation": "produce",
+  "mode": "hybrid",
+  "thesis_slug": "prediction-market-false-edge",
+  "title": "False Edge in Prediction Markets: Portability Lessons from Polymarket and Kalshi",
+  "question": "What survives public scrutiny when prediction-market edge claims are forced through leakage review, venue portability, and execution realism?",
+  "audience": "Potential employers in quant, energy trading, market operations, and research-oriented software roles",
+  "repo_roots": [
+    "C:/Users/obrown/Documents/Projects/potato",
+    "C:/Users/obrown/Documents/Projects/potato2/portfolio-audit"
+  ],
+  "requested_outputs": ["main.qmd", "evidence-pack.json"],
+  "hard_constraints": {
+    "excluded_projects": ["weather-market-edge"],
+    "blocked_positive_claims": ["polymarket-trader"],
+    "blocked_numbers": ["$1K -> $877,974", "+31% edge"],
+    "no_results_section": true,
+    "no_repo_summary": true,
+    "ai_attribution_policy": "do not foreground"
+  },
+  "evidence_policy": {
+    "polymarket-trader": "failure/invalidation only",
+    "kalshi-research": "portability failure and data limitations only",
+    "kalshi-favorites-selector": "methods/system design and explicit no-trading scope only",
+    "prediction-market-logger": "provenance/matching/cost-control only",
+    "style_seeds": "never factual evidence"
+  }
+}

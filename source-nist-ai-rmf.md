@@ -1,0 +1,336 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - region "Official website of the United States government" [ref=e4]:
+      - generic [ref=e7]:
+        - img "U.S. flag" [ref=e9]
+        - paragraph [ref=e11]: An official website of the United States government
+        - button "Here’s how you know" [ref=e12] [cursor=pointer]
+    - banner [ref=e14]:
+      - generic [ref=e16]:
+        - link "Home" [ref=e18] [cursor=pointer]:
+          - /url: /
+          - img "National Institute of Standards and Technology" [ref=e19]
+        - generic [ref=e20]:
+          - search [ref=e23]:
+            - generic [ref=e24]: Search NIST
+            - searchbox "Search NIST" [ref=e25]
+            - button "Search" [ref=e26] [cursor=pointer]:
+              - img "Search" [ref=e27]
+          - button "Menu" [ref=e29]
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - link "Information Technology Laboratory" [ref=e34] [cursor=pointer]:
+          - /url: /itl
+        - heading "AI Risk Management Framework" [level=1] [ref=e39]
+      - generic [ref=e41]:
+        - complementary [ref=e42]:
+          - navigation [ref=e45]:
+            - list [ref=e46]:
+              - listitem [ref=e47]:
+                - link "AI RMF Development" [ref=e48] [cursor=pointer]:
+                  - /url: /itl/ai-risk-management-framework/ai-rmf-development
+              - listitem [ref=e49]:
+                - link "NIST AI RMF Playbook" [ref=e50] [cursor=pointer]:
+                  - /url: /itl/ai-risk-management-framework/nist-ai-rmf-playbook
+              - listitem [ref=e51]:
+                - link "Engage" [ref=e52] [cursor=pointer]:
+                  - /url: /itl/ai-risk-management-framework/ai-risk-management-framework-engage
+              - listitem [ref=e53]:
+                - link "Resources" [ref=e54] [cursor=pointer]:
+                  - /url: /itl/ai-risk-management-framework/ai-risk-management-framework-resources
+              - listitem [ref=e55]:
+                - link "Perspectives" [ref=e56] [cursor=pointer]:
+                  - /url: /itl/ai-risk-management-framework/perspectives-about-nist-artificial-intelligence-risk-management
+              - listitem [ref=e57]:
+                - link "FAQs" [ref=e58] [cursor=pointer]:
+                  - /url: /itl/ai-risk-management-framework/ai-risk-management-framework-faqs
+              - listitem [ref=e59]:
+                - link "AI @ NIST" [ref=e60] [cursor=pointer]:
+                  - /url: /artificial-intelligence
+        - generic [ref=e62]:
+          - generic [ref=e64]:
+            - heading "Quick Links permalink" [level=2] [ref=e65]:
+              - text: Quick Links
+              - link "permalink" [ref=e66] [cursor=pointer]:
+                - /url: "#quick-links"
+                - img "permalink" [ref=e67]
+            - paragraph [ref=e68]:
+              - link "Download the AI RMF 1.0" [ref=e69] [cursor=pointer]:
+                - /url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf
+              - link "View the AI RMF Playbook" [ref=e70] [cursor=pointer]:
+                - /url: https://airc.nist.gov/airmf-resources/playbook/
+              - link "Visit the AI Resource Center" [ref=e71] [cursor=pointer]:
+                - /url: https://airc.nist.gov/
+            - heading "Overview of the AI RMF permalink" [level=2] [ref=e72]:
+              - text: Overview of the AI RMF
+              - link "permalink" [ref=e73] [cursor=pointer]:
+                - /url: "#overview-of-the-ai-rmf"
+                - img "permalink" [ref=e74]
+            - paragraph [ref=e75]:
+              - text: In collaboration with the private and public sectors, NIST has developed a framework to better manage risks to individuals, organizations, and society associated with artificial intelligence (AI). The
+              - link "NIST AI Risk Management Framework (AI RMF)" [ref=e76] [cursor=pointer]:
+                - /url: https://doi.org/10.6028/NIST.AI.100-1
+              - img "(link is external)" [ref=e77]
+              - text: is intended for voluntary use and to improve the ability to incorporate trustworthiness considerations into the design, development, use, and evaluation of AI products, services, and systems.
+            - paragraph [ref=e80]:
+              - text: Released on January 26, 2023, the Framework was developed through a consensus-driven, open, transparent, and collaborative process that included a Request for Information, several draft versions for public comments, multiple
+              - link "workshops" [ref=e81] [cursor=pointer]:
+                - /url: /artificial-intelligence/nist-ai-engagement
+              - text: ", and other opportunities to provide input. It is intended to build on, align with, and support AI risk management efforts by others ("
+              - link "Fact Sheet" [ref=e82] [cursor=pointer]:
+                - /url: /document/about-nist-ai-rmf
+              - text: ).
+            - paragraph [ref=e83]:
+              - text: A companion
+              - link "NIST AI RMF Playbook" [ref=e84] [cursor=pointer]:
+                - /url: https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook
+              - text: also has been published by NIST along with an
+              - link "AI RMF Roadmap" [ref=e85] [cursor=pointer]:
+                - /url: /itl/ai-risk-management-framework/roadmap-nist-artificial-intelligence-risk-management-framework-ai
+              - text: ","
+              - link "AI RMF Crosswalk" [ref=e86] [cursor=pointer]:
+                - /url: /itl/ai-risk-management-framework/crosswalks-nist-artificial-intelligence-risk-management-framework
+              - text: ", and various"
+              - link "Perspectives" [ref=e87] [cursor=pointer]:
+                - /url: /itl/ai-risk-management-framework/perspectives-about-nist-artificial-intelligence-risk-management
+              - text: .
+            - paragraph [ref=e88]:
+              - text: On March 30, 2023, NIST launched the
+              - link "Trustworthy and Responsible AI Resource Center" [ref=e89] [cursor=pointer]:
+                - /url: https://airc.nist.gov/Home
+              - text: ", which will facilitate implementation of, and international alignment with, the AI RMF. Examples of how other organizations are building on and using the AI RMF can be found via the"
+              - link "AIRC’s Use Case page" [ref=e90] [cursor=pointer]:
+                - /url: https://airc.nist.gov/Usecases
+              - text: .
+            - paragraph [ref=e91]:
+              - text: On July 26, 2024, NIST released
+              - 'link "NIST-AI-600-1, Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile" [ref=e92] [cursor=pointer]':
+                - /url: https://doi.org/10.6028/NIST.AI.600-1
+                - text: NIST-AI-
+                - emphasis [ref=e93]: "600-1, Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile"
+              - img "(link is external)" [ref=e94]
+              - text: . The profile can help organizations identify unique risks posed by generative AI and proposes actions for generative AI risk management that best aligns with their goals and priorities.
+            - paragraph [ref=e97]:
+              - text: To view public comments received on the previous drafts of the AI RMF and Requests for Information, see the
+              - link "AI RMF Development" [ref=e98] [cursor=pointer]:
+                - /url: /itl/ai-risk-management-framework/ai-rmf-development
+              - text: page.
+            - heading "Translations permalink" [level=2] [ref=e99]:
+              - text: Translations
+              - link "permalink" [ref=e100] [cursor=pointer]:
+                - /url: "#translations"
+                - img "permalink" [ref=e101]
+            - list [ref=e102]:
+              - listitem [ref=e103]:
+                - link "NIST AI Risk Management Framework" [ref=e104] [cursor=pointer]:
+                  - /url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.ara.pdf
+                - text: (Arabic)
+              - listitem [ref=e105]:
+                - link "NIST AI Risk Management Framework" [ref=e106] [cursor=pointer]:
+                  - /url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.jpn.pdf
+                - text: (Japanese)
+            - heading "Prior Documents permalink" [level=2] [ref=e107]:
+              - strong [ref=e108]: Prior Documents
+              - link "permalink" [ref=e109] [cursor=pointer]:
+                - /url: "#prior-documents"
+                - img "permalink" [ref=e110]
+            - list [ref=e111]:
+              - listitem [ref=e112]:
+                - link "Second draft of the AI Risk Management Framework" [ref=e113] [cursor=pointer]:
+                  - /url: /document/ai-risk-management-framework-2nd-draft
+                - text: (August 18, 2022)
+              - listitem [ref=e114]:
+                - link "Initial draft of the AI Risk Management Framework" [ref=e115] [cursor=pointer]:
+                  - /url: /document/ai-risk-management-framework-initial-draft
+                - text: (March 17, 2022)
+              - listitem [ref=e116]:
+                - link "Concept paper to help guide development of the AI Risk Management Framework" [ref=e117] [cursor=pointer]:
+                  - /url: /document/airmfconceptpaper
+                - text: (December 13, 2021)
+              - listitem [ref=e118]:
+                - link "Brief summary" [ref=e119] [cursor=pointer]:
+                  - /url: /document/summary-analysis-responses-nist-artificial-intelligence-risk-management-framework-ai-rmf
+                - text: of
+                - link "responses" [ref=e120] [cursor=pointer]:
+                  - /url: /itl/ai-risk-management-framework/comments-received-rfi-artificial-intelligence-risk-management
+                - text: to the July 29, 2021, RFI (October 15, 2021)
+              - listitem [ref=e121]:
+                - link "Draft -Taxonomy of AI Risk" [ref=e122] [cursor=pointer]:
+                  - /url: /document/draft-taxonomy-ai-risk-october-15-2021
+                - text: (October 15, 2021)
+              - listitem [ref=e123]:
+                - link "AI Risk Management Framework Request for Information" [ref=e124] [cursor=pointer]:
+                  - /url: https://www.federalregister.gov/documents/2021/07/29/2021-16176/artificial-intelligence-risk-management-framework
+                - text: (July 29, 2021)
+            - paragraph [ref=e125]
+            - link "Enlarge this image" [ref=e127] [cursor=pointer]:
+              - /url: https://www.nist.gov/sites/default/files/styles/2800_x_2800_limit/public/images/2023/01/17/ai-rmf-engagement-timeline_0.png?itok=X4ehJfG_
+              - 'img "AI RMF Engagement Timeline: starts with January 2021 request for information and covers different dates of activities until the January 2023 release of the AI Risk Management Framework" [ref=e128]'
+            - paragraph [ref=e129]
+          - generic [ref=e131]:
+            - heading "News & Updates permalink" [level=2] [ref=e132]:
+              - text: News & Updates
+              - link "permalink" [ref=e133] [cursor=pointer]:
+                - /url: "#news-updates"
+                - img "permalink" [ref=e134]
+            - generic [ref=e136]:
+              - article [ref=e138]:
+                - 'link "Circular design includes elements of the AI Risk Management Framework: Govern, Measure, Manage, Map." [ref=e141] [cursor=pointer]':
+                  - /url: /news-events/news/2023/01/nist-risk-management-framework-aims-improve-trustworthiness-artificial
+                  - 'img "Circular design includes elements of the AI Risk Management Framework: Govern, Measure, Manage, Map." [ref=e142]'
+                - generic [ref=e143]:
+                  - generic [ref=e144]:
+                    - heading "NIST Risk Management Framework Aims to Improve Trustworthiness of Artificial Intelligence" [level=3] [ref=e145]:
+                      - link "NIST Risk Management Framework Aims to Improve Trustworthiness of Artificial Intelligence" [ref=e146] [cursor=pointer]:
+                        - /url: /news-events/news/2023/01/nist-risk-management-framework-aims-improve-trustworthiness-artificial
+                    - time [ref=e149]: January 26, 2023
+                  - generic [ref=e151]: New guidance seeks to cultivate trust in AI technologies and promote AI innovation while mitigating risk.
+              - article [ref=e153]:
+                - link "Illustration that shows an outline of a face and then icons to represent different areas of AI including heart (health), lock (cyber), windmills (energy), steering wheel (cars) and manufacturing arm" [ref=e156] [cursor=pointer]:
+                  - /url: /news-events/news/2022/08/nist-seeks-comments-ai-risk-management-framework-guidance-workshop-date-set
+                  - img "Illustration that shows an outline of a face and then icons to represent different areas of AI including heart (health), lock (cyber), windmills (energy), steering wheel (cars) and manufacturing arm" [ref=e157]
+                - generic [ref=e158]:
+                  - generic [ref=e159]:
+                    - heading "NIST Seeks Comments on AI Risk Management Framework Guidance, Workshop Date Set" [level=3] [ref=e160]:
+                      - link "NIST Seeks Comments on AI Risk Management Framework Guidance, Workshop Date Set" [ref=e161] [cursor=pointer]:
+                        - /url: /news-events/news/2022/08/nist-seeks-comments-ai-risk-management-framework-guidance-workshop-date-set
+                    - time [ref=e164]: August 18, 2022
+                  - generic [ref=e166]: NIST is seeking comments on a second draft of the NIST Artificial Intelligence Risk Management Framework (AI RMF). The AI RMF is intended for voluntary use in...
+              - article [ref=e168]:
+                - link "AI Conference Header April 27, 2022" [ref=e171] [cursor=pointer]:
+                  - /url: /news-events/news/2022/04/symposium-focuses-ai-and-economy-and-path-responsible-and-inclusive-ai
+                  - img "AI Conference Header April 27, 2022" [ref=e172]
+                - generic [ref=e173]:
+                  - generic [ref=e174]:
+                    - heading "Symposium Focuses on AI and the Economy and the Path for Responsible and Inclusive AI" [level=3] [ref=e175]:
+                      - link "Symposium Focuses on AI and the Economy and the Path for Responsible and Inclusive AI" [ref=e176] [cursor=pointer]:
+                        - /url: /news-events/news/2022/04/symposium-focuses-ai-and-economy-and-path-responsible-and-inclusive-ai
+                    - time [ref=e179]: April 27, 2022
+                  - generic [ref=e181]: The U.S. Department of Commerce, NIST, FinRegLab, and the Stanford Institute for Human-Centered Artificial Intelligence (HAI) hosted a symposium on "Artificial...
+              - article [ref=e183]:
+                - link "An illustration for AI shows a silhouette of a human head containing icons for computer networks." [ref=e186] [cursor=pointer]:
+                  - /url: /news-events/news/2022/03/nist-seeks-comments-draft-ai-risk-management-framework-offers-guidance-ai
+                  - img "An illustration for AI shows a silhouette of a human head containing icons for computer networks." [ref=e187]
+                - generic [ref=e188]:
+                  - generic [ref=e189]:
+                    - heading "NIST Seeks Comments on Draft AI Risk Management Framework, Offers Guidance on AI Bias" [level=3] [ref=e190]:
+                      - link "NIST Seeks Comments on Draft AI Risk Management Framework, Offers Guidance on AI Bias" [ref=e191] [cursor=pointer]:
+                        - /url: /news-events/news/2022/03/nist-seeks-comments-draft-ai-risk-management-framework-offers-guidance-ai
+                    - time [ref=e194]: March 17, 2022
+                  - generic [ref=e196]: Seeking to promote the development and use of artificial intelligence (AI) technologies and systems that are trustworthy and responsible, NIST today released...
+              - link "View All News and Updates" [ref=e199] [cursor=pointer]:
+                - /url: /news-events/news-updates/tag/2791391
+    - link "Was this page helpful?" [ref=e200] [cursor=pointer]:
+      - /url: /webform/page_feedback?page=https://www.nist.gov/itl/ai-risk-management-framework&page_title=AI Risk Management Framework&source_entity_type=node&source_entity_id=1674601
+    - contentinfo [ref=e202]:
+      - generic [ref=e204]:
+        - generic [ref=e205]:
+          - link "National Institute of Standards and Technology logo" [ref=e207] [cursor=pointer]:
+            - /url: /
+            - img "National Institute of Standards and Technology logo" [ref=e208]
+          - generic [ref=e209]:
+            - heading "HEADQUARTERS" [level=3] [ref=e210]
+            - generic [ref=e211]:
+              - text: 100 Bureau Drive
+              - text: Gaithersburg, MD 20899
+              - link "301-975-2000" [ref=e212] [cursor=pointer]:
+                - /url: tel:301-975-2000
+            - paragraph [ref=e213]:
+              - link "Webmaster" [ref=e214] [cursor=pointer]:
+                - /url: mailto:do-webmaster@nist.gov
+              - text: "|"
+              - link "Contact Us" [ref=e215] [cursor=pointer]:
+                - /url: https://www.nist.gov/contact
+              - text: "|"
+              - link "Our Other Offices" [ref=e216] [cursor=pointer]:
+                - /url: https://www.nist.gov/visit
+        - generic [ref=e217]:
+          - generic [ref=e218]:
+            - link "X.com" [ref=e219] [cursor=pointer]:
+              - /url: " https://x.com/NIST"
+              - generic [ref=e220]: X.com
+            - link "Facebook" [ref=e221] [cursor=pointer]:
+              - /url: " https://www.facebook.com/NIST"
+              - generic [ref=e222]: Facebook
+            - link "LinkedIn" [ref=e223] [cursor=pointer]:
+              - /url: " https://www.linkedin.com/company/nist"
+              - generic [ref=e224]: LinkedIn
+            - link "Instagram" [ref=e225] [cursor=pointer]:
+              - /url: " https://www.instagram.com/nist/"
+              - generic [ref=e226]: Instagram
+            - link "YouTube" [ref=e227] [cursor=pointer]:
+              - /url: " https://www.youtube.com/NIST"
+              - generic [ref=e228]: YouTube
+            - link "Giphy" [ref=e229] [cursor=pointer]:
+              - /url: " https://giphy.com/nist"
+              - generic [ref=e230]: Giphy
+            - link "RSS Feed" [ref=e231] [cursor=pointer]:
+              - /url: " https://www.nist.gov/news-events/nist-rss-feeds"
+              - generic [ref=e232]: RSS Feed
+            - link "Mailing List" [ref=e233] [cursor=pointer]:
+              - /url: " https://public.govdelivery.com/accounts/USNIST/subscriber/new"
+              - generic [ref=e234]: Mailing List
+          - generic [ref=e235]:
+            - text: How are we doing?
+            - link "Feedback" [ref=e236] [cursor=pointer]:
+              - /url: /webform/nist_gov_feedback?page=/itl/ai-risk-management-framework
+      - navigation [ref=e238]:
+        - list [ref=e239]:
+          - listitem [ref=e240]:
+            - link "Site Privacy" [ref=e241] [cursor=pointer]:
+              - /url: https://www.nist.gov/privacy-policy
+            - text: "|"
+          - listitem [ref=e242]:
+            - link "Accessibility" [ref=e243] [cursor=pointer]:
+              - /url: https://www.nist.gov/oism/accessibility
+            - text: "|"
+          - listitem [ref=e244]:
+            - link "Privacy Program" [ref=e245] [cursor=pointer]:
+              - /url: https://www.nist.gov/privacy
+            - text: "|"
+          - listitem [ref=e246]:
+            - link "Copyrights" [ref=e247] [cursor=pointer]:
+              - /url: https://www.nist.gov/oism/copyrights
+            - text: "|"
+          - listitem [ref=e248]:
+            - link "Vulnerability Disclosure" [ref=e249] [cursor=pointer]:
+              - /url: https://www.commerce.gov/vulnerability-disclosure-policy
+            - text: "|"
+          - listitem [ref=e250]:
+            - link "No Fear Act Policy" [ref=e251] [cursor=pointer]:
+              - /url: https://www.nist.gov/no-fear-act-policy
+            - text: "|"
+          - listitem [ref=e252]:
+            - link "FOIA" [ref=e253] [cursor=pointer]:
+              - /url: https://www.nist.gov/office-director/freedom-information-act
+            - text: "|"
+          - listitem [ref=e254]:
+            - link "Environmental Policy" [ref=e255] [cursor=pointer]:
+              - /url: https://www.nist.gov/environmental-policy-statement
+            - text: "|"
+          - listitem [ref=e256]:
+            - link "Scientific Integrity" [ref=e257] [cursor=pointer]:
+              - /url: https://www.nist.gov/summary-report-scientific-integrity
+            - text: "|"
+          - listitem [ref=e258]:
+            - link "Information Quality Standards" [ref=e259] [cursor=pointer]:
+              - /url: https://www.nist.gov/nist-information-quality-standards
+            - text: "|"
+          - listitem [ref=e260]:
+            - link "Commerce.gov" [ref=e261] [cursor=pointer]:
+              - /url: https://www.commerce.gov/
+            - text: "|"
+          - listitem [ref=e262]:
+            - link "Science.gov" [ref=e263] [cursor=pointer]:
+              - /url: http://www.science.gov/
+            - text: "|"
+          - listitem [ref=e264]:
+            - link "USA.gov" [ref=e265] [cursor=pointer]:
+              - /url: http://www.usa.gov/
+            - text: "|"
+          - listitem [ref=e266]:
+            - link "Vote.gov" [ref=e267] [cursor=pointer]:
+              - /url: https://vote.gov/
+  - navigation "Back to top"

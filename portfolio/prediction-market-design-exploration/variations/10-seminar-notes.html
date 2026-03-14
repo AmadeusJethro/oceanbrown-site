@@ -1,0 +1,306 @@
+<!-- Variation 10: "Seminar Notes" | Group: project-original | Aesthetic: Lecture notes — annotation margins, progressive numbering, handwritten-feel accents, blackboard-inspired elements -->
+<!DOCTYPE html>
+<html lang="en" data-theme="parchment">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Market Research Portfolio — Seminar Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,600;0,700;1,400&family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --base: 1.02rem; --leading: 1.6; --measure: 56ch; }
+[data-theme="parchment"] {
+  --bg: #f8f6f0; --surface: #efece4; --text: #2a2a30; --muted: #6a6a74;
+  --accent: #1b4332; --rule: rgba(0,0,0,0.1); --margin-bg: #f0ede4;
+  --highlight: #d4a843;
+}
+[data-theme="dark"] {
+  --bg: #1e2028; --surface: #282a34; --text: #dcd8ce; --muted: #8a8890;
+  --accent: #6aaa88; --rule: rgba(255,255,255,0.08); --margin-bg: #24262e;
+  --highlight: #d4a843;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Vollkorn', Georgia, serif;
+  font-size: var(--base); line-height: var(--leading);
+  color: var(--text); background: var(--bg);
+  transition: background 0.3s, color 0.3s;
+}
+h1, h2, h3, .sans { font-family: 'Fira Sans', sans-serif; }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Page with annotation margin */
+.page {
+  max-width: 960px; margin: 0 auto; padding: 0 2rem;
+  display: grid; grid-template-columns: 1fr 200px; gap: 2.5rem;
+}
+@media (max-width: 768px) { .page { grid-template-columns: 1fr; } }
+
+/* Seminar header */
+header.seminar-header {
+  grid-column: 1 / -1; padding: 3rem 0 2rem;
+  border-bottom: 2px solid var(--accent);
+}
+.course-code {
+  font-family: 'Fira Sans', sans-serif; font-weight: 600;
+  font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.75rem;
+}
+header h1 {
+  font-family: 'Fira Sans', sans-serif; font-weight: 700;
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem); line-height: 1.15;
+}
+header .session-info {
+  color: var(--muted); font-size: calc(var(--base) * 0.9);
+  margin-top: 0.5rem;
+}
+
+/* Main content */
+main.notes { padding: 2rem 0; }
+main.notes p { max-width: var(--measure); margin-bottom: 1.1rem; }
+
+/* Section headings with numbering */
+.note-section { margin-bottom: 2.5rem; }
+.note-section h2 {
+  font-size: calc(var(--base) * 1.25); font-weight: 600;
+  line-height: 1.25; margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule);
+}
+.note-section h2 .n {
+  font-weight: 400; color: var(--muted); margin-right: 0.3em;
+}
+.note-section h3 {
+  font-size: calc(var(--base) * 1.05); font-weight: 500;
+  margin: 1.25rem 0 0.5rem; color: var(--accent);
+}
+
+/* Highlighted callout (like chalk emphasis) */
+.callout {
+  padding: 1rem 1.25rem; margin: 1.25rem 0;
+  border-left: 4px solid var(--highlight);
+  background: var(--surface);
+  font-size: calc(var(--base) * 0.95);
+}
+.callout .callout-type {
+  font-family: 'Fira Sans', sans-serif; font-weight: 600;
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--highlight); margin-bottom: 0.3rem;
+}
+
+/* Table */
+.notes-table {
+  width: 100%; border-collapse: collapse; margin: 1.25rem 0;
+  font-size: calc(var(--base) * 0.88);
+}
+.notes-table th, .notes-table td {
+  text-align: left; padding: 0.4rem 0.5rem 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.notes-table th {
+  font-family: 'Fira Sans', sans-serif; font-weight: 500;
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+/* Annotation margin */
+aside.annotations {
+  padding: 2rem 0; font-size: calc(var(--base) * 0.82);
+  color: var(--muted); line-height: 1.5;
+}
+.annotation {
+  margin-bottom: 1.5rem; padding: 0.75rem;
+  background: var(--margin-bg); border-left: 2px solid var(--highlight);
+}
+.annotation .ann-label {
+  font-family: 'Fira Sans', sans-serif; font-weight: 600;
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--highlight); margin-bottom: 0.25rem;
+}
+
+/* Status */
+.status-tag {
+  display: inline-block; font-family: 'Fira Sans', sans-serif;
+  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.04em;
+  padding: 0.2em 0.6em; border: 1px solid var(--accent); color: var(--accent);
+}
+
+footer {
+  grid-column: 1 / -1; padding: 2rem 0; color: var(--muted);
+  font-size: calc(var(--base) * 0.8); border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between;
+}
+
+#theme-toggle {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--rule); background: var(--surface);
+  color: var(--text); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100;
+}
+#theme-toggle:hover { border-color: var(--accent); }
+#theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="seminar-header">
+    <div class="course-code">Research Seminar &mdash; Prediction Markets</div>
+    <h1>Systems, Microstructure, and Execution in Event Markets</h1>
+    <div class="session-info">Three projects &middot; 2024&ndash;2026 &middot; Portfolio overview</div>
+  </header>
+
+  <main class="notes">
+    <section class="note-section">
+      <h2><span class="n">1.</span> Market Design &amp; Liquidity</h2>
+      <h3>1.1 Problem</h3>
+      <p>
+        Prediction markets aggregate dispersed beliefs into prices,
+        but their microstructure is poorly understood. We investigate
+        how automated market maker design choices&mdash;cost function
+        parameterization, fee structures, liquidity provision&mdash;affect
+        price discovery quality in binary event markets.
+      </p>
+      <h3>1.2 Approach</h3>
+      <p>
+        Comparative analysis of logarithmic market scoring rules (LMSR)
+        vs continuous limit order books (CLOB) using synchronized
+        orderbook data from Polymarket and Kalshi. Simulation experiments
+        calibrated to observed parameters, then subject to synthetic
+        information shocks.
+      </p>
+      <div class="callout">
+        <div class="callout-type">Key Result</div>
+        <p>
+          Adaptive-spread LMSR reduces adverse selection costs by 34%
+          compared to fixed-spread parameterization, measured across
+          1,847 resolved event contracts.
+        </p>
+      </div>
+      <p>
+        The proposed liquidity-sensitive fee structure adapts bid-ask
+        spreads dynamically based on realized volatility and order flow
+        imbalance, drawing on the market making under inventory
+        constraints literature.
+      </p>
+      <p><span class="status-tag">Active Research</span></p>
+    </section>
+
+    <section class="note-section">
+      <h2><span class="n">2.</span> Haven Selection &amp; Shadow Trading</h2>
+      <h3>2.1 Framework</h3>
+      <p>
+        Haven selection identifies contracts where prices persistently
+        deviate from fair value due to structural factors: low liquidity,
+        retail sentiment bias, or hedging demand. The shadow-trading
+        system executes using a relative-value framework.
+      </p>
+      <h3>2.2 Selection Criteria</h3>
+      <table class="notes-table">
+        <thead><tr><th>Dimension</th><th>Metric</th><th>Threshold</th></tr></thead>
+        <tbody>
+          <tr><td>Pricing efficiency</td><td>Model deviation</td><td>&gt; 8% absolute</td></tr>
+          <tr><td>Liquidity depth</td><td>Notional within 5%</td><td>&gt; $5,000</td></tr>
+          <tr><td>Mean reversion</td><td>Half-life</td><td>&lt; 72 hours</td></tr>
+          <tr><td>Correlation</td><td>Portfolio beta</td><td>&lt; 0.3</td></tr>
+        </tbody>
+      </table>
+      <h3>2.3 Execution</h3>
+      <p>
+        Positions sized via modified Kelly criterion constrained by
+        binary payoff structure. Python async pipeline with PostgreSQL
+        state management and exchange-specific API adapters.
+      </p>
+      <p><span class="status-tag">Operational</span></p>
+    </section>
+
+    <section class="note-section">
+      <h2><span class="n">3.</span> Reliable Market Data Loggers</h2>
+      <h3>3.1 Architecture</h3>
+      <p>
+        Fault-tolerant logging infrastructure for continuous multi-exchange
+        data capture. Checkpoint-recovery pattern: write-ahead logs,
+        Parquet persistence with configurable partitioning, and
+        supervisor-managed heartbeats for restart and backfill.
+      </p>
+      <div class="callout">
+        <div class="callout-type">Operational Metrics</div>
+        <p>
+          3 exchanges (Polymarket, Kalshi, Metaculus) &middot;
+          99.94% uptime over 180 days &middot;
+          ~2.1 GB/month (Parquet + Zstd) &middot;
+          Schema-versioned for long-term integrity
+        </p>
+      </div>
+      <p><span class="status-tag">In Production</span></p>
+    </section>
+  </main>
+
+  <aside class="annotations">
+    <div class="annotation">
+      <div class="ann-label">Note: Data Pipeline</div>
+      Project III provides the empirical
+      foundation for Projects I and II.
+      All tick-level orderbook data
+      flows through the logging infrastructure.
+    </div>
+    <div class="annotation">
+      <div class="ann-label">Note: Kelly Sizing</div>
+      On binary outcomes, Kelly simplifies
+      to f* = (p&#x0302; &minus; q) / 1, but
+      correlation constraints require
+      portfolio-level adjustment.
+    </div>
+    <div class="annotation">
+      <div class="ann-label">Note: Methodology</div>
+      LMSR comparison uses cost-function
+      formulation from Hanson (2003),
+      adapted for liquidity-sensitive
+      parameterization.
+    </div>
+    <div class="annotation">
+      <div class="ann-label">Open Question</div>
+      How does adaptive-spread LMSR
+      perform under correlated
+      multi-contract resolution events?
+    </div>
+  </aside>
+
+  <footer>
+    <span>Prediction Market Research Portfolio</span>
+    <span>March 2026</span>
+  </footer>
+</div>
+
+<button id="theme-toggle" aria-label="Toggle theme">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  var stored = localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var initial = stored || (prefersDark ? 'dark' : 'parchment');
+  root.setAttribute('data-theme', initial);
+  toggle.addEventListener('click', function() {
+    var current = root.getAttribute('data-theme');
+    var next = current === 'dark' ? 'parchment' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+  window.addEventListener('message', function(event) {
+    var data = event && event.data;
+    var next = (data && (data.value || data.theme)) || null;
+    if (data && (data.type === 'theme' || data.theme || data.value) && (next === 'dark' || next === 'parchment')) {
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  });
+})();
+</script>
+</body>
+</html>

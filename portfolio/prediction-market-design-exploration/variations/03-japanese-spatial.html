@@ -1,0 +1,243 @@
+<!-- Variation 3: "Japanese Spatial" | Group: baseline-pick | Aesthetic: Ma (negative space), wabi-sabi restraint, extreme whitespace, asymmetric single-axis layout -->
+<!DOCTYPE html>
+<html lang="en" data-theme="parchment">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Market Research Portfolio — Spatial</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@300&display=swap" rel="stylesheet">
+<style>
+:root { --base: 0.95rem; --leading: 1.7; --measure: 52ch; }
+[data-theme="parchment"] {
+  --bg: #f8f5ef; --text: #1c1c1c; --muted: #8a8580;
+  --accent: #c4453c; --rule: #d8d2c8;
+}
+[data-theme="dark"] {
+  --bg: #1c1c1c; --text: #e8e4dc; --muted: #7a7670;
+  --accent: #d4886a; --rule: #3a3630;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans Display', system-ui, sans-serif;
+  font-weight: 300; font-size: var(--base); line-height: var(--leading);
+  color: var(--text); background: var(--bg);
+  transition: background 0.4s, color 0.4s;
+}
+a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { border-color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.page { max-width: 680px; margin: 0; padding: 0 2rem 0 15vw; }
+@media (max-width: 768px) { .page { padding: 0 1.5rem; } }
+
+header {
+  padding: 12vh 0 8vh; min-height: 40vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+header h1 {
+  font-weight: 300; font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.2; letter-spacing: 0.04em;
+  max-width: 16ch;
+}
+header .rule {
+  width: 40px; height: 1px; background: var(--accent);
+  margin: 2rem 0;
+}
+header p {
+  font-size: calc(var(--base) * 0.88); color: var(--muted);
+  letter-spacing: 0.03em; max-width: 40ch;
+}
+
+/* Sections */
+.project { padding: 6vh 0; }
+.project + .project { border-top: 1px solid var(--rule); }
+.project-label {
+  font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1.5rem;
+}
+.project h2 {
+  font-weight: 300; font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  line-height: 1.25; margin-bottom: 2rem;
+  max-width: 24ch;
+}
+.project p {
+  max-width: var(--measure); margin-bottom: 1.5rem;
+  font-size: var(--base);
+}
+
+/* Minimal data display */
+.metrics {
+  display: flex; gap: 3rem; margin: 2rem 0;
+  font-size: calc(var(--base) * 0.85);
+}
+.metric-item { }
+.metric-value {
+  font-size: calc(var(--base) * 1.4); letter-spacing: 0.02em;
+  margin-bottom: 0.15rem;
+}
+.metric-label { color: var(--muted); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* Status */
+.status-line {
+  font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); margin-top: 2rem;
+}
+.status-dot {
+  display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); margin-right: 0.4rem; vertical-align: middle;
+}
+
+footer {
+  padding: 8vh 0 4vh; color: var(--muted);
+  font-size: calc(var(--base) * 0.78); letter-spacing: 0.03em;
+}
+
+#theme-toggle {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  width: 44px; height: 44px; border: none; border-radius: 0;
+  background: transparent; color: var(--muted); cursor: pointer;
+  font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase;
+  z-index: 100;
+}
+#theme-toggle:hover { color: var(--text); }
+#theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>Prediction Market Research</h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p>Systems, microstructure, and execution research in event markets</p>
+  </header>
+
+  <main>
+    <section class="project" id="liquidity">
+      <div class="project-label">Project I</div>
+      <h2>Market Design &amp; Liquidity in Event Markets</h2>
+      <p>
+        This project investigates the microstructure of prediction
+        markets, comparing logarithmic market scoring rules against
+        continuous limit order books under varying liquidity conditions.
+      </p>
+      <p>
+        The central question: how should a market operator
+        parameterize automated market makers to minimize adverse
+        selection while maintaining sufficient liquidity for price
+        discovery in binary event contracts?
+      </p>
+      <p>
+        Empirical analysis of live orderbooks reveals that
+        cost-function market makers exhibit superior price stability
+        in thin markets. A liquidity-sensitive fee structure is
+        proposed that adapts spreads based on realized volatility
+        and order flow imbalance.
+      </p>
+      <div class="metrics">
+        <div class="metric-item">
+          <div class="metric-value">34%</div>
+          <div class="metric-label">Adverse selection reduction</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">LMSR</div>
+          <div class="metric-label">vs CLOB comparison</div>
+        </div>
+      </div>
+      <div class="status-line"><span class="status-dot"></span>Active research</div>
+    </section>
+
+    <section class="project" id="haven">
+      <div class="project-label">Project II</div>
+      <h2>Haven Selection &amp; Shadow Trading</h2>
+      <p>
+        Haven selection is a framework for identifying prediction
+        market contracts where prices persistently deviate from
+        fair value due to structural factors: low liquidity, retail
+        sentiment bias, or hedging demand.
+      </p>
+      <p>
+        The selection algorithm scores contracts across four
+        dimensions&mdash;pricing efficiency, liquidity depth,
+        mean-reversion tendency, and portfolio correlation&mdash;then
+        executes using a modified Kelly criterion constrained by
+        binary payoff structure.
+      </p>
+      <div class="metrics">
+        <div class="metric-item">
+          <div class="metric-value">4</div>
+          <div class="metric-label">Selection dimensions</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">&lt;72h</div>
+          <div class="metric-label">Mean-reversion threshold</div>
+        </div>
+      </div>
+      <div class="status-line"><span class="status-dot"></span>Operational</div>
+    </section>
+
+    <section class="project" id="loggers">
+      <div class="project-label">Project III</div>
+      <h2>Reliable Market Data Loggers</h2>
+      <p>
+        Fault-tolerant logging infrastructure for continuous
+        prediction market data capture across multiple exchanges
+        with automatic gap detection, backfill, and schema
+        versioning for long-term data integrity.
+      </p>
+      <p>
+        The checkpoint-recovery architecture uses write-ahead
+        logs, Parquet persistence, and supervisor-managed heartbeats.
+        On failure, automatic restart and REST-based backfill
+        ensure gap-free data continuity.
+      </p>
+      <div class="metrics">
+        <div class="metric-item">
+          <div class="metric-value">99.94%</div>
+          <div class="metric-label">Uptime over 180 days</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">3</div>
+          <div class="metric-label">Exchanges monitored</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">2.1 GB</div>
+          <div class="metric-label">Monthly storage</div>
+        </div>
+      </div>
+      <div class="status-line"><span class="status-dot"></span>In production</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>March 2026</p>
+  </footer>
+</div>
+
+<button id="theme-toggle" aria-label="Toggle theme">Theme</button>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  var stored = localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var initial = stored || (prefersDark ? 'dark' : 'parchment');
+  root.setAttribute('data-theme', initial);
+  toggle.addEventListener('click', function() {
+    var current = root.getAttribute('data-theme');
+    var next = current === 'dark' ? 'parchment' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+  window.addEventListener('message', function(event) {
+    var data = event && event.data;
+    var next = (data && (data.value || data.theme)) || null;
+    if (data && (data.type === 'theme' || data.theme || data.value) && (next === 'dark' || next === 'parchment')) {
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  });
+})();
+</script>
+</body>
+</html>

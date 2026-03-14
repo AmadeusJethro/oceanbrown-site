@@ -1,0 +1,160 @@
+{
+  "manifest_version": "1.0",
+  "thesis_slug": "prediction-market-false-edge",
+  "generated": "2026-03-14",
+  "sources": [
+    {
+      "id": "S01",
+      "label": "polymarket-trader/decision-memo",
+      "path": "C:/Users/obrown/Documents/Projects/potato2/portfolio-audit/analysis/polymarket-trader/decision-memo.md",
+      "trust_tier": "T1",
+      "usage_scope": "evidence",
+      "sensitivity": "restricted",
+      "notes": "Internal-only decision. Evidence restricted to failure/invalidation claims only."
+    },
+    {
+      "id": "S02",
+      "label": "polymarket-trader/confidentiality-memo",
+      "path": "C:/Users/obrown/Documents/Projects/potato2/portfolio-audit/analysis/polymarket-trader/confidentiality-memo.md",
+      "trust_tier": "T1",
+      "usage_scope": "evidence",
+      "sensitivity": "restricted",
+      "notes": "Governance-only disclosure boundary. Not cited directly."
+    },
+    {
+      "id": "S03",
+      "label": "polymarket-trader/metric-audit",
+      "path": "C:/Users/obrown/Documents/Projects/potato2/portfolio-audit/analysis/polymarket-trader/metric-audit.json",
+      "trust_tier": "T1",
+      "usage_scope": "evidence",
+      "sensitivity": "restricted",
+      "notes": "Machine-readable fail artifact. Failure/invalidation claims only."
+    },
+    {
+      "id": "S04",
+      "label": "polymarket-trader/quant-integrity-memo",
+      "path": "C:/Users/obrown/Documents/Projects/potato2/portfolio-audit/analysis/polymarket-trader/quant-integrity-memo.md",
+      "trust_tier": "T1",
+      "usage_scope": "evidence",
+      "sensitivity": "restricted",
+      "notes": "Primary leakage-invalidation evidence."
+    },
+    {
+      "id": "S05",
+      "label": "kalshi-research/writing-handoff",
+      "path": "C:/Users/obrown/Documents/Projects/potato2/portfolio-audit/reports/writing-handoff/kalshi-research.md",
+      "trust_tier": "T1",
+      "usage_scope": "evidence",
+      "sensitivity": "public",
+      "notes": "Portability failure and data limitations only."
+    },
+    {
+      "id": "S06",
+      "label": "kalshi-research/quant-integrity-memo",
+      "path": "C:/Users/obrown/Documents/Projects/potato2/portfolio-audit/analysis/kalshi-research/quant-integrity-memo.md",
+      "trust_tier": "T1",
+      "usage_scope": "evidence",
+      "sensitivity": "public",
+      "notes": "Confirms learning-only posture."
+    },
+    {
+      "id": "S07",
+      "label": "kalshi-favorites-selector/decision-memo",
+      "path": "C:/Users/obrown/Documents/Projects/potato2/portfolio-audit/analysis/kalshi-favorites-selector/decision-memo.md",
+      "trust_tier": "T1",
+      "usage_scope": "evidence",
+      "sensitivity": "public",
+      "notes": "Methods/system design and no-trading scope only."
+    },
+    {
+      "id": "S08",
+      "label": "kalshi-favorites-selector/confidentiality-memo",
+      "path": "C:/Users/obrown/Documents/Projects/potato2/portfolio-audit/analysis/kalshi-favorites-selector/confidentiality-memo.md",
+      "trust_tier": "T1",
+      "usage_scope": "evidence",
+      "sensitivity": "public",
+      "notes": "No confidentiality issues detected."
+    },
+    {
+      "id": "S09",
+      "label": "kalshi-favorites-selector/quant-integrity-memo",
+      "path": "C:/Users/obrown/Documents/Projects/potato2/portfolio-audit/analysis/kalshi-favorites-selector/quant-integrity-memo.md",
+      "trust_tier": "T1",
+      "usage_scope": "evidence",
+      "sensitivity": "public",
+      "notes": "Methods claims only."
+    },
+    {
+      "id": "S10",
+      "label": "kalshi-favorites-selector/writing-handoff",
+      "path": "C:/Users/obrown/Documents/Projects/potato2/portfolio-audit/reports/writing-handoff/kalshi-favorites-selector.md",
+      "trust_tier": "T1",
+      "usage_scope": "evidence",
+      "sensitivity": "public",
+      "notes": "Project Haven Phase 1 scope and fee-aware logic."
+    },
+    {
+      "id": "S11",
+      "label": "prediction-market-logger/writing-handoff",
+      "path": "C:/Users/obrown/Documents/Projects/potato2/portfolio-audit/reports/writing-handoff/prediction-market-logger.md",
+      "trust_tier": "T1",
+      "usage_scope": "evidence",
+      "sensitivity": "public",
+      "notes": "Provenance/matching/cost-control only."
+    },
+    {
+      "id": "S12",
+      "label": "project-haven.html",
+      "path": "C:/Users/obrown/Documents/Projects/potato/portfolio/academic-project-pages/project-haven.html",
+      "trust_tier": "T4",
+      "usage_scope": "style-only",
+      "sensitivity": "public",
+      "notes": "Style seed only."
+    },
+    {
+      "id": "S13",
+      "label": "designing-data-loggers.html",
+      "path": "C:/Users/obrown/Documents/Projects/potato/portfolio/academic-project-pages/designing-data-loggers.html",
+      "trust_tier": "T4",
+      "usage_scope": "style-only",
+      "sensitivity": "public",
+      "notes": "Style seed only."
+    },
+    {
+      "id": "S14",
+      "label": "agentic-quant-workflows.html",
+      "path": "C:/Users/obrown/Documents/Projects/potato/portfolio/academic-project-pages/agentic-quant-workflows.html",
+      "trust_tier": "T4",
+      "usage_scope": "style-only",
+      "sensitivity": "public",
+      "notes": "Style seed only."
+    },
+    {
+      "id": "S15",
+      "label": "kalshi-crisis-alpha-snapshot.md",
+      "path": "C:/Users/obrown/Documents/Projects/potato/kalshi-crisis-alpha-snapshot.md",
+      "trust_tier": "T4",
+      "usage_scope": "style-only",
+      "sensitivity": "public",
+      "notes": "Style seed only."
+    },
+    {
+      "id": "S16",
+      "label": "kalshi-mamdani-snapshot.md",
+      "path": "C:/Users/obrown/Documents/Projects/potato/kalshi-mamdani-snapshot.md",
+      "trust_tier": "T4",
+      "usage_scope": "style-only",
+      "sensitivity": "public",
+      "notes": "Style seed only."
+    },
+    {
+      "id": "S17",
+      "label": "market-design-liquidity.html",
+      "path": "C:/Users/obrown/Documents/Projects/potato/portfolio/academic-project-pages/market-design-liquidity.html",
+      "trust_tier": "T5",
+      "usage_scope": "blocked",
+      "sensitivity": "public",
+      "notes": "Unsafe prior draft. Structural patterns only. No claims extracted."
+    }
+  ]
+}

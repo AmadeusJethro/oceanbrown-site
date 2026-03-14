@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designing Reliable Data Loggers for Event Markets</title>
+  <link rel="stylesheet" href="assets/portfolio.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="topbar">
+      <a href="index.html">Academic Project Pages</a>
+      <span>Software and Data Systems</span>
+    </div>
+
+    <article class="article">
+      <div class="kicker">Project 03</div>
+      <h1>Designing Reliable Data Loggers for Event Markets</h1>
+      <p class="subtitle">
+        A software-systems writeup on what I learned by iterating from single-venue collectors to a unified,
+        multi-service event-market observatory deployed on simple but durable cloud infrastructure.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-card">
+          <span class="label">Primary Theme</span>
+          <span class="value">Long-running data systems</span>
+        </div>
+        <div class="meta-card">
+          <span class="label">System Shape</span>
+          <span class="value">Discovery + polling + buffering + health + persistence</span>
+        </div>
+        <div class="meta-card">
+          <span class="label">Portfolio Use</span>
+          <span class="value">Software engineering / platform architecture case study</span>
+        </div>
+      </div>
+
+      <div class="abstract-box">
+        <h2>Structured Abstract</h2>
+        <p><strong>Question.</strong> What makes a market data logger trustworthy enough for research and operations, rather than just functional enough to scrape an endpoint once?</p>
+        <p><strong>Approach.</strong> I built multiple venue-specific loggers, then consolidated the lessons into a unified collector with structured logging, health monitoring, buffered writes, and explicit operational controls.</p>
+        <p><strong>Main finding.</strong> The hard part of a logger is not HTTP; it is lifecycle management: rate limits, stale-feed detection, recovery behavior, schema discipline, cloud cost, and data provenance.</p>
+        <p><strong>Why it matters.</strong> Those same concerns dominate energy data systems, ISO ingest pipelines, and long-running quantitative telemetry infrastructure.</p>
+      </div>
+
+      <section>
+        <h2>System Evolution</h2>
+        <h3>From venue-specific collectors to a unified observatory</h3>
+        <p>
+          The early loggers were venue-specific: one for Polymarket and one for Kalshi, each with its own API client,
+          database connection, deployment script, and health logic. That was useful because each venue had different
+          rate limits, schemas, and endpoint behavior. But the real systems lesson emerged later: once the research
+          question became cross-venue, the architecture had to become modular enough to normalize both feeds while still
+          respecting their differences.
+        </p>
+        <p>
+          The more mature unified collector pulled those lessons together into explicit services: discovery, flat-rate
+          polling, trade collection, arbitrage detection, buffered database writes, and health monitoring. That is the
+          point where the work stopped being a collection of scrapers and became a real data platform.
+        </p>
+      </section>
+
+      <section>
+        <h2>Architecture Lessons</h2>
+        <h3>What ended up mattering most</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Concern</th>
+              <th>Practical lesson</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Discovery</td>
+              <td>Fetch the market universe separately from polling so startup is fast and market lists can be refreshed safely.</td>
+            </tr>
+            <tr>
+              <td>Polling</td>
+              <td>Rate-awareness and predictable cadence matter more than ad hoc scraping speed.</td>
+            </tr>
+            <tr>
+              <td>Writes</td>
+              <td>Batching via a tick buffer reduces database overhead and makes throughput manageable.</td>
+            </tr>
+            <tr>
+              <td>Health</td>
+              <td>A logger that cannot detect stale feeds, dropped ticks, or silent partial failure is not operationally trustworthy.</td>
+            </tr>
+            <tr>
+              <td>Schema</td>
+              <td>Cross-venue analysis becomes possible only once source-specific quirks are normalized into a common storage model.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="finding">
+          <span class="label">Software takeaway</span>
+          The highest-value design decision was separation of concerns. Discovery, collection, buffering, health, and
+          analytics should not be entangled if the system is expected to run unattended for long periods.
+        </div>
+      </section>
+
+      <section>
+        <h2>Operational Lessons from the Unified Collector</h2>
+        <h3>What the mature system included</h3>
+        <ul>
+          <li>structured logging with machine-readable health and status events</li>
+          <li>per-venue clients so one platform's problems did not poison the entire process</li>
+          <li>a tick buffer to batch writes instead of hammering the database</li>
+          <li>background discovery refreshes so data collection could start quickly and improve coverage later</li>
+          <li>health checks for stale data, missing ticks, and service degradation</li>
+          <li>graceful shutdown and explicit lifecycle management for long-running collectors</li>
+        </ul>
+        <p>
+          That set of features sounds mundane until a collector has to survive real runtime conditions. At that point,
+          heartbeat visibility and restart safety are more valuable than squeezing out another small throughput win.
+        </p>
+      </section>
+
+      <section>
+        <h2>Cloud Cost and Deployment Perspective</h2>
+        <h3>Why simple GCP choices were often correct early on</h3>
+        <p>
+          The venue-specific collectors were deployed with deliberately simple infrastructure: Cloud Build, Cloud Run,
+          and Cloud SQL. One Cloud Run configuration used 512Mi memory, 1 CPU, a single always-on instance, long timeouts,
+          and Cloud SQL attachment. That is not glamorous, but it is often the right first production shape for an always-on
+          collector: low operational burden, fast redeploys, and a clean path from local Docker to hosted service.
+        </p>
+        <div class="callout">
+          <span class="label">Cost lesson</span>
+          Cost is architecture. A logger that is mathematically elegant but operationally expensive is not a good logger.
+          In early-stage systems, the right question is often: what is the simplest hosted shape that preserves reliability
+          without creating a full-time ops problem?
+        </div>
+        <p>
+          The main tradeoff is also clear: serverless simplicity is excellent until the workload becomes too stateful,
+          too latency-sensitive, or too constant for that model. Knowing where that boundary sits is part of the design work.
+        </p>
+      </section>
+
+      <section>
+        <h2>Security and Data Hygiene</h2>
+        <h3>Public data still needs discipline</h3>
+        <p>
+          A recurring systems insight was that public data collection does not remove the need for security posture. The
+          better repos used explicit HTTP requests, kept private keys out of scope, hashed raw responses for auditability,
+          and treated third-party datasets as untrusted input rather than something to execute or trust blindly.
+        </p>
+        <ul>
+          <li>keep credentials out of notebooks and committed files</li>
+          <li>store raw datasets under separate data roots and keep them out of Git</li>
+          <li>hash externally acquired datasets and snapshots</li>
+          <li>separate research environments from sensitive local profiles and cloud credentials</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Why This Belongs on a Portfolio</h2>
+        <h3>It is more than scraper engineering</h3>
+        <p>
+          I would frame this project as a study in trustworthy telemetry. The work shows how data systems mature: from
+          endpoint wrappers to observability-aware platforms that can support research, monitoring, and eventually trading.
+          That is useful well beyond event markets. The same design pressures appear in ISO ingestion pipelines, operational
+          dashboards, market surveillance, and any quantitative workflow that depends on long-running external feeds.
+        </p>
+      </section>
+
+      <section class="sources">
+        <h2>Source Basis</h2>
+        <ul>
+          <li><code>polymarket-data-logger/cloudbuild.yaml</code></li>
+          <li><code>kalshi-data-logger/deploy.sh</code></li>
+          <li><code>prediction-market-logger/collector/main.py</code></li>
+          <li><code>prediction-market-logger/collector/services/health.py</code></li>
+          <li><code>weather-market-edge/docs/SECURITY.md</code></li>
+          <li><code>weather-market-edge/docs/PREBUILT_DATASET.md</code></li>
+        </ul>
+      </section>
+
+      <div class="footer-note">
+        Suggested portfolio framing: a systems-engineering case study on making long-running data loggers reliable, observable, and economically sensible.
+      </div>
+    </article>
+  </div>
+</body>
+</html>

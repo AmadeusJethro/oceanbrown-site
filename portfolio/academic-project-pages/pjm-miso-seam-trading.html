@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What the PJM-MISO Seam Teaches</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --surface: #171e26;
+    --border: #232d38;
+    --text: #d4dbe3;
+    --muted: #6b7a8a;
+    --accent: #4a90d9;
+    --red: #e05c5c;
+    --green: #4caf82;
+    --amber: #d4a843;
+    --mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    --serif: 'Georgia', 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    line-height: 1.78;
+    padding: 0 1rem;
+  }
+  .page { max-width: 820px; margin: 0 auto; padding: 4rem 0 6rem; }
+  .kicker {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.1rem;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: 2.15rem;
+    font-weight: 700;
+    line-height: 1.18;
+    color: #eaf0f7;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.015em;
+  }
+  .subtitle {
+    font-family: var(--sans);
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 1.3rem;
+    line-height: 1.5;
+  }
+  .meta-row {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.4rem;
+  }
+  .meta-row span strong { color: var(--text); font-weight: 600; }
+  .abstract-block {
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.4rem;
+    margin: 0 0 2.6rem;
+    background: var(--surface);
+    border-radius: 0 4px 4px 0;
+  }
+  .abstract-block .abstract-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .abstract-block p { font-size: 0.96rem; line-height: 1.72; font-style: italic; color: var(--text); margin-bottom: 0.6rem; }
+  .abstract-block p:last-child { margin-bottom: 0; }
+  h2 {
+    font-family: var(--sans);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 3rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #c8d4e0;
+    margin: 2rem 0 0.6rem;
+  }
+  p { margin-bottom: 1rem; font-size: 1rem; }
+  p:last-child { margin-bottom: 0; }
+  em { font-style: italic; color: #c8d4e0; }
+  strong { font-weight: 700; color: #c8d4e0; }
+  ul, ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+  li { margin-bottom: 0.4rem; font-size: 1rem; }
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--border);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+    color: #c8d4e0;
+  }
+  .table-wrap { overflow-x: auto; margin: 1.8rem 0; }
+  table { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 0.84rem; }
+  thead tr { background: var(--border); }
+  thead th {
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+    font-weight: 700;
+    color: #c8d4e0;
+    letter-spacing: 0.04em;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+  }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:hover { background: var(--surface); }
+  td { padding: 0.55rem 0.9rem; font-variant-numeric: tabular-nums; color: var(--text); }
+  td.neg { color: var(--red); font-weight: 600; }
+  td.pos { color: var(--green); font-weight: 600; }
+  td.warn { color: var(--amber); font-weight: 600; }
+  td.muted { color: var(--muted); font-size: 0.82rem; }
+  td.fail { color: var(--red); }
+  td.pass { color: var(--green); }
+  .table-caption { font-family: var(--sans); font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem; font-style: italic; }
+  .chart-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.4rem 1.4rem 1rem;
+    margin: 1.8rem 0;
+    position: relative;
+  }
+  .chart-title {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .chart-caption { font-family: var(--sans); font-size: 0.76rem; color: var(--muted); margin-top: 0.8rem; font-style: italic; }
+  canvas { display: block; width: 100% !important; }
+  .legend { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-top: 0.7rem; font-family: var(--sans); font-size: 0.78rem; color: var(--muted); }
+  .legend-item { display: flex; align-items: center; gap: 0.4rem; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .finding-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 4px 4px 0;
+    padding: 1rem 1.3rem;
+    margin: 1.8rem 0;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .finding-box strong { color: var(--amber); }
+  .finding-box.blue { border-left-color: var(--accent); }
+  .finding-box.blue strong { color: var(--accent); }
+  .finding-box.red { border-left-color: var(--red); }
+  .finding-box.red strong { color: var(--red); }
+  sup { font-size: 11px; color: var(--accent); }
+  sup a { color: var(--accent); text-decoration: none; }
+  sup a:hover { text-decoration: underline; }
+  .footnotes {
+    margin-top: 3.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--sans);
+    font-size: 0.79rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .footnotes p { font-size: 0.79rem; margin-bottom: 0.6rem; }
+  .footnotes ol { padding-left: 1.2rem; }
+  .footnotes li { margin-bottom: 0.5rem; }
+  @media (max-width: 600px) {
+    h1 { font-size: 1.6rem; }
+    .meta-row { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="kicker">Energy Markets &bull; Machine Learning &bull; Validation Research</div>
+  <h1>What the PJM-MISO Seam Teaches</h1>
+  <div class="subtitle">Validation failures, regime lessons, and five transferable conclusions from two years of ML spread-trading research</div>
+
+  <div class="meta-row">
+    <span><strong>Author</strong> Owen Brown</span>
+    <span><strong>Domain</strong> Wholesale Power Markets &bull; PJM / MISO Interface</span>
+    <span><strong>Development</strong> 70+ model versions &bull; 2,500+ configurations tested</span>
+  </div>
+
+  <div class="abstract-block">
+    <div class="abstract-label">Abstract</div>
+    <p>The PJM-MISO electrical seam separates two of North America's largest grid operators. The real-time price spread at their interface, driven by regional generation mix and transmission constraints, is a natural candidate for systematic trading. Over approximately two years, this project developed ML models to predict the direction of that spread, iterating through more than 70 model versions and testing over ten algorithms. The initial results looked compelling. They were not.</p>
+    <p>A temporal alignment bug inflated the primary strategy's apparent win rate from approximately 52% to approximately 80% by feeding the model data from within the hour it was predicting. A switch from hub-based to interface-specific pricing restructured the signal space and invalidated all early results. Formal validation of the surviving model returned an hourly Sharpe of 0.015, a deflated Sharpe of 0.125, and a probability of backtest overfitting of 0.600. All three fail their standard thresholds.</p>
+    <p>This page is not a performance report. It is a case study in how edge stories collapse under their own audits, and what methodology survives once they do.</p>
+  </div>
+
+  <h2>1. The Seam and the Opportunity</h2>
+
+  <p>When power flows between PJM and MISO, it crosses a physical boundary where two different control areas, operating under different market rules and with different generation mixes, set prices independently. The Locational Marginal Price at that interface reflects congestion, transmission constraints, and the marginal cost of generation on each side. When those prices diverge, a spread exists. When the spread is predictable, it is, in principle, tradeable.</p>
+
+  <p>The seam spread has a natural structure that makes it an attractive research target. Both ISOs publish day-ahead prices around noon for the following operating day, creating a known information anchor. The spread exhibits short-term momentum: a large spread this hour makes a large spread next hour more likely than the unconditional average. Weather, seasonal demand, and fuel prices create patterns that repeat across years.</p>
+
+  <p>The question the project set out to answer was whether any of this structure was learnable with enough precision to clear transmission costs and survive out-of-sample. The answer, after two years, is: not by this approach, under this validation standard. The path to that conclusion is what is worth documenting.</p>
+
+  <h2>2. The Measurement Decision That Changed Everything</h2>
+
+  <p>Early models used regional hub prices: the PJM Western Hub and the MISO Indiana Hub. These are load-weighted averages across broad geographic areas, heavily traded, and available with decades of history. For seam trading specifically, they are the wrong price to model.</p>
+
+  <p>Hub prices aggregate prices from nodes spread across entire regions. The PJM Western Hub includes nodes in Ohio, Pennsylvania, and West Virginia. The MISO Indiana Hub spans the entire state. When a constraint fires at the actual PJM-MISO interface, it moves the interface price sharply. The hub price may barely register, diluted by nodes hundreds of miles from the seam.</p>
+
+  <p>When the project switched to interface-specific pricing nodes that capture the LMP at the physical points where power physically flows between the two systems, model accuracy improved by 1.4 percentage points from the data change alone, equivalent to the improvement that followed the first major algorithm upgrade.<sup><a href="#fn1">1</a></sup> The interface-specific prices are noisier hour to hour but structurally cleaner for the specific question being asked.</p>
+
+  <div class="finding-box blue">
+    <strong>Lesson:</strong> In any arbitrage research, the precision of the price you model determines the ceiling of the edge you can find. A regional average introduces structural noise that model complexity cannot compensate for, because the noise is correlated with the signal you are trying to learn.
+  </div>
+
+  <p>The switch came with a cost: interface-specific data was available only from 2022 forward, shortening the usable window to roughly four years. Every pre-2022 result was invalidated by the measurement correction.</p>
+
+  <h2>3. Seventy Iterations of Learning What Does Not Work</h2>
+
+  <h3>3.1 Algorithm Search</h3>
+
+  <p>Over more than 70 model versions, the project evaluated more than ten algorithm families across 1,200+ hyperparameter configurations. The winner was a shallow gradient boosting classifier. The decisive factor was not sophistication but regularization: shallower trees, lower learning rates, and higher minimum leaf sizes generalized consistently better than any alternative.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Figure 1 &mdash; Algorithm Comparison: Relative Performance vs. GBM Baseline (Validation Period)</div>
+    <canvas id="chart1" height="240"></canvas>
+    <div class="chart-caption">Relative performance of each algorithm family compared to the sklearn GradientBoostingClassifier baseline (set to 100%). All figures from validation-period evaluation, not holdout. Neural networks, ensemble stacking, and SVMs underperformed substantially. XGBoost and LightGBM were close but not competitive despite extensive tuning. Source: BOOK_08_EXPERIMENTS_FAILURES.<sup><a href="#fn2">2</a></sup></div>
+  </div>
+
+  <p>XGBoost and LightGBM both received extensive hyperparameter tuning (243 and 120 combinations respectively) and still underperformed the sklearn implementation. The most likely explanation: with only 23 features and a small dataset, the regularization approach of the vanilla GBM matched the problem better than the more aggressive implementations optimized for large-scale data. XGBoost shines with 100K+ training samples; the seam dataset had roughly a quarter of that.<sup><a href="#fn2">2</a></sup></p>
+
+  <p>Neural networks failed substantially: three different architectures, including a purpose-built LSTM for temporal patterns, all underperformed the GBM by 40-60%. The problem is not deep enough for deep learning: too few samples, relationships that are approximately linear, and a binary decision target that classification trees handle naturally.</p>
+
+  <h3>3.2 Why Simple Features Won</h3>
+
+  <p>The search for additional predictive signal was extensive. Transmission constraint data, load forecasts, wind generation, fuel mix, and area control error were all tested. None improved the model. Several hurt it.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Figure 2 &mdash; Autocorrelation Decay: Spread Predictability Horizon</div>
+    <canvas id="chart2" height="210"></canvas>
+    <div class="chart-caption">Autocorrelation of the real-time spread vs. itself at increasing lags. Signal is meaningful at 1-hour lag but decays rapidly and approaches noise level by 48 hours. This explains why simple lagged features consistently outperformed models incorporating multi-day history or external signals. Source: BOOK_08_EXPERIMENTS_FAILURES.<sup><a href="#fn2">2</a></sup></div>
+  </div>
+
+  <p>The rapid decay of autocorrelation explains most of the external-data failures. Transmission constraint data does not cause spread direction; it co-occurs with large spreads as a market outcome. The constraint is already priced into the LMP by the time it is observable. Load forecasts correlate with absolute price levels but not spreads. Area control error correlated at 0.09 with spread direction, essentially noise.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Figure 3 &mdash; Feature Complexity Penalty: Performance Change vs. Simple Baseline</div>
+    <canvas id="chart3" height="230"></canvas>
+    <div class="chart-caption">Performance change relative to the 23-feature simple baseline when each addition or modification was tested. Every experiment that added complexity degraded performance. The FENOCH transmission constraint effort consumed six weeks of engineering time for an 8% loss. Source: BOOK_08_EXPERIMENTS_FAILURES.<sup><a href="#fn2">2</a></sup></div>
+  </div>
+
+  <div class="finding-box">
+    <strong>Lesson:</strong> Markets aggregate operational information into prices efficiently. External data sources that try to reconstruct what is already in the price (constraints, load, generation) add correlation noise rather than orthogonal signal. The surviving feature set was: lagged spreads, day-ahead spread, volatility, and time-of-day indicators.
+  </div>
+
+  <h2>4. The Bug That Explained Everything</h2>
+
+  <p>The project's most consequential failure was discovered not by the project's own audit but by an external review asking a question no internal check had explicitly posed.</p>
+
+  <p>One strategy variant added partial-hour features: five-minute price data from the first 25-30 minutes of each hour. The idea was sound: use early intra-hour price action to refine the prediction for that hour. The implementation contained a one-hour temporal misalignment. The code shifted partial-hour data by <code>+1 hour</code> before merging with hourly records. Due to the hour-ending timestamp convention in the underlying dataset, that shift aligned partial-hour observations from the <em>current</em> hour with the hourly record for that same hour, rather than with the next hour's record.</p>
+
+  <p>The model was not predicting. It was <em>measuring</em>. With access to 25 minutes of a 60-minute window, it could see roughly 42% of the data that determined the outcome. Feature importance analysis showed that 59.2% of predictive weight concentrated in the leaked partial-hour features.<sup><a href="#fn3">3</a></sup></p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Version</th>
+          <th>Win Rate</th>
+          <th>Return Direction</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>With lookahead (+1h shift)</td>
+          <td class="pos">~80%</td>
+          <td class="pos">Strongly positive</td>
+          <td class="fail">Bug — invalid</td>
+        </tr>
+        <tr>
+          <td>Corrected (+2h shift)</td>
+          <td class="muted">~52%</td>
+          <td class="neg">Negative</td>
+          <td class="pass">Valid — no edge</td>
+        </tr>
+        <tr>
+          <td>Without partial features (lags only)</td>
+          <td class="muted">~51.6%</td>
+          <td class="neg">Negative</td>
+          <td class="pass">Valid — no edge</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-caption">Table 1. Performance comparison before and after correcting the temporal alignment bug. Both corrected variants confirm the same finding: no edge. Source: PV2_FAILURE_POSTMORTEM.<sup><a href="#fn3">3</a></sup></div>
+  </div>
+
+  <p>The internal audit had verified all of the standard checklist items: no negative shifts, no shuffle, scalers fit on training data only, thresholds selected from validation data only. The checklist did not verify that the shift amount was correct for the timestamp convention in use. Verifying that a shift <em>exists</em> is not the same as verifying that it produces the right temporal relationship.</p>
+
+  <p>The external review caught it by asking: what hour are you actually submitting for? That question surfaced the misalignment immediately. An empirical check confirmed it: the five-minute average for 9:00-10:00 exactly matched the hourly record labeled 10:00, confirming the hour-ending convention and the one-hour shift error.</p>
+
+  <div class="finding-box red">
+    <strong>Lesson:</strong> High apparent efficiency should be a warning, not confirmation. A model that captures a large fraction of theoretical maximum in an efficient market is likely measuring information it should not have access to. The correct response to a 80% win rate in a seam-trading strategy is skepticism, not deployment.
+  </div>
+
+  <h2>5. The Formal Verdict</h2>
+
+  <p>After correcting the lookahead bug, formal validation was applied to the best surviving model using combinatorially symmetric cross-validation (CSCV), deflated Sharpe ratio (DSR), and probability of backtest overfitting (PBO) analysis. These tests are frequency-independent: unlike standard train/test splits, they explicitly account for the number of configurations tested during development.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Figure 4 &mdash; Validation Scorecard: Actual vs. Threshold</div>
+    <canvas id="chart4" height="230"></canvas>
+    <div class="chart-caption">Three validation metrics, each plotted against its standard threshold. All three fail. Sharpe (hourly) reaches 2.1% of the minimum standard. DSR reaches 13.9%. PBO exceeds its ceiling by a factor of 12, shown here as its inverse (1 &minus; PBO) vs. the 0.95 minimum. Source: formal CSCV/DSR/PBO validation artifact.<sup><a href="#fn4">4</a></sup></div>
+  </div>
+
+  <p><strong>Sharpe ratio (hourly): 0.015.</strong> This sits at roughly 2% of the minimum standard of 0.70. Even accounting for structural compression of hourly returns relative to daily Sharpe, this is near-zero signal-to-noise.</p>
+
+  <p><strong>Deflated Sharpe ratio: 0.125.</strong> The DSR adjusts the observed Sharpe for the number of configurations tested during development. A DSR below 0.90 indicates the observed Sharpe is likely an artifact of selection across configurations rather than a stable signal. At 0.125, the selection-artifact explanation is the more probable one.</p>
+
+  <p><strong>Probability of backtest overfitting: 0.600.</strong> In 60% of combinatorial subsample tests, the configuration that ranked best in-sample did not rank best out-of-sample. The selection process shows strong systematic evidence of overfitting. P&amp;L variance across CPCV folds exceeds the mean fold result by approximately 50&times;, confirming that performance is not stable across temporal subsamples.<sup><a href="#fn4">4</a></sup></p>
+
+  <p>Stress-window analysis adds a regime dimension. Performance was highly concentrated in a single favorable year; the adjacent year showed a loss of comparable magnitude. This is not just a model failure. Spread opportunities at the seam cluster around weather events, grid stress, and seasonal demand patterns that do not repeat uniformly year to year. A model that captured a single favorable year is not the same as a model that captures the structural opportunity.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Actual</th>
+          <th>Threshold</th>
+          <th>Gap</th>
+          <th>Verdict</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sharpe (hourly)</td>
+          <td>0.015</td>
+          <td>≥ 0.70</td>
+          <td class="neg">2.1% of minimum</td>
+          <td class="fail">Fail</td>
+        </tr>
+        <tr>
+          <td>Deflated Sharpe Ratio</td>
+          <td>0.125</td>
+          <td>≥ 0.90</td>
+          <td class="neg">13.9% of minimum</td>
+          <td class="fail">Fail</td>
+        </tr>
+        <tr>
+          <td>P(Backtest Overfitting)</td>
+          <td>0.600</td>
+          <td>≤ 0.05</td>
+          <td class="neg">12× over ceiling</td>
+          <td class="fail">Fail</td>
+        </tr>
+        <tr>
+          <td>CPCV variance / mean</td>
+          <td>~50×</td>
+          <td>Stable</td>
+          <td class="neg">Highly unstable</td>
+          <td class="fail">Fail</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-caption">Table 2. All four validation metrics fail their standard thresholds. The model has no detectable lookahead bias and no statistically robust out-of-sample performance. Source: formal validation artifact.<sup><a href="#fn4">4</a></sup></div>
+  </div>
+
+  <h2>6. What This Page Does Not Claim</h2>
+
+  <p>This page does not claim profitable trading performance in any validated configuration. It does not claim the PJM-MISO seam is untradeable by other approaches, with different data, or under different market conditions. It does not claim the legacy performance figures from pre-validation phases were accurate. It does not provide dollar-denominated return figures of any kind.</p>
+
+  <p>The position is narrow: this specific project, under this specific validation protocol, with this specific approach, did not demonstrate a tradeable edge. What it demonstrated is a replicable methodology for finding that out before it matters.</p>
+
+  <h2>7. Five Transferable Conclusions</h2>
+
+  <p>The results are negative. The lessons are not.</p>
+
+  <p><strong>1. Verify temporal alignment empirically, not structurally.</strong> The standard checklist (no negative shifts, no shuffle, train-only scalers) is necessary but not sufficient. The correct verification is empirical: extract the feature value at time T, then verify manually that it could have been known at time T without access to T's outcome. The bug described here would have been caught in five minutes by this check.</p>
+
+  <p><strong>2. Price the thing you are trading, not a proxy for it.</strong> Hub prices are the wrong measurement for seam arbitrage. Interface-specific LMPs, despite shorter history, are structurally cleaner for this question. The measurement decision dominates the model decision.</p>
+
+  <p><strong>3. PBO and DSR are not optional post-hoc checks.</strong> A standard train/test split on time-series data, even properly implemented with no lookahead, cannot detect the selection bias introduced by testing 2,500+ configurations. PBO makes that selection pressure explicit. A PBO above 0.50 is not a nuance; it means the strategy selection process was not working.</p>
+
+  <p><strong>4. When features stop helping, stop adding them.</strong> Every external data source tested added noise. Transmission constraints, load forecasts, weather, fuel mix, area control error: none produced marginal information value that cleared their complexity cost. The signal was in the price itself. This is consistent with what efficient-market theory predicts for publicly available operational data.</p>
+
+  <p><strong>5. Regime concentration masquerades as edge.</strong> A model that performs well in one out of four stress windows has not found a persistent signal; it has captured a regime. Walk-forward monthly retraining mitigates but does not solve this. The only real solution is a longer out-of-sample window with explicit regime labeling.</p>
+
+  <div class="footnotes">
+    <p><strong>Sources and Notes</strong></p>
+    <ol>
+      <li id="fn1">Interface node accuracy improvement: BOOK_04_MODEL_EVOLUTION, V7 (interface node data integration). The +1.4% accuracy gain came from the data change alone, before any hyperparameter or algorithm adjustment. All interface-specific pricing data is sourced from a commercial wholesale electricity market data vendor. Node IDs and vendor details are not disclosed.</li>
+      <li id="fn2">Algorithm comparison and feature experiment results: BOOK_08_EXPERIMENTS_FAILURES. Relative performance figures are computed against the sklearn GradientBoostingClassifier validation-period baseline. Algorithm configurations: GBM (n=125, d=2, m=20, s=0.9, lr=0.20); XGBoost (243 configurations tested); LightGBM (120 configurations); neural networks (3 architectures including LSTM). Feature experiments: polynomial features, interaction terms, ratio features, extended lag windows, transmission constraints, load forecasts, wind generation, ACE.</li>
+      <li id="fn3">Lookahead bias and bug analysis: PV2_FAILURE_POSTMORTEM. The 59.2% feature importance figure and the win-rate comparison before and after correction are from that postmortem document. The corrected strategy's win rate of approximately 52% is computed on the 2025 walk-forward period. The no-partial-features baseline win rate of approximately 51.6% is from the same period.</li>
+      <li id="fn4">Validation metrics: formal CSCV/DSR/PBO validation artifact (VALIDATION_REPORT). Best validated model: lightgbm (note: not the same model family as the development winner; validation was run on the surviving candidate set). Sharpe (hourly): 0.015. DSR (n_trials=6): 0.125. PBO (CSCV, S=16): 0.600. CPCV fold dispersion approximately 50× mean fold result. Stress-window years 2023-2026 with extreme year-to-year variation. This source dominates all quantitative verdicts on this page.</li>
+    </ol>
+  </div>
+
+</div>
+
+<script>
+// Self-contained Canvas 2D chart library — no external dependencies
+
+function setupCanvas(id, height) {
+  const canvas = document.getElementById(id);
+  if (!canvas) return null;
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.parentElement.clientWidth - 32;
+  const H = height;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+  ctx.scale(dpr, dpr);
+  return { ctx, W, H };
+}
+
+function drawGrid(ctx, padL, padR, padT, padB, W, H, lo, hi, nTicks, decimals) {
+  const chartW = W - padL - padR;
+  const chartH = H - padT - padB;
+  const range = hi - lo;
+  function yPx(v) { return padT + chartH * (1 - (v - lo) / range); }
+  ctx.strokeStyle = '#232d38';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= nTicks; i++) {
+    const v = lo + (range / nTicks) * i;
+    const y = yPx(v);
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL + chartW, y); ctx.stroke();
+    ctx.fillStyle = '#6b7a8a';
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(v.toFixed(decimals), padL - 6, y + 4);
+  }
+  const zero = yPx(0);
+  if (zero >= padT && zero <= padT + chartH) {
+    ctx.strokeStyle = '#3a4a5a';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(padL, zero); ctx.lineTo(padL + chartW, zero); ctx.stroke();
+  }
+  return yPx;
+}
+
+// Chart 1: Algorithm comparison — horizontal bar chart (relative %)
+function drawHorizontalBars(id, labels, values, colors, height) {
+  const s = setupCanvas(id, height);
+  if (!s) return;
+  const { ctx, W, H } = s;
+  const padL = 160, padR = 60, padT = 16, padB = 24;
+  const chartW = W - padL - padR;
+  const chartH = H - padT - padB;
+  const maxVal = Math.max(...values.map(Math.abs)) * 1.12;
+  const barH = (chartH / labels.length) * 0.62;
+  const gap = (chartH / labels.length) * 0.38;
+
+  // zero line
+  const zeroX = padL;
+  ctx.strokeStyle = '#3a4a5a';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(zeroX, padT); ctx.lineTo(zeroX, padT + chartH); ctx.stroke();
+
+  // grid verticals
+  ctx.strokeStyle = '#232d38';
+  ctx.lineWidth = 1;
+  [-80, -60, -40, -20, 0, 20].forEach(v => {
+    if (v === 0) return;
+    const x = padL + (v / 100) * chartW;
+    if (x < padL || x > padL + chartW) return;
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, padT + chartH); ctx.stroke();
+    ctx.fillStyle = '#6b7a8a';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText((v > 0 ? '+' : '') + v + '%', x, padT + chartH + 16);
+  });
+
+  labels.forEach((lbl, i) => {
+    const y = padT + i * (chartH / labels.length) + gap / 2;
+    const val = values[i];
+    const barLen = (Math.abs(val) / 100) * chartW;
+    const color = colors[i] || (val >= 0 ? '#4caf82' : '#e05c5c');
+    ctx.fillStyle = color;
+    if (val >= 0) {
+      ctx.fillRect(padL, y, barLen, barH);
+    } else {
+      ctx.fillRect(padL - barLen, y, barLen, barH);
+    }
+    // label
+    ctx.fillStyle = '#c8d4e0';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(lbl, padL - 6, y + barH / 2 + 4);
+    // value
+    ctx.fillStyle = val >= 0 ? '#4caf82' : '#e05c5c';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = val >= 0 ? 'left' : 'right';
+    const valX = val >= 0 ? padL + barLen + 4 : padL - barLen - 4;
+    ctx.fillText((val > 0 ? '+' : '') + val + '%', valX, y + barH / 2 + 4);
+  });
+}
+
+// Chart 2: Line chart (autocorrelation decay)
+function drawLineChart(id, xLabels, datasets, height, yLabel, decimals) {
+  const s = setupCanvas(id, height);
+  if (!s) return;
+  const { ctx, W, H } = s;
+  const padL = 52, padR = 20, padT = 24, padB = 40;
+  const chartW = W - padL - padR;
+  const chartH = H - padT - padB;
+
+  let minV = Infinity, maxV = -Infinity;
+  datasets.forEach(ds => ds.data.forEach(v => { minV = Math.min(minV, v); maxV = Math.max(maxV, v); }));
+  const margin = (maxV - minV) * 0.15 || 0.05;
+  const lo = Math.max(0, minV - margin);
+  const hi = maxV + margin;
+  const range = hi - lo;
+
+  function xPx(i) { return padL + (i / (xLabels.length - 1)) * chartW; }
+  function yPx(v) { return padT + chartH * (1 - (v - lo) / range); }
+
+  // grid
+  ctx.strokeStyle = '#232d38';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 5; i++) {
+    const v = lo + (range / 5) * i;
+    const y = yPx(v);
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL + chartW, y); ctx.stroke();
+    ctx.fillStyle = '#6b7a8a';
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(v.toFixed(decimals || 2), padL - 6, y + 4);
+  }
+
+  // reference line at 0.1
+  const refY = yPx(0.1);
+  ctx.strokeStyle = '#3a4a5a';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath(); ctx.moveTo(padL, refY); ctx.lineTo(padL + chartW, refY); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#6b7a8a';
+  ctx.font = '10px sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('noise floor ≈ 0.1', padL + 4, refY - 4);
+
+  // lines
+  datasets.forEach(ds => {
+    ctx.strokeStyle = ds.color || '#4a90d9';
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    ds.data.forEach((v, i) => { i === 0 ? ctx.moveTo(xPx(i), yPx(v)) : ctx.lineTo(xPx(i), yPx(v)); });
+    ctx.stroke();
+    ctx.fillStyle = ds.color || '#4a90d9';
+    ds.data.forEach((v, i) => {
+      ctx.beginPath();
+      ctx.arc(xPx(i), yPx(v), 4, 0, Math.PI * 2);
+      ctx.fill();
+      // value labels
+      ctx.fillStyle = '#c8d4e0';
+      ctx.font = '10px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(v.toFixed(2), xPx(i), yPx(v) - 9);
+      ctx.fillStyle = ds.color || '#4a90d9';
+    });
+  });
+
+  // x labels
+  ctx.fillStyle = '#8899aa';
+  ctx.font = '11px sans-serif';
+  ctx.textAlign = 'center';
+  xLabels.forEach((lbl, i) => { ctx.fillText(lbl, xPx(i), H - padB + 16); });
+}
+
+// Chart 3: Grouped bar (feature complexity penalty)
+function drawGroupedBar(id, labels, datasets, height, decimals) {
+  const s = setupCanvas(id, height);
+  if (!s) return;
+  const { ctx, W, H } = s;
+  const padL = 56, padR = 20, padT = 20, padB = 44;
+  const chartW = W - padL - padR;
+  const chartH = H - padT - padB;
+
+  let minV = 0, maxV = 0;
+  datasets.forEach(ds => ds.data.forEach(v => { minV = Math.min(minV, v); maxV = Math.max(maxV, v); }));
+  const margin = Math.max(Math.abs(minV), maxV) * 0.18 || 1;
+  const lo = minV - margin, hi = maxV + margin;
+  const range = hi - lo;
+  function yPx(v) { return padT + chartH * (1 - (v - lo) / range); }
+  const zero = yPx(0);
+
+  for (let i = 0; i <= 6; i++) {
+    const v = lo + (range / 6) * i;
+    const y = yPx(v);
+    ctx.strokeStyle = '#232d38'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL + chartW, y); ctx.stroke();
+    ctx.fillStyle = '#6b7a8a'; ctx.font = '11px sans-serif'; ctx.textAlign = 'right';
+    ctx.fillText(v.toFixed(decimals || 0) + '%', padL - 6, y + 4);
+  }
+  ctx.strokeStyle = '#3a4a5a'; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(padL, zero); ctx.lineTo(padL + chartW, zero); ctx.stroke();
+
+  const nG = labels.length, nDS = datasets.length;
+  const groupW = chartW / nG;
+  const barW = (groupW * 0.72) / nDS;
+  const groupPad = groupW * 0.14;
+
+  datasets.forEach((ds, di) => {
+    ds.data.forEach((val, gi) => {
+      const x = padL + gi * groupW + groupPad + di * barW;
+      const yTop = yPx(Math.max(val, 0)), yBot = yPx(Math.min(val, 0));
+      const bH = Math.max(Math.abs(yTop - yBot), 2);
+      ctx.fillStyle = ds.color || (val < 0 ? '#e05c5c' : '#4caf82');
+      ctx.fillRect(x, Math.min(yTop, yBot), barW - 2, bH);
+      ctx.fillStyle = '#c8d4e0'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
+      const ly = val >= 0 ? yTop - 4 : yBot + 12;
+      ctx.fillText((val > 0 ? '+' : '') + val + '%', x + (barW - 2) / 2, ly);
+    });
+  });
+  ctx.fillStyle = '#8899aa'; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
+  labels.forEach((lbl, i) => {
+    const cx = padL + i * groupW + groupW / 2;
+    // wrap long labels
+    if (lbl.length > 12) {
+      const words = lbl.split(' ');
+      const mid = Math.ceil(words.length / 2);
+      ctx.fillText(words.slice(0, mid).join(' '), cx, H - padB + 14);
+      ctx.fillText(words.slice(mid).join(' '), cx, H - padB + 26);
+    } else {
+      ctx.fillText(lbl, cx, H - padB + 18);
+    }
+  });
+}
+
+// Chart 4: Validation scorecard
+function drawValidationChart(id, height) {
+  const s = setupCanvas(id, height);
+  if (!s) return;
+  const { ctx, W, H } = s;
+
+  const metrics = [
+    { label: 'Sharpe (hourly)', actual: 0.015, threshold: 0.70, pct: 2.1, higher: true },
+    { label: 'Deflated Sharpe (DSR)', actual: 0.125, threshold: 0.90, pct: 13.9, higher: true },
+    { label: '1 − PBO (robustness)', actual: 0.40, threshold: 0.95, pct: 42.1, higher: true },
+  ];
+
+  const padL = 170, padR = 80, padT = 20, padB = 30;
+  const chartW = W - padL - padR;
+  const rowH = (H - padT - padB) / metrics.length;
+  const barH = rowH * 0.36;
+
+  metrics.forEach((m, i) => {
+    const y = padT + i * rowH + (rowH - barH) / 2;
+    // track
+    ctx.fillStyle = '#232d38';
+    ctx.fillRect(padL, y, chartW, barH);
+    // threshold marker
+    ctx.fillStyle = '#4a90d9';
+    ctx.fillRect(padL + chartW - 2, y - 4, 2, barH + 8);
+    ctx.fillStyle = '#4a90d9';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('threshold', padL + chartW + 5, y + barH / 2 + 4);
+
+    // fill
+    const fillW = (m.pct / 100) * chartW;
+    ctx.fillStyle = m.pct < 20 ? '#e05c5c' : m.pct < 50 ? '#d4a843' : '#4caf82';
+    ctx.fillRect(padL, y, Math.max(fillW, 3), barH);
+
+    // label
+    ctx.fillStyle = '#c8d4e0';
+    ctx.font = 'bold 12px sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(m.label, padL - 10, y + barH / 2 + 4);
+
+    // actual value
+    ctx.fillStyle = '#e05c5c';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('actual: ' + m.actual, padL + Math.max(fillW, 3) + 6, y + barH / 2 + 4);
+
+    // pct label inside
+    if (fillW > 40) {
+      ctx.fillStyle = '#fff';
+      ctx.font = 'bold 10px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(m.pct.toFixed(1) + '% of threshold', padL + fillW / 2, y + barH / 2 + 4);
+    }
+  });
+
+  // axis label
+  ctx.fillStyle = '#6b7a8a';
+  ctx.font = '10px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('← 0%                                                   100% of threshold →', padL + chartW / 2, H - 4);
+}
+
+window.addEventListener('load', function() {
+
+  // Chart 1: Algorithm comparison (relative to GBM baseline = 0%)
+  drawHorizontalBars('chart1',
+    ['GBM (sklearn)', 'Hist-GBM', 'Random Forest', 'Extra Trees', 'XGBoost', 'LightGBM', 'AdaBoost', 'LSTM', 'Feed-Forward NN', 'SVM'],
+    [0, -10, -20, -29, -37, -44, -54, -60, -66, -81],
+    ['#4caf82','#4a90d9','#4a90d9','#4a90d9','#d4a843','#d4a843','#e05c5c','#e05c5c','#e05c5c','#e05c5c'],
+    240
+  );
+
+  // Chart 2: Autocorrelation decay
+  drawLineChart('chart2',
+    ['lag 1h', 'lag 3h', 'lag 7h', 'lag 12h', 'lag 24h', 'lag 48h'],
+    [{ data: [0.68, 0.48, 0.31, 0.19, 0.12, 0.08], color: '#4a90d9' }],
+    210, 'Autocorrelation', 2
+  );
+
+  // Chart 3: Feature complexity penalty (% vs simple baseline)
+  drawGroupedBar('chart3',
+    ['Polynomial\nfeatures', 'Ratio\nfeatures', 'Interaction\nterms', 'FENOCH\nconstraints', 'Extended\nlags'],
+    [{ data: [-46, -13, -7, -8, -5], color: '#e05c5c' }],
+    230, 0
+  );
+
+  // Chart 4: Validation scorecard
+  drawValidationChart('chart4', 230);
+
+});
+</script>
+</body>
+</html>

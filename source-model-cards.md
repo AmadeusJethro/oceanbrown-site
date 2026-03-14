@@ -1,0 +1,328 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "Jump to Content" [ref=e3] [cursor=pointer]:
+      - /url: "#page-content"
+    - generic [ref=e5]:
+      - link "Research" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e10]:
+          - img [ref=e11]
+          - img [ref=e13]
+        - generic [ref=e15]: Research
+      - navigation [ref=e17]:
+        - list [ref=e18]:
+          - listitem [ref=e19]:
+            - button "Who we are" [ref=e20] [cursor=pointer]:
+              - generic [ref=e21]: Who we are
+            - menu [ref=e23]:
+              - generic [ref=e27]:
+                - heading "Defining the technology of today and tomorrow." [level=2] [ref=e29]
+                - list [ref=e30]:
+                  - listitem [ref=e31]:
+                    - generic [ref=e32]:
+                      - heading "Philosophy" [level=2] [ref=e33]
+                      - paragraph [ref=e34]: We strive to create an environment conducive to many different types of research across many different time scales and levels of risk.
+                      - link "Learn more about our Philosophy" [ref=e35] [cursor=pointer]:
+                        - /url: https://research.google/philosophy/
+                        - generic [ref=e36]: Learn more about our Philosophy
+                        - text: Learn more
+                  - listitem [ref=e37]:
+                    - generic [ref=e38]:
+                      - heading "People" [level=2] [ref=e39]
+                      - paragraph [ref=e40]: Our researchers drive advancements in computer science through both fundamental and applied research.
+                      - link "Learn more about our People" [ref=e41] [cursor=pointer]:
+                        - /url: https://research.google/people/
+                        - generic [ref=e42]: Learn more about our People
+                        - text: Learn more
+          - listitem [ref=e43]:
+            - button "Research areas" [ref=e44] [cursor=pointer]:
+              - generic [ref=e45]: Research areas
+            - menu [ref=e47]:
+              - list [ref=e52]:
+                - listitem [ref=e53]:
+                  - generic [ref=e54]:
+                    - heading "Research areas" [level=2] [ref=e55]
+                    - list [ref=e56]:
+                      - listitem [ref=e57]:
+                        - link "Explore all research areas" [ref=e58] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/
+                - listitem [ref=e59]:
+                  - generic [ref=e60]:
+                    - heading "Foundational ML & Algorithms" [level=2] [ref=e61]
+                    - list [ref=e62]:
+                      - listitem [ref=e63]:
+                        - link "Algorithms & Theory" [ref=e64] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/algorithms-and-theory/
+                      - listitem [ref=e65]:
+                        - link "Data Management" [ref=e66] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/data-management/
+                      - listitem [ref=e67]:
+                        - link "Data Mining & Modeling" [ref=e68] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/data-mining-and-modeling/
+                      - listitem [ref=e69]:
+                        - link "Information Retrieval & the Web" [ref=e70] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/information-retrieval-and-the-web/
+                      - listitem [ref=e71]:
+                        - link "Machine Intelligence" [ref=e72] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/machine-intelligence/
+                      - listitem [ref=e73]:
+                        - link "Machine Perception" [ref=e74] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/machine-perception/
+                      - listitem [ref=e75]:
+                        - link "Machine Translation" [ref=e76] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/machine-translation/
+                      - listitem [ref=e77]:
+                        - link "Natural Language Processing" [ref=e78] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/natural-language-processing/
+                      - listitem [ref=e79]:
+                        - link "Speech Processing" [ref=e80] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/speech-processing/
+                - listitem [ref=e81]:
+                  - generic [ref=e82]:
+                    - heading "Computing Systems & Quantum AI" [level=2] [ref=e83]
+                    - list [ref=e84]:
+                      - listitem [ref=e85]:
+                        - link "Distributed Systems & Parallel Computing" [ref=e86] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/distributed-systems-and-parallel-computing/
+                      - listitem [ref=e87]:
+                        - link "Hardware & Architecture" [ref=e88] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/hardware-and-architecture/
+                      - listitem [ref=e89]:
+                        - link "Mobile Systems" [ref=e90] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/mobile-systems/
+                      - listitem [ref=e91]:
+                        - link "Networking" [ref=e92] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/networking/
+                      - listitem [ref=e93]:
+                        - link "Quantum Computing" [ref=e94] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/quantum-computing/
+                      - listitem [ref=e95]:
+                        - link "Robotics" [ref=e96] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/robotics/
+                      - listitem [ref=e97]:
+                        - link "Security, Privacy, & Abuse Prevention" [ref=e98] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/security-privacy-and-abuse-prevention/
+                      - listitem [ref=e99]:
+                        - link "Software Engineering" [ref=e100] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/software-engineering/
+                      - listitem [ref=e101]:
+                        - link "Software Systems" [ref=e102] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/software-systems/
+                - listitem [ref=e103]:
+                  - generic [ref=e104]:
+                    - heading "Science, AI & Society" [level=2] [ref=e105]
+                    - list [ref=e106]:
+                      - listitem [ref=e107]:
+                        - link "Climate & Sustainability" [ref=e108] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/climate-and-sustainability/
+                      - listitem [ref=e109]:
+                        - link "Economics & Electronic Commerce" [ref=e110] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/economics-and-electronic-commerce/
+                      - listitem [ref=e111]:
+                        - link "Education Innovation" [ref=e112] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/education-innovation/
+                      - listitem [ref=e113]:
+                        - link "General Science" [ref=e114] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/general-science/
+                      - listitem [ref=e115]:
+                        - link "Health & Bioscience" [ref=e116] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/health-bioscience/
+                      - listitem [ref=e117]:
+                        - link "Human-Computer Interaction and Visualization" [ref=e118] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/human-computer-interaction-and-visualization/
+                      - listitem [ref=e119]:
+                        - link "Responsible AI" [ref=e120] [cursor=pointer]:
+                          - /url: https://research.google/research-areas/responsible-ai/
+          - listitem [ref=e121]:
+            - button "Our work" [ref=e122] [cursor=pointer]:
+              - generic [ref=e123]: Our work
+            - menu [ref=e125]:
+              - list [ref=e130]:
+                - listitem [ref=e131]:
+                  - generic [ref=e132]:
+                    - heading "Projects" [level=2] [ref=e133]
+                    - paragraph [ref=e134]: We regularly open-source projects with the broader research community and apply our developments to Google products.
+                    - link "Learn more about our Projects" [ref=e135] [cursor=pointer]:
+                      - /url: https://research.google/resources/our-projects/
+                      - generic [ref=e136]: Learn more about our Projects
+                      - text: Learn more
+                - listitem [ref=e137]:
+                  - generic [ref=e138]:
+                    - heading "Publications" [level=2] [ref=e139]
+                    - paragraph [ref=e140]: Publishing our work allows us to share ideas and work collaboratively to advance the field of computer science.
+                    - link "Learn more about our Publications" [ref=e141] [cursor=pointer]:
+                      - /url: https://research.google/pubs/
+                      - generic [ref=e142]: Learn more about our Publications
+                      - text: Learn more
+                - listitem [ref=e143]:
+                  - generic [ref=e144]:
+                    - heading "Resources" [level=2] [ref=e145]
+                    - paragraph [ref=e146]: We make products, tools, and datasets available to everyone with the goal of building a more collaborative ecosystem.
+                    - link "Learn more about our Resources" [ref=e147] [cursor=pointer]:
+                      - /url: https://research.google/resources/
+                      - generic [ref=e148]: Learn more about our Resources
+                      - text: Learn more
+          - listitem [ref=e149]:
+            - button "Programs & events" [ref=e150] [cursor=pointer]:
+              - generic [ref=e151]: Programs & events
+            - menu [ref=e153]:
+              - generic [ref=e157]:
+                - generic [ref=e158]:
+                  - heading "Shaping the future, together." [level=2] [ref=e159]
+                  - link "Collaborate with us" [ref=e160] [cursor=pointer]:
+                    - /url: https://research.google/programs-and-events/
+                - list [ref=e161]:
+                  - listitem [ref=e162]:
+                    - generic [ref=e163]:
+                      - heading "Student programs" [level=2] [ref=e164]
+                      - paragraph [ref=e165]: Supporting the next generation of researchers through a wide range of programming.
+                      - link "Learn more about our Student programs" [ref=e166] [cursor=pointer]:
+                        - /url: https://research.google/programs-and-events/student-engagement/
+                        - generic [ref=e167]: Learn more about our Student programs
+                        - text: Learn more
+                  - listitem [ref=e168]:
+                    - generic [ref=e169]:
+                      - heading "Faculty programs" [level=2] [ref=e170]
+                      - paragraph [ref=e171]: Participating in the academic research community through meaningful engagement with university faculty.
+                      - link "Learn more about our Faculty programs" [ref=e172] [cursor=pointer]:
+                        - /url: https://research.google/programs-and-events/faculty-engagement/
+                        - generic [ref=e173]: Learn more about our Faculty programs
+                        - text: Learn more
+                  - listitem [ref=e174]:
+                    - generic [ref=e175]:
+                      - heading "Conferences & events" [level=2] [ref=e176]
+                      - paragraph [ref=e177]: Connecting with the broader research community through events is essential for creating progress in every aspect of our work.
+                      - link "Learn more about our Conferences & events" [ref=e178] [cursor=pointer]:
+                        - /url: https://research.google/conferences-and-events/
+                        - generic [ref=e179]: Learn more about our Conferences & events
+                        - text: Learn more
+          - listitem [ref=e180]:
+            - link "Careers" [ref=e181] [cursor=pointer]:
+              - /url: https://research.google/careers/
+              - generic [ref=e182]: Careers
+          - listitem [ref=e183]:
+            - link "Blog" [ref=e184] [cursor=pointer]:
+              - /url: https://research.google/blog/
+              - generic [ref=e185]: Blog
+      - button "Search" [ref=e187] [cursor=pointer]:
+        - img [ref=e188]
+        - generic [ref=e190]: Search
+  - main [ref=e191]:
+    - generic [ref=e193]:
+      - navigation "Breadcrumbs" [ref=e194]:
+        - list [ref=e195]:
+          - listitem [ref=e196]:
+            - link "Home" [ref=e197] [cursor=pointer]:
+              - /url: /
+            - img [ref=e198]
+          - listitem [ref=e200]:
+            - link "Publications" [ref=e201] [cursor=pointer]:
+              - /url: /pubs/
+            - img [ref=e202]
+      - generic [ref=e205]:
+        - heading "Model Cards for Model Reporting" [level=1] [ref=e206]
+        - generic [ref=e207]:
+          - link "Andrew Zaldivar" [ref=e209] [cursor=pointer]:
+            - /url: /people/106474/
+          - link "Ben Hutchinson" [ref=e212] [cursor=pointer]:
+            - /url: /people/106467/
+          - generic [ref=e214]: Elena Spitzer
+          - generic [ref=e216]: Inioluwa Deborah Raji
+          - link "Lucy Vasserman" [ref=e219] [cursor=pointer]:
+            - /url: /people/lucyvasserman/
+          - generic [ref=e221]: M. Mitchell
+          - link "Parker Barnes" [ref=e224] [cursor=pointer]:
+            - /url: /people/108139/
+          - generic [ref=e226]: Simone Sanoian McCloskey Wu
+          - generic [ref=e228]: Timnit Gebru
+          - generic [ref=e230]: (2019)
+        - generic [ref=e231]:
+          - link "Download" [ref=e232] [cursor=pointer]:
+            - /url: https://dl.acm.org/citation.cfm?id=3287596
+            - img [ref=e233]
+            - generic [ref=e235]: Download
+          - link "Google Scholar" [ref=e236] [cursor=pointer]:
+            - /url: https://scholar.google.com/scholar?lr&ie=UTF-8&oe=UTF-8&q=Model Cards for Model Reporting Inioluwa Deborah Raji M. Mitchell Parker Barnes Lucy Vasserman Andrew Zaldivar Ben Hutchinson Timnit Gebru Simone Sanoian McCloskey Wu Elena Spitzer
+            - generic [ref=e237]: Google Scholar
+          - button "Copy Bibtex" [ref=e239] [cursor=pointer]:
+            - generic [ref=e240]: Copy Bibtex
+    - generic [ref=e242]:
+      - heading "Abstract" [level=3] [ref=e244]
+      - generic [ref=e245]: Trained machine learning models are increasingly used to perform high impact tasks such as determining crime recidivism rates and predicting health risks. In order to clarify the intended use cases of machine learning models and minimize their usage in contexts they are not well-suited for, we recommend that released models be accompanied by documentation detailing their performance characteristics. In this paper, we propose a framework that we call model cards (or M-cards) to encourage such transparent model reporting. Model cards are short documents accompanying trained machine learning models that provide benchmarked evaluation in a variety of conditions, such as across different cultural, demographic, or phenotypic subgroups (e.g., race, geographic location, sex, Fitzpatrick skin tone) and intersectional subgroups (e.g., age and race, or sex and Fitzpatrick skin tone) that are relevant to the intended application domains. Model cards also disclose the context under which models are intended to be used, details of the performance evaluation procedures, and other relevant information. While we focus primarily on human-centered machine learning models in the application fields of computer vision and natural language processing, this framework can be used to document any trained machine learning model. To solidify the concept, we provide cards for models trained to detect smiling faces on the CelebA dataset (Liu et al., 2015) and models trained to detect toxicity in the Conversation AI dataset (Dixon et al., 2018). We propose this work as a step towards the responsible democratization of machine learning and related AI technology, providing context around machine learning models and increasing the transparency into how well such models work. We hope this work encourages those releasing trained machine learning models to accompany model releases with similar detailed documentation.
+    - generic [ref=e247]:
+      - heading "Research Areas" [level=3] [ref=e249]
+      - list [ref=e251]:
+        - listitem [ref=e252]:
+          - link "Responsible AI" [ref=e253] [cursor=pointer]:
+            - /url: https://research.google/research-areas/responsible-ai/
+            - generic [ref=e255]:
+              - paragraph [ref=e257]: Responsible AI
+              - generic [ref=e258]:
+                - generic:
+                  - img
+        - listitem [ref=e259]:
+          - link "Machine Intelligence" [ref=e260] [cursor=pointer]:
+            - /url: https://research.google/research-areas/machine-intelligence/
+            - generic [ref=e262]:
+              - paragraph [ref=e264]: Machine Intelligence
+              - generic [ref=e265]:
+                - generic:
+                  - img
+    - generic [ref=e267]:
+      - generic [ref=e268]:
+        - heading "Meet the teams driving innovation" [level=2] [ref=e269]
+        - paragraph [ref=e270]: Our teams advance the state of the art through research, systems engineering, and collaboration across Google.
+        - link "See our teams" [ref=e271] [cursor=pointer]:
+          - /url: https://research.google/teams/
+          - generic [ref=e272]: See our teams
+      - generic [ref=e275]:
+        - img "Teams" [ref=e276]
+        - button "Enlarge image" [ref=e277] [cursor=pointer]:
+          - img [ref=e278]
+          - text: Enlarge image
+  - contentinfo [ref=e280]:
+    - generic [ref=e283]:
+      - paragraph [ref=e284]: Follow us
+      - navigation "Social media links" [ref=e285]:
+        - list [ref=e286]:
+          - listitem [ref=e287]:
+            - link "Follow us on x" [ref=e288] [cursor=pointer]:
+              - /url: https://x.com/GoogleResearch
+              - img [ref=e289]
+          - listitem [ref=e291]:
+            - link "Follow us on linkedin" [ref=e292] [cursor=pointer]:
+              - /url: https://www.linkedin.com/showcase/googleresearch/
+              - img [ref=e293]
+          - listitem [ref=e295]:
+            - link "Follow us on youtube" [ref=e296] [cursor=pointer]:
+              - /url: https://www.youtube.com/c/GoogleResearch
+              - img [ref=e297]
+          - listitem [ref=e299]:
+            - link "Follow us on github" [ref=e300] [cursor=pointer]:
+              - /url: https://github.com/google-research
+              - img [ref=e301]
+    - navigation "Footer resource links" [ref=e305]:
+      - link "Google" [ref=e307] [cursor=pointer]:
+        - /url: https://www.google.com
+        - img [ref=e308]
+      - list [ref=e310]:
+        - listitem [ref=e311]:
+          - link "About Google" [ref=e312] [cursor=pointer]:
+            - /url: https://about.google/
+        - listitem [ref=e313]:
+          - link "Google Products" [ref=e314] [cursor=pointer]:
+            - /url: https://about.google/intl/en/products/
+        - listitem [ref=e315]:
+          - link "Privacy" [ref=e316] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy
+        - listitem [ref=e317]:
+          - link "Terms" [ref=e318] [cursor=pointer]:
+            - /url: https://policies.google.com/terms
+      - list [ref=e319]:
+        - listitem [ref=e320]:
+          - link "Help" [ref=e321] [cursor=pointer]:
+            - /url: https://support.google.com/?hl=en
+            - img [ref=e322]
+            - text: Help
+        - listitem [ref=e324]:
+          - button "Submit feedback" [ref=e325] [cursor=pointer]

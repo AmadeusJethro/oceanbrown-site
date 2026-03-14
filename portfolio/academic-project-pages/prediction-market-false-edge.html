@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>False Edge in Prediction Markets</title>
+  <link rel="stylesheet" href="assets/portfolio.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="topbar">
+      <a href="index.html">Academic Project Pages</a>
+      <span>Prediction Market Research</span>
+    </div>
+
+    <article class="article">
+      <div class="kicker">Project 01</div>
+      <h1>False Edge in Prediction Markets</h1>
+      <p class="subtitle">
+        Portability lessons from Polymarket and Kalshi, and a case study in what remains when
+        edge claims are forced through leakage review, venue portability testing, and
+        execution-realism analysis.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-card">
+          <span class="label">Primary Theme</span>
+          <span class="value">Validation, portability, and quantitative review discipline</span>
+        </div>
+        <div class="meta-card">
+          <span class="label">Evidence Basis</span>
+          <span class="value">Librarian-audited manuscript and project audit artifacts</span>
+        </div>
+        <div class="meta-card">
+          <span class="label">Portfolio Use</span>
+          <span class="value">Research case study / methods page</span>
+        </div>
+      </div>
+
+      <div class="abstract-box">
+        <h2>Structured Abstract</h2>
+        <p><strong>Question.</strong> What survives when prediction-market edge claims are forced through the same leakage review, venue portability testing, and execution-realism analysis that serious quantitative operations already apply?</p>
+        <p><strong>Approach.</strong> I developed strategies against Polymarket data, subjected them to internal leakage audit, tested portability across 135 configurations on Kalshi, and built cost-aware selection and provenance infrastructure for the surviving methodology.</p>
+        <p><strong>Main finding.</strong> The primary backtest was invalidated by its own audit due to complete data leakage. The strategy did not port to Kalshi under any tested configuration. What remained was not alpha but engineering discipline: fee-adjusted selection logic, cross-venue provenance, and the willingness to kill results that could not survive review.</p>
+        <p><strong>Why it matters.</strong> This is a case study in how to handle results that look good but are not defensible, which is the situation that quant teams, trading desks, and research organizations face regularly.</p>
+      </div>
+
+      <section>
+        <h2>Research Problem</h2>
+        <h3>Why prediction markets were a useful stress test</h3>
+        <p>
+          Prediction markets offered an accessible testing ground for quantitative methodology.
+          They are liquid enough to construct backtests, structured enough to formalize strategies,
+          and small enough in economic consequence that the real cost of failure is time rather
+          than capital. The research question was never whether prediction markets are profitable.
+          It was whether the process of building, testing, invalidating, and rebuilding strategies
+          against these markets could produce defensible methodology.
+        </p>
+        <p>
+          The work spanned several projects across Polymarket and Kalshi: a backtest-first strategy
+          development effort, a venue portability study, a fee-aware selection and monitoring system,
+          and a cross-venue provenance pipeline. Each project had its own audit trail. This page
+          reports what those audits actually found.
+        </p>
+        <div class="finding">
+          <span class="label">Thesis</span>
+          Most of the claimed edge collapsed under review. What survived was the review process itself.
+        </div>
+      </section>
+
+      <section>
+        <h2>False Edge: What Failed Under Review</h2>
+        <h3>Leakage invalidation</h3>
+        <p>
+          The primary Polymarket strategy produced results that appeared exceptional on first
+          inspection. Those results were subsequently invalidated by the project's own
+          data-leakage audit.<sup>1</sup> The audit found complete overlap between training and test
+          data: the strategy had been optimized on the same observations it was evaluated
+          against. That made the reported backtest metrics meaningless.
+        </p>
+        <p>
+          The audit classified the leakage as severe and recommended immediately halting all
+          trading activity.<sup>1</sup> This was not a subtle statistical concern. It was a
+          methodological failure in which training and evaluation used identical records,
+          eliminating any basis for generalization.
+        </p>
+
+        <h3>The audit's own verdict</h3>
+        <p>
+          The project's overall quant-integrity status was recorded as a fail.<sup>2</sup> A
+          substantial fraction of the project's quantitative claims were flagged as either
+          invalidated or of unknown status by the audit pipeline.<sup>2</sup> The audit
+          infrastructure itself, not the original backtest, was what produced a defensible
+          conclusion.
+        </p>
+        <p>
+          The lesson is not that backtesting is unreliable. The lesson is that an internal
+          review process caught a failure that would otherwise have reached production. That
+          review process is the defensible artifact from this work.
+        </p>
+      </section>
+
+      <section>
+        <h2>Why Portability Failed</h2>
+        <h3>Polymarket to Kalshi</h3>
+        <p>
+          After the primary backtest was invalidated, a separate research effort tested whether
+          the underlying strategy thesis could port to a different venue. The study analyzed
+          107,427 resolved Kalshi markets across 135 distinct strategy configurations.<sup>3</sup>
+        </p>
+        <p>
+          The result was unambiguous: zero configurations produced positive edge. All showed
+          losses.<sup>3</sup>
+        </p>
+
+        <h3>Structural pricing difference</h3>
+        <p>
+          The core reason was structural.<sup>4</sup> On Polymarket, buying NO contracts at low
+          prices creates an asymmetric payoff: a small cost for a large potential profit if
+          the event does not occur. On Kalshi, the pricing is symmetric. When YES trades at
+          five cents, the corresponding NO position costs ninety-five cents, not five. That
+          eliminates the asymmetry that made the Polymarket thesis attractive in the first
+          place.
+        </p>
+        <p>
+          Kalshi markets were efficiently priced at all tested levels: actual win rates
+          closely tracked the implied probabilities defined by contract prices, leaving no
+          systematic mispricing to exploit.<sup>4</sup>
+        </p>
+
+        <h3>Data limitations compounded the finding</h3>
+        <p>
+          The portability study carried an additional structural limitation.<sup>5</sup> More than
+          99% of the resolved Kalshi markets in the dataset were sports or esports. The
+          categories where Polymarket strategies showed preliminary promise, including politics,
+          weather, and macroeconomic events, were nearly absent from the Kalshi data. No
+          historical price snapshots were available for time-to-close analysis, and no
+          multi-year date range existed for proper train/test separation.
+        </p>
+        <p>
+          That means the portability failure is real but not fully generalizable. The
+          structural pricing asymmetry finding holds regardless of category. But the
+          category-specific question remains open due to data coverage.
+        </p>
+      </section>
+
+      <section>
+        <h2>What Survived After Edge Removal</h2>
+        <h3>Methods, not returns</h3>
+        <p>
+          Once the backtest was invalidated and portability failed, what remained was not
+          performance but process. Three pieces of methodology survived review.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Function</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fee math</td>
+              <td>f = 0.07 x P x (1 - P); break-even q* = (P + f) / (1 - 2f)</td>
+            </tr>
+            <tr>
+              <td>EV computation</td>
+              <td>q(1 - P - f) + (1 - q)(-P - f) with calibration margin</td>
+            </tr>
+            <tr>
+              <td>Slippage validation</td>
+              <td>Depth requirement at target size, max 1 cent impact</td>
+            </tr>
+            <tr>
+              <td>Diversification</td>
+              <td>Theme caps, per-underlying caps, max 60% single category</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          <strong>Fee-adjusted selection logic.</strong> The selection system, Project Haven, was
+          designed as Phase 1 infrastructure: market monitoring and candidate ranking with no
+          order placement, no position tracking, and no execution.<sup>6</sup> The system
+          computed break-even probabilities, fee-adjusted expected values, and slippage
+          estimates for each ranked candidate. It imposed theme caps and per-underlying
+          diversification constraints to prevent hidden concentration.<sup>6</sup>
+        </p>
+        <p>
+          <strong>Explicit no-trading scope.</strong> The selection system never claimed to trade.
+          This matters because the most common source of false confidence in backtested
+          strategies is the silent assumption that a tested signal is the same as a deployed
+          signal. By scoping the system as selection-only, the project avoided confusing
+          research output with trading output.
+        </p>
+        <p>
+          <strong>Known-defect transparency.</strong> Three critical bugs were identified in the
+          selection system at time of audit: price band filtering was not applied in watchlist
+          mode, theme caps were not enforced, and prices were storing as NULL in the
+          database.<sup>7</sup> These defects were documented and tracked, not hidden. A system
+          that is reviewed and found defective under audit is more honest than one that ships
+          without review.
+        </p>
+      </section>
+
+      <section>
+        <h2>Why Provenance and Matching Mattered</h2>
+        <h3>Cross-venue infrastructure</h3>
+        <p>
+          Cross-venue analysis requires knowing that two markets on different platforms refer
+          to the same underlying event. The prediction-market-logger project addressed this
+          with a two-stage pipeline: rule-based candidate detection followed by verification
+          using a language model.<sup>8</sup>
+        </p>
+
+        <h3>Cost-controlled verification</h3>
+        <p>
+          The design was cost-driven. A full scan of both venues at the rule-based stage was
+          free. Model-based verification was applied only to matched pairs, keeping per-scan
+          costs to fractions of a cent. Monthly costs at hourly cadence remained in the single
+          digits.<sup>8</sup>
+        </p>
+        <div class="callout">
+          <span class="label">Operational principle</span>
+          Data provenance is an operational concern, not a theoretical one. If matching is
+          unreliable, cross-venue analysis is meaningless. If matching is too expensive, it
+          will not run at the cadence that research requires.
+        </div>
+      </section>
+
+      <section>
+        <h2>What This Page Does Not Claim</h2>
+        <ul>
+          <li>profitable trading performance on any venue</li>
+          <li>validated edge in any strategy configuration</li>
+          <li>live or paper-traded results of any kind</li>
+          <li>that the selection system was free of defects</li>
+          <li>that the portability study had sufficient category coverage for a definitive conclusion</li>
+          <li>that prediction-market strategies have no value in principle</li>
+        </ul>
+        <p>
+          The position is narrower: these specific strategies, under these specific review
+          conditions, did not survive. What survived was the methodology used to reach that
+          conclusion.
+        </p>
+      </section>
+
+      <section>
+        <h2>Transfer to Adjacent Domains</h2>
+        <p>
+          The engineering patterns in this work have structural parallels in energy markets,
+          grid operations, and other constrained-optimization domains. Three brief examples,
+          offered as analogies rather than performance claims:
+        </p>
+        <ul>
+          <li><strong>Fee-adjusted candidate selection</strong> parallels congestion routing. In both cases, the question is not whether an opportunity exists in isolation but whether it clears costs, constraints, and execution friction simultaneously.</li>
+          <li><strong>Correlation caps</strong> in the selection system serve the same function as concentration limits on a power book: preventing a portfolio that looks diversified from silently becoming a single directional bet.</li>
+          <li><strong>Data provenance infrastructure</strong> for cross-venue matching parallels data-pipeline integrity requirements in ISO ingest systems, where a mismatched source identifier can propagate silently through downstream analytics.</li>
+        </ul>
+        <p>
+          These are structural parallels. The prediction-market work does not prove competence
+          in energy markets. It demonstrates transferable engineering discipline applied to a
+          different asset class.
+        </p>
+      </section>
+
+      <section class="sources">
+        <h2>Source Basis and Limitations</h2>
+        <h3>Sources</h3>
+        <p>
+          All claims in this page are drawn from governance and audit artifacts produced by a
+          portfolio-audit pipeline. Style seeds, including existing portfolio pages, were used
+          for section shape and voice calibration only and are not cited as factual evidence.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>Trust Tier</th>
+              <th>Usage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>polymarket-trader audit artifacts</td>
+              <td>T1</td>
+              <td>Failure and invalidation only</td>
+            </tr>
+            <tr>
+              <td>kalshi-research audit artifacts</td>
+              <td>T1</td>
+              <td>Portability failure and data limitations</td>
+            </tr>
+            <tr>
+              <td>kalshi-favorites-selector audit artifacts</td>
+              <td>T1</td>
+              <td>Methods and no-trading scope</td>
+            </tr>
+            <tr>
+              <td>prediction-market-logger audit artifacts</td>
+              <td>T1</td>
+              <td>Provenance, matching, and cost control</td>
+            </tr>
+            <tr>
+              <td>Portfolio style seeds</td>
+              <td>T4</td>
+              <td>Section shape and voice only</td>
+            </tr>
+            <tr>
+              <td>Unsafe prior portfolio draft</td>
+              <td>T5</td>
+              <td>Structural pattern only; no claims extracted</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Limitations</h3>
+        <ol>
+          <li><strong>No validated out-of-sample performance</strong> exists for any strategy on any venue. The primary backtest was invalidated. The portability study found no positive edge.</li>
+          <li><strong>Category bias in the Kalshi study.</strong> More than 99% of resolved Kalshi markets were sports or esports. Categories of potential interest, including politics, weather, and macro, were absent, leaving the portability question partially open.</li>
+          <li><strong>Selection system defects.</strong> Project Haven had three critical bugs at audit time and was never deployed for trading or paper trading.</li>
+          <li><strong>Matching pipeline not production-validated.</strong> The cross-venue matching system was designed with cost controls but was not validated against a production-grade reconciliation standard.</li>
+          <li><strong>This page does not constitute investment advice,</strong> trading recommendations, or claims of alpha generation.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Endnotes</h2>
+        <ol>
+          <li><code>polymarket-trader/quant-integrity-memo.md</code>. The audit found severe data leakage, reported 100% data overlap, recommended stopping all trading immediately, and stated that the strategy had been trained and tested on the exact same data.</li>
+          <li><code>polymarket-trader/decision-memo.md</code> and <code>polymarket-trader/metric-audit.json</code>. Decision class: internal-only, quant status: fail. Metric audit recorded 358 quantitative claims, with 17 invalidated and 29 unknown.</li>
+          <li><code>kalshi-research/writing-handoff.md</code>. Comprehensive analysis covered 107,427 resolved Kalshi markets and 135 strategy configurations, with zero positive edge and all configurations showing losses.</li>
+          <li><code>kalshi-research/writing-handoff.md</code>, sections 2.2 and 4.1. Kalshi symmetry removed the low-cost NO asymmetry present in the Polymarket thesis, and observed win rates tracked implied probabilities closely.</li>
+          <li><code>kalshi-research/writing-handoff.md</code>, section 1.4. The dataset was more than 99% sports or esports, lacked politics, weather, and macro categories, and did not include the historical price structure needed for time-to-close analysis.</li>
+          <li><code>kalshi-favorites-selector/writing-handoff.md</code>. Project Haven remained Phase 1 infrastructure only: data ingestion and selection, with no order placement, position tracking, or execution.</li>
+          <li><code>kalshi-favorites-selector/writing-handoff.md</code>, Critical Bugs section. Price band filtering was missing in watchlist mode, theme caps were not enforced, and prices were storing as NULL.</li>
+          <li><code>prediction-market-logger/writing-handoff.md</code>. The pipeline used rule-based candidate detection plus LLM verification, with verification applied only to matched pairs and costs around $0.005 per scan, or about $3.60 per month at hourly cadence.</li>
+        </ol>
+      </section>
+
+      <div class="footer-note">
+        Suggested portfolio framing: a methods-focused case study on invalidation, venue portability, and the engineering discipline required to kill weak edge claims.
+      </div>
+    </article>
+  </div>
+</body>
+</html>

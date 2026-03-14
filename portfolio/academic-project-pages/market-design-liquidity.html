@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Design, Liquidity, and the Illusion of Edge</title>
+  <link rel="stylesheet" href="assets/portfolio.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="topbar">
+      <a href="index.html">Academic Project Pages</a>
+      <span>Prediction Market Research</span>
+    </div>
+
+    <article class="article">
+      <div class="kicker">Project 01</div>
+      <h1>Market Design, Liquidity, and the Illusion of Edge in Event Markets</h1>
+      <p class="subtitle">
+        A research narrative on what prediction markets taught me about execution realism, false diversification,
+        venue portability, and why extraordinary backtests often disappear under stricter validation.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-card">
+          <span class="label">Primary Theme</span>
+          <span class="value">Market microstructure and execution</span>
+        </div>
+        <div class="meta-card">
+          <span class="label">Empirical Basis</span>
+          <span class="value">Tens of millions of historical trades across multiple venue-specific datasets</span>
+        </div>
+        <div class="meta-card">
+          <span class="label">Portfolio Use</span>
+          <span class="value">Research case study / methods paper style</span>
+        </div>
+      </div>
+
+      <div class="abstract-box">
+        <h2>Structured Abstract</h2>
+        <p><strong>Question.</strong> When an event-market strategy looks profitable, how much of that apparent edge survives once chronology, liquidity, costs, and cross-strategy correlation are handled honestly?</p>
+        <p><strong>Approach.</strong> I combined exploratory strategy research, liquidity studies, leakage audits, and portfolio correlation analysis across Polymarket- and Kalshi-related datasets.</p>
+        <p><strong>Main finding.</strong> The strongest lesson was not that prediction markets were easy to beat; it was that the edge story changed dramatically once I enforced train/test separation, modeled fillability, and treated correlation clusters as real risk.</p>
+        <p><strong>Why it matters.</strong> This is directly analogous to congestion and FTR trading, where theoretical alpha is meaningless unless it survives market design, execution, and regime-dependence.</p>
+      </div>
+
+      <section>
+        <h2>Research Problem</h2>
+        <h3>Why the project mattered</h3>
+        <p>
+          Prediction markets are a useful laboratory for thinking about microeconomics. They are small, noisy,
+          segmented, and heavily shaped by rule design. That makes them a good place to study the same kinds of
+          questions that appear in power trading: where does apparent edge come from, how much of it is structural,
+          and how much disappears once costs and operational constraints are treated seriously?
+        </p>
+        <p>
+          The goal of this work was not simply to find profitable heuristics. It was to understand which findings were
+          robust, which were artifacts of data or execution assumptions, and what those distinctions imply for trading
+          systems more broadly.
+        </p>
+      </section>
+
+      <section>
+        <h2>Core Findings</h2>
+        <h3>1. Chronological leakage can manufacture spectacular but meaningless performance</h3>
+        <p>
+          One of the most important results was negative: a leakage audit showed that a strategy claiming to turn
+          $1,000 into $877,974 had trained and tested on the same 2025 data slice. That rendered the backtest invalid.
+          The value of this result is methodological. In thin, regime-sensitive markets, extraordinary performance is
+          often a warning sign rather than proof of alpha.
+        </p>
+        <div class="finding">
+          <span class="label">Methodological takeaway</span>
+          Any serious event-market research framework must enforce strict chronological splits, not random sampling and
+          not same-period calibration. This is exactly the same discipline required in congestion or transmission
+          trading, where model selection against the delivery period can quietly leak future structure.
+        </div>
+
+        <h3>2. Fillability is strongly asymmetric across price regions</h3>
+        <p>
+          A dedicated liquidity study showed a sharp difference between cheap YES underdogs and expensive NO favorites.
+          In one large Polymarket snapshot, YES underdogs priced at 1-5 cents had an average trade size of only $17.41,
+          and just 8,114 of 1.56 million trades were $500+ fills. By contrast, NO favorites at 95+ cents had an average
+          trade size of $357.79, with roughly 1.25 million $500+ fills out of 15.55 million trades.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Region</th>
+              <th>Average trade size</th>
+              <th>$500+ fill frequency</th>
+              <th>Interpretation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>YES underdogs (1-5c)</td>
+              <td>$17.41</td>
+              <td>0.52%</td>
+              <td>Interesting on paper, difficult at size</td>
+            </tr>
+            <tr>
+              <td>NO favorites (95+c)</td>
+              <td>$357.79</td>
+              <td>8.0%</td>
+              <td>Far more executable for institutional sizing</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout">
+          <span class="label">Microeconomic interpretation</span>
+          The same expected-value signal can be very different economically depending on who is willing to trade, how
+          much size clears, and where inventory risk sits in the book. In other words: theoretical edge and executable
+          edge are not the same object.
+        </div>
+
+        <h3>3. Diversification can be fake when latent factors dominate</h3>
+        <p>
+          Correlation analysis across strategy clusters showed that many apparently independent crypto strategies were in
+          fact one common-factor bet. On August 30, 2024, seventeen crypto strategies failed simultaneously. The lesson
+          was not only about crypto; it was about portfolio construction. A set of strategies built from superficially
+          different tickers, thresholds, or windows may still collapse together when the same hidden driver moves.
+        </p>
+        <div class="figure-box">
+          <pre>Loss cluster example
+- 17 crypto strategies failed on the same date
+- Multiple assets, bands, and time windows moved together
+- Apparent diversification was mostly cosmetic</pre>
+          <div class="figure-caption">Clustered losses mattered more than average win rates. This is conceptually close to path correlation in congestion books or weather-linked common-mode risk across FTR exposures.</div>
+        </div>
+
+        <h3>4. Strategy portability across venues is not automatic</h3>
+        <p>
+          Cross-venue work on Kalshi and Polymarket suggested that identical-looking ideas could behave very differently
+          once fee schedules, contract structure, category composition, and user mix changed. The practical consequence
+          is that a strategy should be assumed venue-specific until re-estimated under that venue's own market design.
+        </p>
+        <p>
+          This is the same principle that applies when moving from one ISO or product structure to another: rules,
+          liquidity pools, participant composition, and settlement design all change the feasible opportunity set.
+        </p>
+      </section>
+
+      <section>
+        <h2>How I Would Frame the Contribution</h2>
+        <h3>Academic thesis</h3>
+        <p>
+          The main contribution is not a specific trading rule. It is a compact empirical argument: event-market edge is
+          a joint function of validation discipline, venue design, and execution constraints. Once those are enforced,
+          the number of believable opportunities shrinks sharply, but the surviving conclusions become much more useful.
+        </p>
+        <div class="note-box">
+          <span class="label">Portfolio framing</span>
+          I would present this as a methods-heavy project on market design and execution realism, not as a brag sheet of
+          backtested returns. The interesting part is the distinction between statistical signal and economically
+          realizable signal.
+        </div>
+      </section>
+
+      <section>
+        <h2>Relevance to FTR and Congestion Trading</h2>
+        <ul>
+          <li><strong>Execution realism:</strong> just as with thin event-market books, nominal alpha in congestion or FTRs can disappear once liquidity, queue position, and fill assumptions are modeled honestly.</li>
+          <li><strong>Rule-dependent edge:</strong> venue design in prediction markets plays the same role that auction rules, product definitions, and settlement mechanics play in power markets.</li>
+          <li><strong>Correlation clustering:</strong> multiple apparent strategies may collapse into one latent risk factor under stressed regimes.</li>
+          <li><strong>Chronological validation:</strong> strategy research must respect time, regime boundaries, and the impossibility of learning from the future.</li>
+        </ul>
+      </section>
+
+      <section class="sources">
+        <h2>Source Basis</h2>
+        <ul>
+          <li><code>polymarket-trader/DATA_LEAKAGE_EXECUTIVE_SUMMARY.md</code></li>
+          <li><code>polymarket-trader/LIQUIDITY_ANALYSIS_SUMMARY.md</code></li>
+          <li><code>polymarket-trader/PORTFOLIO_RECOMMENDATIONS.md</code></li>
+          <li><code>polymarket-trader/FINAL_STRATEGY_SUMMARY.md</code></li>
+          <li><code>kalshi-research/KALSHI_STRATEGY_REPORT.md</code></li>
+          <li><code>kalshi-research/KALSHI_STRATEGY_REPORT_V2.md</code></li>
+        </ul>
+      </section>
+
+      <div class="footer-note">
+        Suggested portfolio framing: an empirical study of how market design and execution constraints shape apparent edge.
+      </div>
+    </article>
+  </div>
+</body>
+</html>

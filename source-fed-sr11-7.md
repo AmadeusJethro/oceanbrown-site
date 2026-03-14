@@ -1,0 +1,416 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img "US Flag" [ref=e7]
+        - paragraph [ref=e8]: An official website of the United States Government
+      - button "Here's how you know Expand More" [ref=e9] [cursor=pointer]:
+        - generic [ref=e10]: Here's how you know
+        - img "Expand More" [ref=e11]
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - img ".gov icon" [ref=e14]
+        - paragraph [ref=e15]:
+          - strong [ref=e16]: Official websites use .gov
+          - text: A
+          - strong [ref=e17]: .gov
+          - text: website belongs to an official government organization in the United States.
+      - generic [ref=e18]:
+        - img "HTTPS icon" [ref=e19]
+        - paragraph [ref=e20]:
+          - strong [ref=e21]: Secure .gov websites use HTTPS
+          - text: A
+          - strong [ref=e22]: lock
+          - text: (
+          - img "Locked padlock icon" [ref=e24]
+          - text: ) or
+          - strong [ref=e26]: https://
+          - text: means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.
+  - navigation [ref=e27]:
+    - generic [ref=e28]:
+      - list [ref=e29]:
+        - listitem [ref=e30]: Stay Connected ·
+        - listitem [ref=e31]:
+          - link "Recent Postings" [ref=e32] [cursor=pointer]:
+            - /url: /recentpostings.htm
+          - text: ·
+        - listitem [ref=e33]:
+          - link "Calendar" [ref=e34] [cursor=pointer]:
+            - /url: /newsevents/calendar.htm
+          - text: ·
+        - listitem [ref=e35]:
+          - link "Publications" [ref=e36] [cursor=pointer]:
+            - /url: /publications.htm
+          - text: ·
+        - listitem [ref=e37]:
+          - link "Site Map" [ref=e38] [cursor=pointer]:
+            - /url: /sitemap.htm
+          - text: ·
+        - listitem [ref=e39]:
+          - link "A-Z index" [ref=e40] [cursor=pointer]:
+            - /url: /azindex.htm
+          - text: ·
+        - listitem [ref=e41]:
+          - link "Careers" [ref=e42] [cursor=pointer]:
+            - /url: /careers.htm
+          - text: ·
+        - listitem [ref=e43]:
+          - link "FAQs" [ref=e44] [cursor=pointer]:
+            - /url: /faqs.htm
+          - text: ·
+        - listitem [ref=e45]:
+          - link "Videos" [ref=e46] [cursor=pointer]:
+            - /url: /videos.htm
+          - text: ·
+        - listitem [ref=e47]:
+          - link "Contact" [ref=e48] [cursor=pointer]:
+            - /url: /aboutthefed/contact-us-topics.htm
+      - search [ref=e49]:
+        - generic [ref=e50]:
+          - generic [ref=e51]: Search
+          - textbox "Search" [ref=e52]
+          - button "Submit Search Button" [ref=e54] [cursor=pointer]:
+            - generic [ref=e55]: Submit Search Button
+        - link "Advanced" [ref=e58] [cursor=pointer]:
+          - /url: //www.fedsearch.org/board_public/
+  - banner [ref=e59]:
+    - link "Board of Governors of the Federal Reserve System The Federal Reserve, the central bank of the United States, provides the nation with a safe, flexible, and stable monetary and financial system." [ref=e60] [cursor=pointer]:
+      - /url: /default.htm
+      - generic [ref=e61]:
+        - heading "Board of Governors of the Federal Reserve System" [level=1] [ref=e62]
+        - paragraph [ref=e63]:
+          - emphasis [ref=e64]: The Federal Reserve, the central bank of the United States, provides the nation with a safe, flexible, and stable monetary and financial system.
+  - navigation [ref=e65]:
+    - menubar [ref=e66]:
+      - menuitem "About the Fed" [ref=e67]:
+        - link "About the Fed" [ref=e68] [cursor=pointer]:
+          - /url: /aboutthefed.htm
+          - text: About
+          - text: the Fed
+      - menuitem "News & Events" [ref=e69]:
+        - link "News & Events" [ref=e70] [cursor=pointer]:
+          - /url: /newsevents.htm
+          - text: News
+          - text: "& Events"
+      - menuitem "Monetary Policy" [ref=e71]:
+        - link "Monetary Policy" [ref=e72] [cursor=pointer]:
+          - /url: /monetarypolicy.htm
+          - text: Monetary
+          - text: Policy
+      - menuitem "Supervision & Regulation" [ref=e73]:
+        - link "Supervision & Regulation" [ref=e74] [cursor=pointer]:
+          - /url: /supervisionreg.htm
+          - text: Supervision
+          - text: "& Regulation"
+      - menuitem "Financial Stability" [ref=e75]:
+        - link "Financial Stability" [ref=e76] [cursor=pointer]:
+          - /url: /financial-stability.htm
+          - text: Financial
+          - text: Stability
+      - menuitem "Payment Systems" [ref=e77]:
+        - link "Payment Systems" [ref=e78] [cursor=pointer]:
+          - /url: /paymentsystems.htm
+          - text: Payment
+          - text: Systems
+      - menuitem "Economic Research" [ref=e79]:
+        - link "Economic Research" [ref=e80] [cursor=pointer]:
+          - /url: /econres.htm
+          - text: Economic
+          - text: Research
+      - menuitem "Data" [ref=e81]:
+        - link "Data" [ref=e82] [cursor=pointer]:
+          - /url: /data.htm
+      - menuitem "Consumers & Communities" [ref=e83]:
+        - link "Consumers & Communities" [ref=e84] [cursor=pointer]:
+          - /url: /consumerscommunities.htm
+          - text: Consumers
+          - text: "& Communities"
+  - main [ref=e85]:
+    - generic [ref=e87]:
+      - list [ref=e88]:
+        - listitem [ref=e89]:
+          - link "Home" [ref=e90] [cursor=pointer]:
+            - /url: /default.htm
+        - listitem [ref=e91]:
+          - text: ">"
+          - link "Supervision & Regulation" [ref=e92] [cursor=pointer]:
+            - /url: /supervisionreg.htm
+        - listitem [ref=e93]:
+          - text: ">"
+          - link "Supervision and Regulation Letters" [ref=e94] [cursor=pointer]:
+            - /url: /supervisionreg/srletters/srletters.htm
+        - listitem [ref=e95]:
+          - text: ">"
+          - link "2011" [ref=e96] [cursor=pointer]:
+            - /url: /supervisionreg/srletters/2011.htm
+      - generic [ref=e97]:
+        - heading "Supervision and Regulation Letters" [level=2] [ref=e99]
+        - generic [ref=e100]:
+          - link "Share" [ref=e101] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e103]: Share
+          - link "PDF" [ref=e104] [cursor=pointer]:
+            - /url: /supervisionreg/srletters/sr1107.pdf
+            - generic [ref=e106]: PDF
+          - link "RSS" [ref=e107] [cursor=pointer]:
+            - /url: /feeds/bankinginfo-rss.xml
+            - generic [ref=e109]: RSS
+    - generic [ref=e110]:
+      - link "By topic" [ref=e113] [cursor=pointer]:
+        - /url: /supervisionreg/topics/topics.htm
+      - generic [ref=e114]:
+        - 'heading "SR 11-7: Guidance on Model Risk Management" [level=3] [ref=e115]':
+          - text: "SR 11-7:"
+          - paragraph [ref=e116]: Guidance on Model Risk Management
+        - generic [ref=e117]:
+          - generic [ref=e120]:
+            - text: BOARD OF GOVERNORS
+            - text: OF THE FEDERAL RESERVE SYSTEM
+            - text: WASHINGTON, D.C. 20551
+          - generic [ref=e121]:
+            - paragraph [ref=e122]:
+              - text: DIVISION OF BANKING
+              - text: SUPERVISION AND REGULATION
+            - strong [ref=e123]: SR 11-7
+            - strong [ref=e124]: April 4, 2011
+        - strong [ref=e127]:
+          - paragraph [ref=e128]: On June 23, 2025, the Board announced that reputational risk will no longer be a component of examination programs in its supervision of banks.
+        - strong [ref=e131]:
+          - paragraph [ref=e132]: TO THE OFFICER IN CHARGE OF SUPERVISION AND APPROPRIATE SUPERVISORY AND EXAMINATION STAFF AT EACH FEDERAL RESERVE BANK
+        - generic [ref=e133]:
+          - generic [ref=e134]: "SUBJECT:"
+          - paragraph [ref=e136]: Guidance on Model Risk Management
+        - generic [ref=e137]:
+          - paragraph [ref=e138]:
+            - text: The Federal Reserve and Office of the Comptroller of the Currency (OCC) are issuing the attached
+            - emphasis [ref=e139]: Supervisory Guidance on Model Risk Management
+            - text: ", which is intended for use by banking organizations and supervisors as they assess organizations’ management of model risk. This guidance should be applied as appropriate to all banking organizations supervised by the Federal Reserve, taking into account each organization’s size, nature, and complexity, as well as the extent and sophistication of its use of models (as defined and discussed below)."
+          - strong [ref=e141]: Model Risk Management
+          - paragraph [ref=e142]: Banking organizations should be attentive to the possible adverse consequences (including financial loss) of decisions based on models that are incorrect or misused, and should address those consequences through active model risk management. The attachment to this SR letter describes in more detail the key aspects of an effective model risk management framework, including robust model development, implementation, and use; effective validation; and sound governance, policies, and controls.
+          - paragraph [ref=e143]:
+            - text: Previous publications issued by the Federal Reserve and OCC have addressed the use of models, with particular focus on model validation.
+            - link "1" [ref=e144] [cursor=pointer]:
+              - /url: "#Footnote1"
+              - superscript [ref=e145]: "1"
+            - text: Based on supervisory and industry experience over the past several years, this document expands upon existing guidance—most importantly by broadening the scope to include other key aspects of model risk management.
+          - paragraph [ref=e146]:
+            - text: For the purposes of this document, the term
+            - emphasis [ref=e147]: model
+            - text: refers to a quantitative method, system, or approach that applies statistical, economic, financial, or mathematical theories, techniques, and assumptions to process input data into quantitative estimates. Models meeting this definition might be used for analyzing business strategies, informing business decisions, identifying and measuring risks, valuing exposures, instruments or positions, conducting stress testing, assessing adequacy of capital, managing client assets, measuring compliance with internal limits, maintaining the formal control apparatus of the bank, or meeting financial or regulatory reporting requirements and issuing public disclosures. The definition of
+            - emphasis [ref=e148]: model
+            - text: also covers quantitative approaches whose inputs are partially or wholly qualitative or based on expert judgment, provided that the output is quantitative in nature.
+            - link "2" [ref=e149] [cursor=pointer]:
+              - /url: "#Footnote2"
+              - superscript [ref=e150]: "2"
+          - paragraph [ref=e151]: "The use of models invariably presents model risk, which is the potential for adverse consequences from decisions based on incorrect or misused model outputs and reports. Model risk can lead to financial loss, poor business and strategic decision-making, or damage to a banking organization’s reputation. Model risk occurs primarily for two reasons: (1) a model may have fundamental errors and produce inaccurate outputs when viewed against its design objective and intended business uses; (2) a model may be used incorrectly or inappropriately or there may be a misunderstanding about its limitations and assumptions. Model risk increases with greater model complexity, higher uncertainty about inputs and assumptions, broader extent of use, and larger potential impact. Banking organizations should manage model risk both from individual models and in the aggregate."
+          - paragraph [ref=e152]: "A guiding principle throughout the guidance is that managing model risk involves \"effective challenge\" of models: critical analysis by objective, informed parties that can identify model limitations and produce appropriate changes. Effective challenge depends on a combination of incentives, competence, and influence."
+          - paragraph [ref=e153]: As is generally the case with other risks, materiality is an important consideration in model risk management. If at some banks the use of models is less pervasive and has less impact on their financial condition, then those banks may not need as complex an approach to model risk management in order to meet supervisory expectations. However, where models and model output have a material impact on business decisions, including decisions related to risk management and capital and liquidity planning, and where model failure would have a particularly harmful impact on a bank’s financial condition, a bank’s model risk management framework should be more extensive and rigorous.
+          - strong [ref=e155]:
+            - emphasis [ref=e156]: Model Development, Implementation, and Use
+          - paragraph [ref=e157]: "Model development relies heavily on the experience and judgment of developers, and model risk management should include disciplined model development and implementation processes that are consistent with the situation and goals of the model user and with the banking organization’s policy. A sound development process includes: a clear statement of purpose to ensure that the model is developed in line with its intended use; sound design, theory, and logic underlying the model; robust model methodologies and processing components; rigorous assessment of data quality and relevance; and appropriate documentation. An integral part of model development is testing, in which the various components of a model and its overall functioning are evaluated to show the model is performing as intended; to demonstrate that it is accurate, robust, and stable; and to evaluate its limitations and assumptions. Importantly, organizations should ensure that the development of the more judgmental and qualitative aspects of their models is also sound."
+          - paragraph [ref=e158]:
+            - text: All models have some degree of uncertainty and inaccuracy because they are by definition imperfect representations of reality. An important outcome of effective model development, implementation, and use is a banking organization’s demonstrated understanding of and accounting for such uncertainty. Accounting for model uncertainty can include applying well-supported, judgmental, “conservative” adjustments to model output, placing less emphasis on a model’s output, or ensuring that a model is only used when supplemented by other models or approaches.
+            - link "3" [ref=e159] [cursor=pointer]:
+              - /url: "#Footnote3"
+              - superscript [ref=e160]: "3"
+          - strong [ref=e162]:
+            - emphasis [ref=e163]: Model Validation
+          - paragraph [ref=e164]: Model validation is the set of processes and activities intended to verify that models are performing as expected, in line with their design objectives and business uses. Effective validation helps to ensure that models are sound, identifying potential limitations and assumptions and assessing their possible impact. All model components—inputs, processing, outputs, and reports—should be subject to validation; this applies equally to models developed in-house and to those purchased from or developed by vendors or consultants.
+          - paragraph [ref=e165]: Validation involves a degree of independence from model development and use. Generally, validation is done by staff who are not responsible for model development or use and do not have a stake in whether a model is determined to be valid. As a practical matter, some validation work may be most effectively done by model developers and users; it is essential, however, that such validation work be subject to critical review by an independent party, who should conduct additional activities to ensure proper validation. Overall, the quality of the validation process is indicated by critical review by objective, knowledgeable parties and the actions taken to address issues identified by those parties.
+          - paragraph [ref=e166]: "Validation activities should continue on an ongoing basis after a model goes into use to track known model limitations and to identify any new ones. Validation is an important check during periods of benign economic and financial conditions, when estimates of risk and potential loss can become overly optimistic and the data at hand may not fully reflect more stressed conditions. Banking organizations should conduct a periodic review—at least annually but more frequently if warranted—of each model to determine whether it is working as intended and if the existing validation activities are sufficient. Key elements of comprehensive validation include:"
+          - list [ref=e167]:
+            - listitem [ref=e168]:
+              - emphasis [ref=e169]: Evaluation of Conceptual Soundness
+              - text: . This element involves assessing the quality of the model design and construction, as well as review of documentation and empirical evidence supporting the methods used and variables selected for the model. This step in validation should ensure that judgment exercised in model design and construction is well informed, carefully considered, and consistent with published research and with sound industry practice.
+            - listitem [ref=e170]:
+              - emphasis [ref=e171]: Ongoing Monitoring
+              - text: . This step in validation is done to confirm that the model is appropriately implemented and is being used and performing as intended. It is essential to evaluate whether changes in products, exposures, activities, clients, or market conditions necessitate adjustment, redevelopment, or replacement of the model and to verify that any extension of the model beyond its original scope is valid. Benchmarking can be used in this step to compare a given model’s inputs and outputs to estimates from alternatives.
+            - listitem [ref=e172]:
+              - emphasis [ref=e173]: Outcomes Analysis
+              - text: . This step involves comparing model outputs to corresponding actual outcomes. Back-testing is one form of outcomes analysis that involves the comparison of actual outcomes with model forecasts during a sample time period not used in model development at a frequency that matches the model’s forecast horizon or performance window.
+          - paragraph [ref=e174]: The results of the three core elements of the validation process may reveal significant errors or inaccuracies in model development or outcomes that consistently fall outside the banking organization’s predetermined thresholds of acceptability. In such cases, model adjustment, recalibration, or redevelopment is warranted. At times, banking organizations may have a limited ability to use key model validation tools for various reasons, such as lack of data or of price observability. In those cases, even more attention should be paid to the model’s limitations when considering the appropriateness of model usage, and senior management should be fully informed of those limitations when using the models for decision-making. Generally, senior management should ensure that appropriate mitigating steps are taken in light of identified model limitations, which can include adjustments to model output, restrictions on model use, reliance on other models or approaches, or other compensating controls
+          - strong [ref=e176]:
+            - emphasis [ref=e177]: Governance, Policies, and Controls
+          - paragraph [ref=e178]: Developing and maintaining strong governance over the model risk management framework is fundamentally important to its effectiveness. Strong governance provides explicit support and structure to risk management functions through policies defining relevant risk management activities, procedures that implement those policies, allocation of resources, and mechanisms for testing that policies and procedures are being carried out as specified. Strong governance also includes documentation of model development and validation that is sufficiently detailed to allow parties unfamiliar with a model to understand how the model operates, as well as its limitations and key assumptions.
+          - paragraph [ref=e179]: Model risk governance is provided at the highest level by the board of directors and senior management when they establish an organization-wide approach to model risk management. Board members should ensure that the level of model risk is within their tolerance. A banking organization’s internal audit function should assess the overall effectiveness of the model risk management framework, including the framework’s ability to address both types of model risk for individual models and in the aggregate. Whenever a banking organization uses external resources for model risk management, the organization should specify the activities to be conducted in a clearly written and agreed-upon scope of work, and those activities should be conducted in accordance with this guidance. Also, organizations should maintain an inventory of models implemented for use, under development for implementation, or recently retired.
+          - paragraph [ref=e180]: All banking organizations should ensure that their internal policies and procedures are consistent with the risk management principles and supervisory expectations contained in this guidance.
+          - strong [ref=e182]: Contacts
+          - paragraph [ref=e183]:
+            - text: For questions regarding this guidance, please contact David Palmer, Senior Supervisory Financial Analyst, Risk, at (202) 452-2904; Dwight Smith, Senior Supervisory Financial Analyst, Capital & Regulatory Policy, at (202) 452-2773; or Anna Lee Hewko, Assistant Director, at (202) 530-6260. In addition, questions may be sent via the Board’s public website.
+            - link "4" [ref=e184] [cursor=pointer]:
+              - /url: "#Footnote4"
+              - superscript [ref=e185]: "4"
+        - paragraph [ref=e189]:
+          - emphasis [ref=e190]: signed by
+          - text: Patrick M. Parkinson
+          - text: Director
+          - text: Division of Banking
+          - text: Supervision and Regulation
+        - generic [ref=e191]:
+          - generic [ref=e192]: "Attachments:"
+          - paragraph [ref=e194]:
+            - emphasis [ref=e195]:
+              - link "Model Risk Management Guidance" [ref=e196] [cursor=pointer]:
+                - /url: /supervisionreg/srletters/sr1107a1.pdf
+            - link "(PDF)" [ref=e197] [cursor=pointer]:
+              - /url: /supervisionreg/srletters/sr1107a1.pdf
+        - generic [ref=e198]:
+          - generic [ref=e199]: "Cross References:"
+          - list [ref=e201]:
+            - listitem [ref=e202]:
+              - link "SR 09-1" [ref=e203] [cursor=pointer]:
+                - /url: http://www.federalreserve.gov/boarddocs/srletters/2009/SR0901.htm
+              - text: ", \"Application of the Market Risk Rule in Bank Holding Companies and State Member Banks\""
+        - generic [ref=e204]:
+          - heading "Notes:" [level=5] [ref=e205]
+          - list [ref=e207]:
+            - listitem [ref=e208]:
+              - text: For instance, the OCC provided guidance on model risk, focusing on model validation, in OCC 2000-16 (May 30, 2000), other bulletins, and certain subject matter booklets of the
+              - emphasis [ref=e209]: Comptroller’s Handbook.
+              - text: The Federal Reserve issued
+              - generic [ref=e210]:
+                - link "SR Letter 09-01" [ref=e211] [cursor=pointer]:
+                  - /url: /boarddocs/srletters/2009/SR0901.htm
+                - text: ","
+              - text: “Application of the Market Risk Rule in Bank Holding Companies and State Member Banks,” which highlights various concepts pertinent to model risk management, including standards for validation and review, model validation documentation, and back-testing. The Federal Reserve’s
+              - emphasis [ref=e212]: Trading and Capital-Markets Activities Manual
+              - text: also discusses validation and model risk management. In addition, the advanced-approaches risk-based capital rules (12 CFR 3, Appendix C; 12 CFR 208, Appendix F; and 12 CFR 225, Appendix G) contain explicit validation requirements for subject banking organizations.
+              - link "Return to text" [ref=e213] [cursor=pointer]:
+                - /url: "#Footref1"
+            - listitem [ref=e214]:
+              - text: While outside the scope of this guidance, more qualitative approaches used by banking organizations—i.e., those not defined as models according to this guidance—should also be subject to a rigorous control process.
+              - link "Return to text" [ref=e215] [cursor=pointer]:
+                - /url: "#Footref2"
+            - listitem [ref=e216]:
+              - text: To the extent that models are used to generate amounts included in public financial statements, any adjustments for model uncertainty must comply with generally accepted accounting principles.
+              - link "Return to text" [ref=e217] [cursor=pointer]:
+                - /url: "#Footref3"
+            - listitem [ref=e218]:
+              - text: See
+              - link "http://www.federalreserve.gov/feedback.cfm" [ref=e219] [cursor=pointer]:
+                - /url: http://www.federalreserve.gov/feedback.cfm
+              - text: .
+              - link "Return to text" [ref=e220] [cursor=pointer]:
+                - /url: "#Footref4"
+    - generic [ref=e222]: "Last Update: August 19, 2011"
+  - contentinfo [ref=e223]:
+    - generic [ref=e224]:
+      - generic [ref=e225]:
+        - heading "Board of Governors of the Federal Reserve System" [level=6] [ref=e226]:
+          - text: Board of Governors
+          - emphasis [ref=e227]: of the
+          - text: Federal Reserve System
+        - list [ref=e228]:
+          - listitem [ref=e229]:
+            - link "About the Fed" [ref=e230] [cursor=pointer]:
+              - /url: /aboutthefed.htm
+          - listitem [ref=e231]:
+            - link "News & Events" [ref=e232] [cursor=pointer]:
+              - /url: /newsevents.htm
+          - listitem [ref=e233]:
+            - link "Monetary Policy" [ref=e234] [cursor=pointer]:
+              - /url: /monetarypolicy.htm
+          - listitem [ref=e235]:
+            - link "Supervision & Regulation" [ref=e236] [cursor=pointer]:
+              - /url: /supervisionreg.htm
+          - listitem [ref=e237]:
+            - link "Financial Stability" [ref=e238] [cursor=pointer]:
+              - /url: /financial-stability.htm
+          - listitem [ref=e239]:
+            - link "Payment Systems" [ref=e240] [cursor=pointer]:
+              - /url: /paymentsystems.htm
+          - listitem [ref=e241]:
+            - link "Economic Research" [ref=e242] [cursor=pointer]:
+              - /url: /econres.htm
+          - listitem [ref=e243]:
+            - link "Data" [ref=e244] [cursor=pointer]:
+              - /url: /data.htm
+          - listitem [ref=e245]:
+            - link "Consumers & Communities" [ref=e246] [cursor=pointer]:
+              - /url: /consumerscommunities.htm
+          - listitem [ref=e247]:
+            - link "Connect with the Board" [ref=e248] [cursor=pointer]:
+              - /url: /aboutthefed/aroundtheboard/stayconnected-qr-code-2.htm
+      - generic [ref=e249]:
+        - heading "Tools and Information" [level=6] [ref=e250]
+        - list [ref=e251]:
+          - listitem [ref=e252]:
+            - link "Contact" [ref=e253] [cursor=pointer]:
+              - /url: /aboutthefed/contact-us-topics.htm
+          - listitem [ref=e254]:
+            - link "Publications" [ref=e255] [cursor=pointer]:
+              - /url: /publications.htm
+          - listitem [ref=e256]:
+            - link "Freedom of Information (FOIA)" [ref=e257] [cursor=pointer]:
+              - /url: /foia/about_foia.htm
+          - listitem [ref=e258]:
+            - link "Office of Inspector General" [ref=e259] [cursor=pointer]:
+              - /url: https://oig.federalreserve.gov/
+          - listitem [ref=e260]:
+            - link "Budget & Performance" [ref=e261] [cursor=pointer]:
+              - /url: /publications/annual-report.htm
+            - text: "|"
+            - link "Audit" [ref=e262] [cursor=pointer]:
+              - /url: /regreform/audit.htm
+          - listitem [ref=e263]:
+            - link "No FEAR Act" [ref=e264] [cursor=pointer]:
+              - /url: /eeo.htm
+          - listitem [ref=e265]:
+            - link "Español" [ref=e266] [cursor=pointer]:
+              - /url: /espanol.htm
+          - listitem [ref=e267]:
+            - link "Website Policies" [ref=e268] [cursor=pointer]:
+              - /url: /website-linking-policies.htm
+            - text: "|"
+            - link "Privacy Program" [ref=e269] [cursor=pointer]:
+              - /url: /privacy.htm
+          - listitem [ref=e270]:
+            - link "Accessibility" [ref=e271] [cursor=pointer]:
+              - /url: /accessibility.htm
+      - generic [ref=e272]:
+        - generic [ref=e273]:
+          - heading "Stay Connected" [level=6] [ref=e274]
+          - link "Federal Reserve Facebook Page" [ref=e275] [cursor=pointer]:
+            - /url: https://www.facebook.com/federalreserve
+            - generic [ref=e276]: Federal Reserve Facebook Page
+          - link "Federal Reserve Instagram Page" [ref=e277] [cursor=pointer]:
+            - /url: https://www.instagram.com/federalreserveboard/
+            - generic [ref=e278]: Federal Reserve Instagram Page
+          - link "Federal Reserve YouTube Page" [ref=e279] [cursor=pointer]:
+            - /url: https://www.youtube.com/federalreserve
+            - generic [ref=e280]: Federal Reserve YouTube Page
+          - link "Federal Reserve Flickr Page" [ref=e281] [cursor=pointer]:
+            - /url: https://www.flickr.com/photos/federalreserve/
+            - generic [ref=e282]: Federal Reserve Flickr Page
+          - link "Federal Reserve LinkedIn Page" [ref=e283] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/federal-reserve-board
+            - generic [ref=e284]: Federal Reserve LinkedIn Page
+          - link "Federal Reserve Threads Page" [ref=e285] [cursor=pointer]:
+            - /url: https://www.threads.net/@federalreserveboard
+            - generic [ref=e286]: Federal Reserve Threads Page
+          - link "Link to Federal Reserve X Page" [ref=e287] [cursor=pointer]:
+            - /url: https://x.com/federalreserve
+            - generic [ref=e288]: Link to Federal Reserve X Page
+          - link "Link to Federal Reserve Bluesky Page" [ref=e289] [cursor=pointer]:
+            - /url: https://bsky.app/profile/federalreserve.gov
+            - generic [ref=e290]: Link to Federal Reserve Bluesky Page
+          - link "Subscribe to RSS" [ref=e291] [cursor=pointer]:
+            - /url: /feeds/feeds.htm
+            - generic [ref=e292]: Subscribe to RSS
+          - link "Subscribe to Email" [ref=e293] [cursor=pointer]:
+            - /url: /subscribe.htm
+            - generic [ref=e294]: Subscribe to Email
+        - link "Link to USA.gov" [ref=e295] [cursor=pointer]:
+          - /url: https://www.usa.gov/
+          - img "Link to USA.gov" [ref=e296]
+        - link "Link to Open.gov" [ref=e297] [cursor=pointer]:
+          - /url: /open/open.htm
+          - img "Link to Open.gov" [ref=e298]
+    - generic [ref=e300]:
+      - paragraph [ref=e301]:
+        - text: Board of Governors
+        - emphasis [ref=e302]: of the
+        - text: Federal Reserve System
+      - paragraph [ref=e303]: ●20th Street and Constitution Avenue N.W., Washington, DC 20551

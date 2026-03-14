@@ -1,0 +1,255 @@
+<!-- Variation 4: "Sovereign Heraldic" | Group: baseline-pick | Aesthetic: Institutional formality, serif typography, green/gold/ivory, centered layout with diplomatic breathing room -->
+<!DOCTYPE html>
+<html lang="en" data-theme="parchment">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Market Research Portfolio — Heraldic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root { --scale: 1.618; --base: 1.05rem; --leading: 1.6; --measure: 58ch; }
+[data-theme="parchment"] {
+  --bg: #faf7f0; --surface: #f2ede3; --text: #1a3328; --muted: #5a7a68;
+  --gold: #b8993e; --rule: rgba(26,51,40,0.15); --heading: #0a1f14;
+}
+[data-theme="dark"] {
+  --bg: #0a1f14; --surface: #0e2a1c; --text: #e8e2d4; --muted: #8aaa96;
+  --gold: #c9a84c; --rule: rgba(232,226,212,0.12); --heading: #faf7f0;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Spectral', Georgia, serif;
+  font-size: var(--base); line-height: var(--leading);
+  color: var(--text); background: var(--bg);
+  transition: background 0.3s, color 0.3s;
+}
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; color: var(--heading); }
+a { color: var(--gold); text-decoration-thickness: 1px; }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.page { max-width: 800px; margin: 0 auto; padding: 0 2rem; text-align: center; }
+
+/* Header */
+header.formal {
+  padding: 6rem 0 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+header .ornament {
+  font-size: 0.8rem; letter-spacing: 0.3em; color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+header h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 400;
+  line-height: 1.15; letter-spacing: 0.02em;
+}
+header .subtitle {
+  font-style: italic; color: var(--muted);
+  margin-top: 1rem; font-size: calc(var(--base) * 1.05);
+}
+header .rule-ornament {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1rem; margin-top: 2rem; color: var(--gold);
+}
+header .rule-ornament::before, header .rule-ornament::after {
+  content: ''; width: 60px; height: 1px; background: var(--gold);
+}
+
+/* Sections */
+.project-section {
+  padding: 3.5rem 0; border-bottom: 1px solid var(--rule);
+  text-align: left;
+}
+.section-numeral {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem; letter-spacing: 0.15em; color: var(--gold);
+  text-transform: uppercase; margin-bottom: 1rem; text-align: center;
+}
+.project-section h2 {
+  font-size: calc(var(--base) * var(--scale)); font-weight: 600;
+  line-height: 1.2; text-align: center; margin-bottom: 0.5rem;
+}
+.project-section .section-epigraph {
+  text-align: center; font-style: italic; color: var(--muted);
+  margin-bottom: 2rem; font-size: calc(var(--base) * 0.92);
+}
+.project-section p {
+  max-width: var(--measure); margin: 0 auto 1.25rem; text-align: justify;
+  hyphens: auto;
+}
+
+/* Formal list */
+.formal-list {
+  list-style: none; max-width: var(--measure); margin: 1.5rem auto;
+  font-size: calc(var(--base) * 0.92);
+}
+.formal-list li {
+  padding: 0.5rem 0; border-bottom: 1px solid var(--rule);
+  display: flex; justify-content: space-between;
+}
+.formal-list .label { color: var(--muted); }
+.formal-list .value { font-weight: 500; }
+
+/* Table */
+.formal-table {
+  width: 100%; max-width: var(--measure); margin: 1.5rem auto;
+  border-collapse: collapse; font-size: calc(var(--base) * 0.9);
+}
+.formal-table th, .formal-table td {
+  text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--rule);
+}
+.formal-table th {
+  font-family: 'Cormorant Garamond', serif; font-weight: 600;
+  color: var(--gold); font-size: 0.8rem; letter-spacing: 0.04em;
+}
+
+footer {
+  padding: 3rem 0; color: var(--muted);
+  font-size: calc(var(--base) * 0.82);
+  display: flex; justify-content: space-between;
+}
+
+#theme-toggle {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--gold); background: var(--surface);
+  color: var(--gold); cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100; transition: background 0.2s;
+}
+#theme-toggle:hover { background: var(--bg); }
+#theme-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+@media (max-width: 768px) {
+  .page { padding: 0 1.5rem; }
+  header.formal { padding: 3rem 0 2rem; }
+  .formal-list li { flex-direction: column; gap: 0.2rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="formal">
+    <div class="ornament" aria-hidden="true">&#9830; &#9830; &#9830;</div>
+    <h1>Prediction Market Research</h1>
+    <p class="subtitle">Systems, microstructure, and execution research in event markets</p>
+    <div class="rule-ornament" aria-hidden="true">&#9674;</div>
+  </header>
+
+  <main>
+    <section class="project-section" id="liquidity">
+      <div class="section-numeral">Section I</div>
+      <h2>Market Design &amp; Liquidity</h2>
+      <p class="section-epigraph">On the microstructure of event markets and automated market maker parameterization</p>
+      <p>
+        This project investigates the microstructure of prediction markets,
+        comparing logarithmic market scoring rules against continuous limit
+        order books under varying liquidity conditions. The central question
+        concerns optimal parameterization of automated market makers to
+        minimize adverse selection while preserving price discovery quality.
+      </p>
+      <p>
+        Empirical analysis of synchronized orderbook data from Polymarket
+        and Kalshi reveals that cost-function market makers exhibit superior
+        price stability in thin markets but incur higher inventory costs
+        during rapid information arrival. A liquidity-sensitive fee structure
+        adapts spreads dynamically based on realized volatility and order
+        flow imbalance, achieving a 34% reduction in adverse selection costs.
+      </p>
+      <ul class="formal-list">
+        <li><span class="label">Methods</span><span class="value">Simulation, empirical orderbook analysis</span></li>
+        <li><span class="label">Key Finding</span><span class="value">Adaptive LMSR &minus;34% adverse selection</span></li>
+        <li><span class="label">Status</span><span class="value">Active research</span></li>
+      </ul>
+    </section>
+
+    <section class="project-section" id="haven">
+      <div class="section-numeral">Section II</div>
+      <h2>Haven Selection &amp; Shadow Trading</h2>
+      <p class="section-epigraph">Systematic identification of persistent mispricings in event contract markets</p>
+      <p>
+        Haven selection identifies prediction market contracts where prices
+        persistently deviate from fair value due to structural factors. The
+        shadow-trading system executes against these mispricings using a
+        relative-value framework with positions sized by a modified Kelly
+        criterion constrained by binary payoff structure.
+      </p>
+      <table class="formal-table">
+        <thead><tr><th>Dimension</th><th>Metric</th><th>Threshold</th></tr></thead>
+        <tbody>
+          <tr><td>Pricing efficiency</td><td>Model deviation</td><td>&gt; 8%</td></tr>
+          <tr><td>Liquidity depth</td><td>Notional within 5%</td><td>&gt; $5,000</td></tr>
+          <tr><td>Mean reversion</td><td>Half-life (hours)</td><td>&lt; 72</td></tr>
+          <tr><td>Correlation</td><td>Portfolio beta</td><td>&lt; 0.3</td></tr>
+        </tbody>
+      </table>
+      <ul class="formal-list">
+        <li><span class="label">Architecture</span><span class="value">Python, PostgreSQL, Redis</span></li>
+        <li><span class="label">Status</span><span class="value">Operational</span></li>
+      </ul>
+    </section>
+
+    <section class="project-section" id="loggers">
+      <div class="section-numeral">Section III</div>
+      <h2>Reliable Market Data Loggers</h2>
+      <p class="section-epigraph">Fault-tolerant infrastructure for continuous market data capture</p>
+      <p>
+        Research-quality prediction market analysis requires continuous,
+        gap-free data capture across multiple exchanges. This project
+        delivers fault-tolerant logging infrastructure with checkpoint-recovery
+        architecture, automatic gap detection and backfill, and schema
+        versioning for long-term data integrity.
+      </p>
+      <p>
+        Each logger maintains a write-ahead log of received messages, persists
+        to Parquet with configurable partitioning, and registers heartbeats
+        with a supervisor process. Current deployment covers Polymarket,
+        Kalshi, and Metaculus with 99.94% uptime over 180 days of continuous
+        operation.
+      </p>
+      <ul class="formal-list">
+        <li><span class="label">Exchanges</span><span class="value">3 active (Polymarket, Kalshi, Metaculus)</span></li>
+        <li><span class="label">Uptime</span><span class="value">99.94% / 180 days</span></li>
+        <li><span class="label">Storage</span><span class="value">~2.1 GB/month (Parquet + Zstd)</span></li>
+        <li><span class="label">Status</span><span class="value">In production</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <span>Prediction Market Research Portfolio</span>
+    <span>March 2026</span>
+  </footer>
+</div>
+
+<button id="theme-toggle" aria-label="Toggle theme">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  var stored = localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var initial = stored || (prefersDark ? 'dark' : 'parchment');
+  root.setAttribute('data-theme', initial);
+  toggle.addEventListener('click', function() {
+    var current = root.getAttribute('data-theme');
+    var next = current === 'dark' ? 'parchment' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+  window.addEventListener('message', function(event) {
+    var data = event && event.data;
+    var next = (data && (data.value || data.theme)) || null;
+    if (data && (data.type === 'theme' || data.theme || data.value) && (next === 'dark' || next === 'parchment')) {
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  });
+})();
+</script>
+</body>
+</html>

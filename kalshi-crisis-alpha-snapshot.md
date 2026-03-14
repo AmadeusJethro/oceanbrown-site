@@ -1,0 +1,219 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - link "Go to homepage" [ref=e7] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e8]:
+            - link "Publications" [ref=e9] [cursor=pointer]:
+              - /url: /external
+            - link "Themes" [ref=e10] [cursor=pointer]:
+              - /url: /themes
+            - link "Event" [ref=e11] [cursor=pointer]:
+              - /url: /conference
+            - link "Collaboration" [ref=e12] [cursor=pointer]:
+              - /url: /collaboration
+            - link "Team" [ref=e13] [cursor=pointer]:
+              - /url: /team
+        - generic [ref=e14]:
+          - link "research@kalshi.com" [ref=e15] [cursor=pointer]:
+            - /url: mailto:research@kalshi.com
+          - button "Switch to light mode" [ref=e16] [cursor=pointer]:
+            - img [ref=e17]
+    - article [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]: Prediction Accuracy
+        - 'heading "Beyond Consensus: Prediction Markets and the Forecasting of Inflation Shocks" [level=1] [ref=e27]'
+        - paragraph [ref=e28]: Approximately a week prior to the publication of significant economic statistics, analysts at large financial institutions and senior economists will produce estimates of expected figures. Aggregated together, these forecasts, known as "consensus estimates", provide a highly-regarded lens into market expectations and participant positioning. In this study, we compare the predictive performance of consensus estimates to implied pricing from Kalshi prediction markets in estimating true values of a core macroeconomic signal - year-over-year headline inflation (YOY CPI). Across the study period ranging from February 2023 to mid-2025, we find that Kalshi forecasts exhibit a 40.1% lower mean absolute error (MAE) than consensus forecasts across all regimes (normal and shock environments), and document significant outperformance during shocks (significant deviations of actual values from consensus that we term "shock alpha") - recording 50% lower MAE in shocks of > 0.2pp and in shocks of 0.1pp ≤ shock < 0.2pp on a week-ahead timeline. On the same timeline, we find in cases where markets disagree with consensus, market predictions prove superior in 75% of cases. Further, we find preliminary evidence of the ability to predict shocks, with market-consensus deviation showing a positive correlation with forecast surprises and threshold analysis identifying that deviations exceeding 0.1pp predict a ~81.2% shock rate, moving to ~82.4% a day prior to release. While the sample size is naturally modest, our findings suggest the power of the "wisdom of the crowd", implying that prediction market signals are derived heterogeneously from consensus estimates, and thereby offering a valuable complement to traditional forecasts.
+        - generic [ref=e30]:
+          - img [ref=e31]:
+            - generic [ref=e33]:
+              - generic [ref=e34]:
+                - generic [ref=e36]:
+                  - generic [ref=e39]: "0.100"
+                  - generic [ref=e42]: "0.050"
+                - generic [ref=e43]:
+                  - generic [ref=e46]: "0.200"
+                  - generic [ref=e49]: "0.100"
+                - generic [ref=e50]:
+                  - img [ref=e52]:
+                    - generic [ref=e53]: Moderate Shock
+                  - img [ref=e55]:
+                    - generic [ref=e56]: Major Shock
+                - generic [ref=e57]:
+                  - img [ref=e59]:
+                    - generic [ref=e60]: "0.00"
+                  - img [ref=e62]:
+                    - generic [ref=e63]: "0.02"
+                  - img [ref=e65]:
+                    - generic [ref=e66]: "0.04"
+                  - img [ref=e68]:
+                    - generic [ref=e69]: "0.06"
+                  - img [ref=e71]:
+                    - generic [ref=e72]: "0.08"
+                  - img [ref=e74]:
+                    - generic [ref=e75]: "0.10"
+                  - img [ref=e77]:
+                    - generic [ref=e78]: "0.12"
+                  - img [ref=e80]:
+                    - generic [ref=e81]: "0.14"
+                  - img [ref=e83]:
+                    - generic [ref=e84]: "0.16"
+                  - img [ref=e86]:
+                    - generic [ref=e87]: "0.18"
+                  - img [ref=e89]:
+                    - generic [ref=e90]: "0.20"
+                - generic [ref=e91]: Mean Absolute Error
+                - generic [ref=e92]: Event Types
+              - generic [ref=e93]:
+                - generic [ref=e97]: Consensus
+                - generic [ref=e100]: Kalshi Market (1 Week Prior)
+          - paragraph [ref=e102]: "Figure 1: Market Advantage Across Event Types (1 Week Prior) YOY CPI"
+        - generic [ref=e103]:
+          - generic [ref=e104]:
+            - text: "Published:"
+            - time [ref=e105]: January 2025
+          - generic [ref=e106]:
+            - text: "Updated:"
+            - time [ref=e107]: December 2025
+          - generic [ref=e108]: "Read time: 12 min"
+      - generic [ref=e109]:
+        - generic [ref=e110]: prediction markets
+        - generic [ref=e111]: forecasting
+        - generic [ref=e112]: consensus estimates
+        - generic [ref=e113]: crisis alpha
+        - generic [ref=e114]: macroeconomic indicators
+      - generic [ref=e115]:
+        - heading "Summary" [level=2] [ref=e116]
+        - paragraph [ref=e118]: Approximately a week prior to the publication of significant economic statistics, analysts at large financial institutions and senior economists will produce estimates of expected figures. Aggregated together, these forecasts, known as "consensus estimates", provide a highly-regarded lens into market expectations and participant positioning. In this study, we compare the predictive performance of consensus estimates to implied pricing from Kalshi prediction markets in estimating true values of a core macroeconomic signal - year-over-year headline inflation (YOY CPI).
+      - generic [ref=e119]:
+        - heading "Key Highlights" [level=2] [ref=e120]
+        - generic [ref=e121]:
+          - generic [ref=e122]:
+            - heading "Overall Accuracy Advantage" [level=3] [ref=e126]
+            - paragraph [ref=e127]: Kalshi forecasts exhibit a 40.1% lower mean absolute error (MAE) than consensus forecasts across all regimes (normal and shock environments).
+          - generic [ref=e129]:
+            - heading "Shock Alpha" [level=3] [ref=e133]
+            - paragraph [ref=e134]: During major shocks (&gt; 0.2pp), Kalshi forecasts record 50% lower MAE than consensus on a week-ahead timeline, or 60% lower MAE on the day prior to release. During moderate shocks (0.1pp ≤ shock &lt; 0.2pp), the advantage is 50% lower MAE on a week-ahead timeline, moving to 56.2% lower one day prior.
+          - generic [ref=e136]:
+            - heading "Predictive Signal" [level=3] [ref=e140]
+            - paragraph [ref=e141]: Market-consensus deviations exceeding 0.1pp predict a ~81.2% shock rate, moving to ~82.4% a day prior to release. When markets disagree with consensus, market predictions prove superior in 75% of cases.
+      - generic [ref=e143]:
+        - heading "Introduction" [level=2] [ref=e144]
+        - generic [ref=e145]:
+          - paragraph [ref=e146]: "Macroeconomic forecasters face an inherent challenge: the moments when accurate predictions matter most - times of market dislocation, policy shifts, and structural breaks - are also precisely when historical models tend to fail. Financial market participants routinely publish consensus forecasts for key economic releases days in advance, aggregating expert opinion into a market expectation. Yet these consensus views, while valuable, share common methodological lineages and information sources."
+          - paragraph [ref=e147]: For institutional investors, risk managers, and policymakers, the stakes of forecast accuracy are asymmetric. A marginally better forecast during uncontroversial periods offers only modest value. But superior accuracy during market dislocations - when volatility spikes, correlations break down, or historical relationships fail - can lead to significant alpha generation and limit drawdowns.
+          - paragraph [ref=e148]: "Consequently, understanding parameter behavior during periods of market volatility is of paramount importance. In this study, we present the case of a key macroeconomic indicator: year-over-year inflation (YOY CPI) - a central input to future interest rate decisions and signal of economic health. We compare and assess forecast accuracy across multiple time horizons leading up to official data publication. Our central finding is the existence of what we would term \"shock alpha\" - the incremental forecast accuracy achieved by market-based estimates during tail events relative to consensus benchmarks. This outperformance is not merely academic; it represents improved signal quality at precisely the moments when forecast errors carry the highest economic costs. In this context, the relevant question is not whether prediction market forecasts are always right, but whether they provide a valuable differentiated signal worth incorporating into traditional decision frameworks."
+      - generic [ref=e149]:
+        - heading "Methodology" [level=2] [ref=e150]
+        - generic [ref=e151]:
+          - heading "Data" [level=3] [ref=e152]
+          - generic [ref=e153]:
+            - paragraph [ref=e154]: "We analyze daily implied values from prediction market traders on our platform at three time horizons: one week prior to release (matching consensus timing), one day prior, and the morning of release. Each market utilized is (or was) a live tradeable market that reflects real-money positions at various levels of liquidity. For consensus estimates, we collected institutional consensus estimates for YoY CPI, typically published approximately one week prior to official Bureau of Labor Statistics releases."
+            - paragraph [ref=e155]: "Sample period: February 2023 - mid 2025, covering over 25 months of monthly CPI releases across varied macroeconomic regimes."
+        - generic [ref=e156]:
+          - heading "Shock Classification" [level=3] [ref=e157]
+          - generic [ref=e158]:
+            - paragraph [ref=e159]: "We classify events into three categories based on the magnitude of surprise relative to history. These shocks are measured as the absolute difference between consensus estimates and the actual data print:"
+            - list [ref=e160]:
+              - listitem [ref=e161]:
+                - strong [ref=e162]: "Normal events:"
+                - text: Forecast errors of below 0.1 pp for YOY CPI
+              - listitem [ref=e163]:
+                - strong [ref=e164]: "Moderate shocks:"
+                - text: Forecast errors of between 0.1pp and 0.2pp for YOY CPI
+              - listitem [ref=e165]:
+                - strong [ref=e166]: "Major shocks:"
+                - text: Forecast errors of > 0.2pp for YOY CPI
+            - paragraph [ref=e167]: This classification allows us to examine whether forecasting advantages vary systematically with the difficulty of the prediction problem.
+        - generic [ref=e168]:
+          - heading "Performance metrics" [level=3] [ref=e169]
+          - generic [ref=e170]:
+            - paragraph [ref=e171]: "In order to understand performance, we assess the following performance metrics:"
+            - list [ref=e172]:
+              - listitem [ref=e173]:
+                - strong [ref=e174]: "Mean Absolute Error (MAE):"
+                - text: Primary accuracy measure, calculated as the average absolute difference between forecast and realized value.
+              - listitem [ref=e175]:
+                - strong [ref=e176]: "Win Rate:"
+                - text: When consensus and market estimates differ by at least 0.1 percentage points (rounded to one decimal), we record which estimate was closer to the realized outcome.
+              - listitem [ref=e177]:
+                - strong [ref=e178]: "Forecast Horizon Analysis:"
+                - text: We track how market estimate accuracy evolves from one week out to release day, revealing the value of continuous information incorporation.
+      - generic [ref=e179]:
+        - heading "Results" [level=2] [ref=e180]
+        - generic [ref=e181]:
+          - heading "CPI Forecasting Performance" [level=3] [ref=e182]
+          - generic [ref=e183]:
+            - generic [ref=e184]:
+              - heading "Overall Accuracy Advantage" [level=3] [ref=e186]
+              - paragraph [ref=e188]: Across all market conditions, market-based CPI estimates demonstrate a 40.1% lower MAE compared to consensus forecasts. Across all time periods, market-based CPI estimates demonstrate lower MAE of between 40.1% (one week out) and 42.3% (one day out). Moreover, where the estimates differ between consensus and implied values, Kalshi market-based estimates record statistically significant win rates ranging from 75.0% at one-week out (p=0.0384, binomial test), to 81.2% on the day of release (p=0.0106, binomial test). When including ties with consensus (to one decimal place), market-based estimates match-or-outperform consensus ~85% of the time, measured one week in advance. This high degree of directional accuracy implies that market disagreement from consensus is significantly informative of the potential of a shock event.
+            - generic [ref=e190]:
+              - heading "Shock Alpha" [level=3] [ref=e192]
+              - generic [ref=e193]:
+                - paragraph [ref=e194]: The accuracy differential becomes most pronounced during shock events. Across moderate shock events of between 0.1 and 0.2pp, Kalshi trader estimates taken at the same time as consensus report a 50% lower MAE, moving to 56.2% lower one day prior. Across major shock events of 0.2pp or above, Kalshi trader estimates taken at the same time as consensus report also report a 50% lower MAE a week in advance of release, or a 60% lower MAE on the day prior to release. During a normal regime undefined by shocks, trader estimates perform similarly to consensus. Though the sample size of shocks is small (as it should be in a world where they are largely unexpected), the pattern is clear - when the forecasting environment becomes most challenging, the information aggregation advantage of markets becomes most valuable.
+                - paragraph [ref=e195]: However, it is not only useful to note that Kalshi trader estimates outperform during such times of shock, but also that the disagreement between Kalshi trader estimates and consensus may be indicative of a shock. Compared in disagreement, implied trader estimates report a 75% win-rate relative to consensus figures at comparable timeframes. Moreover, threshold analysis identifies that deviations exceeding 0.1pp predict a ~81.2% shock rate, moving up to an ~84.2% shock rate the day prior to data release. This practically significant difference suggests that prediction market forecasts can be used not only as competing estimates, but as meta-signals about forecast uncertainty itself, transforming market-consensus disagreement into a quantifiable early warning indicator for potential surprises.
+      - generic [ref=e197]:
+        - heading "Discussion" [level=2] [ref=e198]
+        - paragraph [ref=e200]: "The obvious question that arises here is the following: why do markets outperform consensus during crises? We propose three complementary mechanisms:"
+        - generic [ref=e201]:
+          - generic [ref=e202]:
+            - heading "1. Market participant heterogeneity and the wisdom of the crowd" [level=3] [ref=e204]
+            - paragraph [ref=e206]: "Traditional consensus forecasts, while incorporating multiple institutional views, tend to share methodological assumptions and information sources. Econometric models, Wall Street research, and government data releases form a common knowledge base. Prediction markets, by contrast, aggregate positions from participants with diverse informational foundations: proprietary models, sector-specific insights, alternative data sources, and informed intuition. This participant diversity finds theoretical foundation in the wisdom of crowds literature, which demonstrates that aggregating independent forecasts from diverse sources can yield superior estimates when participants possess relevant information and forecast errors exhibit less than perfect correlation, and this informational diversity becomes most valuable during regime changes as those that possess fragmentary information combine to produce a collective signal."
+          - generic [ref=e208]:
+            - heading "2. Participant incentive variation" [level=3] [ref=e210]
+            - generic [ref=e211]:
+              - paragraph [ref=e212]: Institutional consensus forecasters operate within complex organizational and reputational systems that induce systematic deviations from pure accuracy maximization. The career concerns of professional forecasters create asymmetric payoff structures where large forecast errors impose significant reputational costs while exceptional accuracy, particularly when achieved through substantial deviation from peer forecasts, may not generate proportionate professional benefits. This asymmetry induces herding behavior whereby forecasters cluster their estimates near consensus values even when private information or model outputs suggest divergent predictions, as the professional cost of being incorrect in isolation frequently exceeds the professional benefit of being correct in isolation.
+              - paragraph [ref=e213]: By contrast, prediction market participants face direct alignment between forecast accuracy and financial outcomes where forecast precision translates to profit and forecast error translates to loss. Reputational considerations are absent, as the sole penalty for deviation from market consensus is financial and depends exclusively on forecast accuracy. This structure creates stronger selection pressure for predictive accuracy whereby participants who systematically identify consensus forecast errors accumulate capital and increase their market influence through position sizing, while those who mechanically follow consensus incur losses when consensus proves incorrect.
+              - paragraph [ref=e214]: During periods of elevated uncertainty, when professional costs of deviating from expert consensus reach their maximum for institutional forecasters, this incentive divergence may be most pronounced and economically significant.
+          - generic [ref=e216]:
+            - heading "3. Aggregation efficiency" [level=3] [ref=e218]
+            - paragraph [ref=e220]: The empirical observation that market-based accuracy advantages exist even one week prior to releases, matching the characteristic temporal horizon of consensus forecast publication, suggests a mechanism beyond simple information speed advantages oft-cited for prediction market participants. Rather, markets may achieve more efficient aggregation of dispersed information fragments that are too scattered, too sector-specific, or too ambiguous to incorporate formally into traditional econometric forecasting frameworks. The comparative advantage may derive less from temporal primacy in accessing common information than from the capacity to synthesize heterogeneous information that survey-based consensus mechanisms process inefficiently even over equivalent time horizons.
+      - generic [ref=e222]:
+        - heading "Limitations and Caveats" [level=2] [ref=e223]
+        - paragraph [ref=e225]: Our results warrant an important qualification. Of course, given that our overall sample spans ~30 months, major shock events are definitionally rare. This means that statistical power for larger tail events remains limited. Longer times series will strengthen the capacity for future inference, though current results are highly suggestive of outperformance and signal differentiation.
+      - generic [ref=e226]:
+        - heading "Conclusion" [level=2] [ref=e227]
+        - generic [ref=e228]:
+          - paragraph [ref=e229]: We document systematic and economically meaningful outperformance of prediction market forecasts relative to expert consensus, particularly during shock events when forecast accuracy matters most. Market-based CPI estimates show ~40% lower overall error and up to ~60% lower error in periods of major structural change.
+          - paragraph [ref=e230]: "Based on these results, a number of areas for future research become salient: (1) the predictability of shock alpha events themselves through volatility and disagreement measures over larger samples and across a basket of macroeconomic indicators, (2) the liquidity thresholds at which prediction markets achieve higher accuracy than traditional forecasting, and (3) the relationship between prediction market forecasts and implied forecasts derived from higher-frequency traded financial instruments."
+          - paragraph [ref=e231]: In environments where consensus forecasts reflect correlated model assumptions and shared information sets, prediction markets offer an alternative aggregation mechanism that may detect regime changes earlier and process heterogeneous information more efficiently. For decision-makers operating in economic environments characterized by increasing structural uncertainty and tail event frequency, shock alpha may therefore constitute not merely an incremental forecasting improvement but a fundamental component of robust risk management infrastructure.
+      - link "← Back to Research" [ref=e233] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e234]: ←
+        - generic [ref=e235]: Back to Research
+    - contentinfo [ref=e237]:
+      - generic [ref=e238]:
+        - generic [ref=e239]:
+          - generic [ref=e242]:
+            - paragraph [ref=e243]: Kalshi Research
+            - paragraph [ref=e244]: Signal-rich market science
+          - link "research@kalshi.com →" [ref=e245] [cursor=pointer]:
+            - /url: mailto:research@kalshi.com
+            - generic [ref=e246]: research@kalshi.com →
+        - generic [ref=e247]:
+          - generic [ref=e248]:
+            - paragraph [ref=e249]: Navigate
+            - generic [ref=e250]:
+              - link "Publications" [ref=e251] [cursor=pointer]:
+                - /url: /articles
+              - link "Themes" [ref=e252] [cursor=pointer]:
+                - /url: /themes
+              - link "Event" [ref=e253] [cursor=pointer]:
+                - /url: /conference
+              - link "Collaboration" [ref=e254] [cursor=pointer]:
+                - /url: /collaboration
+          - generic [ref=e255]:
+            - paragraph [ref=e256]: Stay connected
+            - generic [ref=e257]:
+              - link "kalshi.com" [ref=e258] [cursor=pointer]:
+                - /url: https://kalshi.com
+              - link "@kalshi" [ref=e259] [cursor=pointer]:
+                - /url: https://x.com/kalshi
+              - link "LinkedIn" [ref=e260] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/kalshi
+              - link "@kalshiresearch" [ref=e261] [cursor=pointer]:
+                - /url: https://x.com/kalshiresearch
+      - generic [ref=e263]: © 2026 Kalshi. All rights reserved.
+  - generic [ref=e264]: "0.20"

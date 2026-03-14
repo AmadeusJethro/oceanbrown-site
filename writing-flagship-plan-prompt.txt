@@ -1,0 +1,57 @@
+This is a NEW task. IGNORE previous context.
+
+Goal: choose the single best flagship project/topic for a serious, academically strong website feature, then produce a plan/spec only for writing that project. Do NOT draft the project page yet. Do NOT modify any files.
+
+User intent:
+- Start from scratch.
+- Re-review the evidence deeply.
+- Decide whether the previously discussed projects are actually the best ones to write about, or if a better flagship subject exists in the repo landscape.
+- This is for potential employers, but also a personal show-off section.
+- It must be rigorous but not pompous.
+- On eventual implementation, writing-design should produce an .html whose filename is derived from the final title/project title slug.
+- For this step, output the plan/spec only, then stop and wait for explicit approval.
+
+You must operate in PLAN-FIRST / SPEC-FIRST mode.
+No code changes. No file writes. Read-only analysis only.
+Ask the user detailed, non-obvious questions ONLY if absolutely necessary to unblock the design; maximum 5 total. If not blocked, proceed with explicit assumptions.
+
+Selection task before planning:
+1) Reassess the best flagship subject from the actual evidence, not prior summaries alone.
+2) Consider at minimum these candidate clusters:
+   - Energy / operations / trading systems from C:/Users/obrown/Documents/Projects/potato2/energy-projects-summary.md
+   - Job-fit alignment from C:/Users/obrown/Documents/Projects/potato2/TOP-10-ranked-power-roles.md and C:/Users/obrown/Documents/Projects/potato2/rt-role-fit-report.md
+   - Agentic systems / workflow engineering from C:/Users/obrown/Documents/Projects/potato2/energy-projects-summary.md and C:/Users/obrown/Documents/Projects/tools/opencode-evals/docs/specs/eval-harness-upgrade.md plus C:/Users/obrown/Documents/Projects/tools/opencode-evals/docs/specs/benchmark-governance.md
+   - Any better flagship candidate you find in the repo landscape that is supportable and not too proprietary
+3) Recommend the ONE best first project to write, with 2-3 alternates and why they lost.
+4) Explicitly consider confidentiality/public-evidence constraints.
+
+Relevant local roots and anchors you may inspect:
+- C:/Users/obrown/Documents/Projects/potato2/energy-projects-summary.md
+- C:/Users/obrown/Documents/Projects/potato2/TOP-10-ranked-power-roles.md
+- C:/Users/obrown/Documents/Projects/potato2/rt-role-fit-report.md
+- C:/Users/obrown/OneDrive - Spotlight Power/Documents/Projects/Energy/agentic-ops-platform/
+- C:/Users/obrown/OneDrive - Spotlight Power/Documents/Projects/Energy/florida-grid-research/
+- C:/Users/obrown/OneDrive - Spotlight Power/Documents/Projects/Energy/pjm-miso-seam-analysis/
+- C:/Users/obrown/OneDrive - Spotlight Power/Documents/Projects/Energy/homebase/
+- C:/Users/obrown/OneDrive - Spotlight Power/Documents/Projects/Energy/howie-muskrat-plant-monitor/
+- C:/Users/obrown/Documents/Projects/tools/opencode-evals/
+- The style and writing references already established earlier: Sergio project pages, exact Kalshi research links, Fed paper, arXiv links, Dario essays, Near, Gwern, Claude Shannon, and the user's writing samples in C:/Users/obrown/OneDrive - Spotlight Power/Desktop/writing/
+
+Required deliverable:
+A single consolidated Plan & Spec document with these sections:
+A) Executive definition of done
+B) Repo findings with concrete file-path citations and the recommended flagship project choice
+C) Subagent roster + orchestration protocol for the eventual writing run (must include writing, librarian, and writing-design roles explicitly)
+D) Interview Q&A or explicit assumptions if no questions were needed
+E) Architecture + data flow for producing the flagship project page/paper (ingest -> store -> query -> evidence -> UI -> ops)
+F) Dataset/Endpoint matrix (what sources/artifacts exist now, what must be added, source precedence, storage mapping, confidentiality treatment)
+G) task-0001... execution plan with exact files to touch later, acceptance criteria, verification commands, rollback, risks
+H) Risk register
+I) Verification checklist + stop conditions
+
+Important quality bars:
+- The selected project must be the best first flagship piece, not just the most obvious.
+- The plan must be deep and concrete enough that implementation can start immediately after approval.
+- The plan must explicitly state how the eventual output avoids shallowness, repo-summary writing, and hype.
+- The plan must specify how the eventual final HTML filename is derived from the title slug.
+- Stop after the plan/spec. Do not draft the actual project page.

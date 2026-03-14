@@ -1,0 +1,441 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - link "Go to homepage" [ref=e7] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e8]:
+            - link "Publications" [ref=e9] [cursor=pointer]:
+              - /url: /external
+            - link "Themes" [ref=e10] [cursor=pointer]:
+              - /url: /themes
+            - link "Event" [ref=e11] [cursor=pointer]:
+              - /url: /conference
+            - link "Collaboration" [ref=e12] [cursor=pointer]:
+              - /url: /collaboration
+            - link "Team" [ref=e13] [cursor=pointer]:
+              - /url: /team
+        - generic [ref=e14]:
+          - link "research@kalshi.com" [ref=e15] [cursor=pointer]:
+            - /url: mailto:research@kalshi.com
+          - button "Switch to light mode" [ref=e16] [cursor=pointer]:
+            - img [ref=e17]
+    - article [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]: Election Accuracy
+        - 'heading "Slowly, Then All At Once: What Mamdani''s Victory Tells Us About Information Aggregation" [level=1] [ref=e27]'
+        - generic [ref=e29]:
+          - 'heading "The Complete Story: Primary Success and General Election Concerns" [level=2] [ref=e30]'
+          - generic [ref=e31]: Loading data...
+          - paragraph [ref=e32]: "NB: The General Election market below runs on the assumption of the candidate leading the Democratic Primary prior to the declaration of the winner of said Primary election."
+        - heading "Abstract" [level=2] [ref=e33]
+        - paragraph [ref=e34]: This paper examines the trajectory of Zohran Mamdani's candidacy for the 2025 New York City Mayoral Election through the lens of prediction market data spanning November 2024 through November 2025. By analyzing minute-by-minute price movements across two distinct but related markets - the Democratic primary nomination market and the general election party victory market - we identify critical inflection points, assess market perceptions of electoral viability, and construct a data-driven narrative of an insurgent candidacy that defied initial expectations. Elections are noisy, with constantly-shifting dynamics and a wide array of events altering potential perceptions of their outcome. In this study, we find a clear information hierarchy that establishes the relative credibility and significance of data from distinct sources, pulling back the curtain on the mechanisms underlying prediction market information aggregation and public perception creation.
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - text: "Published:"
+            - time [ref=e37]: January 2026
+          - generic [ref=e38]:
+            - text: "Updated:"
+            - time [ref=e39]: January 2026
+          - generic [ref=e40]: "Read time: 16 min"
+      - generic [ref=e41]:
+        - generic [ref=e42]: prediction markets
+        - generic [ref=e43]: politics
+        - generic [ref=e44]: electability
+        - generic [ref=e45]: polling vs behavior
+        - generic [ref=e46]: market microstructure
+      - generic [ref=e47]:
+        - heading "Introduction" [level=2] [ref=e48]
+        - generic [ref=e49]:
+          - paragraph [ref=e50]: Prediction markets have emerged as valuable instruments for understanding political dynamics, often demonstrating superior forecasting accuracy compared to traditional polling methods. These markets aggregate dispersed information through the creation of financial incentives that create price signals to reflect collective assessments of political probabilities.
+          - paragraph [ref=e51]: On November 9, 2024, prediction markets priced Zohran Mamdani's probability of winning the NYC Democratic mayoral nomination at 7%. On June 24, 2025, at 9:03PM, those markets surged to 99% in a single minute. Between these two points lies a detailed record of how markets process political information in real time.
+          - paragraph [ref=e52]: This study contributes to the literature on prediction markets and political forecasting in three ways. First, we employ minute-level data to examine market reactions with unprecedented temporal granularity, allowing us to isolate specific information shocks and their immediate effects. Second, we analyze two related but distinct markets simultaneously - the primary nomination market and the general election market - revealing how traders assess different dimensions of electoral viability. Third, we identify a clear information hierarchy in which behavioral data (actual voting patterns) commanded substantially greater market credibility than opinion polling, media endorsements, or elite political support. We additionally find evidence of sophisticated information parsing - with markets responding aggressively to undercurrents of Mamdani momentum even where absolute polling numbers continued to show a large margin of victory for Cuomo.
+      - generic [ref=e53]:
+        - heading "Methodology" [level=2] [ref=e54]
+        - generic [ref=e55]:
+          - heading "Data" [level=3] [ref=e56]
+          - generic [ref=e57]:
+            - paragraph [ref=e58]: "This analysis employs two comprehensive prediction market datasets from Kalshi, a CFTC-regulated prediction market exchange. The datasets track:"
+            - list [ref=e59]:
+              - listitem [ref=e60]:
+                - strong [ref=e61]: "Primary Market:"
+                - text: Zohran Mamdani's probability of winning the Democratic nomination (337,096 minute-level observations, November 9, 2024 – July 1, 2025)
+              - listitem [ref=e62]:
+                - strong [ref=e63]: "General Election Market:"
+                - text: Democratic Party probability of winning the mayoral general election (521,648 minute-level observations, November 9, 2024 – November 6, 2025)
+            - paragraph [ref=e64]: Both datasets record the median transaction price within each one-minute interval, providing high-frequency data on market sentiment evolution.
+        - generic [ref=e65]:
+          - heading "Data Processing" [level=3] [ref=e66]
+          - paragraph [ref=e68]: To construct complete time series from sporadic trading activity, we employed a forward-fill methodology. This approach carries the last observed median price forward through periods of zero trading volume, ensuring continuous price series suitable for event study analysis. This method is standard in financial market microstructure research when examining markets with intermittent trading. Significant movements were classified as ≥5¢ threshold over the course of a day, with additional internal sensitivity testing for movement of ≥3¢ conducted across the same period. Finally, systematic event research was undertaken to correlate price changes (and their respective windows) to news coverage, polling releases, and campaign developments.
+      - generic [ref=e69]:
+        - heading "Mamdani's Victory Arc" [level=2] [ref=e70]
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - 'heading "Phase 1: Slowly" [level=3] [ref=e75]'
+            - generic [ref=e76]:
+              - paragraph [ref=e77]: For six months, markets remained largely indifferent to Mamdani's campaign. Prices oscillated between 1-9%, with minimal trading volume (median 0 trades per day), and volatility appeared to capture noise rather than information.
+              - paragraph [ref=e78]: "During this period, the Mamdani campaign was building critical infrastructure that couldn't be immediately appreciated: distributed social media operations, volunteer networks, and powerful voter contact programs. In this period, no single tweet went viral, no endorsement appeared, and no polling breakthrough emerged. To markets (and other election observers), this organization remained largely invisible."
+          - generic [ref=e80]:
+            - 'heading "Phase 2: The First Signal - May 28, 2025" [level=3] [ref=e82]'
+            - generic [ref=e83]:
+              - paragraph [ref=e84]: On the evening of May 28th, markets experienced their first major move - a 10.5 cent price move with modest trading volume. On this day, Emerson College Polling reported that support for Mamdani had surged from 1% in February to 23% in May, cutting Cuomo's lead from 12 points to 9, NY1 published campaign coverage, and social media metrics showed momentum picking up steam.
+              - paragraph [ref=e85]: Though polls still displayed a clear expectation of a Cuomo victory, the incremental improvement of Mamdani's position from a total outsider to a potential contender for second place created a real point of inflection in market pricing. Even in a market that only rewards participants who correctly identify the eventual winner, participants backing Mamdani saw promise driven by his ability to make progress on closing a gap on the near-guaranteed victor, Cuomo. Taking a step back, this market confidence is not simply a reflection of polling, but also of the truth that it reveals - that Mamdani's social media campaign and grassroots organization was beginning to work to meaningfully change the odds, and that his messaging was beginning to resonate.
+          - generic [ref=e87]:
+            - 'heading "Phase 3: The Polling Phase June 1 - 15, 2025" [level=3] [ref=e89]'
+            - generic [ref=e90]:
+              - paragraph [ref=e91]: Two major market moves happened within this two-week period.
+              - paragraph [ref=e92]: First, on June 9, markets surged +9¢ following the publication of polling in POLITICO showing a further narrowing of Cuomo’s margin to only 2 points. This substantial market movement was recorded within just 20 minutes of the story’s publication.For a similar reason to before, this polling, even though it still leaned toward a Mamdani loss, indicated that he was gaining ground and momentum, and that the power of his coordinated messaging campaign was flowing through. On this day also, the Mamdani campaign launched an effort to enroll New Yorkers who had been otherwise registered in other states. Though only apparent ex-post via analysis of the early voting and total voter registration figures, this push successfully mobilized tens of thousands of young people to turn out and vote.
+              - paragraph [ref=e93]: Second, an additional +10¢ jump followed Public Policy Polling on June 11th showing Mamdani leading Cuomo 35% to 31% for the first time. This third-party validation pushed Mamdani up to ~40% on Kalshi, approaching a coin-flip for the nomination.
+          - generic [ref=e95]:
+            - 'heading "Phase 4: The Crisis" [level=3] [ref=e97]'
+            - generic [ref=e98]:
+              - paragraph [ref=e99]: "Upon market open on Monday the 16th of June, the campaign experienced its largest single-day decline to date: -11¢. On this day, the Editorial Board of the New York Times published a scathing anti-endorsement of Mamdani - not merely withholding support but actively recommending readers to vote elsewhere. Indeed, the Board went so far as to say \"We do not believe that Mr. Mamdani deserves a spot on New Yorkers' ballots.\" The swift and severe market response to this statement, which was extended into a second day on June 17th, revealed an information hierarchy: the Times' institutional authority outweighed even the endorsement of Bernie Sanders the following day, in the immediate assessment of the markets. Unlike many other media articles published, this one, which was a large, bold, and unexpected move from a major New York-based masthead appeared to seriously resonate."
+              - generic [ref=e101]:
+                - 'heading "The Crisis: Traditional Media Gatekeeping vs. Progressive Support" [level=2] [ref=e102]'
+                - generic [ref=e103]: Loading data...
+                - paragraph [ref=e104]: "NB: The NYT Editorial Board published their anti-endorsement at approximately 5AM ET. However, Kalshi markets opened to trading at 8AM ET as this was prior to the Exchange's move to 24/7 Trading."
+              - paragraph [ref=e105]: As Mamdani's odds fell in the Democratic Primary, the market for Democratic victory in the General Mayoral Election exhibited an opposite movement - gaining 7¢. This negative correlation demonstrates the sophistication of market reasoning - traders believed Mamdani would be a weaker General Election candidate than alternatives (perhaps because of a fear of an unpalatable "socialist" agenda). In so moving, traders created an "electability discount".
+              - generic [ref=e107]:
+                - 'heading "The Electability Paradox: Primary Success vs. General Election Concern" [level=2] [ref=e108]'
+                - generic [ref=e109]: Loading data...
+                - paragraph [ref=e110]: "The Electability Paradox: Primary Success vs. General Election Concern (June 15-25, 2025)"
+          - generic [ref=e112]:
+            - 'heading "Phase 5: All at Once" [level=3] [ref=e114]'
+            - generic [ref=e115]:
+              - paragraph [ref=e116]: "One week after the crisis outlined above, Monday the 23rd of June brought dramatic movement (+24¢) on massive volume (30x what had been seen previously). On this day, three pieces of information arrived:"
+              - list [ref=e117]:
+                - listitem [ref=e118]: The Gothamist (alongside other outlets and media channels) reported that Mamdani's previously invisible push for early voter mobilization had worked - with more than double the number of New Yorkers casting ballots in early voting compared to the election immediately prior, and with substantial representation of new and younger voters. The NYC Board of Elections reported that 47% of votes were cast by those under 44, and 30% by those under 30.
+                - listitem [ref=e119]: Weather forecasts predicted extreme heat on the day of the Primary, projected to disproportionately affect older voters (Cuomo's base).
+                - listitem [ref=e120]: Emerson polling moved to show Mamdani dominating Cuomo in the overall ranked-choice selection.
+              - paragraph [ref=e121]: At this stage, opinion polling gave way to adjudications of real-life voting behavior, and markets responded aggressively to hard behavioral evidence validating months of organizing claims.
+              - paragraph [ref=e122]: By the day of the Primary election, the writing was on the wall. By 9:03PM, just three minutes after polls closed, Kalshi traders had declared the race over for Mamdani at 99% probability, and Kalshi called the race - well ahead of all other media and polling organisations.
+      - generic [ref=e124]:
+        - heading "The Electability Paradox" [level=2] [ref=e125]
+        - generic [ref=e126]:
+          - paragraph [ref=e127]: "Analysis of the dual-market system reveals a striking paradox: as Mamdani's primary probability increased, Democratic general election probability decreased. This negative correlation was particularly pronounced during the critical June 16-24 period:"
+          - list [ref=e128]:
+            - listitem [ref=e129]: "June 16 (NYT crisis): Primary -11¢ on the day, General +7¢"
+            - listitem [ref=e130]: "June 23 (early voting): Primary +24¢, General -7¢"
+            - listitem [ref=e131]: "June 24 (primary day): Primary +43¢, General -7¢"
+          - generic [ref=e133]:
+            - 'heading "The Critical Week: Negative Correlation Between Primary Success and General Confidence" [level=2] [ref=e134]'
+            - generic [ref=e135]: Loading data...
+            - paragraph [ref=e136]: "The Critical Week: Negative Correlation Between Primary Success and General Election Confidence"
+          - paragraph [ref=e137]: "The cumulative \"electability discount\" reached 21 percentage points (90% → 69%) as Mamdani's nomination became certain. This suggests traders believed Mamdani would face greater general election challenges than the incumbent or moderate alternatives, likely due to concerns about:"
+          - list [ref=e138]:
+            - listitem [ref=e139]: "\"Socialist\" policy positioning"
+            - listitem [ref=e140]: Vote-splitting in a general election
+            - listitem [ref=e141]: Moderate voter flight to Republican alternatives
+          - paragraph [ref=e142]: "From a market perspective, this indicates the ability of traders to dynamically process and represent anticipated spillovers, providing additional calibration for campaign understanding of the magnitude of perceived fears about policy platforms. However, this discount proved temporary and ultimately unfounded. By late July, the general election market began recovering (July 29: +8¢), and by November 4, Democrats won the general election at 99% probability, validating that initial electability concerns were attenuated by successful messaging over the course of the campaign."
+      - generic [ref=e143]:
+        - heading "Discussion" [level=2] [ref=e144]
+        - generic [ref=e145]:
+          - paragraph [ref=e146]: This study contributes to prediction market theory in several ways. First, our findings strongly support the efficient market hypothesis in political contexts when high-quality information is available. The rapid incorporation of polling data and especially behavioral voting data demonstrates that markets efficiently price political information when it arrives.
+          - paragraph [ref=e147]: The six-month "invisible period" during which substantial organizational infrastructure was built without immediate market recognition reflects efficient pricing of available information rather than any market deficiency. Markets accurately priced the observable signals - early polling showed Mamdani at 1-3%, media coverage was minimal, and fundraising lagged competitors. When new information arrived demonstrating the campaign's organizational success (behavioral voting data), markets adjusted immediately and decisively.
+        - generic [ref=e148]:
+          - heading "The Information Hierarchy" [level=3] [ref=e149]
+          - generic [ref=e150]:
+            - generic [ref=e151]:
+              - paragraph [ref=e152]: "Our empirical finding of a clear information hierarchy:"
+              - paragraph [ref=e153]: behavioral data > polling > media > endorsements
+            - paragraph [ref=e154]: "has important implications for understanding what information markets trust. This hierarchy follows a logical pattern: markets assign greatest weight to information that most directly predicts the outcome of interest."
+            - generic [ref=e156]:
+              - 'heading "Information Hierarchy: What Moved Markets Most (Primary)" [level=2] [ref=e157]'
+              - img [ref=e158]:
+                - generic [ref=e159]:
+                  - generic [ref=e164]: +10.5¢
+                  - generic [ref=e167]: +9.0¢
+                  - generic [ref=e170]: +10.0¢
+                  - generic [ref=e173]: "-18.0¢"
+                  - generic [ref=e176]: +24.0¢
+                  - generic [ref=e179]: +43.0¢
+                  - generic [ref=e180]:
+                    - generic [ref=e181]: Emerson Polling
+                    - generic [ref=e182]: (May 28)
+                  - generic [ref=e183]:
+                    - generic [ref=e184]: POLITICO Publication
+                    - generic [ref=e185]: (Jun 9)
+                  - generic [ref=e186]:
+                    - generic [ref=e187]: "PPP Poll: Mamdani Leads"
+                    - generic [ref=e188]: (Jun 11)
+                  - generic [ref=e189]:
+                    - generic [ref=e190]: NYT Anti-Endorsement
+                    - generic [ref=e191]: (Jun 16-17)
+                  - generic [ref=e192]:
+                    - generic [ref=e193]: Early Voting Data
+                    - generic [ref=e194]: (Jun 23)
+                  - generic [ref=e195]:
+                    - generic [ref=e196]: Final Voting Data
+                    - generic [ref=e197]: (Jun 24)
+                  - generic [ref=e198]:
+                    - generic [ref=e200]: Information Type
+                    - generic [ref=e203]: Behavioral
+                    - generic [ref=e206]: Polling
+                    - generic [ref=e209]: Media
+                  - generic [ref=e210]:
+                    - img [ref=e212]:
+                      - generic [ref=e213]: −20
+                    - img [ref=e215]:
+                      - generic [ref=e216]: −10
+                    - img [ref=e218]:
+                      - generic [ref=e219]: "0"
+                    - img [ref=e221]:
+                      - generic [ref=e222]: "10"
+                    - img [ref=e224]:
+                      - generic [ref=e225]: "20"
+                    - img [ref=e227]:
+                      - generic [ref=e228]: "30"
+                    - img [ref=e230]:
+                      - generic [ref=e231]: "40"
+                  - generic [ref=e232]: Market Impact (Cents)
+              - paragraph [ref=e233]: "Information Hierarchy: What Moved Markets Most (Primary Market Price Changes)"
+            - paragraph [ref=e234]: Behavioral data commands premium pricing because it represents revealed preferences - actual votes cast - rather than stated intentions. Polling data receives moderate weight because, while based on stated intentions, it aggregates information across samples with known statistical properties and secondarily acts as a signalling mechanism for underlying momentum. Indeed, per the polling data in Appendix Table 1., it was primarily the latter subtext, not the former apparent reality which continued to largely back Cuomo, which the market appeared to be strongly responsive to. Traditional media shows mixed effects. The NYT anti-endorsement's -18¢ impact reveals that institutional media still commands significant credibility, particularly for negative information. Its impact was larger, perhaps, because of its surprise - the anti-endorsement wasn't just a statement of opposition - it was a signal that even neutral outlets were concerned. Similarly sized impacts were not reported across any other comparable media outlet, underlining the unique position of mastheads like the New York Times. Finally, However, the minimal response to political endorsements suggests markets view symbolic support skeptically unless accompanied by mobilization resources, particularly when coming from candidates naturally assumed to be ideologically aligned with those they are endorsing. Political endorsements generate minimal market movement, suggesting traders view them as largely ceremonial rather than indicative of actual electoral impact.
+        - generic [ref=e235]:
+          - heading "The \"Slowly, Then All At Once\" Dynamic" [level=3] [ref=e236]
+          - generic [ref=e237]:
+            - paragraph [ref=e238]: "The temporal pattern observed: six months of stability followed by rapid adjustment, demonstrates efficient market pricing of available information throughout the campaign cycle. This pattern suggests that insurgent campaigns operate on two parallel tracks:"
+            - generic [ref=e239]:
+              - paragraph [ref=e240]:
+                - strong [ref=e241]: "Observable track:"
+                - text: Media coverage, polling, endorsements (immediately and accurately priced by markets)
+              - paragraph [ref=e242]:
+                - strong [ref=e243]: "Latent track:"
+                - text: Voter registration, volunteer organizing, turnout infrastructure (not observable until behavioral data emerges)
+            - paragraph [ref=e244]: The Mamdani campaign's success stemmed from building the latent track while markets efficiently priced the observable track as a standalone and as indicative of the latent. When polling and behavioral data from early voting revealed the success of this organizing infrastructure, markets adjusted rapidly and appropriately, demonstrating responsive and efficient information processing.
+        - generic [ref=e245]:
+          - 'heading "The Electability Paradox: Sophisticated Uncertainty Pricing" [level=3] [ref=e246]'
+          - generic [ref=e247]:
+            - paragraph [ref=e248]: Perhaps the most striking finding is the persistent negative correlation between primary and general election markets. As Mamdani's nomination became certain, the general election market priced in a 21¢ "electability discount" that proved entirely unfounded. This pattern raises interesting questions about how markets process uncertainty about unconventional candidates.
+            - paragraph [ref=e249]: However, this temporary mispricing may reflect appropriate uncertainty pricing rather than market failure. Traders correctly identified that a Mamdani nomination represented a departure from typical Democratic candidate profiles, and the initial discount may have reflected genuine uncertainty about general election performance rather than systematic bias. The market's subsequent recovery as Mamdani demonstrated broader appeal validates that traders were updating appropriately as new information arrived.
+      - generic [ref=e250]:
+        - heading "Limitations" [level=2] [ref=e251]
+        - generic [ref=e252]:
+          - paragraph [ref=e253]: Several limitations warrant mention. First, prediction markets represent the views of a specific population of traders, who may not be representative of the broader electorate. However, the strong predictive accuracy of these markets at critical junctures (early voting, primary day) suggests traders processed information effectively despite potential sample selection, and are incentivised to align with their view of the true outcome rather than their independent beliefs.
+          - paragraph [ref=e254]: Second, our event identification methodology, while systematic, relies on post-hoc attribution of price movements to specific events. Unobserved information may have contributed to some price changes, though the temporal proximity of movements to identifiable events (e.g., 20 minutes after POLITICO publication) increases confidence in causal attribution. Further avenues for study may examine the exact information aggregation mechanisms that lead to outsized confidence shown by the market and its participants relative to more muted advantages or results implied by polls.
+          - paragraph [ref=e255]: Third, this is a single-case study of one mayoral primary. Generalization would require assessment of whether the information hierarchy pattern holds across different electoral contexts. That said, the theoretical mechanisms identified here (i.e., the superiority of behavioral data and the initial organizational invisibility of grassroots efforts that deliver results over time) may actually apply broadly to insurgent campaigns.
+      - generic [ref=e256]:
+        - heading "Practical Implications" [level=2] [ref=e257]
+        - generic [ref=e258]:
+          - paragraph [ref=e259]: "For campaign strategists, our findings suggest several practical insights:"
+          - list [ref=e260]:
+            - listitem [ref=e261]:
+              - strong [ref=e262]: "Prioritize behavioral indicators:"
+              - text: Markets respond most strongly to voter registration drives, early voting mobilization, and other behavioral data. Campaigns should prioritize activities that generate measurable behavioral signals, as these provide the most credible evidence of campaign strength.
+            - listitem [ref=e263]:
+              - strong [ref=e264]: "Anticipate sophisticated electability analysis:"
+              - text: "Anticipate sophisticated electability analysis: Markets will appropriately distinguish between primary strength and general election viability for unconventional candidates. This creates opportunities to demonstrate broader appeal through consistent messaging and coalition maintenance as the campaign progresses."
+            - listitem [ref=e265]:
+              - strong [ref=e266]: "Monitor high-frequency signals - markets capture momentum:"
+              - text: Real-time prediction market data provides valuable intelligence about how new information is being processed by sophisticated political observers, offering a more responsive feedback mechanism than traditional polling. Unlike traditional analysis methods, prediction market trading incorporates the subtle subtext of results that goes beyond headline numbers in real time.
+      - generic [ref=e267]:
+        - 'heading "Appendix: Polling Data" [level=2] [ref=e268]'
+        - paragraph [ref=e269]: The following table summarizes publicly available polling data from the 2025 NYC Democratic mayoral primary race, ordered chronologically from most recent to earliest. This data was originally collated by the New York Times.
+        - table [ref=e271]:
+          - rowgroup [ref=e272]:
+            - row "Pollster Dates Sponsor First Round Final Round" [ref=e273]:
+              - columnheader "Pollster" [ref=e274]
+              - columnheader "Dates" [ref=e275]
+              - columnheader "Sponsor" [ref=e276]
+              - columnheader "First Round" [ref=e277]
+              - columnheader "Final Round" [ref=e278]
+            - row "Margin Cuomo Mamdani Margin Cuomo Mamdani" [ref=e279]:
+              - columnheader "Margin" [ref=e280]
+              - columnheader "Cuomo" [ref=e281]
+              - columnheader "Mamdani" [ref=e282]
+              - columnheader "Margin" [ref=e283]
+              - columnheader "Cuomo" [ref=e284]
+              - columnheader "Mamdani" [ref=e285]
+          - rowgroup [ref=e286]:
+            - row "YouGov June 17-23 Yale Polling Cuomo +10 38% 28% Cuomo +14 57% 43%" [ref=e287]:
+              - cell "YouGov" [ref=e288]
+              - cell "June 17-23" [ref=e289]
+              - cell "Yale Polling" [ref=e290]
+              - cell "Cuomo +10" [ref=e291]
+              - cell "38%" [ref=e292]
+              - cell "28%" [ref=e293]
+              - cell "Cuomo +14" [ref=e294]
+              - cell "57%" [ref=e295]
+              - cell "43%" [ref=e296]
+            - row "HarrisX June 11-22 Fix the City Democratic sp. Cuomo +19 38% 19% Cuomo +24 52% 28%" [ref=e297]:
+              - cell "HarrisX" [ref=e298]
+              - cell "June 11-22" [ref=e299]
+              - cell "Fix the City Democratic sp." [ref=e300]
+              - cell "Cuomo +19" [ref=e301]
+              - cell "38%" [ref=e302]
+              - cell "19%" [ref=e303]
+              - cell "Cuomo +24" [ref=e304]
+              - cell "52%" [ref=e305]
+              - cell "28%" [ref=e306]
+            - row "Emerson College June 18-20 Nexstar, PIX 11 Cuomo +3 36% 34% Mamdani +4 48% 52%" [ref=e307]:
+              - cell "Emerson College" [ref=e308]
+              - cell "June 18-20" [ref=e309]
+              - cell "Nexstar, PIX 11" [ref=e310]
+              - cell "Cuomo +3" [ref=e311]
+              - cell "36%" [ref=e312]
+              - cell "34%" [ref=e313]
+              - cell "Mamdani +4" [ref=e314]
+              - cell "48%" [ref=e315]
+              - cell "52%" [ref=e316]
+            - row "Manhattan Institute June 11-16 — Cuomo +13 43% 30% Cuomo +12 56% 44%" [ref=e317]:
+              - cell "Manhattan Institute" [ref=e318]
+              - cell "June 11-16" [ref=e319]
+              - cell "—" [ref=e320]
+              - cell "Cuomo +13" [ref=e321]
+              - cell "43%" [ref=e322]
+              - cell "30%" [ref=e323]
+              - cell "Cuomo +12" [ref=e324]
+              - cell "56%" [ref=e325]
+              - cell "44%" [ref=e326]
+            - row "Center for Strategic June 13-16 Don't Rank Evil Cuomo +8 38% 30% Cuomo +4 52% 48%" [ref=e327]:
+              - cell "Center for Strategic" [ref=e328]
+              - cell "June 13-16" [ref=e329]
+              - cell "Don't Rank Evil" [ref=e330]
+              - cell "Cuomo +8" [ref=e331]
+              - cell "38%" [ref=e332]
+              - cell "30%" [ref=e333]
+              - cell "Cuomo +4" [ref=e334]
+              - cell "52%" [ref=e335]
+              - cell "48%" [ref=e336]
+            - row "Marist College June 9-12 — Cuomo +12 43% 31% Cuomo +10 55% 45%" [ref=e337]:
+              - cell "Marist College" [ref=e338]
+              - cell "June 9-12" [ref=e339]
+              - cell "—" [ref=e340]
+              - cell "Cuomo +12" [ref=e341]
+              - cell "43%" [ref=e342]
+              - cell "31%" [ref=e343]
+              - cell "Cuomo +10" [ref=e344]
+              - cell "55%" [ref=e345]
+              - cell "45%" [ref=e346]
+            - row "Honan Strategy June 5-9 Destination Tomorrow Cuomo +17 42% 25% Cuomo +12 56% 44%" [ref=e347]:
+              - cell "Honan Strategy" [ref=e348]
+              - cell "June 5-9" [ref=e349]
+              - cell "Destination Tomorrow" [ref=e350]
+              - cell "Cuomo +17" [ref=e351]
+              - cell "42%" [ref=e352]
+              - cell "25%" [ref=e353]
+              - cell "Cuomo +12" [ref=e354]
+              - cell "56%" [ref=e355]
+              - cell "44%" [ref=e356]
+            - row "Expedition Strategy June 3-7 Fix the City Democratic sp. Cuomo +12 42% 30% Cuomo +12 56% 44%" [ref=e357]:
+              - cell "Expedition Strategy" [ref=e358]
+              - cell "June 3-7" [ref=e359]
+              - cell "Fix the City Democratic sp." [ref=e360]
+              - cell "Cuomo +12" [ref=e361]
+              - cell "42%" [ref=e362]
+              - cell "30%" [ref=e363]
+              - cell "Cuomo +12" [ref=e364]
+              - cell "56%" [ref=e365]
+              - cell "44%" [ref=e366]
+            - row "Public Policy Polling June 6-7 Justin Brannan Democratic sp. Mamdani +4 31% 35% N/A — —" [ref=e367]:
+              - cell "Public Policy Polling" [ref=e368]
+              - cell "June 6-7" [ref=e369]
+              - cell "Justin Brannan Democratic sp." [ref=e370]
+              - cell "Mamdani +4" [ref=e371]
+              - cell "31%" [ref=e372]
+              - cell "35%" [ref=e373]
+              - cell "N/A" [ref=e374]
+              - cell "—" [ref=e375]
+              - cell "—" [ref=e376]
+            - row "Data for Progress May 30 - June 4 New Yorkers for Democratic sp. Cuomo +7 40% 33% Cuomo +2 51% 49%" [ref=e377]:
+              - cell "Data for Progress" [ref=e378]
+              - cell "May 30 - June 4" [ref=e379]
+              - cell "New Yorkers for Democratic sp." [ref=e380]
+              - cell "Cuomo +7" [ref=e381]
+              - cell "40%" [ref=e382]
+              - cell "33%" [ref=e383]
+              - cell "Cuomo +2" [ref=e384]
+              - cell "51%" [ref=e385]
+              - cell "49%" [ref=e386]
+            - row "Emerson College May 23-26 Nexstar Cuomo +12 35% 23% Cuomo +9 54% 46%" [ref=e387]:
+              - cell "Emerson College" [ref=e388]
+              - cell "May 23-26" [ref=e389]
+              - cell "Nexstar" [ref=e390]
+              - cell "Cuomo +12" [ref=e391]
+              - cell "35%" [ref=e392]
+              - cell "23%" [ref=e393]
+              - cell "Cuomo +9" [ref=e394]
+              - cell "54%" [ref=e395]
+              - cell "46%" [ref=e396]
+            - row "Workbench Strategy May 14-18 Zohran Mamdani Democratic sp. Cuomo +13 40% 27% Cuomo +12 56% 44%" [ref=e397]:
+              - cell "Workbench Strategy" [ref=e398]
+              - cell "May 14-18" [ref=e399]
+              - cell "Zohran Mamdani Democratic sp." [ref=e400]
+              - cell "Cuomo +13" [ref=e401]
+              - cell "40%" [ref=e402]
+              - cell "27%" [ref=e403]
+              - cell "Cuomo +12" [ref=e404]
+              - cell "56%" [ref=e405]
+              - cell "44%" [ref=e406]
+            - row "Honan Strategy May 15-18 Jewish Voters Cuomo Cuomo +21 47% 26% Cuomo +22 61% 39%" [ref=e407]:
+              - cell "Honan Strategy" [ref=e408]
+              - cell "May 15-18" [ref=e409]
+              - cell "Jewish Voters Cuomo" [ref=e410]
+              - cell "Cuomo +21" [ref=e411]
+              - cell "47%" [ref=e412]
+              - cell "26%" [ref=e413]
+              - cell "Cuomo +22" [ref=e414]
+              - cell "61%" [ref=e415]
+              - cell "39%" [ref=e416]
+            - row "SurveyUSA May 14-17 — Cuomo +32 43% 11% N/A — —" [ref=e417]:
+              - cell "SurveyUSA" [ref=e418]
+              - cell "May 14-17" [ref=e419]
+              - cell "—" [ref=e420]
+              - cell "Cuomo +32" [ref=e421]
+              - cell "43%" [ref=e422]
+              - cell "11%" [ref=e423]
+              - cell "N/A" [ref=e424]
+              - cell "—" [ref=e425]
+              - cell "—" [ref=e426]
+            - row "Marist College May 1-8 — Cuomo +22 44% 22% Cuomo +20 60% 40%" [ref=e427]:
+              - cell "Marist College" [ref=e428]
+              - cell "May 1-8" [ref=e429]
+              - cell "—" [ref=e430]
+              - cell "Cuomo +22" [ref=e431]
+              - cell "44%" [ref=e432]
+              - cell "22%" [ref=e433]
+              - cell "Cuomo +20" [ref=e434]
+              - cell "60%" [ref=e435]
+              - cell "40%" [ref=e436]
+        - paragraph [ref=e437]: "Table 1: Summary of publicly available polling data. Cuomo leads highlighted in blue; Mamdani leads highlighted in orange."
+      - generic [ref=e438]:
+        - heading "Conclusion" [level=2] [ref=e439]
+        - paragraph [ref=e441]: "Prediction markets aggregate political information with remarkable efficiency. They respond within minutes to new data, distinguish sophisticatedly between related but distinct probabilities, and update rapidly as uncertainties resolve. In an era of grassroots organizing and distributed campaigns, understanding what information markets value most: actual behavior over stated preferences, provides crucial insight for practitioners and academics alike."
+      - link "← Back to Research" [ref=e443] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e444]: ←
+        - generic [ref=e445]: Back to Research
+    - contentinfo [ref=e447]:
+      - generic [ref=e448]:
+        - generic [ref=e449]:
+          - generic [ref=e452]:
+            - paragraph [ref=e453]: Kalshi Research
+            - paragraph [ref=e454]: Signal-rich market science
+          - link "research@kalshi.com →" [ref=e455] [cursor=pointer]:
+            - /url: mailto:research@kalshi.com
+            - generic [ref=e456]: research@kalshi.com →
+        - generic [ref=e457]:
+          - generic [ref=e458]:
+            - paragraph [ref=e459]: Navigate
+            - generic [ref=e460]:
+              - link "Publications" [ref=e461] [cursor=pointer]:
+                - /url: /articles
+              - link "Themes" [ref=e462] [cursor=pointer]:
+                - /url: /themes
+              - link "Event" [ref=e463] [cursor=pointer]:
+                - /url: /conference
+              - link "Collaboration" [ref=e464] [cursor=pointer]:
+                - /url: /collaboration
+          - generic [ref=e465]:
+            - paragraph [ref=e466]: Stay connected
+            - generic [ref=e467]:
+              - link "kalshi.com" [ref=e468] [cursor=pointer]:
+                - /url: https://kalshi.com
+              - link "@kalshi" [ref=e469] [cursor=pointer]:
+                - /url: https://x.com/kalshi
+              - link "LinkedIn" [ref=e470] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/kalshi
+              - link "@kalshiresearch" [ref=e471] [cursor=pointer]:
+                - /url: https://x.com/kalshiresearch
+      - generic [ref=e473]: © 2026 Kalshi. All rights reserved.
+  - generic [ref=e474]: "40"

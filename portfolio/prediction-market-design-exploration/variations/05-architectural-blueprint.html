@@ -1,0 +1,295 @@
+<!-- Variation 5: "Architectural Blueprint" | Group: baseline-pick | Aesthetic: Technical drawing precision, construction-document line work, grid dots, dimension markers -->
+<!DOCTYPE html>
+<html lang="en" data-theme="parchment">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Market Research Portfolio — Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --base: 0.95rem; --leading: 1.55; --measure: 60ch; --grid: 24px; }
+[data-theme="parchment"] {
+  --bg: #f5f0e6; --surface: #ece7db; --text: #0d1b2a; --muted: #5a6a7a;
+  --line: #1a237e; --rule: rgba(26,35,126,0.12); --dot: rgba(26,35,126,0.08);
+}
+[data-theme="dark"] {
+  --bg: #0d1b2a; --surface: #142236; --text: #d8dce4; --muted: #7a8a9a;
+  --line: #8a9ac4; --rule: rgba(138,154,196,0.15); --dot: rgba(138,154,196,0.06);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: var(--base); line-height: var(--leading);
+  color: var(--text); background: var(--bg);
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+  background-size: var(--grid) var(--grid);
+  transition: background-color 0.3s, color 0.3s;
+}
+code, .mono { font-family: 'IBM Plex Mono', monospace; }
+a { color: var(--line); text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { border-color: var(--line); }
+a:focus-visible { outline: 2px solid var(--line); outline-offset: 3px; }
+
+.page { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+/* Header with dimension markers */
+header.blueprint-header {
+  padding: 4rem 0 2rem;
+  border-bottom: 2px solid var(--line);
+  position: relative;
+}
+header.blueprint-header::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+  border-bottom: 1px solid var(--line); transform: translateY(6px);
+}
+header h1 {
+  font-family: 'IBM Plex Mono', monospace; font-weight: 500;
+  font-size: clamp(1.4rem, 3vw, 2.2rem); line-height: 1.2;
+  letter-spacing: 0.02em; text-transform: uppercase;
+}
+header .coordinates {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem;
+  color: var(--muted); letter-spacing: 0.04em; margin-top: 0.75rem;
+}
+.dim-marker {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem;
+  color: var(--line); letter-spacing: 0.02em;
+}
+.dim-marker::before, .dim-marker::after {
+  content: ''; width: 30px; height: 1px; background: var(--line);
+}
+
+nav.section-index {
+  padding: 1.5rem 0; border-bottom: 1px solid var(--rule);
+  display: flex; gap: 2rem;
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem;
+}
+nav.section-index a { border: none; color: var(--muted); letter-spacing: 0.02em; position: relative; padding: 0.25em 0; }
+nav.section-index a:hover, nav.section-index a.active { color: var(--line); }
+
+/* Project panels */
+.project-panel {
+  padding: 2.5rem 0; border-bottom: 1px solid var(--rule);
+  display: grid; grid-template-columns: 200px 1fr; gap: 2rem;
+}
+.panel-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--line); padding-top: 0.3em;
+}
+.panel-label .ref-num {
+  display: block; font-size: 1.4rem; font-weight: 500;
+  margin-bottom: 0.5rem; letter-spacing: 0;
+}
+.panel-body h2 {
+  font-family: 'IBM Plex Mono', monospace; font-weight: 500;
+  font-size: calc(var(--base) * 1.3); line-height: 1.25;
+  margin-bottom: 0.3rem; text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.panel-body .classification {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
+  color: var(--muted); margin-bottom: 1.25rem; letter-spacing: 0.02em;
+}
+.panel-body p { max-width: var(--measure); margin-bottom: 1rem; }
+
+/* Spec table */
+.spec-table {
+  width: 100%; border-collapse: collapse; margin: 1.5rem 0;
+  font-size: calc(var(--base) * 0.88);
+}
+.spec-table th, .spec-table td {
+  text-align: left; padding: 0.4rem 0.75rem 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.spec-table th {
+  font-family: 'IBM Plex Mono', monospace; font-weight: 400;
+  font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted);
+}
+.spec-table td.mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+
+/* Status badge */
+.badge {
+  display: inline-block; font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.2em 0.6em; border: 1px solid var(--line); color: var(--line);
+}
+
+footer {
+  padding: 2.5rem 0; color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem;
+  display: flex; justify-content: space-between; letter-spacing: 0.02em;
+}
+
+#theme-toggle {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  width: 44px; height: 44px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--line);
+  cursor: pointer; font-size: 1rem; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+}
+#theme-toggle:hover { background: var(--bg); }
+#theme-toggle:focus-visible { outline: 2px solid var(--line); outline-offset: 2px; }
+
+@media (max-width: 768px) {
+  .project-panel { grid-template-columns: 1fr; gap: 0.5rem; }
+  nav.section-index { flex-wrap: wrap; gap: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="blueprint-header">
+    <h1>Prediction Market Research</h1>
+    <div class="coordinates">
+      REF: PMR-2026 &ensp;|&ensp; REV: 03 &ensp;|&ensp;
+      SCOPE: Systems, microstructure, execution
+    </div>
+  </header>
+
+  <nav class="section-index" aria-label="Project navigation">
+    <a href="#p1" class="active">A1 &mdash; Liquidity</a>
+    <a href="#p2">A2 &mdash; Haven Selection</a>
+    <a href="#p3">A3 &mdash; Data Loggers</a>
+  </nav>
+
+  <main>
+    <section class="project-panel" id="p1">
+      <div class="panel-label">
+        <span class="ref-num">A1</span>
+        Project<br>Active
+      </div>
+      <div class="panel-body">
+        <h2>Market Design &amp; Liquidity</h2>
+        <div class="classification">EVENT MARKETS / MICROSTRUCTURE / AMM DESIGN</div>
+        <p>
+          Investigation of prediction market microstructure comparing
+          logarithmic market scoring rules against continuous limit order
+          books under varying liquidity conditions. Central question:
+          optimal AMM parameterization to minimize adverse selection
+          while maintaining price discovery.
+        </p>
+        <p>
+          Empirical analysis reveals cost-function market makers exhibit
+          superior price stability in thin markets. Proposed
+          liquidity-sensitive fee structure adapts spreads based on
+          realized volatility and order flow imbalance.
+        </p>
+        <table class="spec-table">
+          <thead><tr><th>Parameter</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Method</td><td class="mono">Simulation + empirical</td></tr>
+            <tr><td>Data</td><td class="mono">Polymarket, Kalshi, PredictIt</td></tr>
+            <tr><td>Key result</td><td class="mono">-34% adverse selection (adaptive LMSR)</td></tr>
+            <tr><td>Status</td><td><span class="badge">Active</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="project-panel" id="p2">
+      <div class="panel-label">
+        <span class="ref-num">A2</span>
+        System<br>Operational
+      </div>
+      <div class="panel-body">
+        <h2>Haven Selection &amp; Shadow Trading</h2>
+        <div class="classification">STAT ARB / RELATIVE VALUE / BINARY CONTRACTS</div>
+        <p>
+          Framework for identifying prediction market contracts with
+          persistent fair-value deviations due to structural factors.
+          Shadow-trading system executes via relative-value approach
+          with Kelly sizing constrained by binary payoff structure.
+        </p>
+        <table class="spec-table">
+          <thead><tr><th>Selection Dim.</th><th>Metric</th><th>Threshold</th></tr></thead>
+          <tbody>
+            <tr><td>Pricing efficiency</td><td class="mono">Model deviation</td><td class="mono">&gt; 8%</td></tr>
+            <tr><td>Liquidity depth</td><td class="mono">Notional @ 5%</td><td class="mono">&gt; $5K</td></tr>
+            <tr><td>Mean reversion</td><td class="mono">Half-life</td><td class="mono">&lt; 72h</td></tr>
+            <tr><td>Correlation</td><td class="mono">Portfolio beta</td><td class="mono">&lt; 0.3</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="project-panel" id="p3">
+      <div class="panel-label">
+        <span class="ref-num">A3</span>
+        Infra<br>Production
+      </div>
+      <div class="panel-body">
+        <h2>Reliable Market Data Loggers</h2>
+        <div class="classification">INFRASTRUCTURE / FAULT TOLERANCE / DATA CAPTURE</div>
+        <p>
+          Fault-tolerant logging infrastructure for continuous multi-exchange
+          prediction market data capture. Checkpoint-recovery architecture
+          with write-ahead logs, Parquet persistence, and supervisor-managed
+          heartbeats. Automatic gap detection and REST-based backfill.
+        </p>
+        <table class="spec-table">
+          <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Exchanges</td><td class="mono">3 (Polymarket, Kalshi, Metaculus)</td></tr>
+            <tr><td>Uptime</td><td class="mono">99.94% / 180d</td></tr>
+            <tr><td>Storage</td><td class="mono">~2.1 GB/mo (Parquet + Zstd)</td></tr>
+            <tr><td>Status</td><td><span class="badge">Production</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>PMR-2026-REV03</span>
+    <span>UPDATED: MARCH 2026</span>
+  </footer>
+</div>
+
+<button id="theme-toggle" aria-label="Toggle theme">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  var stored = localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var initial = stored || (prefersDark ? 'dark' : 'parchment');
+  root.setAttribute('data-theme', initial);
+  toggle.addEventListener('click', function() {
+    var current = root.getAttribute('data-theme');
+    var next = current === 'dark' ? 'parchment' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+  window.addEventListener('message', function(event) {
+    var data = event && event.data;
+    var next = (data && (data.value || data.theme)) || null;
+    if (data && (data.type === 'theme' || data.theme || data.value) && (next === 'dark' || next === 'parchment')) {
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  });
+  var sections = document.querySelectorAll('.project-panel');
+  var links = document.querySelectorAll('.section-index a');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        links.forEach(function(l) { l.classList.remove('active'); });
+        var id = entry.target.getAttribute('id');
+        var active = document.querySelector('.section-index a[href="#' + id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });
+  sections.forEach(function(s) { observer.observe(s); });
+})();
+</script>
+</body>
+</html>

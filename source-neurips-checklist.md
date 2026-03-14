@@ -1,0 +1,369 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - link "Skip to yearly menu bar" [ref=e4] [cursor=pointer]:
+      - /url: "#child-menu"
+    - link "Skip to main content" [ref=e5] [cursor=pointer]:
+      - /url: "#main"
+    - generic "Main Navigation" [ref=e6]:
+      - heading "Main Navigation" [level=2] [ref=e7]
+      - generic [ref=e8]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - img "conference_logo" [ref=e11]
+        - generic [ref=e12]:
+          - list [ref=e13]:
+            - listitem [ref=e14]:
+              - button "NeurIPS" [ref=e15] [cursor=pointer]
+            - listitem [ref=e16]:
+              - link "My Stuff" [ref=e17] [cursor=pointer]:
+                - /url: /MyStuff
+          - search "Search" [ref=e18]:
+            - search [ref=e19]:
+              - textbox "Search" [ref=e20]
+              - button "execute search" [ref=e22] [cursor=pointer]:
+                - img [ref=e23]: 
+          - link "Login" [ref=e25] [cursor=pointer]:
+            - /url: "/accounts/login?nextp=/virtual/2025/loc/mexico-city/poster/116176 "
+            - img [ref=e26]: 
+            - text: Login
+  - main [ref=e28]:
+    - generic [ref=e29]:
+      - navigation [ref=e32]:
+        - list [ref=e35]:
+          - listitem [ref=e36]:
+            - 'button "Select Year: (2025)" [ref=e37] [cursor=pointer]'
+          - listitem [ref=e38]:
+            - link "Dates" [ref=e39] [cursor=pointer]:
+              - /url: /Conferences/2025/Dates
+          - listitem [ref=e40]:
+            - button "Submit" [ref=e41] [cursor=pointer]
+          - listitem [ref=e42]:
+            - button "Attend" [ref=e43] [cursor=pointer]
+          - listitem [ref=e44]:
+            - button "Organizers" [ref=e45] [cursor=pointer]
+          - listitem [ref=e46]:
+            - button "Exhibitors" [ref=e47] [cursor=pointer]
+          - listitem [ref=e48]:
+            - link "Conference Site" [ref=e49] [cursor=pointer]:
+              - /url: /virtual/2025/index.html
+      - generic [ref=e53]:
+        - heading "NeurIPS Paper Checklist Guidelines" [level=1] [ref=e54]:
+          - strong [ref=e55]: NeurIPS Paper Checklist Guidelines
+        - paragraph [ref=e56]:
+          - text: The NeurIPS Paper Checklist is designed to encourage best practices for responsible machine learning research, addressing issues of reproducibility, transparency, research ethics, and societal impact. The checklist is included in
+          - link "the LateX style file" [ref=e57] [cursor=pointer]:
+            - /url: https://media.neurips.cc/Conferences/NeurIPS2025/Styles.zip
+          - text: ". Do not remove the checklist:"
+          - strong [ref=e58]: The
+          - strong [ref=e59]: papers
+          - strong [ref=e60]: not
+          - strong [ref=e61]: including
+          - strong [ref=e62]: the
+          - strong [ref=e63]: checklist
+          - strong [ref=e64]: will
+          - strong [ref=e65]: be
+          - strong [ref=e66]: desk
+          - strong [ref=e67]: rejected
+          - text: .
+        - paragraph [ref=e68]: All submissions must be in PDF format, and in a single PDF file include, in this order, (1) the submitted paper; (2) optional technical appendices that support the paper with additional proofs, derivations, or results; (3) the NeurIPS paper checklist. The checklist should therefore follow the submissions's references and the (optional) supplemental material. The checklist does NOT count towards the page limit.
+        - paragraph [ref=e69]: "Please read the checklist guidelines carefully for information on how to answer these questions. For each question in the checklist:"
+        - list [ref=e70]:
+          - listitem [ref=e71]: You should answer yes, no, or n/a.
+          - listitem [ref=e72]: NA means either that the question is Not Applicable for that particular paper or the relevant information is Not Available.
+          - listitem [ref=e73]: If you would like to explain your answer (e.g., explain why the answer is "no", or provide more detail reviewers), consider referencing the section(s) of the paper that provide support for your answer.
+          - listitem [ref=e74]: You can also optionally write a short (1–2 sentence) justification of your answer.
+        - paragraph [ref=e75]:
+          - text: "The checklist answers are an integral part of your paper submission.} They are visible to the reviewers, area chairs, senior area chairs, and ethics reviewers. You will be asked to also include it (after eventual revisions) with the final version of your paper, and its final version will be published with the paper."
+          - strong [ref=e76]: The checklist answers are visible to the reviewers, area chairs, senior area chairs, and ethics reviewers.
+        - paragraph [ref=e77]:
+          - text: Reviewers will be asked to use the checklist as one of the factors in their evaluation. While "yes" is generally preferable to "no", it is perfectly acceptable to answer "no" provided a proper justification is given (e.g., "error bars are not reported because it would be too computationally expensive" or "we were unable to find the license for the dataset we used").
+          - strong [ref=e78]: In general, answering "no" or "n/a" is not grounds for rejection.
+          - text: While the questions are phrased in a binary way, we acknowledge that the true answer is often more nuanced, so please just use your best judgement and write a justification to elaborate. All supporting evidence can appear either in the
+          - strong [ref=e79]: main paper or the supplemental material provided in the appendix
+          - text: . If you answer
+          - strong [ref=e80]: "\"yes\""
+          - text: to a question, in the justification please point to the section(s) where related material for the question can be found.
+        - paragraph [ref=e81]:
+          - text: We provide guidance on how to answer each question below. You may additionally refer to the
+          - link "blog post" [ref=e82] [cursor=pointer]:
+            - /url: https://neuripsconf.medium.com/introducing-the-neurips-2021-paper-checklist-3220d6df500b
+          - text: from 2021 introducing the checklist to learn more about its motivation and how it was created.
+        - list [ref=e83]:
+          - listitem [ref=e84]:
+            - paragraph [ref=e85]:
+              - strong [ref=e86]: "Claims:"
+              - text: Do the main claims made in the abstract and introduction accurately reflect the paper's contributions and scope? Claims in the paper should match theoretical and experimental results in terms of how much the results can be expected to generalize. The paper's contributions should be clearly stated in the abstract and introduction, along with any important assumptions and limitations. It is fine to include aspirational goals as motivation as long as it is clear that these goals are not attained by the paper. Enter yes, no, or an explanation if appropriate. Answers are visible to reviewers. Claims in the paper should match theoretical and experimental results in terms of how much the results can be expected to generalize.
+            - list [ref=e87]:
+              - listitem [ref=e88]:
+                - paragraph [ref=e89]: The paper's contributions should be clearly stated in the abstract and introduction, along with any important assumptions and limitations. It is fine to include aspirational goals as motivation as long as it is clear that these goals are not attained by the paper.
+          - listitem [ref=e90]:
+            - paragraph [ref=e91]:
+              - strong [ref=e92]: "Limitations:"
+              - text: The authors are encouraged to create a separate "Limitations" section in their paper. The paper should point out any strong assumptions and how robust the results are to violations of these assumptions (e.g., independence assumptions, noiseless settings, model well-specification, asymptotic approximations only holding locally).
+        - list [ref=e93]:
+          - listitem [ref=e94]:
+            - paragraph [ref=e95]: The authors should reflect on how these assumptions might be violated in practice and what the implications would be.
+          - listitem [ref=e96]:
+            - paragraph [ref=e97]: The authors should reflect on the scope of the claims made, e.g., if the approach was only tested on a few datasets or with a few runs. In general, empirical results often depend on implicit assumptions, which should be articulated.
+          - listitem [ref=e98]:
+            - paragraph [ref=e99]: The authors should reflect on the factors that influence the performance of the approach. For example, a facial recognition algorithm may perform poorly when image resolution is low or images are taken in low lighting. Or a speech-to-text system might not be used reliably to provide closed captions for online lectures because it fails to handle technical jargon.
+          - listitem [ref=e100]:
+            - paragraph [ref=e101]: We understand that authors might fear that complete honesty about limitations might be used by reviewers as grounds for rejection. It is worth keeping in mind that a worse outcome might be if reviewers discover limitations that aren't acknowledged in the paper. In general, we advise authors to use their best judgement and recognize that individual actions in favor of transparency play an important role in developing norms that preserve the integrity of the community. Reviewers will be specifically instructed to not penalize honesty concerning limitations.
+        - paragraph [ref=e102]: The answer NA means that the paper has no limitation while the answer No means that the paper has limitations, but those are not discussed in the paper.
+        - paragraph [ref=e103]:
+          - strong [ref=e104]
+          - text: "3."
+          - strong [ref=e105]: "Theory, Assumptions and Proofs:"
+          - text: If you are including theoretical results, did you state the full set of assumptions of all theoretical results, and did you include complete proofs of all theoretical results? All assumptions should be clearly stated or referenced in the statement of any theorems. The proofs can either appear in the main paper or the supplemental material, but if they appear in the supplemental material, authors are encouraged to provide a short proof sketch to provide intuition. Enter yes, no, n/a, or an explanation if appropriate. Answers are visible to reviewers.
+        - list [ref=e106]:
+          - listitem [ref=e107]:
+            - paragraph [ref=e108]:
+              - text: Did you state the full set of
+              - strong [ref=e109]: assumptions
+              - text: of all theoretical results? All assumptions should be clearly stated or referenced in the statement of any theorems.
+          - listitem [ref=e110]:
+            - paragraph [ref=e111]:
+              - text: Did you include complete
+              - strong [ref=e112]: proofs
+              - text: of all theoretical results? The proofs can either appear in the main paper or the supplemental material, but if they appear in the supplemental material, authors are encouraged to provide a short proof sketch to provide intuition. You are encouraged to discuss the relationship between your results and related results in the literature.
+          - listitem [ref=e113]:
+            - paragraph [ref=e114]: Inversely, any informal proof provided in the core of the paper should be complemented by formal proofs provided in appendix or supplemental material.
+          - listitem [ref=e115]:
+            - paragraph [ref=e116]: Theorems and Lemmas that the proof relies upon should be properly referenced.
+        - paragraph [ref=e117]:
+          - text: "4."
+          - strong [ref=e118]: "Experimental Result Reproducibility:"
+          - text: If the contribution is a dataset or model, what steps did you take to make your results reproducible or verifiable? Depending on the contribution, reproducibility can be accomplished in various ways. For example, if the contribution is a novel architecture, describing the architecture fully might suffice, or if the contribution is a specific model and empirical evaluation, it may be necessary to either make it possible for others to replicate the model with the same dataset, or provide access to the model. In general. releasing code and data is often one good way to accomplish this, but reproducibility can also be provided via detailed instructions for how to replicate the results, access to a hosted model (e.g., in the case of a large language model), release of a model checkpoint, or other means that are appropriate to your research. Enter yes, no, n/a, or an explanation if appropriate. Answers are visible to reviewers.
+        - list [ref=e119]:
+          - listitem [ref=e120]:
+            - text: While NeurIPS does not require releasing code, we do require all submissions to provide some reasonable avenue for reproducibility, which may depend on the nature of the contribution. For example...
+            - list [ref=e121]:
+              - listitem [ref=e122]:
+                - paragraph [ref=e123]: If the contribution is primarily a new algorithm, the paper should make it clear how to reproduce that algorithm.
+              - listitem [ref=e124]:
+                - paragraph [ref=e125]: If the contribution is primailry a new model architecture, the paper should describe the architecture fully.
+              - listitem [ref=e126]:
+                - paragraph [ref=e127]:
+                  - text: If the contribution is a new model (e.g., a large language model), then there should either be a way to
+                  - strong [ref=e128]: access
+                  - text: this model for reproducing the results or a way to
+                  - strong [ref=e129]: reproduce
+                  - text: the model (e.g., with an open-source dataset or instructions for how to construct the dataset).
+              - listitem [ref=e130]:
+                - paragraph [ref=e131]: We recognize that reproducibility may be tricky in some cases, in which case authors are welcome to describe the particular way they provide for reproducibility. In the case of closed-source models, it may be that access to the model is limited in some way (e.g., to registered users), but it should be possible for other researchers to have some path to reproducing or verifying the results.
+        - paragraph [ref=e132]:
+          - text: "5."
+          - strong [ref=e133]: "Open Access to Data and Code:"
+          - text: If you ran experiments, did you include the code, data, and instructions needed to reproduce the main experimental results (either in the supplemental material or as a URL)? Please see the NeurIPS code and data submission guidelines for more details. While we encourage release of code and data, we understand that this might not be possible, so no is an acceptable answer. Papers cannot be rejected simply for not including code, unless this is central to the contribution (e.g., for a new open-source benchmark). At submission time, to preserve anonymity, remember to release anonymized versions. Enter yes, no, n/a, or an explanation if appropriate. Answers are visible to reviewers.
+        - list [ref=e134]:
+          - listitem [ref=e135]:
+            - paragraph [ref=e136]:
+              - text: Did you include the code, data, and instructions needed to
+              - strong [ref=e137]: reproduce
+              - text: the main experimental results (either in the supplemental material or as a URL)?
+          - listitem [ref=e138]:
+            - paragraph [ref=e139]: The instructions should contain the exact command and environment needed to run to reproduce the results.
+          - listitem [ref=e140]:
+            - paragraph [ref=e141]:
+              - text: Please see the NeurIPS
+              - link "code and data submission guidelines" [ref=e142] [cursor=pointer]:
+                - /url: /public/guides/CodeSubmissionPolicy
+              - text: for more details.
+          - listitem [ref=e143]:
+            - paragraph [ref=e144]: Main experimental results include your new method and baselines. You should try to capture as many of the minor experiments in the paper as possible. If a subset of experiments are reproducible, you should state which ones are.
+          - listitem [ref=e145]:
+            - paragraph [ref=e146]: While we encourage release of code and data, we understand that this might not be possible, so "no because the code is proprietary" is an acceptable answer.
+          - listitem [ref=e147]:
+            - paragraph [ref=e148]: At submission time, to preserve anonymity, remember to release anonymized versions.
+        - paragraph [ref=e149]:
+          - text: "6."
+          - strong [ref=e150]: "Experimental Setting/ Details:"
+          - text: If you ran experiments, did you specify all the training details (e.g., data splits, hyperparameters, how they were chosen)? The full details can be provided with the code, but the important details should be in the main paper, and information about how hyperparameters were selected should appear either in the paper or supplementary materials. Enter yes, no, n/a, or an explanation if appropriate. Answers are visible to reviewers.
+        - list [ref=e151]:
+          - listitem [ref=e152]:
+            - paragraph [ref=e153]: The full details can be provided with the code, in appendix or as a supplement, but the important details should be in the main paper.
+          - listitem [ref=e154]:
+            - paragraph [ref=e155]: The answer NA means that the paper does not include experiments.
+          - listitem [ref=e156]:
+            - paragraph [ref=e157]: The experimental setting should be presented in the core of the paper to a level of detail that is necessary to appreciate the results and make sense of them.
+          - listitem [ref=e158]:
+            - paragraph [ref=e159]: The full details can be provided either with the code, in appendix, or as supplemental material.
+        - paragraph [ref=e160]:
+          - text: "7."
+          - strong [ref=e161]: "Experiment Statistical Significance:"
+          - text: Does the paper report error bars suitably and correctly defined or other appropriate information about the statistical significance of the experiments?
+        - list [ref=e162]:
+          - listitem [ref=e163]:
+            - paragraph [ref=e164]: The answer NA means that the paper does not include experiments.
+          - listitem [ref=e165]:
+            - paragraph [ref=e166]: The authors should answer "Yes" if the results are accompanied by error bars, confidence intervals, or statistical significance tests, at least for the experiments that support the main claims of the paper.
+          - listitem [ref=e167]:
+            - paragraph [ref=e168]: The factors of variability that the error bars are capturing should be clearly stated (for example, train/test split, initialization, random drawing of some parameter, or overall run with given experimental conditions).
+          - listitem [ref=e169]:
+            - paragraph [ref=e170]: The method for calculating the error bars should be explained (closed form formula, call to a library function, bootstrap, etc.)
+          - listitem [ref=e171]:
+            - paragraph [ref=e172]: The assumptions made should be given (e.g., Normally distributed errors).
+          - listitem [ref=e173]:
+            - paragraph [ref=e174]: It should be clear whether the error bar is the standard deviation or the standard error of the mean.
+          - listitem [ref=e175]:
+            - paragraph [ref=e176]: It is OK to report 1-sigma error bars, but one should state it. The authors should preferably report a 2-sigma error bar than state that they have a 96% CI, if the hypothesis of Normality of errors is not verified.
+          - listitem [ref=e177]:
+            - paragraph [ref=e178]: For asymmetric distributions, the authors should be careful not to show in tables or figures symmetric error bars that would yield results that are out of range (e.g. negative error rates).
+          - listitem [ref=e179]:
+            - paragraph [ref=e180]: If error bars are reported in tables or plots, The authors should explain in the text how they were calculated and reference the corresponding figures or tables in the text.
+        - paragraph [ref=e181]:
+          - text: "8."
+          - strong [ref=e182]: "Experiments Compute Resource:"
+          - text: For each experiment, does the paper provide sufficient information on the computer resources (type of compute workers, memory, time of execution) needed to reproduce the experiments?
+        - list [ref=e183]:
+          - listitem [ref=e184]:
+            - paragraph [ref=e185]: The answer NA means that the paper does not include experiments.
+          - listitem [ref=e186]:
+            - paragraph [ref=e187]: The paper should indicate the type of compute workers CPU or GPU, internal cluster, or cloud provider, including relevant memory and storage.
+          - listitem [ref=e188]:
+            - paragraph [ref=e189]: The paper should provide the amount of compute required for each of the individual experimental runs as well as estimate the total compute. The paper should disclose whether the full research project required more compute than the experiments reported in the paper (e.g., preliminary or failed experiments that didn’t make it into the paper)
+        - paragraph [ref=e190]:
+          - text: "9."
+          - strong [ref=e191]: "Code Of Ethics:"
+          - text: Have you read the
+          - link "NeurIPS Code of Ethics" [ref=e192] [cursor=pointer]:
+            - /url: /public/EthicsGuidelines
+          - text: and ensured that your research conforms to it? Enter yes, no, or an explanation if appropriate. Answers are visible to reviewers.
+        - list [ref=e193]:
+          - listitem [ref=e194]:
+            - paragraph [ref=e195]: If you have special circumstances that require some sort of deviation from the Code of Ethics, please explain it here. Please make sure to preserve anonymity (e.g., if there is a special consideration due to laws or regulations in your jurisdiction).
+        - paragraph [ref=e196]:
+          - strong [ref=e197]
+          - text: "10."
+          - strong [ref=e198]: "Broader Impacts:"
+          - text: If appropriate for the scope and focus of your paper, did you discuss potential negative societal impacts of your work? Please see the Paper Checklist Guidelines for detailed instructions and examples of points that you may choose to discuss. Enter yes, no, n/a, or an explanation if appropriate. Answers are visible to reviewers.
+        - list [ref=e199]:
+          - listitem [ref=e200]:
+            - paragraph [ref=e201]: Examples of negative societal impacts include potential malicious or unintended uses (e.g., disinformation, generating fake profiles, surveillance), fairness considerations (e.g., deployment of technologies that could make decisions that unfairly impact specific groups), privacy considerations, and security considerations.
+          - listitem [ref=e202]:
+            - paragraph [ref=e203]: We expect many papers to be foundational research and not tied to particular applications, let alone deployments. However, if you see a direct path to any negative applications, you should point it out. For example, if you improve the quality of generative models, you might point out that your approach can be used to generate Deepfakes for disinformation. On the other hand, if you develop a generic algorithm for optimizing neural networks, you do not need to mention that this could enable people to train models that generate Deepfakes faster.
+          - listitem [ref=e204]:
+            - paragraph [ref=e205]: Consider possible harms that could arise when the technology is being used as intended and functioning correctly, harms that could arise when the technology is being used as intended but gives incorrect results, and harms following from (intentional or unintentional) misuse of the technology.
+          - listitem [ref=e206]:
+            - paragraph [ref=e207]: If there are negative societal impacts, you could also discuss any mitigation strategies (e.g., gated release of models, providing defenses in addition to attacks, mechanisms for monitoring misuse, mechanisms to monitor how a system learns from feedback over time, improving the efficiency and accessibility of ML).
+        - paragraph [ref=e208]:
+          - text: "11."
+          - strong [ref=e209]: "Safeguards:"
+          - text: Do you have safeguards in place for responsible release of models with a high risk for misuse (e.g., pretrained language models)? Released models that have a high risk for misuse or dual-use should be released with necessary safeguards to allow for controlled use of the model, for example by requiring that users adhere to usage guidelines or restrictions to access the model. Enter yes, no, n/a, or an explanation if appropriate. Answers are visible to reviewers.
+        - list [ref=e210]:
+          - listitem [ref=e211]:
+            - paragraph [ref=e212]: Datasets that have been scraped from the Internet could pose safety risks. The authors should describe how they avoided releasing unsafe images.
+          - listitem [ref=e213]:
+            - paragraph [ref=e214]: We recognize that providing effective safeguards is challenging, and many papers do not require this, but we encourage authors to take this into account and make a best faith effort
+        - paragraph [ref=e215]:
+          - strong [ref=e216]
+          - text: "12."
+          - strong [ref=e217]: "Licenses:"
+          - text: If you are using existing assets (e.g., code, data, models), did you cite the creators and respect the license and terms of use? Cite the original paper that produced the code package or dataset. If possible, include a URL. Be sure to check the original license and respect its conditions. Enter yes, no, n/a, or an explanation if appropriate. Answers are visible to reviewers.
+        - list [ref=e218]:
+          - listitem [ref=e219]:
+            - paragraph [ref=e220]: Cite the original paper that produced the code package or dataset.
+          - listitem [ref=e221]:
+            - paragraph [ref=e222]: Remember to state which version of the asset you're using.
+          - listitem [ref=e223]:
+            - paragraph [ref=e224]: If possible, include a URL.
+          - listitem [ref=e225]:
+            - paragraph [ref=e226]: State the name of the license (e.g., CC-BY 4.0) for each asset.
+          - listitem [ref=e227]:
+            - paragraph [ref=e228]: If you scraped data from a particular source (e.g., website), you should state the copyright and terms of service of that source.
+          - listitem [ref=e229]:
+            - paragraph [ref=e230]:
+              - text: If you are releasing assets, you should include a license, copyright information, and terms of use in the package. If you are using a popular dataset, please check
+              - link "paperswithcode.com/datasets" [ref=e231] [cursor=pointer]:
+                - /url: https://paperswithcode.com/datasets
+              - text: ", which has curated licenses for some datasets. You are also encouraged to use their"
+              - link "licensing guide" [ref=e232] [cursor=pointer]:
+                - /url: https://paperswithcode.com/datasets/license
+              - text: to help determine the license of a dataset.
+          - listitem [ref=e233]:
+            - paragraph [ref=e234]: If you are repackaging an existing dataset, you should state the original license as well as the one for the derived asset (if it has changed).
+          - listitem [ref=e235]:
+            - paragraph [ref=e236]: If you cannot find this information online, you are encouraged to reach out to the asset's creators.
+        - paragraph [ref=e237]:
+          - text: "13."
+          - strong [ref=e238]: "Assets:"
+          - text: If you are releasing new assets, did you document them and provide these details alongside the assets? Researchers should communicate the details of the dataset or the model as part of their submissions via structured templates. This includes details about training, license, limitations, etc. Enter yes, no, n/a, or an explanation if appropriate. Answers are visible to reviewers.
+        - list [ref=e239]:
+          - listitem [ref=e240]:
+            - paragraph [ref=e241]: The answer NA means that the paper does not release new assets.
+          - listitem [ref=e242]:
+            - paragraph [ref=e243]: Researchers should communicate the details of the dataset/code/model as part of their submissions via structured templates. This includes details about training, license, limitations, etc.
+          - listitem [ref=e244]:
+            - paragraph [ref=e245]: The paper should discuss whether and how consent was obtained from people whose asset is used.
+          - listitem [ref=e246]:
+            - paragraph [ref=e247]: At submission time, remember to anonymize your assets (if applicable). You can either create an anonymized URL or include an anonymized zip file.
+        - paragraph [ref=e248]:
+          - text: "14."
+          - strong [ref=e249]: "Crowdsourcing and Research with Human Subjects:"
+          - text: If you used crowdsourcing or conducted research with human subjects, did you include the full text of instructions given to participants and screenshots, if applicable, as well as details about compensation (if any)? Including this information in the supplemental material is fine, but if the main contribution of your paper involves human subjects, then we strongly encourage you to include as much detail as possible in the main paper. According to the NeurIPS Code of Ethics, you must pay workers involved in data collection, curation, or other labor at least the minimum wage in your country. Enter yes, no, n/a, or an explanation if appropriate. Answers are visible to reviewers.
+        - list [ref=e250]:
+          - listitem [ref=e251]:
+            - paragraph [ref=e252]: Did you include the full text of instructions given to participants and screenshots, if applicable? Including this information in the supplemental material is fine, but if the main contribution of your paper involves human subjects, then we strongly encourage you to include as much detail as possible in the main paper.
+        - paragraph [ref=e253]:
+          - strong [ref=e254]
+          - text: "15."
+          - strong [ref=e255]: "IRB Approvals:"
+          - text: Did you describe any potential participant risks and obtain Institutional Review Board (IRB) approvals (or an equivalent approval/review based on the requirements of your institution), if applicable? Depending on the country in which research is conducted, IRB approval (or equivalent) may be required for any human subjects research. If you obtained IRB approval, you should clearly state this in the paper. For initial submissions, do not include any information that would break anonymity, such as the institution conducting the review. Enter yes, no, n/a, or an explanation if appropriate. Answers are visible to reviewers.
+        - list [ref=e256]:
+          - listitem [ref=e257]:
+            - paragraph [ref=e258]: Depending on the country in which research is conducted, IRB approval (or equivalent) may be required for any human subjects research. If you obtained IRB approval, you should clearly state this in the paper. We recognize that the procedures for this may vary significant between institutions and locations, and we expect authors to adhere to the NeurIPS Code of Ethics and the guidelines for their institution. For initial submissions, do not include any information that would break anonymity, such as the institution conducting the review.
+          - listitem [ref=e259]:
+            - paragraph [ref=e260]: We recognize that the procedures for this may vary significantly between institutions and locations, and we expect authors to adhere to the NeurIPS Code of Ethics and the guidelines for their institution.
+          - listitem [ref=e261]:
+            - paragraph [ref=e262]: For initial submissions, do not include any information that would break anonymity (if applicable), such as the institution conducting the review.
+        - paragraph [ref=e263]:
+          - text: "16."
+          - strong [ref=e264]: Declaration of LLM usage
+          - text: ": Does the paper describe the usage of LLMs if it is an important, original, or non-standard component of the core methods in this research? Note that if the LLM is used only for writing, editing, or formatting purposes and does not impact the core methodology, scientific rigorousness, or originality of the research, declaration is not required."
+        - list [ref=e265]:
+          - listitem [ref=e266]: The answer NA means that the core method development in this research does not involve LLMs as any important, original, or non-standard components.
+          - listitem [ref=e267]:
+            - text: Please refer to our
+            - link "LLM policy" [ref=e268] [cursor=pointer]:
+              - /url: /Conferences/2025/LLM
+            - text: for what should or should not be described.
+        - paragraph [ref=e269]
+  - table [ref=e271]:
+    - rowgroup [ref=e275]:
+      - row "NeurIPS uses cookies for essential functions only. We do not sell your personal information. Our Privacy Policy » Accept" [ref=e276]:
+        - cell "NeurIPS uses cookies for essential functions only. We do not sell your personal information. Our Privacy Policy »" [ref=e277]:
+          - text: NeurIPS uses cookies for essential functions only. We do not sell your personal information.
+          - link "Our Privacy Policy »" [ref=e278] [cursor=pointer]:
+            - /url: /public/PrivacyPolicy
+        - cell "Accept" [ref=e279]:
+          - button "Accept" [ref=e280] [cursor=pointer]
+  - contentinfo [ref=e282]:
+    - generic [ref=e286]:
+      - generic [ref=e287]:
+        - heading "NeurIPS logo" [level=6] [ref=e288]:
+          - img "NeurIPS logo" [ref=e289]
+        - paragraph [ref=e290]: The NeurIPS Logo above may be used on presentations. Right-click and choose download. It is a vector graphic and may be used at any scale.
+      - generic [ref=e291]:
+        - heading "Useful links" [level=6] [ref=e292]
+        - list [ref=e294]:
+          - listitem [ref=e295]:
+            - link "Press" [ref=e296] [cursor=pointer]:
+              - /url: /Conferences/2025/Press
+          - listitem [ref=e297]:
+            - link "Proceedings" [ref=e298] [cursor=pointer]:
+              - /url: https://proceedings.neurips.cc/
+      - generic [ref=e299]:
+        - heading "Contact" [level=6] [ref=e300]
+        - paragraph [ref=e301]:
+          - img [ref=e302]: 
+          - text: 1269 Law Street, San Diego CA 92109
+        - paragraph [ref=e304]:
+          - img [ref=e305]: 
+          - link "Email" [ref=e307] [cursor=pointer]:
+            - /url: /Help/Contact
+        - paragraph [ref=e308]:
+          - img [ref=e309]: 
+          - text: "Phone: +1-858-453-4100 x 1623"
+    - paragraph [ref=e313]:
+      - link "NeurIPS Proceedings" [ref=e314] [cursor=pointer]:
+        - /url: https://proceedings.neurips.cc

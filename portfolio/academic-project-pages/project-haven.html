@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Haven</title>
+  <link rel="stylesheet" href="assets/portfolio.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="topbar">
+      <a href="index.html">Academic Project Pages</a>
+      <span>Prediction Market Systems</span>
+    </div>
+
+    <article class="article">
+      <div class="kicker">Project 02</div>
+      <h1>Project Haven: A Fee-, Slippage-, and Correlation-Aware Selection Engine for Same-Day Event Markets</h1>
+      <p class="subtitle">
+        A research and systems project on how to monitor, rank, and shadow-trade same-day prediction-market opportunities
+        without pretending that costs, execution, or diversification are someone else's problem.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-card">
+          <span class="label">Primary Theme</span>
+          <span class="value">Selection and execution design</span>
+        </div>
+        <div class="meta-card">
+          <span class="label">Operational Model</span>
+          <span class="value">24-hour monitoring, final 4-hour action window</span>
+        </div>
+        <div class="meta-card">
+          <span class="label">Portfolio Use</span>
+          <span class="value">Productized quant systems case study</span>
+        </div>
+      </div>
+
+      <div class="abstract-box">
+        <h2>Structured Abstract</h2>
+        <p><strong>Question.</strong> If small mispricings persist in same-day event markets, what is the right way to act on them without destroying expected value through fees, slippage, or correlated risk?</p>
+        <p><strong>Approach.</strong> I designed a system that monitors all markets across a rolling day, narrows attention to a short action window, computes fee-adjusted expected value, and produces explainable ranked candidates for human review or shadow trading.</p>
+        <p><strong>Main finding.</strong> The central design lesson was that a viable market-selection system must be explicit about its economics: break-even probability, cost sensitivity, depth, and correlation cannot be afterthoughts.</p>
+        <p><strong>Why it matters.</strong> This turns a vague trading thesis into an operational research problem, which is much closer to how serious energy or quant workflows are actually managed.</p>
+      </div>
+
+      <section>
+        <h2>Research Problem</h2>
+        <h3>From trading idea to selection system</h3>
+        <p>
+          Project Haven began from a simple observation: if a favorite-longshot bias exists, the economically relevant
+          question is not merely whether prices are biased, but whether the bias survives costs, liquidity constraints,
+          and portfolio interaction. That pushes the problem away from "build a bot" and toward "design a decision
+          system for selecting scarce, executable opportunities."
+        </p>
+        <p>
+          The resulting architecture treats market participation as a constrained optimization problem. The system first
+          watches all same-day markets, builds telemetry, and only enters an action mode in the final hours before
+          resolution when the relationship between price, depth, and realized uncertainty is most stable.
+        </p>
+      </section>
+
+      <section>
+        <h2>Operational Model</h2>
+        <h3>Two-stage workflow</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Window</th>
+              <th>Objective</th>
+              <th>Function</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>T-24h to T-4h</td>
+              <td>Monitoring and telemetry</td>
+              <td>Track price, spread, book depth, stability, and market quality without acting.</td>
+            </tr>
+            <tr>
+              <td>T-4h to T</td>
+              <td>Selection and ranking</td>
+              <td>Apply filters, compute fee-adjusted EV, generate ranked Top-K candidates, and send them to a human-readable dashboard.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="finding">
+          <span class="label">Design choice</span>
+          The two-window model is the main point. It acknowledges that observation and execution are distinct tasks and
+          that the right information structure for monitoring is not the right one for taking risk.
+        </div>
+      </section>
+
+      <section>
+        <h2>Economic Logic</h2>
+        <h3>Make the math visible</h3>
+        <p>
+          Haven was designed so that every ranked candidate could be justified economically. The project specification
+          explicitly surfaces fee formulas, break-even probabilities, and expected-value calculations rather than hiding
+          them behind a score.
+        </p>
+        <div class="eq">Fee: f = 0.07 × P × (1 − P)</div>
+        <div class="eq">Break-even probability: q* = (P + f) / (1 − 2f)</div>
+        <div class="eq">Expected value: EV = q(1 − P − f) + (1 − q)(−P − f)</div>
+        <p>
+          This matters because in small-edge systems, one cent of slippage or one poor assumption about break-even can
+          erase the entire thesis. The system therefore prefers explainability over score opacity.
+        </p>
+      </section>
+
+      <section>
+        <h2>Selection Logic</h2>
+        <h3>What the system actually ranked</h3>
+        <ul>
+          <li>time to close and whether the contract is inside the action window</li>
+          <li>favorite-side price bands and fallback bands</li>
+          <li>fee-adjusted expected value and margin over break-even</li>
+          <li>book depth and estimated slippage at target size</li>
+          <li>theme caps and per-underlying caps to prevent hidden concentration</li>
+          <li>rule clarity and market quality filters for ambiguous or parlay-like contracts</li>
+        </ul>
+        <p>
+          In other words, Haven was built as a disciplined ranking engine. It is less about forecasting everything than
+          about refusing to select candidates unless they satisfy operational, microstructural, and diversification
+          requirements simultaneously.
+        </p>
+      </section>
+
+      <section>
+        <h2>Main Systems Insight</h2>
+        <h3>The right output is not a trade, but a justified decision packet</h3>
+        <p>
+          One of the most useful design conclusions was that a production-oriented selection system should emit a compact
+          operator packet rather than a raw trade signal: Top-K ranked candidates, exclusion reasons, order book
+          snapshots, configuration hash, and enough math for a human to review the trade thesis. That is much closer to
+          a real desk workflow than an opaque auto-execution rule.
+        </p>
+        <div class="figure-box">
+          <pre>Haven output artifact
+- ranked candidates
+- excluded markets with reason codes
+- fee and break-even math
+- order book snapshots
+- configuration version / run metadata</pre>
+          <div class="figure-caption">The system was intentionally designed around auditability and reviewability rather than black-box automation.</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Why This Is Relevant Beyond Prediction Markets</h2>
+        <h3>Connection to energy and quant workflows</h3>
+        <ul>
+          <li><strong>Candidate ranking under scarce capital:</strong> very similar to selecting which spreads, paths, or congestion situations deserve attention.</li>
+          <li><strong>Cost-aware decision making:</strong> edge must clear fees, slippage, and operational friction before it is real.</li>
+          <li><strong>Correlation caps:</strong> category caps in Haven play the same role as concentration limits in power books.</li>
+          <li><strong>Human-in-the-loop workflow:</strong> the system was built to support operator review, which is exactly how many real trading and dispatch workflows work.</li>
+        </ul>
+      </section>
+
+      <section class="sources">
+        <h2>Source Basis</h2>
+        <ul>
+          <li><code>kalshi-favorites-selector/PROJECT_HAVEN.md</code></li>
+          <li><code>kalshi-favorites-selector/README.md</code></li>
+        </ul>
+      </section>
+
+      <div class="footer-note">
+        Suggested portfolio framing: a productized research system for selecting executable opportunities under explicit economic and risk constraints.
+      </div>
+    </article>
+  </div>
+</body>
+</html>

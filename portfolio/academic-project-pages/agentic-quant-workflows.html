@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluating Agentic Systems for Quant Workflows</title>
+  <link rel="stylesheet" href="assets/portfolio.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="topbar">
+      <a href="index.html">Academic Project Pages</a>
+      <span>Agentic Research Infrastructure</span>
+    </div>
+
+    <article class="article">
+      <div class="kicker">Project 04</div>
+      <h1>Evaluating Agentic Systems for Quant Workflows</h1>
+      <p class="subtitle">
+        A project on orchestration, guardrails, and benchmark design for multi-agent research systems intended to support
+        quantitative and time-series workflows without silently introducing bad methodology.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-card">
+          <span class="label">Primary Theme</span>
+          <span class="value">Agent orchestration and evaluation</span>
+        </div>
+        <div class="meta-card">
+          <span class="label">System</span>
+          <span class="value">Role-specialized multi-agent pipeline with evidence-backed scoring</span>
+        </div>
+        <div class="meta-card">
+          <span class="label">Portfolio Use</span>
+          <span class="value">Agentic systems / quant workflow infrastructure</span>
+        </div>
+      </div>
+
+      <div class="abstract-box">
+        <h2>Structured Abstract</h2>
+        <p><strong>Question.</strong> Can a specialized multi-agent system reduce methodological errors in quantitative workflows without damaging output quality?</p>
+        <p><strong>Approach.</strong> I built an evaluation harness for a custom agent pipeline, including routing checks, compliance cases, artifact-backed manifests, and paired benchmark infrastructure for guarded versus direct-model runs.</p>
+        <p><strong>Main finding.</strong> The crucial problem was not only whether agents produced plausible output, but whether the system could prove that the right workflow actually happened. That pushed the project toward artifact-first evaluation and release-gate governance.</p>
+        <p><strong>Why it matters.</strong> Quant teams cannot safely rely on agentic systems unless routing, review, and methodological constraints are both enforced and auditable.</p>
+      </div>
+
+      <section>
+        <h2>System Thesis</h2>
+        <h3>Useful-looking output is not enough</h3>
+        <p>
+          The underlying orchestration idea was strong: separate roles for context gathering, research, planning,
+          implementation, security review, optimization, quantitative review, and audit. In principle, a role-specialized
+          agent system should outperform a monolithic assistant on safety-critical quantitative tasks because the pipeline
+          encodes deliberate review points.
+        </p>
+        <p>
+          But the core research lesson was subtler. A multi-agent system can produce good-looking work without proving that
+          the intended path ran. If the benchmark only reads text, it may over-credit a system that skipped the very review
+          stages meant to make it safe.
+        </p>
+      </section>
+
+      <section>
+        <h2>What I Built</h2>
+        <h3>Evidence-first benchmark infrastructure</h3>
+        <ul>
+          <li>case fixtures for compliance and routing scenarios</li>
+          <li>an execution runner that records raw event streams and preserved artifacts</li>
+          <li>canonical run manifests with hash chains</li>
+          <li>derived pipeline-completion evidence artifacts</li>
+          <li>scoring logic with routing, compliance, output, and execution-failure dimensions</li>
+          <li>grounded dataset governance with train-dev, public-test, and private-holdout splits</li>
+          <li>release-gate logic for human quality evidence, routing evidence, reproducibility, and holdout use</li>
+        </ul>
+        <div class="finding">
+          <span class="label">Design principle</span>
+          The harness moved from text-first evaluation to artifact-first evaluation. If the system cannot emit a canonical
+          completion artifact, it should not receive full credit for routing success.
+        </div>
+      </section>
+
+      <section>
+        <h2>Main Findings</h2>
+        <h3>1. Routing quality must be measured through evidence, not prose</h3>
+        <p>
+          The benchmark initially failed to score routing correctly because subagent execution did not always appear in the
+          parent session as explicit spawn events. The fix was architectural: manifests, pipeline evidence artifacts, and
+          preserved run directories became the trusted signal, not whatever the final answer happened to say.
+        </p>
+
+        <h3>2. Guardrails need their own governance</h3>
+        <p>
+          Once the scorer became more sophisticated, it introduced a new class of risk: the system could appear to improve
+          because the measurement changed, not because the underlying agent behavior improved. That led to shadow-scoring,
+          reason codes, release gates, and explicit checks for dataset provenance and human-quality evidence.
+        </p>
+
+        <h3>3. Quantitative workflows need domain-specific failure tests</h3>
+        <p>
+          The most useful benchmark cases were not generic prompt tests. They were time-series and backtest failure modes:
+          KFold on temporal data, shuffle leakage, negative shifts, missing Citadel-style backtest disclosures, and routing
+          failures where the system skipped specialized review stages.
+        </p>
+        <div class="figure-box">
+          <pre>Release-gate blockers captured by the harness
+- missing human-quality evidence
+- reproducibility runs missing
+- final holdout not used
+- routing completion evidence missing</pre>
+          <div class="figure-caption">The release gate is deliberately conservative: benchmark readiness is blocked until both methodology and evidence are complete.</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Why This Is Interesting for Quant Teams</h2>
+        <h3>Agentic workflows should look like audited research processes</h3>
+        <p>
+          The interesting portfolio angle is not "I built agents." It is that I treated agentic systems as workflow
+          infrastructure for quantitative research. That means the system has to do more than answer questions: it has to
+          route work to the right reviewer, preserve evidence, expose failure modes, and refuse to claim completion when
+          the benchmark basis is weak.
+        </p>
+        <ul>
+          <li><strong>For quant teams:</strong> safer automation for research, backtesting, and code review.</li>
+          <li><strong>For software teams:</strong> better orchestration, benchmark design, and release governance.</li>
+          <li><strong>For regulated or high-stakes workflows:</strong> explicit proof of what ran and what passed.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>How I Would Frame It Publicly</h2>
+        <h3>Portfolio thesis</h3>
+        <p>
+          I would present this as a project on <em>agentic research infrastructure</em>: how to make specialized agent
+          systems useful for quantitative workflows by attaching them to evidence, evaluation, and methodological review.
+          The strongest statement is not that the agents are magical. It is that the benchmark now knows when not to trust them.
+        </p>
+      </section>
+
+      <section class="sources">
+        <h2>Source Basis</h2>
+        <ul>
+          <li><code>tools/opencode-evals/docs/specs/eval-harness-upgrade.md</code></li>
+          <li><code>tools/opencode-evals/docs/specs/benchmark-governance.md</code></li>
+          <li><code>tools/opencode-evals/docs/STATE_MACHINE.md</code></li>
+          <li><code>tools/opencode-evals/src/runner.py</code></li>
+          <li><code>tools/opencode-evals/src/scorer.py</code></li>
+          <li><code>tools/opencode-evals/src/benchmark.py</code></li>
+        </ul>
+      </section>
+
+      <div class="footer-note">
+        Suggested portfolio framing: a benchmark and orchestration project for making agentic research systems safer, more auditable, and more useful in quant workflows.
+      </div>
+    </article>
+  </div>
+</body>
+</html>

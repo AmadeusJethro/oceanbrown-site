@@ -1,0 +1,26 @@
+{
+  "claim_ledger_version": "1.0",
+  "thesis_slug": "prediction-market-false-edge",
+  "summary": {
+    "total_claims": 17,
+    "confirmed": 17,
+    "weak": 0,
+    "unsupported": 0,
+    "numeric_claims": 7,
+    "all_numeric_sourced": true
+  },
+  "claim_classes": [
+    "polymarket-trader: failure/invalidation only",
+    "kalshi-research: portability failure/data limitations only",
+    "kalshi-favorites-selector: methods/no-trading scope only",
+    "prediction-market-logger: provenance/matching/cost-control only"
+  ],
+  "notable_claims": [
+    "Primary Polymarket backtest invalidated due to complete data leakage.",
+    "Audit recommended halting trading activity.",
+    "Kalshi portability study covered 107,427 resolved markets and 135 configurations with zero positive edge.",
+    "Project Haven remained Phase 1 selection infrastructure only, with no execution.",
+    "Three critical bugs were identified in the selection system at audit time.",
+    "Cross-venue matching used a two-stage rule-based plus LLM verification pipeline."
+  ]
+}

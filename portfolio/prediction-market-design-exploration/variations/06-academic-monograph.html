@@ -1,0 +1,285 @@
+<!-- Variation 6: "Academic Monograph" | Group: project-original | Aesthetic: LaTeX-inspired layout with theorem environments, definition blocks, running headers, Computer Modern-style typography -->
+<!DOCTYPE html>
+<html lang="en" data-theme="parchment">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Market Research Portfolio — Monograph</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root { --base: 1.05rem; --leading: 1.65; --measure: 60ch; }
+[data-theme="parchment"] {
+  --bg: #f4f1ec; --surface: #ece8e0; --text: #2c2c30; --muted: #6a6a70;
+  --accent: #8b0000; --rule: rgba(0,0,0,0.1); --block-bg: #eae6de;
+}
+[data-theme="dark"] {
+  --bg: #1a1a1e; --surface: #24242a; --text: #dcd8d0; --muted: #8a8a90;
+  --accent: #d4886a; --rule: rgba(255,255,255,0.1); --block-bg: #222228;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Crimson Pro', 'Times New Roman', serif;
+  font-size: var(--base); line-height: var(--leading);
+  color: var(--text); background: var(--bg);
+  transition: background 0.3s, color 0.3s;
+}
+h1, h2, h3 { font-family: 'Source Sans 3', sans-serif; }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.page { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+
+/* Running header */
+.running-header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--bg); padding: 0.75rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--muted);
+  display: flex; justify-content: space-between;
+}
+
+/* Title block (like a thesis title page) */
+.title-page {
+  padding: 5rem 0 3rem; text-align: center;
+  border-bottom: 2px solid var(--text);
+}
+.title-page h1 {
+  font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 700;
+  line-height: 1.15;
+}
+.title-page .author {
+  font-size: calc(var(--base) * 1.1); margin-top: 1rem;
+  color: var(--muted); font-style: italic;
+  font-family: 'Crimson Pro', serif;
+}
+.title-page .abstract-label {
+  font-family: 'Source Sans 3', sans-serif; font-weight: 600;
+  font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+  margin-top: 2.5rem; margin-bottom: 0.75rem; text-align: left;
+}
+.title-page .abstract {
+  text-align: justify; font-size: calc(var(--base) * 0.92);
+  max-width: var(--measure); hyphens: auto;
+}
+
+/* Sections */
+.chapter { padding: 2.5rem 0; }
+.chapter + .chapter { border-top: 1px solid var(--rule); }
+.chapter h2 {
+  font-size: calc(var(--base) * 1.4); font-weight: 700;
+  line-height: 1.2; margin-bottom: 1.25rem;
+}
+.chapter h2 .num { color: var(--muted); margin-right: 0.5em; }
+.chapter h3 {
+  font-size: calc(var(--base) * 1.05); font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+}
+.chapter p { max-width: var(--measure); margin-bottom: 1.1rem; text-align: justify; hyphens: auto; }
+
+/* Theorem / Definition blocks (LaTeX-style) */
+.theorem, .definition {
+  margin: 1.5rem 0; padding: 1rem 1.25rem;
+  background: var(--block-bg); border-left: 3px solid var(--accent);
+  font-size: calc(var(--base) * 0.94);
+}
+.theorem .label, .definition .label {
+  font-family: 'Source Sans 3', sans-serif; font-weight: 600;
+  font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.4rem;
+}
+.theorem p, .definition p { margin-bottom: 0.5rem; }
+.theorem p:last-child, .definition p:last-child { margin-bottom: 0; }
+
+/* Table */
+.mono-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: calc(var(--base) * 0.9); }
+.mono-table th, .mono-table td { text-align: left; padding: 0.45rem 0.5rem 0.45rem 0; border-bottom: 1px solid var(--rule); }
+.mono-table th { font-family: 'Source Sans 3', sans-serif; font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.mono-table caption { font-style: italic; font-size: calc(var(--base) * 0.85); text-align: left; margin-bottom: 0.4rem; color: var(--muted); }
+
+/* References */
+.references { font-size: calc(var(--base) * 0.85); color: var(--muted); padding-top: 1rem; border-top: 1px solid var(--rule); }
+.references h3 { font-size: calc(var(--base) * 0.9); margin-bottom: 0.75rem; color: var(--text); }
+.references li { margin-bottom: 0.4rem; }
+
+footer { padding: 2rem 0; color: var(--muted); font-size: calc(var(--base) * 0.8); text-align: center; }
+
+#theme-toggle {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  width: 44px; height: 44px; border-radius: 0; border: 1px solid var(--rule);
+  background: var(--surface); color: var(--text); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; z-index: 100;
+}
+#theme-toggle:hover { border-color: var(--accent); }
+#theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 768px) { .page { padding: 0 1.25rem; } }
+</style>
+</head>
+<body>
+<div class="running-header">
+  <span>Prediction Market Research</span>
+  <span>Portfolio 2026</span>
+</div>
+
+<div class="page">
+  <div class="title-page">
+    <h1>Prediction Market Research Portfolio</h1>
+    <div class="author">
+      Systems, microstructure, and execution research<br>
+      in event markets
+    </div>
+    <div class="abstract-label">Abstract</div>
+    <p class="abstract">
+      This portfolio presents three interconnected research projects
+      in prediction market systems. Project 1 investigates automated
+      market maker design and liquidity provision under varying
+      conditions. Project 2 develops a systematic framework for
+      identifying and trading persistent mispricings in event contracts.
+      Project 3 delivers fault-tolerant data capture infrastructure
+      supporting the empirical work in Projects 1 and 2.
+    </p>
+  </div>
+
+  <main>
+    <section class="chapter">
+      <h2><span class="num">1</span>Market Design &amp; Liquidity</h2>
+      <h3>1.1 Problem Statement</h3>
+      <p>
+        Prediction markets promise efficient aggregation of dispersed
+        beliefs into prices, but their microstructure remains poorly
+        understood compared to traditional financial markets. We
+        investigate how automated market maker design choices affect
+        price discovery quality in binary event markets.
+      </p>
+
+      <div class="definition">
+        <div class="label">Definition 1.1 &mdash; Adaptive-Spread LMSR</div>
+        <p>
+          A logarithmic market scoring rule where the spread parameter
+          <em>b</em> is a function of realized volatility <em>&sigma;</em>
+          and net order flow imbalance <em>&phi;</em>, such that
+          <em>b(t) = b&#x2080; &middot; g(&sigma;, &phi;)</em> where
+          <em>g</em> is a monotone increasing function of both arguments.
+        </p>
+      </div>
+
+      <h3>1.2 Key Results</h3>
+      <p>
+        Empirical analysis of Polymarket and Kalshi orderbooks reveals
+        that cost-function market makers exhibit superior price stability
+        in thin markets but incur higher inventory costs during rapid
+        information arrival events.
+      </p>
+
+      <div class="theorem">
+        <div class="label">Result 1.1</div>
+        <p>
+          Adaptive-spread LMSR reduces adverse selection costs by 34%
+          compared to fixed-spread parameterization, measured across
+          1,847 event contracts with final resolution data.
+        </p>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <h2><span class="num">2</span>Haven Selection &amp; Shadow Trading</h2>
+      <h3>2.1 Framework</h3>
+      <p>
+        Haven selection identifies prediction market contracts where
+        prices persistently deviate from fair value due to structural
+        factors: low liquidity, retail sentiment bias, or hedging
+        demand from correlated positions.
+      </p>
+
+      <div class="definition">
+        <div class="label">Definition 2.1 &mdash; Haven Contract</div>
+        <p>
+          A contract <em>C</em> is classified as a haven if it satisfies
+          all four selection criteria simultaneously: model deviation
+          &gt; 8%, notional depth &gt; $5K, mean-reversion half-life
+          &lt; 72h, and portfolio beta &lt; 0.3.
+        </p>
+      </div>
+
+      <h3>2.2 Selection Criteria</h3>
+      <table class="mono-table">
+        <caption>Table 1. Haven selection scoring dimensions</caption>
+        <thead><tr><th>Dimension</th><th>Metric</th><th>Threshold</th></tr></thead>
+        <tbody>
+          <tr><td>Pricing efficiency</td><td>Model deviation</td><td>&gt; 8% absolute</td></tr>
+          <tr><td>Liquidity depth</td><td>Notional within 5%</td><td>&gt; $5,000</td></tr>
+          <tr><td>Mean reversion</td><td>Half-life</td><td>&lt; 72 hours</td></tr>
+          <tr><td>Correlation</td><td>Portfolio beta</td><td>&lt; 0.3</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.3 Execution</h3>
+      <p>
+        Selected contracts enter a shadow-trading book where positions
+        are sized using a modified Kelly criterion. The system is
+        implemented as a Python async pipeline with PostgreSQL state
+        management and exchange-specific API adapters.
+      </p>
+    </section>
+
+    <section class="chapter">
+      <h2><span class="num">3</span>Reliable Market Data Loggers</h2>
+      <h3>3.1 Architecture</h3>
+      <p>
+        The empirical work in Projects 1 and 2 requires continuous,
+        gap-free data capture across exchanges with heterogeneous API
+        paradigms. This project delivers fault-tolerant logging
+        infrastructure with checkpoint-recovery semantics.
+      </p>
+
+      <div class="theorem">
+        <div class="label">Operational Result</div>
+        <p>
+          Current deployment achieves 99.94% uptime across three
+          exchanges (Polymarket, Kalshi, Metaculus) over 180 days of
+          continuous operation, with ~2.1 GB/month storage in
+          schema-versioned Parquet with Zstandard compression.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Last updated March 2026</p>
+  </footer>
+</div>
+
+<button id="theme-toggle" aria-label="Toggle theme">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  var stored = localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var initial = stored || (prefersDark ? 'dark' : 'parchment');
+  root.setAttribute('data-theme', initial);
+  toggle.addEventListener('click', function() {
+    var current = root.getAttribute('data-theme');
+    var next = current === 'dark' ? 'parchment' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+  window.addEventListener('message', function(event) {
+    var data = event && event.data;
+    var next = (data && (data.value || data.theme)) || null;
+    if (data && (data.type === 'theme' || data.theme || data.value) && (next === 'dark' || next === 'parchment')) {
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  });
+})();
+</script>
+</body>
+</html>
