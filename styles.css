@@ -111,7 +111,10 @@ input:focus-visible {
 .gate-title,
 .gate-hint,
 .gate-submit,
-.gate-field {
+.gate-field,
+.contact-trigger,
+.email-address,
+.email-dialog-close {
   font-family: var(--mono);
   font-size: var(--s-1);
   font-variant-numeric: tabular-nums;
@@ -436,7 +439,9 @@ h3 {
 .contact-links a,
 .footer-contact-links a,
 .site-footer-links a,
-.back-link {
+.back-link,
+.contact-trigger,
+.email-dialog-close {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
@@ -444,8 +449,10 @@ h3 {
 
 .contact-links a,
 .site-footer-links a,
-.footer-contact-links a {
-  padding: 0.65rem 0.9rem;
+.footer-contact-links a,
+.contact-trigger,
+.email-dialog-close {
+  padding: 0.55rem 0.8rem;
   border: 1px solid var(--border);
   background: var(--surface-alt);
   color: var(--text);
@@ -453,9 +460,24 @@ h3 {
 
 .contact-links a:hover,
 .site-footer-links a:hover,
-.footer-contact-links a:hover {
+.footer-contact-links a:hover,
+.contact-trigger:hover,
+.email-dialog-close:hover {
   text-decoration: none;
   border-color: var(--accent);
+}
+
+.contact-trigger,
+.email-dialog-close {
+  cursor: pointer;
+}
+
+.contact-card {
+  padding: 1rem 1.1rem;
+}
+
+.contact-card .card-label {
+  margin-bottom: 0.55rem;
 }
 
 .site-footer {
@@ -468,6 +490,12 @@ h3 {
   flex-wrap: wrap;
 }
 
+.site-footer.site-footer-minimal {
+  justify-content: flex-start;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
 .site-footer-links {
   align-items: center;
   justify-content: flex-end;
@@ -476,6 +504,33 @@ h3 {
 .site-footer-mark {
   color: var(--text-muted);
   white-space: nowrap;
+}
+
+.email-dialog {
+  padding: 0;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.email-dialog::backdrop {
+  background: rgba(12, 16, 23, 0.28);
+}
+
+.email-dialog-panel {
+  display: grid;
+  gap: 0.75rem;
+  min-width: min(100%, 20rem);
+  padding: 1rem 1.1rem;
+}
+
+.email-dialog-panel .card-label {
+  margin-bottom: 0;
+}
+
+.email-address {
+  margin: 0;
+  color: var(--text);
 }
 
 .site-gate {

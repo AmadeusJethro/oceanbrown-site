@@ -58,43 +58,50 @@
             <img src="headshot2.jpeg" alt="Portrait of Ocean Brown">
           </figure>
           <div class="about-copy-block">
-            <h2 class="hero-title">Real-time trading, power-market research, and AI-driven systems.</h2>
-            <p class="body-copy">Currently, I work at Spotlight Power as a real-time trader, and I spend most of my time thinking about energy markets and artificial intelligence. I am most interested in building both fundamental and machine learning models for power markets, automating operational and trading workflows, and developing research systems for power-market analysis.</p>
+            <p class="body-copy">Currently, I work at Spotlight Power as a trader. I spend most of my time thinking about energy markets and artificial intelligence. I am most interested in building both fundamental and machine learning models for power markets, automating operational and trading workflows, and developing research systems for power-market analysis.</p>
             <p class="body-copy">I am particularly interested in how AI can strengthen research and analysis in power markets. Previously, I interned at Cresta, an energy infrastructure fund.</p>
             <p class="body-copy">I hold an M.S. in Computer Science from the Georgia Institute of Technology and a B.A. in Philosophy from the University of California, Santa Barbara. Outside of work, I enjoy reading philosophy and training Brazilian jiu-jitsu and Muay Thai.</p>
           </div>
         </div>
       </section>
 
-      <section class="card">
-        <div class="card-label">Current focus</div>
-        <ul class="summary-list">
-          <li><strong>Role</strong>Real-time trader at Spotlight Power.</li>
-          <li><strong>Interests</strong>Fundamental models, machine learning for power markets, operational and trading workflow automation, and research systems.</li>
-          <li><strong>Theme</strong>Using AI to strengthen research and analysis in power markets.</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <div class="card-label">Background</div>
-        <ul class="summary-list">
-          <li><strong>Previous</strong>Cresta, energy infrastructure investing.</li>
-          <li><strong>Education</strong>M.S. in Computer Science, Georgia Institute of Technology; B.A. in Philosophy, University of California, Santa Barbara.</li>
-          <li><strong>Outside work</strong>Philosophy, Brazilian jiu-jitsu, and Muay Thai.</li>
-        </ul>
+      <section class="card wide contact-card">
+        <div class="card-label">Contact</div>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <button class="contact-trigger" id="email-trigger" type="button" aria-haspopup="dialog">Email</button>
+        </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="site-footer-links">
-        <a href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:ocean@oceanbrown.net">Email</a>
-        <span class="site-footer-mark">Ocean Brown</span>
-      </div>
+    <footer class="site-footer site-footer-minimal">
+      <span class="site-footer-mark">Ocean Brown</span>
     </footer>
   </div>
 
+  <dialog class="email-dialog" id="email-dialog" aria-labelledby="email-dialog-label">
+    <form class="email-dialog-panel" method="dialog">
+      <p class="card-label" id="email-dialog-label">Email</p>
+      <p class="email-address">ocean@oceanbrown.net</p>
+      <button class="email-dialog-close" type="submit">Close</button>
+    </form>
+  </dialog>
+
   <script src="theme.js"></script>
   <script src="gate.js"></script>
+  <script>
+    (function() {
+      var trigger = document.getElementById('email-trigger');
+      var dialog = document.getElementById('email-dialog');
+
+      if (!trigger || !dialog) {
+        return;
+      }
+
+      trigger.addEventListener('click', function() {
+        dialog.showModal();
+      });
+    })();
+  </script>
 </body>
 </html>
