@@ -263,11 +263,10 @@ h3 {
 
 .about-layout {
   display: grid;
-  grid-template-columns: 11.5rem minmax(0, 40rem);
-  gap: 1.5rem;
+  grid-template-columns: 11.5rem minmax(0, 1fr);
+  gap: 1.25rem;
   align-items: start;
-  max-width: 53rem;
-  margin-inline: auto;
+  max-width: none;
 }
 
 .about-portrait {
@@ -289,6 +288,7 @@ h3 {
   display: grid;
   gap: 0.95rem;
   min-width: 0;
+  align-content: start;
 }
 
 .about-copy-block .body-copy {
