@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>Prediction Market Data Infrastructure - Ocean Brown</title>
-  <meta name="description" content="Collectors, APIs, matching, storage, and deployment lessons from building usable prediction-market research infrastructure.">
+  <title>Data Collection and Monitoring Infrastructure for Prediction-Market Research - Ocean Brown</title>
+  <meta name="description" content="Collectors, watchlists, matching, storage, and deployment lessons from building usable data infrastructure for prediction-market research.">
   <meta name="theme-color" content="#fcfae6">
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -28,7 +28,7 @@
     .essay-kicker { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .essay-title { font-family: var(--serif); font-size: clamp(2.35rem, 5vw, 3.9rem); font-weight: 600; line-height: 1.04; letter-spacing: -0.03em; color: var(--text); max-width: 16ch; margin: 0 0 0.8rem; text-wrap: balance; }
     .essay-subtitle { font-family: var(--sans); font-size: 1.02rem; line-height: 1.58; color: var(--text); opacity: 0.86; max-width: 52ch; margin: 0 0 1.55rem; }
-    .essay-abstract { border-left: 3px solid var(--accent); background: color-mix(in srgb, var(--surface-alt) 92%, white 8%); padding: 1.1rem 1.4rem; margin: 0 0 2.4rem; border-radius: 0 6px 6px 0; }
+    .essay-abstract { border-top: 2px solid var(--accent); background: color-mix(in srgb, var(--surface-alt) 92%, white 8%); padding: 1.1rem 1.4rem; margin: 0 0 2.4rem; border-radius: 6px; }
     .essay-abstract p { font-family: var(--serif); font-size: 1rem; line-height: 1.78; font-style: italic; margin: 0; color: var(--text); }
     .essay-body { font-family: var(--serif); color: var(--text); font-size: 1.02rem; line-height: 1.76; }
     .essay-body h2 { font-family: var(--sans); font-size: 1.04rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--accent); margin: 3rem 0 1rem; padding-bottom: 0.45rem; border-bottom: 1px solid var(--border); }
@@ -43,7 +43,7 @@
     .table-caption, .chart-caption { font-family: var(--sans); font-size: 0.78rem; color: var(--text-muted); margin-top: 0.55rem; font-style: italic; line-height: 1.55; }
     .code-block, .diagram-box { margin: 1.6rem 0; padding: 1rem 1.1rem; border: 1px solid var(--border); background: color-mix(in srgb, var(--surface-alt) 94%, white 6%); border-radius: 4px; }
     .code-block pre, .diagram-box pre { margin: 0; font-family: var(--mono); font-size: 0.82rem; line-height: 1.55; white-space: pre-wrap; }
-    .finding-box { background: color-mix(in srgb, var(--surface) 94%, white 6%); border: 1px solid var(--border); border-left: 3px solid var(--status-build); border-radius: 0 4px 4px 0; padding: 1rem 1.3rem; margin: 1.8rem 0; font-family: var(--sans); font-size: 0.93rem; line-height: 1.65; }
+    .finding-box { background: color-mix(in srgb, var(--surface-alt) 90%, var(--surface) 10%); border: 1px solid color-mix(in srgb, var(--border) 82%, var(--text) 18%); border-radius: 4px; padding: 1rem 1.3rem; margin: 1.8rem 0; font-family: var(--sans); font-size: 0.93rem; line-height: 1.65; }
     .footnotes { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); font-family: var(--sans); font-size: 0.79rem; color: var(--text-muted); line-height: 1.62; }
     .footnotes ol { padding-left: 1.25rem; }
     @media (max-width: 720px) { .essay-shell { padding: 2rem 0 4rem; } .essay-title { font-size: 2.45rem; } .essay-body { font-size: 1rem; } }
@@ -63,17 +63,17 @@
     <main class="essay-shell" id="main-content" tabindex="-1">
       <a class="essay-back" href="../projects.html">&larr; Back to projects</a>
       <div class="essay-kicker">Data Infrastructure &bull; Prediction Markets</div>
-      <h2 class="essay-title">Prediction Market Data Infrastructure</h2>
-      <p class="essay-subtitle">Collectors, watchlists, matching, storage, and deployment lessons from building a research stack that could stay alive long enough to matter.</p>
+      <h2 class="essay-title">Data Collection and Monitoring Infrastructure for Prediction-Market Research</h2>
+      <p class="essay-subtitle">Collectors, watchlists, matching, storage, and deployment lessons from building market-data infrastructure that could stay alive long enough to matter.</p>
 
       <div class="essay-abstract">
-        <p>The collector and matching systems deserved their own page because they were not just support code for a trading idea. Discovery cadence, orderbook freshness, cross-venue event identity, storage shape, health checks, and deployment cost all directly changed what could be researched honestly. Once I started treating that layer like infrastructure instead of glue, the research got much better.</p>
+        <p>The collector and matching systems deserved their own page because they were not just support code for a trading idea. Discovery cadence, orderbook freshness, cross-venue event identity, storage shape, health checks, and deployment cost all directly changed what could be researched honestly. Once that layer was treated as infrastructure rather than glue, the resulting analysis became easier to falsify and easier to trust.</p>
       </div>
 
       <div class="essay-body">
-        <h2>1. Why the data systems deserve their own page</h2>
+        <h2>1. Research infrastructure as an analytical dependency</h2>
         <p>The falsification page is about a market thesis that failed. This page is about the systems that made that failure legible. That distinction matters. If discovery is weak, orderbooks are stale, event identities are wrong, or writes are sloppy, then every research conclusion built on top of that stack is already compromised.</p>
-        <p>In practice the infrastructure work split into three different jobs: venue-specific collection, same-day watchlist and candidate selection, and cross-venue matching. Each one taught something different about operating a usable market research stack.</p>
+        <p>In practice the infrastructure work split into three different jobs: venue-specific collection, same-day watchlist and candidate selection, and cross-venue matching. Each one taught something different about operating a usable market research stack. The important shift was methodological: once these systems were treated as infrastructure rather than glue code, the resulting research became easier to falsify and easier to trust.</p>
 
         <div class="table-wrap">
           <table class="essay-table">
@@ -82,14 +82,14 @@
             </thead>
             <tbody>
               <tr><td><strong>Polymarket collection</strong></td><td>Broad market discovery and exploratory metadata.</td><td>Best place to explore a large messy venue.</td><td>Discovery quality changes the research question before modeling starts.</td></tr>
-              <tr><td><strong>Project Haven</strong></td><td>Same-day Kalshi watchlist and favorite-side candidate ranking.</td><td>Forced explicit fee, slippage, and concentration logic.</td><td>Selection logic is where execution realism begins.</td></tr>
-              <tr><td><strong>prediction-market-logger</strong></td><td>Cross-venue matching and verification.</td><td>Portability claims depend on event identity and cheap enough verification.</td><td>Provenance and cost control are first-class research problems.</td></tr>
+              <tr><td><strong>Selection and watchlist system</strong></td><td>Same-day Kalshi watchlist and favorite-side candidate ranking.</td><td>Forced explicit fee, slippage, and concentration logic.</td><td>Selection logic is where execution realism begins.</td></tr>
+              <tr><td><strong>Cross-venue logger</strong></td><td>Cross-venue matching and verification.</td><td>Cross-market comparisons depend on event identity and cheap enough verification.</td><td>Provenance and cost control are first-class research problems.</td></tr>
             </tbody>
           </table>
           <div class="table-caption">Table 1. These systems solved different problems. Treating them as one generic “scraper” story would erase the useful engineering lessons.</div>
         </div>
 
-        <h2>2. Venue APIs and what each one was actually good for</h2>
+        <h2>2. Venue-specific ingestion surfaces</h2>
         <p>The right architecture was not one collector pretending both venues looked the same. The useful move was venue-specific collection feeding a shared downstream shape.</p>
 
         <div class="table-wrap">
@@ -105,7 +105,7 @@
           <div class="table-caption">Table 2. The venue surface determines what kind of research loop is realistic, so the collector design has to respect venue asymmetry instead of hiding it.</div>
         </div>
 
-        <h2>3. Runtime shape: discovery, polling, matching, health</h2>
+        <h2>3. Runtime topology: discovery, polling, matching, health</h2>
         <p>The mature architecture ended up looking like infrastructure rather than a pile of scripts. Discovery was separate from polling, polling was separate from matching, and matching was separate from persistence and health. That separation of concerns mattered because long-running collectors do not usually fail at the HTTP-call layer. They fail at lifecycle edges: stale feeds, partial writes, bad restarts, and silent schema drift.</p>
 
         <div class="diagram-box"><pre>Venue APIs
@@ -117,9 +117,27 @@
   -> selective LLM verification
   -> storage + health checks + operator-facing output</pre></div>
 
-        <p>The matching layer was especially important. A portability or arbitrage-style claim is meaningless if two contracts do not actually refer to the same underlying event. That moved event identity from “cleanup task” to “core data-integrity problem.”</p>
+        <p>The matching layer was especially important. A cross-market comparison is meaningless if two contracts do not actually refer to the same underlying event. That moved event identity from cleanup work to a core data-integrity problem.</p>
 
-        <h2>4. Scheduling, cadence, and storage</h2>
+        <div class="code-block"><pre>Observed runtime pattern
+- broad venue scan
+- same-day watchlist build
+- orderbook polling every 45s
+- live terminal / websocket status
+- buffered writes and run logs
+- audit trail per scan</pre></div>
+
+        <p>The runtime shape also mattered operationally because it had to be inspectable while running. The later dashboard/backend work solved a real debugging problem: scans could be active without visible terminal output, which made it harder to distinguish an empty watchlist from a dead scan. The fix was not cosmetic. It was part of observability. If a collector is running and the operator cannot see what it is doing, the system is much harder to trust under failure.</p>
+
+        <div class="code-block"><pre>// stdout broadcaster pattern
+// intercept print() output and publish to websocket clients
+
+install_stdout_broadcaster()
+  -> capture runtime logs
+  -> stream to dashboard terminal
+  -> preserve operator visibility during long scans</pre></div>
+
+        <h2>4. Scheduling, cadence, storage, and observability</h2>
         <p>One of the strongest operational lessons was that cadence is architecture. A collector that is too expensive, too noisy, or too stale to run continuously is not just less convenient. It changes the kinds of questions you can ask. The systems here converged toward a cheap-first architecture: broad scans on a slower cadence, narrow watchlist refreshes on a faster cadence, and explicit persistence for what mattered.</p>
 
         <div class="table-wrap">
@@ -132,6 +150,7 @@
               <tr><td><strong>Watchlist monitoring</strong></td><td>24-hour window with tighter &lt;=4-hour action focus</td><td>Separate “observe” from “rank tightly.”</td></tr>
               <tr><td><strong>Selector state</strong></td><td>SQLite</td><td>Simple local persistence for watchlist and monitor state.</td></tr>
               <tr><td><strong>Collector platform</strong></td><td>Buffered writes + hosted DB</td><td>Keep throughput manageable and restarts cheap.</td></tr>
+              <tr><td><strong>Operator visibility</strong></td><td>Terminal broadcast + run logs</td><td>Make scans inspectable while they are still running.</td></tr>
             </tbody>
           </table>
           <div class="table-caption">Table 3. Discovery, monitoring, and persistence were intentionally decoupled so that each could run at the cadence the problem actually required.</div>
@@ -144,15 +163,38 @@ verified_pairs = llm_verify(candidate_pairs)
 # broad discovery stays cheap
 # model cost is spent only on candidate matches</pre></div>
 
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Operational problem</th><th>Observed fix</th><th>Why it matters</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Silent scans</strong></td><td>Broadcast stdout to websocket clients and persist summary logs.</td><td>Makes active collection inspectable instead of opaque.</td></tr>
+              <tr><td><strong>Empty watchlist ambiguity</strong></td><td>Separate network failure from zero-candidate reality through visible run state.</td><td>Prevents false conclusions about the market surface.</td></tr>
+              <tr><td><strong>Matcher cost blow-up</strong></td><td>Rule-based candidate generation before any expensive verification.</td><td>Keeps provenance work cheap enough to run continuously.</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 4. A usable data stack has to be inspectable under failure, not just elegant when everything is healthy.</div>
+        </div>
+
         <h2>5. Deployment and cost discipline</h2>
         <p>The best deployment decisions were intentionally boring. Simple GCP choices like Cloud Build, Cloud Run, and Cloud SQL were useful not because they were glamorous, but because they kept the collector stack deployable, restartable, and cheap enough to run. A collector that is mathematically elegant but operationally expensive is not a good collector.</p>
         <p>The matching layer followed the same logic. Rule-based detection handled broad discovery for free, while LLM verification ran only on candidate pairs. That kept scan costs around half a cent and monthly matching costs in the low single digits at hourly cadence. The economic point is important: data systems only become part of real research flow when they are cheap enough to stay on.</p>
 
-        <div class="finding-box"><strong>Operational takeaway.</strong> Cost is architecture. The right first production shape is often the simplest hosted design that preserves reliability without creating a full-time ops problem.</div>
+        <div class="code-block"><pre>Operational preference hierarchy
+1. keep collection cheap enough to run continuously
+2. keep deployment simple enough to restart without drama
+3. make failures visible before they corrupt downstream research
+4. spend model cost only where rule-based filtering is not enough</pre></div>
 
-        <h2>6. Practical lessons I would carry forward</h2>
+        <div class="finding-box"><strong>Operational takeaway:</strong> Cost is architecture. The right first production shape is often the simplest hosted design that preserves reliability without creating a full-time ops problem.</div>
+
+        <h2>6. Transferable systems lessons</h2>
         <p>First, data freshness is part of research quality, not a separate ops concern. Second, event identity across venues is a first-class integrity problem. Third, cost and cadence determine whether a research system can actually stay alive. Fourth, simple infrastructure is usually the correct answer until a real workload proves otherwise.</p>
         <p>This page does not claim alpha. It claims that the market research became more trustworthy once the collector stack was built like infrastructure instead of like a one-off scraper.</p>
+        <p>The strongest general lesson is that collector architecture changes what can be known. Discovery cadence, watchlist persistence, orderbook freshness, and event identity are not support details around the analysis. They are part of the analysis.</p>
+
+        <div class="finding-box"><strong>Scope note:</strong> This page is strongest as a systems companion to the flagship research note. It shows how the data and monitoring layer made later analysis more trustworthy; it does not attempt to substitute infrastructure for evidence of edge.</div>
 
         <div class="footnotes">
           <h2>Notes</h2>
