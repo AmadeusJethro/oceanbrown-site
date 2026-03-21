@@ -263,10 +263,10 @@ h3 {
 
 .about-layout {
   display: grid;
-  grid-template-columns: 12rem minmax(0, 42rem);
-  gap: 2rem;
+  grid-template-columns: 11.5rem minmax(0, 40rem);
+  gap: 1.5rem;
   align-items: start;
-  max-width: 58rem;
+  max-width: 53rem;
   margin-inline: auto;
 }
 
@@ -1191,8 +1191,8 @@ h3 {
   }
 
   .about-layout {
-    grid-template-columns: 11rem minmax(0, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 10.5rem minmax(0, 1fr);
+    gap: 1.25rem;
     max-width: none;
   }
 }
