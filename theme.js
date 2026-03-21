@@ -10,7 +10,9 @@
     root.setAttribute('data-theme', next);
     if (toggle) {
       toggle.setAttribute('aria-pressed', String(isDark));
-      toggle.textContent = isDark ? 'Light mode' : 'Dark mode';
+      toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      toggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      toggle.textContent = isDark ? '☀' : '☾';
     }
     if (metaTheme) {
       metaTheme.setAttribute('content', isDark ? '#0d1420' : '#ebe5da');
