@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>A Prediction-Market Thesis That Failed Under Audit - Ocean Brown</title>
+  <meta name="description" content="A research note on a Polymarket-first prediction-market thesis, its audit failure, its failed portability test, and the market lessons that survived.">
+  <meta name="theme-color" content="#fcfae6">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://oceanbrown.net/projects/prediction-market-false-edge.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      var root = document.documentElement;
+      var theme = localStorage.getItem('oceanbrown-theme');
+      if (theme === 'dark' || theme === 'paper') root.setAttribute('data-theme', theme);
+      root.setAttribute('data-gate', sessionStorage.getItem('oceanbrown-site-gate') === '6969' ? 'open' : 'locked');
+    })();
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body { overflow-x: hidden; }
+    .page { overflow-x: hidden; }
+    .essay-shell { max-width: 820px; margin: 0 auto; padding: 3.25rem 0 5.5rem; overflow-x: hidden; }
+    .essay-back { display: inline-flex; align-items: center; gap: 0.45rem; margin-bottom: 1.8rem; font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.02em; }
+    .essay-kicker { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .essay-title { font-family: var(--serif); font-size: clamp(2.35rem, 5vw, 3.9rem); font-weight: 600; line-height: 1.04; letter-spacing: -0.03em; color: var(--text); max-width: 14ch; margin: 0 0 0.8rem; text-wrap: balance; overflow-wrap: anywhere; }
+    .essay-subtitle { font-family: var(--sans); font-size: 1.02rem; line-height: 1.58; color: var(--text); opacity: 0.86; max-width: 50ch; margin: 0 0 1.55rem; overflow-wrap: anywhere; }
+    .essay-abstract { border-left: 3px solid var(--accent); background: color-mix(in srgb, var(--surface-alt) 92%, white 8%); padding: 1.1rem 1.4rem; margin: 0 0 2.4rem; border-radius: 0 6px 6px 0; }
+    .essay-abstract p { font-family: var(--serif); font-size: 1rem; line-height: 1.78; font-style: italic; margin: 0; color: var(--text); overflow-wrap: anywhere; }
+    .essay-body { font-family: var(--serif); color: var(--text); font-size: 1.02rem; line-height: 1.76; }
+    .essay-body h2 { font-family: var(--sans); font-size: 1.04rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--accent); margin: 3rem 0 1rem; padding-bottom: 0.45rem; border-bottom: 1px solid var(--border); }
+    .essay-body h3 { font-family: var(--sans); font-size: 0.94rem; font-weight: 700; line-height: 1.45; color: var(--text); margin: 1.85rem 0 0.65rem; }
+    .essay-body p { margin: 0 0 1rem; }
+    .essay-body ul, .essay-body ol { margin: 0 0 1rem 1.4rem; }
+    .essay-body li { margin-bottom: 0.35rem; }
+    .table-wrap { overflow-x: auto; margin: 1.8rem 0; }
+    .essay-table { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 0.84rem; background: color-mix(in srgb, var(--surface-alt) 94%, white 6%); }
+    .essay-table thead tr { background: color-mix(in srgb, var(--surface-alt) 94%, var(--bg) 6%); border-bottom: 2px solid var(--border); }
+    .essay-table th { padding: 0.65rem 0.9rem; text-align: left; font-weight: 700; color: var(--text); letter-spacing: 0.04em; font-size: 0.77rem; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+    .essay-table td { padding: 0.62rem 0.9rem; vertical-align: top; border-bottom: 1px solid color-mix(in srgb, var(--border) 88%, transparent 12%); color: var(--text); }
+    .essay-table tbody tr:hover { background: color-mix(in srgb, var(--surface) 96%, white 4%); }
+    .fail { color: var(--status-research); font-weight: 600; }
+    .pass { color: var(--status-live); font-weight: 600; }
+    .table-caption { font-family: var(--sans); font-size: 0.78rem; color: var(--text-muted); margin-top: 0.55rem; font-style: italic; line-height: 1.55; }
+    .formula-box, .finding-box, .code-block { margin: 1.6rem 0; padding: 1rem 1.15rem; border: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 94%, white 6%); border-radius: 4px; }
+    .finding-box { border-left: 3px solid var(--status-build); border-radius: 0 4px 4px 0; }
+    .code-block { overflow-x: auto; }
+    .code-block pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; font-family: var(--mono); font-size: 0.83rem; line-height: 1.55; }
+    code { font-family: var(--mono); font-size: 0.84em; background: color-mix(in srgb, var(--surface-alt) 96%, black 4%); border: 1px solid var(--border); padding: 0.1em 0.35em; border-radius: 3px; }
+    .footnotes { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); font-family: var(--sans); font-size: 0.79rem; color: var(--text-muted); line-height: 1.62; }
+    .footnotes ol { padding-left: 1.25rem; }
+    @media (max-width: 720px) {
+      .essay-shell { padding: 2rem 0 4rem; overflow-x: hidden; }
+      .essay-title { font-size: 2.45rem; max-width: 11ch; }
+      .essay-body { font-size: 1rem; }
+      .essay-abstract, .formula-box, .finding-box, .code-block { padding: 0.9rem 1rem; }
+      .essay-table { min-width: 38rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-block"><h1>Ocean Brown</h1></div>
+      <div class="header-actions">
+        <nav class="main-nav" aria-label="Primary"><a class="nav-link" href="../index.html">Home</a><a class="nav-link active" href="../projects.html">Projects</a></nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
+      </div>
+    </header>
+
+    <main class="essay-shell" id="main-content" tabindex="-1">
+      <a class="essay-back" href="../projects.html">&larr; Back to projects</a>
+      <div class="essay-kicker">Prediction Markets • Research Note</div>
+      <h2 class="essay-title">A Prediction-Market Thesis That Failed Under Audit</h2>
+      <p class="essay-subtitle">A Polymarket-first research note on what I explored, what failed under audit, what did not port, and which market lessons were still worth carrying forward.</p>
+
+      <div class="essay-abstract">
+        <p>The strongest thesis in this body of work did not survive review. The primary backtest failed on severe leakage, the Kalshi portability study tested 135 configurations across 107,427 resolved markets and found zero positive edge, and the useful output shifted from a trading story to a sharper set of lessons about venue mechanics, fee-adjusted selection, provenance, and what a market claim has to survive before it deserves trust.</p>
+      </div>
+
+      <div class="essay-body">
+        <h2>1. Why the thesis looked plausible on Polymarket</h2>
+        <p>The project started from a concrete market question, not a methodological one: did Polymarket's combination of cheap contracts, noisy event pricing, and category-specific wording create a favorite/longshot opportunity that could survive a disciplined screen? That question was worth taking seriously because the venue actually exposed the ingredients that make this kind of mistake plausible: cheap opposite-side exposure, broad market surface, and enough wording drift or event duplication to make naive pricing errors believable on first pass.</p>
+        <p>The useful version of the project therefore became chronological: what was explored first, what seemed promising, what failed when the evidence standard increased, and what parts of the surrounding system still improved future market research.</p>
+
+        <h3>1.1 What was built, what failed, what survived</h3>
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Workstream</th><th>Question</th><th>What happened</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Polymarket exploration</strong></td><td>Was there enough visible structure to justify deeper work?</td><td>Yes as exploration. No as evidence by itself.</td><td class="pass">Input</td></tr>
+              <tr><td><strong>Primary backtest</strong></td><td>Could the thesis survive formal evaluation?</td><td>Audit found complete train/test overlap and severe leakage.</td><td class="fail">Invalidated</td></tr>
+              <tr><td><strong>Kalshi portability</strong></td><td>Did the thesis survive a second venue?</td><td>135 configs across 107,427 resolved markets produced zero positive edge.</td><td class="fail">Failed to port</td></tr>
+              <tr><td><strong>Project Haven selector</strong></td><td>Could same-day candidates be ranked under realistic economics?</td><td>Useful as selection infrastructure, not as execution proof.</td><td class="pass">Survived</td></tr>
+              <tr><td><strong>Matching and provenance</strong></td><td>Could cross-venue comparisons be made cheaply and cleanly?</td><td>Useful systems work with direct research value.</td><td class="pass">Survived</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 1. The failed edge claim and the surviving systems work are not the same kind of output, so they should not be narrated as if they were.</div>
+        </div>
+
+        <h2>2. Why the headline backtest was invalid</h2>
+        <p>The first strong-looking result died at the only stage that mattered: chronology review. The audit flagged severe data leakage, found 100 percent training/evaluation overlap, and recommended stopping any trading based on the result. Once that happened, the backtest ceased to function as evidence of generalization.</p>
+        <p>A market workflow that cannot kill its own false edge is not a trustworthy workflow. The important output was not the invalidated backtest. It was the fact that the process had enough friction to invalidate it before the result hardened into a strategy story.</p>
+
+        <div class="finding-box"><strong>Audit result.</strong> The workflow did what it was supposed to do: it killed an attractive claim when the evidence base turned out to be contaminated.</div>
+
+        <div class="code-block"><pre>Audit summary
+- severity: severe leakage
+- finding: complete train/test overlap
+- consequence: current backtest is invalid
+- action: stop any trading based on this result</pre></div>
+
+        <h2>3. Why the thesis died on Kalshi</h2>
+        <p>Kalshi was the portability test, not the center of the story. Once the Polymarket backtest was invalidated, the next sensible question was whether the underlying thesis survived on a different venue. It did not.</p>
+        <p>The important part is why. The original intuition depended on cheap opposite-side exposure. On Polymarket, low-priced NO contracts can create an appealing payoff profile because the cost of being wrong is small relative to the payout if the event resolves the other way. On Kalshi, the same structure becomes symmetric: a 5-cent YES price implies a 95-cent NO price. The cheap opposite side disappears. So does the original appeal.</p>
+
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Check</th><th>Polymarket</th><th>Kalshi</th><th>Implication</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Cheap opposite-side exposure</strong></td><td>Part of the original thesis.</td><td>Removed by symmetric pricing.</td><td>The payoff intuition does not transfer.</td></tr>
+              <tr><td><strong>Configuration sweep</strong></td><td>Motivated deeper work.</td><td>135 configs, 0 positive edge.</td><td>The thesis failed cleanly under tested mechanics.</td></tr>
+              <tr><td><strong>Category depth</strong></td><td>Exploratory breadth existed.</td><td>More than 99% of resolved sample was sports/esports.</td><td>Portability conclusion is structural, not universal.</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 2. The portability lesson is structural. Venue design destroyed the exact asymmetry that made the original idea attractive.</div>
+        </div>
+
+        <p>The scale of the failure matters. The portability study covered 107,427 resolved Kalshi markets across 135 tested configurations and produced zero positive edge. That closes the obvious escape hatch. The thesis did not merely degrade. Under the tested venue mechanics, it failed.</p>
+
+        <h3>3.1 What would have been required to believe the portability result in the other direction</h3>
+        <p>For the cross-venue story to survive, at least three things would have had to be true. First, the second venue would need an equivalent cheap-side structure rather than merely the same market category labels. Second, there would need to be enough category depth to test the original intuition in something closer to the environment where it first appeared. Third, the pricing relationship would need to stay attractive after fees and after realistic fill assumptions. None of those conditions held in the preserved Kalshi evidence.</p>
+
+        <div class="code-block"><pre>Portability requirements
+1. same payoff asymmetry
+2. enough category depth to test the thesis honestly
+3. fee-adjusted economics still positive
+4. enough liquidity to make the screen operationally relevant</pre></div>
+
+        <h2>4. What survived after the edge died</h2>
+        <p>The surviving value came from the parts of the project that still mattered after the trading story died: fee-aware selection, explicit scope boundaries, cross-venue provenance, and a higher standard for what should count as a candidate in the first place.</p>
+
+        <h3>4.1 Fee-adjusted selection</h3>
+        <p>The selector logic remained useful because it forced every candidate to answer to explicit economics.</p>
+        <div class="formula-box">
+          <p><strong>Symbol definitions:</strong> <code>P</code> = current contract price, <code>f</code> = fee term, <code>q</code> = estimated probability of the contract resolving in your favor, <code>q*</code> = break-even probability threshold.</p>
+          <p><code>f = 0.07 * P * (1 - P)</code></p>
+          <p><code>q* = (P + f) / (1 - 2f)</code></p>
+          <p><code>EV = q(1 - P - f) + (1 - q)(-P - f)</code></p>
+        </div>
+        <p>The point of this math was not elegance. It changed the question from whether the price looked interesting to whether the price was still interesting after fees, slippage, and concentration controls. If not, it was not a candidate.</p>
+        <p>The selector also evaluated both sides of the market explicitly. A YES candidate had to clear a favorite-side range and fee-adjusted threshold. A NO candidate had to survive the same economics from the opposite side. That mattered because it prevented the screen from quietly hard-coding one narrative about where value was supposed to live.</p>
+
+        <div class="code-block"><pre>Selector logic, simplified
+1. evaluate YES candidate bands
+2. evaluate NO candidate bands
+3. compute fee-adjusted EV
+4. enforce theme and underlying caps
+5. keep only ranked candidates that survive all filters</pre></div>
+
+        <h3>4.2 Project Haven as a scope-correct system</h3>
+        <p>Project Haven stayed selection and monitoring only. It used a 24-hour scan window and a tighter &lt;=4-hour action window to build same-day watchlists, rank candidates under explicit fee-aware rules, and preserve an audit trail without pretending to be an execution engine.</p>
+        <p>No trades were placed, no positions were tracked, and no order execution was attempted. That boundary matters because it keeps the surviving system honest about what it is and what it is not.</p>
+        <p>That scope boundary was valuable. It kept the system from quietly advertising itself as execution proof.</p>
+
+        <div class="finding-box"><strong>Unresolved limitations.</strong> The selector was still carrying real defects: favorite price-band filters were not fully enforced in watchlist mode, theme caps needed verification, and database price persistence still had failure cases. The system survived as infrastructure with caveats, not as something ready to overclaim.</div>
+
+        <h3>4.3 Provenance as a research problem</h3>
+        <p>Cross-venue research is meaningless if two contracts do not refer to the same event. That moved matching and provenance from cleanup work into a first-class integrity problem. What survived here is the lesson, not a finished production matcher: event identity has to be treated as part of the research problem, otherwise every later comparison can be corrupted before the analysis starts.</p>
+
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Carry-forward mechanism</th><th>What it changed</th><th>Why it still matters</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Fee-adjusted filtering</strong></td><td>Stopped price-alone candidates from looking serious.</td><td>Reduces false positives before deeper analysis starts.</td></tr>
+              <tr><td><strong>Selection-only scope</strong></td><td>Separated ranking from execution claims.</td><td>Prevents research infrastructure from pretending to be a deployed system.</td></tr>
+              <tr><td><strong>Provenance and matching</strong></td><td>Turned event identity into a first-class research problem.</td><td>Any later cross-venue analysis depends on getting this right.</td></tr>
+              <tr><td><strong>Audit-first posture</strong></td><td>Made attractive results answer to chronology and realism earlier.</td><td>Raises the standard for every later market idea.</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 3. The surviving value is not a hidden alpha claim. It is a stricter market-research workflow with reusable technical components.</div>
+        </div>
+
+        <h2>5. Rules the next market thesis must pass</h2>
+        <ol>
+          <li>Venue mechanics outrank broad asset-class labels.</li>
+          <li>Category coverage is part of feasibility, not a later caveat.</li>
+          <li>Selection logic is where execution realism starts.</li>
+          <li>Provenance is part of market research.</li>
+          <li>A workflow that cannot kill a false edge is not a trustworthy workflow.</li>
+        </ol>
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>What looked enough before</th><th>What I would require now</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>A strong-looking backtest</strong></td><td>Chronology review, leakage check, and explicit invalidation path before belief.</td></tr>
+              <tr><td><strong>Same asset class on a second venue</strong></td><td>Proof that the payoff asymmetry and category depth actually transfer.</td></tr>
+              <tr><td><strong>Cheap contract intuition</strong></td><td>Fee-adjusted EV, slippage assumptions, and concentration control.</td></tr>
+              <tr><td><strong>A useful selector</strong></td><td>Selection-only scope plus honest bug accounting before any execution implication.</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 4. The main value of the project is that it changed the admission standard for later market ideas.</div>
+        </div>
+        <p>Those lessons are what make the project worth keeping. The next time a result looks strong, the checklist is no longer vague: chronology first, venue structure second, fees and fill assumptions third, and only then any serious discussion of deployment.</p>
+        <p>This page does not claim a validated tradable edge. It claims that the work made the standard for future market research much sharper.</p>
+
+        <div class="footnotes">
+          <h2>Notes</h2>
+          <ol>
+            <li>Kalshi is included here as the portability test. It is not the center of gravity of the original research motivation.</li>
+            <li>The collector, matching, scheduling, and deployment systems behind this work belong to a separate systems page and are intentionally compressed here.</li>
+            <li>All numeric statements in this page are bounded to the audited evidence base; no performance claims survive the final framing.</li>
+          </ol>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span class="site-footer-mark">Ocean Brown</span>
+      <div class="site-footer-links">
+        <a href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <button class="contact-trigger" id="email-trigger" type="button" aria-haspopup="dialog" aria-controls="email-dialog">Contact</button>
+      </div>
+    </footer>
+  </div>
+
+  <dialog class="email-dialog" id="email-dialog" aria-labelledby="email-dialog-label">
+    <form class="email-dialog-panel" method="dialog">
+      <p class="card-label" id="email-dialog-label">Contact</p>
+      <p class="contact-dialog-copy">The fastest path is email. LinkedIn is open too.</p>
+      <div class="contact-dialog-links">
+        <a class="contact-dialog-link" href="mailto:ocean@oceanbrown.net">ocean@oceanbrown.net</a>
+        <a class="contact-dialog-link" href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <button class="email-dialog-close" type="submit">Close</button>
+    </form>
+  </dialog>
+
+  <script src="../theme.js"></script>
+  <script src="../gate.js"></script>
+  <script src="../site.js"></script>
+</body>
+</html>

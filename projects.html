@@ -4,20 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>Ocean Brown — Projects</title>
-  <meta name="description" content="Selected projects from Ocean Brown across market surveillance, research, and desk automation.">
+  <title>Ocean Brown - Projects</title>
+  <meta name="description" content="Project directory for Ocean Brown across market surveillance, research infrastructure, desk automation, and long-form notes.">
   <meta name="theme-color" content="#ebe5da">
+  <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://oceanbrown.net/projects.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ocean Brown">
-  <meta property="og:title" content="Projects - Ocean Brown">
-  <meta property="og:description" content="Selected projects from Ocean Brown across market surveillance, research, and desk automation.">
+  <meta property="og:title" content="Ocean Brown - Projects">
+  <meta property="og:description" content="Project directory for Ocean Brown across market surveillance, research infrastructure, desk automation, and long-form notes.">
   <meta property="og:url" content="https://oceanbrown.net/projects.html">
   <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
   <script>
     (function() {
       var root = document.documentElement;
@@ -51,9 +52,9 @@
 
     <main class="bento" id="main-content" tabindex="-1">
       <section class="card wide">
-        <div class="card-label">Projects</div>
-        <h2 class="hero-title">Separate pages for the systems that matter most.</h2>
-        <p class="body-copy">This is the full project directory. The homepage keeps the highlighted set, and each entry here opens a dedicated page with more context on what the system does and why it exists.</p>
+        <div class="card-label">Project directory</div>
+        <h2 class="hero-title">Systems, tools, and long-form research notes.</h2>
+        <p class="body-copy">This is the full current directory. The homepage keeps the curated set, while this page keeps the entire working list in one place.</p>
       </section>
 
       <section class="card wide">
@@ -61,50 +62,74 @@
 
         <div class="project-entry">
           <div class="project-main">
-            <div class="project-title">
+            <div class="project-heading">
               <h3>Agentic Ops Platform</h3>
               <span class="status-text">live platform</span>
             </div>
             <p>Approval-routed execution for energy operations, from Teams intake through Cloud Run orchestration to a Windows workcell.</p>
             <div class="tech"><span>Python</span><span>FastAPI</span><span>Teams</span><span>Cloud Run</span></div>
           </div>
-          <a class="inline-link" href="projects/agentic-ops-platform.html">View</a>
+          <a class="inline-link" href="projects/agentic-ops-platform.html">Read project</a>
         </div>
 
         <div class="project-entry">
           <div class="project-main">
-            <div class="project-title">
+            <div class="project-heading">
               <h3>Energy Analyst Agent</h3>
               <span class="status-text">in build</span>
             </div>
-            <p>Real-time PJM-MISO seam surveillance with around thirty configured streams and alert routing into Teams.</p>
+            <p>Real-time PJM-MISO seam surveillance with configured market streams, alert rules, and Teams delivery for desk visibility.</p>
             <div class="tech"><span>ClickHouse</span><span>NATS</span><span>Grafana</span></div>
           </div>
-          <a class="inline-link" href="projects/energy-analyst-agent.html">View</a>
+          <a class="inline-link" href="projects/energy-analyst-agent.html">Read project</a>
         </div>
 
         <div class="project-entry">
           <div class="project-main">
-            <div class="project-title">
+            <div class="project-heading">
               <h3>Trading Research</h3>
               <span class="status-text">active research</span>
             </div>
             <p>Evidence-first PJM DART research with canonical pulls, walk-forward baselines, tests, and explicit promotion gates.</p>
             <div class="tech"><span>Python</span><span>pytest</span><span>walk-forward</span></div>
           </div>
-          <a class="inline-link" href="projects/trading-research.html">View</a>
+          <a class="inline-link" href="projects/trading-research.html">Read project</a>
         </div>
 
         <div class="project-entry">
           <div class="project-main">
-            <div class="project-title">
+            <div class="project-heading">
+              <h3>False Edge in Prediction Markets</h3>
+              <span class="status-text">research note</span>
+            </div>
+            <p>A Polymarket-first research arc on what I explored, what failed under audit, why the thesis did not port cleanly, and the market lessons that actually carried forward.</p>
+            <div class="tech"><span>Polymarket</span><span>Kalshi</span><span>audit review</span><span>research notes</span></div>
+          </div>
+          <a class="inline-link" href="projects/prediction-market-false-edge.html">Read project</a>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-main">
+            <div class="project-heading">
+              <h3>Evidence-First Agentic Workflows</h3>
+              <span class="status-text">research harness</span>
+            </div>
+            <p>A practical harness for ML, backtesting, leakage control, state continuity, and self-correcting technical work.</p>
+            <div class="tech"><span>ML workflows</span><span>QI</span><span>state gates</span><span>verification</span></div>
+          </div>
+          <a class="inline-link" href="projects/evidence-first-agentic-workflows.html">Read project</a>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-main">
+            <div class="project-heading">
               <h3>Homebase</h3>
               <span class="status-text">live operations</span>
             </div>
-            <p>Desktop control-center tooling for Excel automation, portal workflows, uploads, and daily desk setup.</p>
+            <p>Desktop control-center tooling for Excel automation, portal workflows, uploads, and repeatable daily desk setup.</p>
             <div class="tech"><span>PySide6</span><span>Excel automation</span><span>Win32</span></div>
           </div>
-          <a class="inline-link" href="projects/homebase.html">View</a>
+          <a class="inline-link" href="projects/homebase.html">Read project</a>
         </div>
       </section>
     </main>
@@ -113,29 +138,25 @@
       <span class="site-footer-mark">Ocean Brown</span>
       <div class="site-footer-links">
         <a href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <button class="contact-trigger" id="email-trigger" type="button" aria-haspopup="dialog">Email</button>
+        <button class="contact-trigger" id="email-trigger" type="button" aria-haspopup="dialog" aria-controls="email-dialog" data-contact-href="contact.html">Contact</button>
       </div>
     </footer>
   </div>
 
   <dialog class="email-dialog" id="email-dialog" aria-labelledby="email-dialog-label">
     <form class="email-dialog-panel" method="dialog">
-      <p class="card-label" id="email-dialog-label">Email</p>
-      <p class="email-address">ocean@oceanbrown.net</p>
+      <p class="card-label" id="email-dialog-label">Contact</p>
+      <p class="contact-dialog-copy">The fastest path is email. LinkedIn is open too.</p>
+      <div class="contact-dialog-links">
+        <a class="contact-dialog-link" href="mailto:ocean@oceanbrown.net">ocean@oceanbrown.net</a>
+        <a class="contact-dialog-link" href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
       <button class="email-dialog-close" type="submit">Close</button>
     </form>
   </dialog>
 
   <script src="theme.js"></script>
   <script src="gate.js"></script>
-  <script>
-    (function() {
-      var trigger = document.getElementById('email-trigger');
-      var dialog = document.getElementById('email-dialog');
-      if (trigger && dialog) {
-        trigger.addEventListener('click', function() { dialog.showModal(); });
-      }
-    })();
-  </script>
+  <script src="site.js"></script>
 </body>
 </html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>A Verification Harness for Model Evaluation and Backtesting Workflows - Ocean Brown</title>
+  <meta name="description" content="A technical design note on a verification harness for model evaluation, backtesting, leakage control, state continuity, and self-correcting technical workflows.">
+  <meta name="theme-color" content="#fcfae6">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://oceanbrown.net/projects/evidence-first-agentic-workflows.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      var root = document.documentElement;
+      var theme = localStorage.getItem('oceanbrown-theme');
+      if (theme === 'dark' || theme === 'paper') root.setAttribute('data-theme', theme);
+      root.setAttribute('data-gate', sessionStorage.getItem('oceanbrown-site-gate') === '6969' ? 'open' : 'locked');
+    })();
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body { overflow-x: hidden; }
+    .page { overflow-x: hidden; }
+    .essay-shell { max-width: 840px; margin: 0 auto; padding: 3.25rem 0 5.5rem; overflow-x: hidden; }
+    .essay-back { display: inline-flex; align-items: center; gap: 0.45rem; margin-bottom: 1.8rem; font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.02em; }
+    .essay-kicker { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .essay-title { font-family: var(--serif); font-size: clamp(2.35rem, 5vw, 3.95rem); font-weight: 600; line-height: 1.04; letter-spacing: -0.03em; color: var(--text); max-width: 17ch; margin: 0 0 0.8rem; text-wrap: balance; overflow-wrap: anywhere; }
+    .essay-subtitle { font-family: var(--sans); font-size: 1.02rem; line-height: 1.58; color: var(--text); opacity: 0.86; max-width: 55ch; margin: 0 0 1.55rem; overflow-wrap: anywhere; }
+    .essay-abstract { border-left: 3px solid var(--accent); background: color-mix(in srgb, var(--surface-alt) 92%, white 8%); padding: 1.1rem 1.4rem; margin: 0 0 2.4rem; border-radius: 0 6px 6px 0; }
+    .essay-abstract p { font-family: var(--serif); font-size: 1rem; line-height: 1.78; font-style: italic; margin: 0; color: var(--text); overflow-wrap: anywhere; }
+    .essay-body { font-family: var(--serif); color: var(--text); font-size: 1.02rem; line-height: 1.76; }
+    .essay-body h2 { font-family: var(--sans); font-size: 1.04rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--accent); margin: 3rem 0 1rem; padding-bottom: 0.45rem; border-bottom: 1px solid var(--border); }
+    .essay-body h3 { font-family: var(--sans); font-size: 0.94rem; font-weight: 700; line-height: 1.45; color: var(--text); margin: 1.85rem 0 0.65rem; }
+    .essay-body p { margin: 0 0 1rem; }
+    .essay-body ul, .essay-body ol { margin: 0 0 1rem 1.4rem; }
+    .essay-body li { margin-bottom: 0.35rem; }
+    .table-wrap { overflow-x: auto; margin: 1.8rem 0; }
+    .essay-table { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 0.84rem; background: color-mix(in srgb, var(--surface-alt) 94%, white 6%); }
+    .essay-table thead tr { background: color-mix(in srgb, var(--surface-alt) 94%, var(--bg) 6%); border-bottom: 2px solid var(--border); }
+    .essay-table th { padding: 0.65rem 0.9rem; text-align: left; font-weight: 700; color: var(--text); letter-spacing: 0.04em; font-size: 0.77rem; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+    .essay-table td { padding: 0.62rem 0.9rem; vertical-align: top; border-bottom: 1px solid color-mix(in srgb, var(--border) 88%, transparent 12%); color: var(--text); }
+    .essay-table tbody tr:hover { background: color-mix(in srgb, var(--surface) 96%, white 4%); }
+    .good { color: var(--status-live); font-weight: 600; }
+    .warn { color: var(--status-build); font-weight: 600; }
+    .bad { color: var(--status-research); font-weight: 600; }
+    .table-caption { font-family: var(--sans); font-size: 0.78rem; color: var(--text-muted); margin-top: 0.55rem; font-style: italic; line-height: 1.55; }
+    .formula-box, .finding-box, .code-block, .diagram-box { margin: 1.6rem 0; padding: 1rem 1.15rem; border: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 94%, white 6%); border-radius: 4px; }
+    .finding-box { border-left: 3px solid var(--status-build); border-radius: 0 4px 4px 0; }
+    .code-block, .diagram-box { overflow-x: auto; }
+    .code-block pre, .diagram-box pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; font-family: var(--mono); font-size: 0.83rem; line-height: 1.55; }
+    code { font-family: var(--mono); font-size: 0.84em; background: color-mix(in srgb, var(--surface-alt) 96%, black 4%); border: 1px solid var(--border); padding: 0.1em 0.35em; border-radius: 3px; }
+    .footnotes { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); font-family: var(--sans); font-size: 0.79rem; color: var(--text-muted); line-height: 1.62; }
+    .footnotes ol { padding-left: 1.25rem; }
+    @media (max-width: 720px) {
+      .essay-shell { padding: 2rem 0 4rem; overflow-x: hidden; }
+      .essay-title { font-size: 2.45rem; max-width: 11ch; }
+      .essay-body { font-size: 1rem; }
+      .essay-abstract, .formula-box, .finding-box, .code-block, .diagram-box { padding: 0.9rem 1rem; }
+      .essay-table { min-width: 40rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-block"><h1>Ocean Brown</h1></div>
+      <div class="header-actions">
+        <nav class="main-nav" aria-label="Primary"><a class="nav-link" href="../index.html">Home</a><a class="nav-link active" href="../projects.html">Projects</a></nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
+      </div>
+    </header>
+
+    <main class="essay-shell" id="main-content" tabindex="-1">
+      <a class="essay-back" href="../projects.html">&larr; Back to projects</a>
+      <div class="essay-kicker">ML, Backtesting, and Workflow Control</div>
+      <h2 class="essay-title">A Verification Harness for Model Evaluation and Backtesting Workflows</h2>
+      <p class="essay-subtitle">A technical design note on a harness built to make leakage, stale state, unsupported claims, and fake completion harder to get away with.</p>
+
+      <div class="essay-abstract">
+        <p>This harness exists for one reason: in data analysis, model selection, and backtesting, a polished answer can be much more dangerous than a loud failure. The useful work is therefore not better prose from a model. It is a control layer that blocks known bad patterns, forces state continuity across long sessions, writes canonical evidence artifacts, and loops failure back into remediation instead of allowing the system to narrate success it has not earned. The current benchmark evidence is already good enough to show why this matters: a preserved pilot report scores output highly while giving routing a 0.00, which is exactly the kind of polished-but-wrong run the harness is meant to expose.</p>
+      </div>
+
+      <div class="essay-body">
+        <h2>1. What broke without mechanical controls</h2>
+        <p>The motivating problem was not a weak model. It was a weak control surface. Parts of the surrounding harness looked strict in text but were not reliably strict in behavior. That is a serious failure in high-cost technical work, because the system can still produce smooth output while silently violating the conditions that make the output worth trusting.</p>
+        <p>That matters more in model training, time-series analysis, and backtesting than in generic automation. In those settings, one silent mistake can poison the entire result: future data leaks in, the holdout gets burned too early, a continuation forgets what phase the project is in, or a completion claim outruns the evidence because the verifier did not force the loopback.</p>
+
+        <div class="finding-box"><strong>Design target.</strong> A useful harness is not one that describes a good workflow. It is one that can stop a bad one.</div>
+
+        <h2>2. Five time-series failure paths blocked up front</h2>
+        <p>The harness is not organized around generic “best practices.” It is organized around specific ways that time-series and model workflows lie to themselves.</p>
+
+        <div class="formula-box">
+          <p><strong>Blocked before Python should proceed:</strong></p>
+          <p><code>shuffle=True</code> on time-series data</p>
+          <p><code>KFold(...)</code> on time-series problems</p>
+          <p><code>.shift(-1)</code> or any negative shift</p>
+          <p><code>label='left'</code> on rolling or resampling</p>
+          <p><code>.fillna(df[col].mean())</code> using a global mean on time-series features</p>
+        </div>
+
+        <p>Each rule blocks a direct path to fake signal. Shuffled time-series data destroys temporal ordering. K-fold makes future information look ordinary. Negative shifts and left-labelled windows leak future information. Global-mean fills inject information from outside the historical horizon. These are not style concerns. They are direct mechanisms for manufacturing fake performance.</p>
+
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Failure mode</th><th>What it corrupts</th><th>Control</th><th>Why the control matters</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Leakage</strong></td><td>Model skill, feature relevance, backtest validity</td><td class="good">Blocked patterns + review gate</td><td>Prevents fake predictive power from entering later stages.</td></tr>
+              <tr><td><strong>Holdout misuse</strong></td><td>Final evaluation credibility</td><td class="good">Holdout gate + optimization checklist</td><td>Preserves the only honest final test.</td></tr>
+              <tr><td><strong>State drift</strong></td><td>Phase position, assumptions, current task state</td><td class="good">File-backed continuity + compaction recovery</td><td>Makes long sessions resumable instead of theatrical.</td></tr>
+              <tr><td><strong>Unsupported prose</strong></td><td>Decision quality and release claims</td><td class="good">Verifier loopback + evidence triggers</td><td>Reduces the gap between what the system says and what it can prove.</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 1. The harness rules map to concrete technical failure modes rather than generic process language.</div>
+        </div>
+
+        <h2>3. Where execution is allowed to start</h2>
+        <p>The execution model is intentionally plain: orient, inspect, plan, implement, verify, wrap up. The important feature is not the sequence itself. It is that some transitions should block. Substantial work should not start without a plan. Missing state or missing contract files should stop the next action. Failed verification should route work back into remediation instead of allowing a completion claim.</p>
+
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Transition</th><th>Allowed when</th><th>Blocked when</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Inspect -> Plan</strong></td><td>Relevant repo and current state are identified.</td><td>Wrong project or stale state still unresolved.</td></tr>
+              <tr><td><strong>Plan -> Implement</strong></td><td>Concrete design exists and required gate artifacts exist.</td><td>No plan, missing contract/spec, or wrong phase.</td></tr>
+              <tr><td><strong>Implement -> Complete</strong></td><td>Verification artifacts agree with the claim.</td><td>Verification fails, times out, or lacks evidence.</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 2. The harness is safer when stage transitions are explicit and admissibility is checked at the boundary, not after the fact.</div>
+        </div>
+
+        <p>This matters because data and model work accumulates damage quietly. A workflow that skips planning or verification usually compensates later with cleanup, narration, and false confidence. Blocking early is cheaper than explaining later.</p>
+
+        <div class="code-block"><pre>// local gate-tools.mjs plugin
+// physically rejects bash tool calls that violate prerequisites
+
+const isPlanGateCmd = /python\s+(?:\.\/)?scripts\/(?:build_|run_)\w+\.py/.test(cmd)
+if (isPlanGateCmd) {
+  const hasPlan = await exists(`${worktree}/.pi/plan/architect-plan.md`)
+  if (!hasPlan) throw new Error("BLOCKED: plan-gate")
+}
+
+const isBacktestCmd = /python\s+(?:\.\/)?scripts\/run_\w*(backtest|walkforward|baseline|optuna)/.test(cmd)
+if (isBacktestCmd && !hasContractSpec) {
+  throw new Error("BLOCKED: contract-gate")
+}</pre></div>
+
+        <p>These gates are local harness controls, not platform-wide guarantees. That distinction matters. The page should claim only what the current local harness can actually do and not pretend the entire runtime has already converged to this behavior everywhere.</p>
+
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Stage</th><th>Required condition</th><th>What breaks without it</th><th>Control type</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Orient / Inspect</strong></td><td>Correct repo, current state files, correct task frame</td><td>Work starts from stale assumptions or the wrong project</td><td class="good">Foundation</td></tr>
+              <tr><td><strong>Plan</strong></td><td>A concrete design exists before substantial execution</td><td>Architecture gets improvised under pressure</td><td class="good">Blocking</td></tr>
+              <tr><td><strong>Gate</strong></td><td>Required state, contracts, or phase conditions are present</td><td>The system acts as if prerequisites exist when they do not</td><td class="good">Blocking</td></tr>
+              <tr><td><strong>Verify</strong></td><td>Claims match tests, artifacts, or explicit evidence</td><td>Completion becomes narration instead of proof</td><td class="good">Loopback</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 3. The useful part of plan-first execution is that some transitions are allowed and some are not.</div>
+        </div>
+
+        <h2>4. Durable state beats chat memory</h2>
+        <p>Long sessions guarantee compaction. Once that is true, any important project state that lives only in the active conversation is temporary state. The harness is safer when continuity is rebuilt from files rather than from remembered chat context.</p>
+
+        <div class="code-block"><pre>// local compaction-context.mjs plugin
+// reads durable state before continuation
+
+1. docs/STATE_MACHINE.md
+2. docs/specs/*.md or docs/contracts/*.md
+3. .pi/pipeline-state.json
+4. .pi/plan/architect-plan.md
+5. git branch + recent commits</pre></div>
+
+        <p>This changes the risk profile of long sessions completely. A continuation that reconstructs from durable state is still limited, but at least the limitation is honest. A continuation that pretends chat memory is sufficient is fragile and often wrong. The important boundary is that the page is describing a local implemented control surface, not claiming that all session continuity problems are solved in the abstract.</p>
+
+        <div class="code-block"><pre># runner.py
+# strip inherited session variables so standalone runs do not reuse stale session state
+
+keep = {
+  "APPDATA", "PATH", "TEMP", "TMP", "USERPROFILE", "USERNAME"
+}
+env = {key: value for key, value in os.environ.items() if key.upper() in keep}</pre></div>
+
+        <h3>4.1 Deterministic context and deterministic data access</h3>
+        <p>The same principle applies to data access. A remembered path is still just a claim that a path existed when it was remembered. The harness pushes toward deterministic data discovery and deterministic context injection so that workers are given the exact slice of state and data relevant to the task they are performing.</p>
+
+        <div class="finding-box"><strong>State principle.</strong> More context is not the goal. The right context, rebuilt from durable artifacts, is the goal.</div>
+
+        <h3>4.2 Hooks, plugins, and skills are the actual control surfaces</h3>
+        <p>The harness does not rely on one monolithic enforcement layer. It relies on several smaller control surfaces that fire at different times: operating rules in the main system prompt, plugins that intercept or enrich tool use, and skills that inject domain-specific verification checklists into the session. That split matters because different failure modes appear at different levels of the workflow.</p>
+
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Control surface</th><th>Example</th><th>What it does</th><th>Why it matters</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Rules</strong></td><td><code>AGENTS.md</code></td><td>Blocks known time-series mistakes and enforces state-machine discipline.</td><td>Stops obvious quantitative failure modes before they turn into code or claims.</td></tr>
+              <tr><td><strong>Plugins</strong></td><td><code>gate-tools.mjs</code>, <code>compaction-context.mjs</code>, <code>research-grounding.mjs</code></td><td>Intercept tool calls, rebuild state, and track whether literature-dependent work was grounded.</td><td>Makes control logic executable instead of purely advisory.</td></tr>
+              <tr><td><strong>Skills</strong></td><td><code>qi-temporal-integrity</code>, <code>qi-walk-forward</code>, <code>qi-evidence-validator</code></td><td>Inject narrow, domain-specific checklists for leakage, windowing, and evidence completeness.</td><td>Keeps specialized quantitative checks from being forgotten in long sessions.</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 4. The harness is strongest when control logic is distributed across the layer where it can actually fire.</div>
+        </div>
+
+        <div class="code-block"><pre>// research-grounding.mjs
+// soft gate for literature-dependent work
+
+if (toolLooksLikeLiteratureSearch && noGroundingUsedYet) {
+  log.warn("prefer alphaXiv or direct primary sources")
+}
+
+// persists alphaXiv usage across compaction
+output.context.push("Research Grounding Status")</pre></div>
+
+        <h2>5. Runs need artifacts, not narration</h2>
+        <p>The evaluation harness is useful because it writes canonical artifacts instead of relying on textual self-description. Each run builds pipeline evidence and a manifest/hash chain. That means later review can ask what the run actually did rather than trusting what the run said it did.</p>
+
+        <div class="code-block"><pre># runner.py
+pipeline_evidence = _build_pipeline_evidence(result, case)
+pipeline_evidence_path = _write_pipeline_evidence(run_dir, pipeline_evidence)
+
+manifest = _build_run_manifest(result, case, cmd)
+manifest_path = _write_manifest(run_dir, manifest)</pre></div>
+
+        <p>The scorer then treats routing, compliance, and output as separate dimensions rather than one opaque overall score. That is a better design for technical workflows because a strong final paragraph should not be able to hide a routing failure or a missed policy block.</p>
+
+        <div class="code-block"><pre># scorer.py
+WEIGHTS = {"routing": 0.4, "compliance": 0.4, "output": 0.2}
+
+if pipeline_score is not None:
+    score.routing_score = pipeline_score
+elif expected_agents:
+    score.routing_score = routed
+
+if execution_failed:
+    score.overall = 0.0</pre></div>
+
+        <p>That weighting choice is important. Routing and compliance together outweigh the surface quality of the answer. In other words, the harness is deliberately biased toward process correctness over rhetorical polish. For high-cost technical work, that is the right bias.</p>
+
+        <div class="code-block"><pre># README routing detection notes
+1. pipeline-state.json roles/verdicts
+2. pipeline-state.resolved.json canonical evidence
+3. task tool calls (subagent_type)
+
+# plain text alone is not a reliable routing signal</pre></div>
+
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Artifact</th><th>Why it exists</th><th>What it prevents</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>pipeline-state.resolved.json</code></td><td>Canonical routing/completion evidence</td><td>Fake “done” claims without machine-readable state</td></tr>
+              <tr><td><code>run_manifest.json</code></td><td>Hash-linked artifact chain and execution metadata</td><td>Vague provenance and unverifiable runs</td></tr>
+              <tr><td>Split manifest</td><td>Hash-backed train/public/holdout provenance</td><td>Quiet dataset drift and holdout confusion</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 5. The harness gets stronger when key claims become file-backed rather than chat-backed.</div>
+        </div>
+
+        <div class="code-block"><pre># pipeline-state.resolved.json
+{
+  "pipelineComplete": false,
+  "passRatio": 0.0,
+  "reason": "partial_routing_no_pipeline_state",
+  "expectedAgents": [...],
+  "detectedAgents": [...],
+  "requiredOutputSections": {...},
+  "execution": {"timedOut": false, "exitCode": 0}
+}</pre></div>
+
+        <h3>5.1 Release gates are explicit and intentionally unforgiving</h3>
+        <p>The benchmark logic is useful because it defines concrete reasons why a final claim should fail. Missing manifest artifacts, missing pipeline evidence, missing human-quality evidence, insufficient reproducibility runs, unverifiable dataset provenance, and absent routing-completion evidence are all explicit release-gate failures.</p>
+
+        <div class="code-block"><pre># benchmark.py release gate summary
+if critical_policy_breaches > 0:
+    reasons.append("critical_policy_breaches")
+if not all(manifest_exists):
+    reasons.append("missing_manifest_artifacts")
+if not human_ratings:
+    reasons.append("human_quality_evidence_missing")
+if runs_per_cell &lt; 2:
+    reasons.append("reproducibility_runs_missing")
+if provenance_split != "private-holdout":
+    reasons.append("final_holdout_not_used")</pre></div>
+
+        <p>The practical point is that the system does not just say “quality is important.” It names the exact conditions under which quality is considered unproven.</p>
+
+        <h2>6. Failure only counts if it changes the system</h2>
+        <p>The harness became more believable once failure stopped being a conversational annoyance and became a persistent system input. The self-improvement loop is simple enough to state and useful enough to matter: detect, diagnose, fix, record, prevent. The key move is from fix to record. A correction that does not update durable lessons is only a patch to the current session.</p>
+
+        <div class="code-block"><pre>DETECT -> DIAGNOSE -> FIX -> RECORD -> PREVENT</pre></div>
+
+        <p>The point is not ceremony. It is that recurring failures such as context bleed, tool misuse, stale state, unsupported claims, and enforcement gaps are turned into explicit classes with explicit prevention mechanisms. That is how the system gets better across sessions instead of only within one.</p>
+
+        <h3>6.1 Human review is part of the evidence model, not a decorative final step</h3>
+        <p>The human-rating flow is useful because it treats human review as an admissibility condition rather than a vague preference. The protocol requires a blinded packet, one rating row per benchmark cell, a real output-quality score, and rejection of example/template rating files. That is a stronger design than treating human judgment as an informal afterthought after the benchmark is already written up.</p>
+
+        <div class="code-block"><pre># human_rating_kit.py
+prepare_human_rating_kit(...)
+  -> rating-packet.jsonl
+  -> ratings.blank.jsonl
+  -> unblind-map.json
+
+finalize_human_ratings(...)
+  -> human-ratings.final.jsonl</pre></div>
+
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Failure class</th><th>Observable symptom</th><th>Persistent output</th><th>Prevention mechanism</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Context bleed</strong></td><td>Wrong project or stale assumptions after continuation</td><td><code>lessons-learned.md</code></td><td class="good">State-file checks</td></tr>
+              <tr><td><strong>Tool misuse</strong></td><td>Wrong cwd, wrong path, wrong tool choice</td><td><code>incident-log.json</code></td><td class="good">Checklist and hook updates</td></tr>
+              <tr><td><strong>Unsupported claim</strong></td><td>Prose outruns evidence</td><td><code>anti-patterns.md</code></td><td class="good">Evidence gate or prompt rule</td></tr>
+              <tr><td><strong>Enforcement gap</strong></td><td>A rule exists in text but does not fire mechanically</td><td><code>lessons-learned.md</code></td><td class="good">Hook or validation implementation</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 6. The harness becomes more trustworthy when recurring failures are converted into durable classes with durable countermeasures.</div>
+        </div>
+
+        <h2>7. What the current benchmark actually supports</h2>
+        <p>The benchmark and report artifacts are useful, but they need to be read honestly. The harness clearly shows artifact generation, split governance, and separated routing/compliance/output scoring. At the same time, the preserved March report shows routing failure despite strong output scores. That is not embarrassing; it is useful. It shows that the system can expose polished-but-wrong runs instead of hiding them.</p>
+
+        <div class="code-block"><pre># 2026-03-01 pilot report
+overall: 0.40
+routing: 0.00
+compliance: 0.50
+output: 1.00
+agents spawned: []</pre></div>
+
+        <p>The dataset governance layer makes that stronger rather than weaker. The grounded manifest fixes the split ratios, hashes the split outputs, records redaction findings, and stores the seed. That means even the evaluation substrate has provenance and can be challenged mechanically rather than socially.</p>
+
+        <div class="code-block"><pre># grounded manifest highlights
+train-dev: 8
+public-test: 2
+private-holdout: 1
+seed: 1337
+redactionFindings:
+  email: 1
+  phone: 1</pre></div>
+
+        <div class="code-block"><pre># finalized human rating row
+{
+  "case_id": "...",
+  "variant_id": "...",
+  "model_label": "...",
+  "quality_score": 0.75,
+  "blinded_label": "A"
+}</pre></div>
+
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Claim</th><th>Current status</th><th>Why</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>The harness writes real evidence artifacts</strong></td><td class="good">Supported</td><td>Backed by runner and manifest code.</td></tr>
+              <tr><td><strong>The harness enforces useful blocked patterns</strong></td><td class="good">Supported</td><td>Backed by explicit operating rules.</td></tr>
+              <tr><td><strong>The harness already demonstrates strong routing quality</strong></td><td class="bad">Not supported</td><td>Sampled report shows routing score 0.00 and no agents spawned.</td></tr>
+              <tr><td><strong>The harness is a useful design for high-cost data and ML workflows</strong></td><td class="good">Supported</td><td>Backed by control logic plus failure-mode alignment.</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 7. The page is stronger when it distinguishes implemented controls from pilot evidence and from things that remain unproven.</div>
+        </div>
+
+        <h3>7.1 What still remains unproven</h3>
+        <p>The honest limitation is that the strongest public evidence here is still about control logic, artifact generation, and failure exposure. It is not yet enough to claim mature routing quality or broad empirical dominance. That does not weaken the page. It sharpens it. A system that can show where its current evidence stops is more credible than one that pretends the stop line does not exist.</p>
+
+        <h2>8. Where this control plane earns its keep</h2>
+        <p>This harness is useful anywhere the cost of silent process failure is high: ML experiments, leakage-prone feature work, backtesting and validation loops, long-running technical sessions that need state continuity, and evidence-sensitive writing or review.</p>
+        <p>The claim is deliberately narrow. The system is not interesting because it sounds autonomous. It is interesting because it makes stale state, unsupported claims, weak verification, and known time-series mistakes harder to hide.</p>
+
+        <h3>8.1 Implemented controls versus planned controls</h3>
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Mechanism</th><th>Status</th><th>Public-safe claim</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Blocked time-series rules</strong></td><td class="good">Implemented policy</td><td>The harness has explicit anti-leakage stop conditions.</td></tr>
+              <tr><td><strong>Artifact generation</strong></td><td class="good">Implemented code</td><td>Runs emit canonical manifests and pipeline evidence.</td></tr>
+              <tr><td><strong>Benchmark split governance</strong></td><td class="good">Implemented workflow</td><td>Train/public/holdout provenance is mechanically tracked.</td></tr>
+              <tr><td><strong>Local gate plugins</strong></td><td class="warn">Implemented locally</td><td>Useful local controls, not universal platform guarantees.</td></tr>
+              <tr><td><strong>Full routing excellence</strong></td><td class="bad">Not yet proven</td><td>Current public evidence does not support a strong success claim.</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 8. This is the sharpest honest summary of the current state: some controls are real and useful now; some are local; some are still not proven.</div>
+        </div>
+
+        <div class="footnotes">
+          <h2>Notes</h2>
+          <ol>
+            <li>The factual basis for this page comes from the actual operating rules, control-plan documents, orchestration prompt, evaluation code, and benchmark artifacts. The value here is the control logic, not the branding.</li>
+            <li>This page avoids role-name marketing on purpose. The hiring signal is the enforcement logic, state handling, artifact generation, and failure discipline.</li>
+            <li>The examples and rule blocks are included because they map directly to real ML, backtesting, and time-series failure modes.</li>
+          </ol>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span class="site-footer-mark">Ocean Brown</span>
+      <div class="site-footer-links">
+        <a href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <button class="contact-trigger" id="email-trigger" type="button" aria-haspopup="dialog" aria-controls="email-dialog">Contact</button>
+      </div>
+    </footer>
+  </div>
+
+  <dialog class="email-dialog" id="email-dialog" aria-labelledby="email-dialog-label">
+    <form class="email-dialog-panel" method="dialog">
+      <p class="card-label" id="email-dialog-label">Contact</p>
+      <p class="contact-dialog-copy">The fastest path is email. LinkedIn is open too.</p>
+      <div class="contact-dialog-links">
+        <a class="contact-dialog-link" href="mailto:ocean@oceanbrown.net">ocean@oceanbrown.net</a>
+        <a class="contact-dialog-link" href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <button class="email-dialog-close" type="submit">Close</button>
+    </form>
+  </dialog>
+
+  <script src="../theme.js"></script>
+  <script src="../gate.js"></script>
+  <script src="../site.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Prediction Market Data Infrastructure - Ocean Brown</title>
+  <meta name="description" content="Collectors, APIs, matching, storage, and deployment lessons from building usable prediction-market research infrastructure.">
+  <meta name="theme-color" content="#fcfae6">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://oceanbrown.net/projects/prediction-market-data-infrastructure.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      var root = document.documentElement;
+      var theme = localStorage.getItem('oceanbrown-theme');
+      if (theme === 'dark' || theme === 'paper') root.setAttribute('data-theme', theme);
+      root.setAttribute('data-gate', sessionStorage.getItem('oceanbrown-site-gate') === '6969' ? 'open' : 'locked');
+    })();
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .essay-shell { width: min(100%, 820px); max-width: 820px; min-width: 0; margin: 0 auto; padding: 3.25rem 0 5.5rem; }
+    .essay-back { display: inline-flex; align-items: center; gap: 0.45rem; margin-bottom: 1.8rem; font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.02em; }
+    .essay-kicker { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .essay-title { font-family: var(--serif); font-size: clamp(2.35rem, 5vw, 3.9rem); font-weight: 600; line-height: 1.04; letter-spacing: -0.03em; color: var(--text); max-width: 16ch; margin: 0 0 0.8rem; text-wrap: balance; }
+    .essay-subtitle { font-family: var(--sans); font-size: 1.02rem; line-height: 1.58; color: var(--text); opacity: 0.86; max-width: 52ch; margin: 0 0 1.55rem; }
+    .essay-abstract { border-left: 3px solid var(--accent); background: color-mix(in srgb, var(--surface-alt) 92%, white 8%); padding: 1.1rem 1.4rem; margin: 0 0 2.4rem; border-radius: 0 6px 6px 0; }
+    .essay-abstract p { font-family: var(--serif); font-size: 1rem; line-height: 1.78; font-style: italic; margin: 0; color: var(--text); }
+    .essay-body { font-family: var(--serif); color: var(--text); font-size: 1.02rem; line-height: 1.76; }
+    .essay-body h2 { font-family: var(--sans); font-size: 1.04rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--accent); margin: 3rem 0 1rem; padding-bottom: 0.45rem; border-bottom: 1px solid var(--border); }
+    .essay-body h3 { font-family: var(--sans); font-size: 0.94rem; font-weight: 700; line-height: 1.45; color: var(--text); margin: 1.85rem 0 0.65rem; }
+    .essay-body p { margin: 0 0 1rem; }
+    .table-wrap { overflow-x: auto; margin: 1.8rem 0; }
+    .essay-table { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 0.84rem; background: color-mix(in srgb, var(--surface-alt) 94%, white 6%); }
+    .essay-table thead tr { background: color-mix(in srgb, var(--surface-alt) 94%, var(--bg) 6%); border-bottom: 2px solid var(--border); }
+    .essay-table th { padding: 0.65rem 0.9rem; text-align: left; font-weight: 700; color: var(--text); letter-spacing: 0.04em; font-size: 0.77rem; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+    .essay-table td { padding: 0.62rem 0.9rem; vertical-align: top; border-bottom: 1px solid color-mix(in srgb, var(--border) 88%, transparent 12%); color: var(--text); }
+    .essay-table tbody tr:hover { background: color-mix(in srgb, var(--surface) 96%, white 4%); }
+    .table-caption, .chart-caption { font-family: var(--sans); font-size: 0.78rem; color: var(--text-muted); margin-top: 0.55rem; font-style: italic; line-height: 1.55; }
+    .code-block, .diagram-box { margin: 1.6rem 0; padding: 1rem 1.1rem; border: 1px solid var(--border); background: color-mix(in srgb, var(--surface-alt) 94%, white 6%); border-radius: 4px; }
+    .code-block pre, .diagram-box pre { margin: 0; font-family: var(--mono); font-size: 0.82rem; line-height: 1.55; white-space: pre-wrap; }
+    .finding-box { background: color-mix(in srgb, var(--surface) 94%, white 6%); border: 1px solid var(--border); border-left: 3px solid var(--status-build); border-radius: 0 4px 4px 0; padding: 1rem 1.3rem; margin: 1.8rem 0; font-family: var(--sans); font-size: 0.93rem; line-height: 1.65; }
+    .footnotes { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); font-family: var(--sans); font-size: 0.79rem; color: var(--text-muted); line-height: 1.62; }
+    .footnotes ol { padding-left: 1.25rem; }
+    @media (max-width: 720px) { .essay-shell { padding: 2rem 0 4rem; } .essay-title { font-size: 2.45rem; } .essay-body { font-size: 1rem; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-block"><h1>Ocean Brown</h1></div>
+      <div class="header-actions">
+        <nav class="main-nav" aria-label="Primary"><a class="nav-link" href="../index.html">Home</a><a class="nav-link active" href="../projects.html" aria-current="page">Projects</a></nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
+      </div>
+    </header>
+
+    <main class="essay-shell" id="main-content" tabindex="-1">
+      <a class="essay-back" href="../projects.html">&larr; Back to projects</a>
+      <div class="essay-kicker">Data Infrastructure &bull; Prediction Markets</div>
+      <h2 class="essay-title">Prediction Market Data Infrastructure</h2>
+      <p class="essay-subtitle">Collectors, watchlists, matching, storage, and deployment lessons from building a research stack that could stay alive long enough to matter.</p>
+
+      <div class="essay-abstract">
+        <p>The collector and matching systems deserved their own page because they were not just support code for a trading idea. Discovery cadence, orderbook freshness, cross-venue event identity, storage shape, health checks, and deployment cost all directly changed what could be researched honestly. Once I started treating that layer like infrastructure instead of glue, the research got much better.</p>
+      </div>
+
+      <div class="essay-body">
+        <h2>1. Why the data systems deserve their own page</h2>
+        <p>The falsification page is about a market thesis that failed. This page is about the systems that made that failure legible. That distinction matters. If discovery is weak, orderbooks are stale, event identities are wrong, or writes are sloppy, then every research conclusion built on top of that stack is already compromised.</p>
+        <p>In practice the infrastructure work split into three different jobs: venue-specific collection, same-day watchlist and candidate selection, and cross-venue matching. Each one taught something different about operating a usable market research stack.</p>
+
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>System</th><th>Job</th><th>Why it mattered</th><th>What it taught</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Polymarket collection</strong></td><td>Broad market discovery and exploratory metadata.</td><td>Best place to explore a large messy venue.</td><td>Discovery quality changes the research question before modeling starts.</td></tr>
+              <tr><td><strong>Project Haven</strong></td><td>Same-day Kalshi watchlist and favorite-side candidate ranking.</td><td>Forced explicit fee, slippage, and concentration logic.</td><td>Selection logic is where execution realism begins.</td></tr>
+              <tr><td><strong>prediction-market-logger</strong></td><td>Cross-venue matching and verification.</td><td>Portability claims depend on event identity and cheap enough verification.</td><td>Provenance and cost control are first-class research problems.</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 1. These systems solved different problems. Treating them as one generic “scraper” story would erase the useful engineering lessons.</div>
+        </div>
+
+        <h2>2. Venue APIs and what each one was actually good for</h2>
+        <p>The right architecture was not one collector pretending both venues looked the same. The useful move was venue-specific collection feeding a shared downstream shape.</p>
+
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Venue</th><th>Best use</th><th>Weak point</th><th>Architectural consequence</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Polymarket</strong></td><td>Broad exploratory market discovery and category scanning.</td><td>Messier wording and matching logic.</td><td>Good for idea generation, weaker as a plug-and-play normalized feed.</td></tr>
+              <tr><td><strong>Kalshi</strong></td><td>Same-day scans, orderbook-aware watchlists, fee-aware selector flow.</td><td>Resolved-history/category mix shaped what could be tested.</td><td>Good for operational watchlists and liquidity-aware filtering.</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 2. The venue surface determines what kind of research loop is realistic, so the collector design has to respect venue asymmetry instead of hiding it.</div>
+        </div>
+
+        <h2>3. Runtime shape: discovery, polling, matching, health</h2>
+        <p>The mature architecture ended up looking like infrastructure rather than a pile of scripts. Discovery was separate from polling, polling was separate from matching, and matching was separate from persistence and health. That separation of concerns mattered because long-running collectors do not usually fail at the HTTP-call layer. They fail at lifecycle edges: stale feeds, partial writes, bad restarts, and silent schema drift.</p>
+
+        <div class="diagram-box"><pre>Venue APIs
+  -> discovery collectors
+  -> watchlist / candidate set
+  -> orderbook + market polling
+  -> normalization
+  -> rule-based cross-venue candidate matching
+  -> selective LLM verification
+  -> storage + health checks + operator-facing output</pre></div>
+
+        <p>The matching layer was especially important. A portability or arbitrage-style claim is meaningless if two contracts do not actually refer to the same underlying event. That moved event identity from “cleanup task” to “core data-integrity problem.”</p>
+
+        <h2>4. Scheduling, cadence, and storage</h2>
+        <p>One of the strongest operational lessons was that cadence is architecture. A collector that is too expensive, too noisy, or too stale to run continuously is not just less convenient. It changes the kinds of questions you can ask. The systems here converged toward a cheap-first architecture: broad scans on a slower cadence, narrow watchlist refreshes on a faster cadence, and explicit persistence for what mattered.</p>
+
+        <div class="table-wrap">
+          <table class="essay-table">
+            <thead>
+              <tr><th>Layer</th><th>Cadence / persistence</th><th>Design intent</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Market discovery</strong></td><td>Periodic broad scan</td><td>Refresh universe without paying watchlist costs everywhere.</td></tr>
+              <tr><td><strong>Watchlist monitoring</strong></td><td>24-hour window with tighter &lt;=4-hour action focus</td><td>Separate “observe” from “rank tightly.”</td></tr>
+              <tr><td><strong>Selector state</strong></td><td>SQLite</td><td>Simple local persistence for watchlist and monitor state.</td></tr>
+              <tr><td><strong>Collector platform</strong></td><td>Buffered writes + hosted DB</td><td>Keep throughput manageable and restarts cheap.</td></tr>
+            </tbody>
+          </table>
+          <div class="table-caption">Table 3. Discovery, monitoring, and persistence were intentionally decoupled so that each could run at the cadence the problem actually required.</div>
+        </div>
+
+        <div class="code-block"><pre># cheap-first matching pattern
+candidate_pairs = rule_based_match(markets_a, markets_b)
+verified_pairs = llm_verify(candidate_pairs)
+
+# broad discovery stays cheap
+# model cost is spent only on candidate matches</pre></div>
+
+        <h2>5. Deployment and cost discipline</h2>
+        <p>The best deployment decisions were intentionally boring. Simple GCP choices like Cloud Build, Cloud Run, and Cloud SQL were useful not because they were glamorous, but because they kept the collector stack deployable, restartable, and cheap enough to run. A collector that is mathematically elegant but operationally expensive is not a good collector.</p>
+        <p>The matching layer followed the same logic. Rule-based detection handled broad discovery for free, while LLM verification ran only on candidate pairs. That kept scan costs around half a cent and monthly matching costs in the low single digits at hourly cadence. The economic point is important: data systems only become part of real research flow when they are cheap enough to stay on.</p>
+
+        <div class="finding-box"><strong>Operational takeaway.</strong> Cost is architecture. The right first production shape is often the simplest hosted design that preserves reliability without creating a full-time ops problem.</div>
+
+        <h2>6. Practical lessons I would carry forward</h2>
+        <p>First, data freshness is part of research quality, not a separate ops concern. Second, event identity across venues is a first-class integrity problem. Third, cost and cadence determine whether a research system can actually stay alive. Fourth, simple infrastructure is usually the correct answer until a real workload proves otherwise.</p>
+        <p>This page does not claim alpha. It claims that the market research became more trustworthy once the collector stack was built like infrastructure instead of like a one-off scraper.</p>
+
+        <div class="footnotes">
+          <h2>Notes</h2>
+          <ol>
+            <li>This page is the systems companion to the flagship falsification page. It focuses on collectors, watchlists, matching, storage, and deployment rather than on the edge thesis itself.</li>
+            <li>Concrete numeric claims here are limited to operational cost and cadence where the evidence base is public-safe.</li>
+            <li>The page names real systems where useful, but avoids internal audit-file naming and private-path noise.</li>
+          </ol>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span class="site-footer-mark">Ocean Brown</span>
+      <div class="site-footer-links">
+        <a href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <button class="contact-trigger" id="email-trigger" type="button" aria-haspopup="dialog" aria-controls="email-dialog" data-contact-href="../contact.html">Contact</button>
+      </div>
+    </footer>
+  </div>
+
+  <dialog class="email-dialog" id="email-dialog" aria-labelledby="email-dialog-label">
+    <form class="email-dialog-panel" method="dialog">
+      <p class="card-label" id="email-dialog-label">Contact</p>
+      <p class="contact-dialog-copy">The fastest path is email. LinkedIn is open too.</p>
+      <div class="contact-dialog-links">
+        <a class="contact-dialog-link" href="mailto:ocean@oceanbrown.net">ocean@oceanbrown.net</a>
+        <a class="contact-dialog-link" href="https://www.linkedin.com/in/oceanbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <button class="email-dialog-close" type="submit">Close</button>
+    </form>
+  </dialog>
+
+  <script src="../theme.js"></script>
+  <script src="../gate.js"></script>
+  <script src="../site.js"></script>
+</body>
+</html>
