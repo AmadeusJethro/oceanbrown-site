@@ -1127,41 +1127,42 @@ h3 {
 }
 
 .gate-panel {
-  width: min(100%, 20rem);
+  width: min(100%, 17rem);
   display: grid;
-  gap: 0.75rem;
-  padding: 1.25rem;
-  background: var(--surface);
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem;
+  background: color-mix(in srgb, var(--surface) 92%, transparent 8%);
   border: 1px solid var(--border);
-}
-
-.gate-title {
-  font-family: var(--mono);
-  font-size: var(--s-1);
-  color: var(--text);
-  margin: 0;
+  border-radius: 999px;
 }
 
 .gate-field,
 .gate-submit {
   font-family: var(--mono);
   font-size: var(--s-1);
-  width: 100%;
-  min-height: 44px;
   border: 1px solid var(--border);
 }
 
 .gate-field {
-  padding: 0.75rem 0.85rem;
+  width: 100%;
+  min-height: 40px;
+  padding: 0.65rem 0.85rem;
   color: var(--text);
   background: var(--bg);
+  border-radius: 999px;
 }
 
 .gate-submit {
-  padding: 0.65rem 0.9rem;
+  width: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  padding: 0;
   color: var(--text);
   background: var(--surface-alt);
   cursor: pointer;
+  border-radius: 999px;
 }
 
 .gate-submit:hover {
