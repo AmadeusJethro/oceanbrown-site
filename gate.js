@@ -39,7 +39,6 @@
       '  <label class="sr-only" for="site-password">Password</label>',
       '  <input class="gate-field" id="site-password" name="password" type="password" inputmode="numeric" autocomplete="current-password" required>',
       '  <button class="gate-submit" type="submit">Submit</button>',
-      '  <p class="gate-hint">Hint: PC</p>',
       '</form>'
     ].join('');
 
